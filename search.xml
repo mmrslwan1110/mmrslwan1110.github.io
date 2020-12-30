@@ -126,23 +126,35 @@ If you are talking to a group of managers, you may refer to the disorganized met
 
 <a id="more"></a>
 <h3 id="影评"><a href="#影评" class="headerlink" title="影评"></a>影评</h3><font face="宋体" color=black size=4>
-&nbsp;&nbsp;已经几年没有为电影写日志了。今年没几次来影院，但是在2020的倒数- - 第二天我发现了一部不错的电影。
+&nbsp;&nbsp;已经几年没有为电影写日志了。今年没几次来影院，但是在2020的倒数- - 第二天我发现了一部不错的电影。</font>
 
+<font face="宋体" color=black size=4>
 
 &nbsp;&nbsp;彼特·道格特的《灵魂奇遇》所触动，重新引发对人生意义、目标和梦想的思考。
-
+ </font>
+<font face="宋体" color=black size=4>
 
 &nbsp;&nbsp;最近一直在思考人生的意义，看当下的力量、遗愿清单，奇葩说有一场辩题——终其一生只是个平凡人，你后悔吗？，我一次次的问自己，究竟人生的意义是什么？ 
-
+</font>
+<font face="宋体" color=black size=4>
 
 &nbsp;&nbsp;电影里有一句话“有一条鱼说它的一生最大的愿望就是去往海洋，一天鲸鱼对它说你就在海洋里啊，小鱼却认为这只是水并不是海洋。” 身边有很多朋友，读研究生，每天希望自己可以毕业去工作。去工作的说自己不想被老板压榨，想读书。都希望达到下一个目标的时间节点。我也会经常以未来为标定，因为以终为始我们更容易获得成功。但是我发现，这项技能反而让我们错过了无数个令人感动的瞬间。再一次次追逐中，我们错过了无数个清晨里的- - 第一缕阳光，错过了日落的最后一抹晚霞。我们就像一条鱼，在海洋里追逐海洋，而一次又一次的错过。也许你到达了下一刻你也不会收获你想要的幸福，你的幸福在当下而绝不在你期待的未来。
+</font>
 
+<font face="宋体" color=black size=4>
 
 &nbsp;&nbsp;如果今天就是你的最后一天，你会遗憾吗？你会后悔吗？如果每一分钟都期待下一分钟，每一天都期待明天，我想我一定会后悔。 
+</font>
 
+<font face="宋体" color=black size=4>
 
 &nbsp;&nbsp;Our lives are streams flowing into the same river towards whatever heaven lies in the mist beyond the falls. 
-李诞说开心点，人间不值得。 
+</font>
+<font face="宋体" color=black size=4>
+
+李诞说开心点，人间不值得。</font>
+<font face="宋体" color=black size=4>
+
 我想说开心点，人间值得。</font>
 
 
@@ -1100,6 +1112,53 @@ r = \frac{|w^Tx+b|}{||w||}</script><ol>
       </tags>
   </entry>
   <entry>
+    <title>百度谷歌搜索引擎索引</title>
+    <url>/2020/12/04/%E7%99%BE%E5%BA%A6%E8%B0%B7%E6%AD%8C%E6%90%9C%E7%8B%97%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E7%B4%A2%E5%BC%95/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="百度谷歌搜索引擎索引"><a href="#百度谷歌搜索引擎索引" class="headerlink" title="百度谷歌搜索引擎索引"></a><center>百度谷歌搜索引擎索引</center></h2><a id="more"></a>
+<h3 id="简单检索"><a href="#简单检索" class="headerlink" title="简单检索"></a>简单检索</h3><p>参考<a href="https://jingyan.baidu.com/article/6b97984dee19b81ca3b0bf4c.html" target="_blank" rel="noopener">如何让自己的网站快速被百度收录</a></p>
+<ol>
+<li>提交链接。</li>
+</ol>
+<ul>
+<li>Google: <a href="http://www.google.com/addurl/?hl=zh-CN" target="_blank" rel="noopener">Google 网站站长工具</a></li>
+<li>Baidu: <a href="https://ziyuan.baidu.com/linksubmit/url" target="_blank" rel="noopener">url提交_站长工具</a></li>
+</ul>
+<ol>
+<li>最有用的方法</li>
+</ol>
+<ul>
+<li>知乎</li>
+<li>CSDN</li>
+<li>豆瓣</li>
+<li>贴吧等平台<br>发帖，贴出自己的网址，搜索引擎就会进行索引。</li>
+</ul>
+<ol>
+<li>2020/12/4<br>目前本网站未被任何引擎索引。<center>
+<img src="https://www.codekp.cn/download/img/csdn/百度为索引.PNG" width = "400" height = "302" alt="图片名称" align=center / loading="lazy">
+</center>
+
+
+</li>
+</ol>
+<h2 id="比较麻烦的检索方式"><a href="#比较麻烦的检索方式" class="headerlink" title="比较麻烦的检索方式"></a>比较麻烦的检索方式</h2><p>  将检索文件放在网站根目录下。<br>  <a href="https://www.codekp.cn/baidu_verify_code-De28227qRL.html">测试连接</a></p>
+<p><center>
+<img src="https://www.codekp.cn/download/img/csdn/检索.PNG" width = "400" height = "302" alt="图片名称" align=center / loading="lazy">
+</center><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure><br>将备案号填入即可很快被检索。</p>
+<h2 id="提高搜索引擎权重"><a href="#提高搜索引擎权重" class="headerlink" title="提高搜索引擎权重"></a>提高搜索引擎权重</h2><ul>
+<li>最简单的方法就是在各种平台多放点网址进去。</li>
+</ul>
+<h2 id="结尾-2020-12-12"><a href="#结尾-2020-12-12" class="headerlink" title="结尾 2020/12/12"></a>结尾 2020/12/12</h2><p>目前网站被百度收录。<br><img src="https://img-blog.csdnimg.cn/20201212234708921.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></p>
+]]></content>
+      <categories>
+        <category>谷歌</category>
+        <category>百度</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+        <tag>搜索引擎</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>矩阵分析引论</title>
     <url>/2020/11/17/%E7%9F%A9%E9%98%B5%E8%AE%BA/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="矩阵分析引论"><a href="#矩阵分析引论" class="headerlink" title="矩阵分析引论"></a><center>矩阵分析引论</center></h1><h2 id="Introduction-to-matrix-analysis"><a href="#Introduction-to-matrix-analysis" class="headerlink" title=" Introduction to matrix analysis "></a><center> Introduction to matrix analysis </center></h2><center>
@@ -1170,53 +1229,6 @@ r = \frac{|w^Tx+b|}{||w||}</script><ol>
       <tags>
         <tag>研究生课程</tag>
         <tag>矩阵论</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>百度谷歌搜索引擎索引</title>
-    <url>/2020/12/04/%E7%99%BE%E5%BA%A6%E8%B0%B7%E6%AD%8C%E6%90%9C%E7%8B%97%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E7%B4%A2%E5%BC%95/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="百度谷歌搜索引擎索引"><a href="#百度谷歌搜索引擎索引" class="headerlink" title="百度谷歌搜索引擎索引"></a><center>百度谷歌搜索引擎索引</center></h2><a id="more"></a>
-<h3 id="简单检索"><a href="#简单检索" class="headerlink" title="简单检索"></a>简单检索</h3><p>参考<a href="https://jingyan.baidu.com/article/6b97984dee19b81ca3b0bf4c.html" target="_blank" rel="noopener">如何让自己的网站快速被百度收录</a></p>
-<ol>
-<li>提交链接。</li>
-</ol>
-<ul>
-<li>Google: <a href="http://www.google.com/addurl/?hl=zh-CN" target="_blank" rel="noopener">Google 网站站长工具</a></li>
-<li>Baidu: <a href="https://ziyuan.baidu.com/linksubmit/url" target="_blank" rel="noopener">url提交_站长工具</a></li>
-</ul>
-<ol>
-<li>最有用的方法</li>
-</ol>
-<ul>
-<li>知乎</li>
-<li>CSDN</li>
-<li>豆瓣</li>
-<li>贴吧等平台<br>发帖，贴出自己的网址，搜索引擎就会进行索引。</li>
-</ul>
-<ol>
-<li>2020/12/4<br>目前本网站未被任何引擎索引。<center>
-<img src="https://www.codekp.cn/download/img/csdn/百度为索引.PNG" width = "400" height = "302" alt="图片名称" align=center / loading="lazy">
-</center>
-
-
-</li>
-</ol>
-<h2 id="比较麻烦的检索方式"><a href="#比较麻烦的检索方式" class="headerlink" title="比较麻烦的检索方式"></a>比较麻烦的检索方式</h2><p>  将检索文件放在网站根目录下。<br>  <a href="https://www.codekp.cn/baidu_verify_code-De28227qRL.html">测试连接</a></p>
-<p><center>
-<img src="https://www.codekp.cn/download/img/csdn/检索.PNG" width = "400" height = "302" alt="图片名称" align=center / loading="lazy">
-</center><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure><br>将备案号填入即可很快被检索。</p>
-<h2 id="提高搜索引擎权重"><a href="#提高搜索引擎权重" class="headerlink" title="提高搜索引擎权重"></a>提高搜索引擎权重</h2><ul>
-<li>最简单的方法就是在各种平台多放点网址进去。</li>
-</ul>
-<h2 id="结尾-2020-12-12"><a href="#结尾-2020-12-12" class="headerlink" title="结尾 2020/12/12"></a>结尾 2020/12/12</h2><p>目前网站被百度收录。<br><img src="https://img-blog.csdnimg.cn/20201212234708921.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></p>
-]]></content>
-      <categories>
-        <category>谷歌</category>
-        <category>百度</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-        <tag>搜索引擎</tag>
       </tags>
   </entry>
   <entry>
