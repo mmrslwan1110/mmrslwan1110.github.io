@@ -1,6 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>b站视频分享</title>
+    <url>/2017/11/17/b%E7%AB%99%E8%A7%86%E9%A2%91%E5%88%86%E4%BA%AB/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><div style="position:relative; padding-bottom:75%; width:100%; height:0">
+    <iframe src="//player.bilibili.com/player.html?aid=414001980&bvid=BV1TV411z7aB&cid=218691406&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position:absolute; height: 100%; width: 100%;"> </iframe>
+</div><br><a id="more"></a></p>
+]]></content>
+      <categories>
+        <category>分享</category>
+      </categories>
+      <tags>
+        <tag>b站视频</tag>
+        <tag>分享</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>c++_常用语法</title>
+    <url>/2020/07/31/c/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="C-常用语法"><a href="#C-常用语法" class="headerlink" title="C++常用语法"></a><center>C++常用语法</center></h1><h3 id="2020-08-01"><a href="#2020-08-01" class="headerlink" title="2020_08_01"></a><p align="right">2020_08_01</p></h3><blockquote>
+<p>此文主要针对有c语言基础的人。</p>
+</blockquote>
+<h2 id="1-基本语法"><a href="#1-基本语法" class="headerlink" title="1. 基本语法"></a>1. 基本语法</h2><a id="more"></a>
+<ul>
+<li><font face="黑体" color=black size=4>对象 - 对象具有状态和行为。例如：一个人的状态 --- 样貌、姓名、出生地、所在地、年龄、身高等。 行为--- 吃饭、工作、学习、运动、游泳等。因而对象是类的实例。</font></li>
+<li><font face="黑体" color=black size=4>类 - 类可以定义为描述对象行为/状态的模板/蓝图。
+类---一种描述对象行为的框架、一种状态模板、蓝图。</font></li>
+<li><font face="黑体" color=black size=4>方法 —- 方法其实可以说就是一种行为，一个类可以包含多个方法。并且可以在方法中写入逻辑操作数据以及执行所有的动作。/font&gt; </li>
+<li><font face="黑体" color=black size=4>即时变量 - 每个对象都有其独特的即时变量。对象的状态是由这些即时变量的值创建的。</font>
+
+
+</li>
+</ul>
+<h2 id="2-数据类型"><a href="#2-数据类型" class="headerlink" title="2. 数据类型"></a>2. 数据类型</h2><p>&nbsp;&nbsp;基本类型：bool, char, int, float, double, void, wchar_t</p>
+<p>&nbsp;&nbsp;修饰：signed, unsigned, short, long</p>
+<p>&nbsp;&nbsp;typedef可以位已经有的类型取一个新的名字</p>
+<p><code>typedef int feet //feet定义为int的新名子</code></p>
+<h4 id="enum枚举类型"><a href="#enum枚举类型" class="headerlink" title="enum枚举类型"></a>enum枚举类型</h4><p>&nbsp;&nbsp;定义枚举常量的集合，一个变量只有几种可能的值。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">enum 枚举名&#123; 标识符[&#x3D;整型常数], </span><br><span class="line">            标识符[&#x3D;整型常数], </span><br><span class="line">            ...</span><br><span class="line">            标识符[&#x3D;整型常数]</span><br><span class="line">           &#125; 枚举变量;</span><br></pre></td></tr></table></figure></p>
+<h3 id="key-point"><a href="#key-point" class="headerlink" title="key point:"></a>key point:</h3><ul>
+<li>如果枚举没有初始化, 即省掉”=整型常数”时, 则从第一个标识符开始.</li>
+<li>默认情况下，第一个名称的值为 0，第二个名称的值为 1，第三个名称的值为 2，以此类推。但是，您也可以给名称赋予一个特殊的值，只需要添加一个初始值即可。</li>
+<li>因为默认情况下，每个名称都会比它前面一个名称大 1.<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">enum color &#123; red,green&#x3D;5,blue &#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="nbsp-nbsp-以下是该用法的实例。此例中，red值为0，green值为5，blue值为6。"><a href="#nbsp-nbsp-以下是该用法的实例。此例中，red值为0，green值为5，blue值为6。" class="headerlink" title="&nbsp;&nbsp;以下是该用法的实例。此例中，red值为0，green值为5，blue值为6。"></a>&nbsp;&nbsp;以下是该用法的实例。此例中，red值为0，green值为5，blue值为6。</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int main()&#123;</span><br><span class="line">    enum days&#123;one, two, three&#125;day;</span><br><span class="line">    day &#x3D; one;</span><br><span class="line">    switch(day)&#123;</span><br><span class="line">        case one:</span><br><span class="line">            cout &lt;&lt; &quot;one&quot; &lt;&lt; endl;</span><br><span class="line">            break;</span><br><span class="line">        case two:</span><br><span class="line">            cout &lt;&lt; &quot;two&quot; &lt;&lt; endl;</span><br><span class="line">            break;</span><br><span class="line">        default:</span><br><span class="line">            cout &lt;&lt; &quot;three&quot; &lt;&lt; endl;</span><br><span class="line">            break;</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="3-变量类型"><a href="#3-变量类型" class="headerlink" title="3. 变量类型"></a>3. 变量类型</h2>&nbsp;&nbsp; 大小写敏感，必须以字母或下划线开头。</li>
+</ul>
+<p>Lvalues &amp; Rvalues</p>
+<p>&nbsp;&nbsp; lvalues: 指向内存位置的表达式，左值可以出现在赋值号的左边或右边</p>
+<p>&nbsp;&nbsp; rvalues: 指存储在内存中某些地址的数值。右值不能对其进行赋值操作，可以出现在赋值号的右边，但是不能出现在左边。</p>
+<h2 id="4-常量"><a href="#4-常量" class="headerlink" title="4. 常量"></a>4. 常量</h2><h3 id="定义方法：-define-和const"><a href="#定义方法：-define-和const" class="headerlink" title="定义方法：#define 和const"></a>定义方法：#define 和const</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#define identifier value</span><br><span class="line">const type variable &#x3D; value;</span><br></pre></td></tr></table></figure>
+<ol>
+<li>修饰符类型</li>
+</ol>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th><center> 限定符</center></th>
+<th><center>含义  </center></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><center> const</td>
+<td><center> const类型的对象在程序执行期间不能被修改改变。</td>
+</tr>
+<tr>
+<td>volatile</td>
+<td>修饰符 volatile 告诉编译器，变量的值可能以程序未明确指定的方式被改变。</td>
+</tr>
+<tr>
+<td>restrict</td>
+<td>由 restrict 修饰的指针是唯一一种访问它所指向的对象的方式。只有 C99 增加了新的类型限定符 restrict。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+<p>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;</p>
+<h3 id="更多内容请参考C-参考文档"><a href="#更多内容请参考C-参考文档" class="headerlink" title="更多内容请参考C++参考文档"></a><p align="right">更多内容请参考<a href="https://www.runoob.com/cplusplus/cpp-tutorial.html" target="_blank" rel="noopener">C++参考文档</a></h3>]]></content>
+      <categories>
+        <category>程序设计</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+        <tag>程序设计</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>SOUL</title>
     <url>/2020/12/30/SOUL/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="灵魂奇遇"><a href="#灵魂奇遇" class="headerlink" title="灵魂奇遇"></a><center>灵魂奇遇</center></h1><h2 id="SOUL"><a href="#SOUL" class="headerlink" title=" SOUL "></a><center> SOUL </center></h2><center>
@@ -327,18 +413,72 @@
       </tags>
   </entry>
   <entry>
-    <title>b站视频分享</title>
-    <url>/2017/11/17/b%E7%AB%99%E8%A7%86%E9%A2%91%E5%88%86%E4%BA%AB/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><div style="position:relative; padding-bottom:75%; width:100%; height:0">
-    <iframe src="//player.bilibili.com/player.html?aid=414001980&bvid=BV1TV411z7aB&cid=218691406&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position:absolute; height: 100%; width: 100%;"> </iframe>
-</div><br><a id="more"></a></p>
+    <title>linux嵌入式开发_1</title>
+    <url>/2020/07/30/linux%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91-1/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="linux基础"><a href="#linux基础" class="headerlink" title="linux基础"></a><strong>linux基础</strong></h1><h2 id="linux是什么？"><a href="#linux是什么？" class="headerlink" title="linux是什么？"></a>linux是什么？</h2><a id="more"></a>
+<ul>
+<li>linux是一款开源操作系统，开放了整组的调用接口给程序猿进行开发和使用。linux操作系统包含内核和系统调用，并不包含应用程序。由于linux的架构继承了unix良好传统，因此越来越多的开发者选择使用linux并为之设计了许多应用级软件。</li>
+</ul>
+<h2 id="开发环境的搭建"><a href="#开发环境的搭建" class="headerlink" title="开发环境的搭建"></a>开发环境的搭建</h2><ul>
+<li>开发环境需要用到交叉开发模式，这一点书上有很详细的介绍，包括硬件环境和软件环境的构建都写的十分清楚，所以这篇文章主要是写一下我在中间遇到的一些问题以及解决方法。虚拟机的话我用的是Ubuntu18.04版本，安装虚拟机啥的网上资源很多，直接百度就行。</li>
+</ul>
+<h2 id="linux下的环境搭建"><a href="#linux下的环境搭建" class="headerlink" title="linux下的环境搭建"></a>linux下的环境搭建</h2><h3 id="1、修改Ubuntu的一些配置"><a href="#1、修改Ubuntu的一些配置" class="headerlink" title="1、修改Ubuntu的一些配置"></a>1、修改Ubuntu的一些配置</h3><ul>
+<li><p>切换国内镜像源</p>
+<p>&ensp;&ensp;&ensp;&ensp;&ensp; 在使用apt命令安装包时，因为系统自带下载源在国外服务器上，所以需要切换为国内镜像源才能提升下载速度。这里有一篇博客详细说明了如何直接根据终端命令修改其配置文件，从而达到修改下载源的目的.或者，，，，你也可以直接用Ubuntu的图形界面去修改，步骤如下： 显示应用程序-&gt;软件和更新-&gt;下载自主服务器改为其他，然后选择合适的镜像源就行了，这里我选择的是阿里的镜像源。</p>
+</li>
+<li><p>修改语言和设置汉语输入法</p>
+<p>&ensp;&ensp;&ensp;&ensp;&ensp; 懒得写，直接贴别人博客了</p>
+</li>
+</ul>
+<p>&ensp;&ensp;&ensp;&ensp;&ensp;<a href="https://blog.csdn.net/langshi_2011/article/details/78993781" target="_blank" rel="noopener">Linux Ubuntu系统设置成中文语言</a></p>
+<p>&ensp;&ensp;&ensp;&ensp;&ensp;<a href="https://blog.csdn.net/sparkstrike/article/details/81487271" target="_blank" rel="noopener">Linux.Ubuntu.中文输入法设置</a></p>
 ]]></content>
       <categories>
-        <category>分享</category>
+        <category>程序设计</category>
       </categories>
       <tags>
-        <tag>b站视频</tag>
-        <tag>分享</tag>
+        <tag>linux</tag>
+        <tag>嵌入式开发</tag>
+        <tag>鸟哥的私房菜学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Merry Christmas</title>
+    <url>/2020/12/24/merry_christmas/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Merry-Christmas"><a href="#Merry-Christmas" class="headerlink" title="Merry Christmas"></a><center>Merry Christmas</center></h1><center>
+<div style="position:relative; padding-bottom:75%; width:100%; height:0">
+    <iframe src="//player.bilibili.com/player.html?aid=45996894&bvid=BV1xb411e7ru&cid=80590947&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"style="position:absolute; height: 100%; width: 100%;"> </iframe>
+</div>
+</center>
+
+<a id="more"></a>
+<ol>
+<li>git push 方法</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git init</span><br><span class="line">git add .</span><br><span class="line">git commit -m &quot;first commit&quot;</span><br><span class="line">git remote add origin URL</span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
+<p>本过程可以参考我为大家寻找的教程<a href="https://www.codekp.cn/2020/12/12/%E8%A1%A8%E7%99%BD%E7%BD%91%E7%AB%99%E3%80%81%E7%BD%97%E7%9B%98%E6%97%B6%E9%92%9F%E6%95%99%E7%A8%8B/">如何优雅的制作表白网站和罗盘时钟</a></p>
+<ol>
+<li>圣诞网站模板分享</li>
+</ol>
+<ul>
+<li><a href="https://www.codekp.cn/Chrismas/index.html">demo</a></li>
+<li><a href="https://github.com/mmrslwan1110/Chrismas" target="_blank" rel="noopener">源码</a></li>
+</ul>
+<ol>
+<li>电影分享 </li>
+</ol>
+<ul>
+<li><a href="https://www.bilibili.com/bangumi/play/ep258944?theme=movie%3Ffrom%3Dsearch&amp;seid=16305206199116632162" target="_blank" rel="noopener">love actually</a></li>
+</ul>
+<center>
+
+
+<h2 id="彩蛋"><a href="#彩蛋" class="headerlink" title="彩蛋!"></a><a href="https://christmasexperiments.com/" target="_blank" rel="noopener">彩蛋!</a></h2><h2 id=""><a href="#" class="headerlink" title=" "></a> </h2><h6 id="一个假装不存在的彩蛋"><a href="#一个假装不存在的彩蛋" class="headerlink" title="一个假装不存在的彩蛋"></a><a href="https://interview.ueno.co/" target="_blank" rel="noopener">一个假装不存在的彩蛋</a></h6>]]></content>
+      <categories>
+        <category>电影推荐</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -508,79 +648,28 @@ If you are talking to a group of managers, you may refer to the disorganized met
         <category>辅助技术</category>
       </categories>
       <tags>
-        <tag>B站</tag>
         <tag>hexo</tag>
+        <tag>B站</tag>
       </tags>
   </entry>
   <entry>
-    <title>c++_常用语法</title>
-    <url>/2020/07/31/c/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="C-常用语法"><a href="#C-常用语法" class="headerlink" title="C++常用语法"></a><center>C++常用语法</center></h1><h3 id="2020-08-01"><a href="#2020-08-01" class="headerlink" title="2020_08_01"></a><p align="right">2020_08_01</p></h3><blockquote>
-<p>此文主要针对有c语言基础的人。</p>
-</blockquote>
-<h2 id="1-基本语法"><a href="#1-基本语法" class="headerlink" title="1. 基本语法"></a>1. 基本语法</h2><a id="more"></a>
-<ul>
-<li><font face="黑体" color=black size=4>对象 - 对象具有状态和行为。例如：一个人的状态 --- 样貌、姓名、出生地、所在地、年龄、身高等。 行为--- 吃饭、工作、学习、运动、游泳等。因而对象是类的实例。</font></li>
-<li><font face="黑体" color=black size=4>类 - 类可以定义为描述对象行为/状态的模板/蓝图。
-类---一种描述对象行为的框架、一种状态模板、蓝图。</font></li>
-<li><font face="黑体" color=black size=4>方法 —- 方法其实可以说就是一种行为，一个类可以包含多个方法。并且可以在方法中写入逻辑操作数据以及执行所有的动作。/font&gt; </li>
-<li><font face="黑体" color=black size=4>即时变量 - 每个对象都有其独特的即时变量。对象的状态是由这些即时变量的值创建的。</font>
-
-
-</li>
-</ul>
-<h2 id="2-数据类型"><a href="#2-数据类型" class="headerlink" title="2. 数据类型"></a>2. 数据类型</h2><p>&nbsp;&nbsp;基本类型：bool, char, int, float, double, void, wchar_t</p>
-<p>&nbsp;&nbsp;修饰：signed, unsigned, short, long</p>
-<p>&nbsp;&nbsp;typedef可以位已经有的类型取一个新的名字</p>
-<p><code>typedef int feet //feet定义为int的新名子</code></p>
-<h4 id="enum枚举类型"><a href="#enum枚举类型" class="headerlink" title="enum枚举类型"></a>enum枚举类型</h4><p>&nbsp;&nbsp;定义枚举常量的集合，一个变量只有几种可能的值。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">enum 枚举名&#123; 标识符[&#x3D;整型常数], </span><br><span class="line">            标识符[&#x3D;整型常数], </span><br><span class="line">            ...</span><br><span class="line">            标识符[&#x3D;整型常数]</span><br><span class="line">           &#125; 枚举变量;</span><br></pre></td></tr></table></figure></p>
-<h3 id="key-point"><a href="#key-point" class="headerlink" title="key point:"></a>key point:</h3><ul>
-<li>如果枚举没有初始化, 即省掉”=整型常数”时, 则从第一个标识符开始.</li>
-<li>默认情况下，第一个名称的值为 0，第二个名称的值为 1，第三个名称的值为 2，以此类推。但是，您也可以给名称赋予一个特殊的值，只需要添加一个初始值即可。</li>
-<li>因为默认情况下，每个名称都会比它前面一个名称大 1.<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">enum color &#123; red,green&#x3D;5,blue &#125;;</span><br></pre></td></tr></table></figure>
-<h3 id="nbsp-nbsp-以下是该用法的实例。此例中，red值为0，green值为5，blue值为6。"><a href="#nbsp-nbsp-以下是该用法的实例。此例中，red值为0，green值为5，blue值为6。" class="headerlink" title="&nbsp;&nbsp;以下是该用法的实例。此例中，red值为0，green值为5，blue值为6。"></a>&nbsp;&nbsp;以下是该用法的实例。此例中，red值为0，green值为5，blue值为6。</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int main()&#123;</span><br><span class="line">    enum days&#123;one, two, three&#125;day;</span><br><span class="line">    day &#x3D; one;</span><br><span class="line">    switch(day)&#123;</span><br><span class="line">        case one:</span><br><span class="line">            cout &lt;&lt; &quot;one&quot; &lt;&lt; endl;</span><br><span class="line">            break;</span><br><span class="line">        case two:</span><br><span class="line">            cout &lt;&lt; &quot;two&quot; &lt;&lt; endl;</span><br><span class="line">            break;</span><br><span class="line">        default:</span><br><span class="line">            cout &lt;&lt; &quot;three&quot; &lt;&lt; endl;</span><br><span class="line">            break;</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="3-变量类型"><a href="#3-变量类型" class="headerlink" title="3. 变量类型"></a>3. 变量类型</h2>&nbsp;&nbsp; 大小写敏感，必须以字母或下划线开头。</li>
-</ul>
-<p>Lvalues &amp; Rvalues</p>
-<p>&nbsp;&nbsp; lvalues: 指向内存位置的表达式，左值可以出现在赋值号的左边或右边</p>
-<p>&nbsp;&nbsp; rvalues: 指存储在内存中某些地址的数值。右值不能对其进行赋值操作，可以出现在赋值号的右边，但是不能出现在左边。</p>
-<h2 id="4-常量"><a href="#4-常量" class="headerlink" title="4. 常量"></a>4. 常量</h2><h3 id="定义方法：-define-和const"><a href="#定义方法：-define-和const" class="headerlink" title="定义方法：#define 和const"></a>定义方法：#define 和const</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#define identifier value</span><br><span class="line">const type variable &#x3D; value;</span><br></pre></td></tr></table></figure>
-<ol>
-<li>修饰符类型</li>
-</ol>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th><center> 限定符</center></th>
-<th><center>含义  </center></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><center> const</td>
-<td><center> const类型的对象在程序执行期间不能被修改改变。</td>
-</tr>
-<tr>
-<td>volatile</td>
-<td>修饰符 volatile 告诉编译器，变量的值可能以程序未明确指定的方式被改变。</td>
-</tr>
-<tr>
-<td>restrict</td>
-<td>由 restrict 修饰的指针是唯一一种访问它所指向的对象的方式。只有 C99 增加了新的类型限定符 restrict。</td>
-</tr>
-</tbody>
-</table>
+    <title>保研经历</title>
+    <url>/2019/09/28/%E4%BF%9D%E7%A0%94%E7%BB%8F%E5%8E%86/</url>
+    <content><![CDATA[<div id="hexo-blog-encrypt" data-wpm="抱歉, 这个密码看着不太对, 请再试试." data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.">
+  <div class="hbe-input-container">
+  <input type="password" id="hbePass" placeholder="" />
+    <label for="hbePass">您好, 请输入密码查看更多.</label>
+    <div class="bottom-line"></div>
+  </div>
+  <script id="hbeData" type="hbeData" data-hmacdigest="359aabb14e88e16e2ab9c9ca968e7ab9fddf2b046b937cf98d86fdc2adc9c622">a4739802019b5accf4e8257a859c221ddd0928ad877a1a7b073c046e9b67e8c3080ea12c91e9de54f0f9e6b442a02713295c1effed2ead0448067e035633f52210048df9769fd9e4f89640f9a12b6f81e84f0c13b61bb88ccffb71226b7610b346a803efc324dd5507ebac49649a04cb6cfdf290a863946c651b489f8d92aeb1ea6ca599a5e6816426b65eccc3ecbc944418e88a44be080879caaf8c3ed013a6c70bde30ecd5d8e4077818e970a29366185c0715ecf45292814acf86319d04151c681e25714db58727e425b5e52fa60588380f8afd32bf3f36c10a664409e4bc6bc4a8335b9b7aa6b271c306c50a353dc018f4c1200fd44ca230a4c33899cc5a393ba75e2ee25e75d398a67f9d6c7619ca11e6c7a45f0721ad02778ad69f580e05ae56e2cdcdffbef1b6a805f75a71469a86b2f8674d718cf5ae004afc388488e9397d628dab6f6fe45b860c5aa902e61ca703c5d6c1d62f20714c1ba385af55fd558fa6683b33064646e67d35a5c73c0a8c28cf83887bf3b479947cb576371615192f8f42e17e534bb39bc4e4bc1e4fe3f2bae1a98f6a83a22f6188834a45a23145830345e26a5f590657110159b13daec75fde3554faeb53f17b0a296cd1f2c97bb112f570e1c9bb5bcfd7fb2c352a2cd41f54495841675e9d663927488a49c5f2ee6d5db7429c2ec2eede420fbdbe0b83b97c59ffdf2f8a76e750182a4cfec6b8f3d078c52cd13f2aa3b22b9e933e8b4d07ea330e2c2b8910d647ad618f93b5f3fb7a6ccc3045b59005c1aaceb3a9fd2d1e1c7cd347c024dc50987656f73b590c81c5fd2b9342b24006f60fe22c4438496beaf881a0ca4d186e2e4dfb61065a599cc1c5803fde1f0a138489c15f3dd83b13cd237b418e2b3e57468bc4aa6253250f07a860ba24b19b4caa2de1a2c898107e1c36b41a3a9bb9d3b31dab56998e3e33a43e36b110b7d77d5151030d41eef88b9d1989ca777a5210070575c60141800a799727eddb323411532e4eec02f7fa689469b4f75ba867eb379cfffc63666ecbb62f8346aa1c5b626c70ce8b232c5a0518e0d19cd156f4d0c075565cdf0e5c409b770b89c5d91709d5d6e3495597c8acd28f5b02b4795dd7c8ff6a628f9333ae37b5f2bfc82006ae31ba20db2bde5142f0c5c9b75139fe9205c376b4636ded37ef3ae1cb65f80c676c189584c30abd758c03de9506a6175a71232fc974f5c332e78cd22479e3ad96a13653220c99267c39e7c238ee7ef890c441adef7eb256ea5acce62ab8dd01194bda98b21de625574c2484400595f42d8224b1b11f587e0877bcbe3b897864d419995537575b265721d321585dfc199fff4e8d5ce7d387b7a4216d3069167b4b27787c4143a56c5b5970f7229c72d3fef41ade3d6e478d9e58705b57f6e35aaea4656b2d49fc6f43d8f957439d950101cf4fa1b60781ca51cfa33b35a9f13f03568f9566fa59bed3ab03a72ef6c66fb228868a758edff14e04b92bbda9c910c4b062dee1e9fe96278637bc6b0e382d6163885bb0bf96549c8475fe420ae1178705241f44cfbac259a7f37c25a446fdb7e40dbaf54718201151ca72d06d9452cdb719ed69f33cca7262cd0261c9bc2eb30e5e62954fab2c722f36b23df1648ea026230fc3deeceac90fa1468527ee9da61a6f6862df4c1a401a10632ee4059e9fab9ddd6a937fc30152145d43a132c537167519e721cb4ec298e3307df44efa8e44df4475a1498cfe53c89cc26fc1ce6a15b4b497ee1ac7578697464b911e49af529d79a9812e210932550ed648a4b86268bafea9c369d80dafb4a93bbb1c79372db781a7013f832b9a0dcc68408872a50e81db1f5a7f4b6a40ede122e7f314f0b8a12ab8b0420920a3cf875988f03a33ffb88d95ae64a439d908976dcf58618c91c3eda0d5d7ba45a20c64ebd4004546b3552009f7196c8f4b1e558546ed38084779fa2a5e9897016c05f23e6cd85145a1a292c81cf05330515078256f2d50d6cdbfcbd400ed1855fdabc949f8cc3235984716637774558e3c61279edebf9641daf11cb27a95792e05b7fb03651535131bc6e85d074ceafc656d0a4db6744460afd309f8ab6fc380c762d90b52bc9bc6bb5e99f8eb02121f90c3355379d36031f534a1a4641f48016a5b2508ca4d7d90665c34d7ef60a0580e7bba48b97071c317a6fb27b1c2bce9cfb13d24787e4c667fa6716ed0b598ca76fcf3c4c5ba2cd439b7b37294ac6255410047130e22c6d2f155c8484ff19843afa999c2f31ce9de90ef949f5e779fbcc28b901f3e6110fd4fc79207a8c4c2704de9095fb6343d3e890489d49ef9e4d38f53fcd9592e9aae64eaaf79a860d5e9d21cfa7afd3db8454e4093e04d981e26913a148772cf336995d8937590be9e47c38c83b3db759cbbcdb5030da32cc7272e3e68546ce32a5a1aeae597a5e4e43ec5f0225f12beea6c6f744c7d8e7982e0fc45e6261df88a62499a71e8fc0a16695a863971d1a57a7730b81215b55163db6b7e1b15df097f0e4d25b70494ce5fd4767536773108e9ff0b2b22a004824806672fded31848d27395881f6855f64bc8f4d1141182079d13b6501db8dc9d362baba384ff42984429f0029704d06e12d7b12b928b5621d79705ef10d2d359e87ec1a94fb647d82aaa1619fd9a89c03388189fe2bfbe1e4fca582f2c79e579e9d0ad65301482db68d1bbf7fb53eba118a5608bef0130056dcdbedb720fce103e71ad95c79ac882773ac1424391a9eda2ef5ce3ddc02f5d5a10e9c550d7af7640aedaea07b3370c34c9ba22c0a56933b49c7a7be0aada6b99b03fbcd0bf7ca5b8e3da5cbb522d7dcd78bf0adcc8c2bd3f6f228fb756f11f42981ec468680c37b252c97b7de8cdba3a583041650a42a701587413b24711299d0df920bca85e2f06452953b01400ebc22c146cc224343d1cad793d7928b828a5d2e711dbc1fae39464747f62237325f9647901324bb8e0929a64f62141add6a8246e43c0241c8811e1bef293d60c834c3b73c54417b97ad1548e5472d50a55324e7c64cc0730d74f2e146d2e47d9a0cf84624d0205d5ba8ec1e7b0c69a73e452d0a3252da8d62ab7215b45a66a272f68ffc812aace4117ab73ceacce0a9e422831ece560ba1f96e88165819573adedb8a74c68ccd2edcae80a53584e05d036d49c9bc55b38570139e1fd56b2f4a43be7c5e8689900ffbc0916836e6c5e070ee1ef8cdee2e521c30578e3169ebff3a675fdb1451a24fa11860cb63a4d3801433c438633ccc0e0efced18972ced6ca97a1a7eed0a5c7665302a3cba38167b1c54f88985d534d6f5741872a63224343c0610f91d63caa50e128b7fa32236ad411014edb47221f0c82b35c785cb07f6c26feea8a98425c20d575588f074cf1340df096d0d048cbc9963b3e3cd6f2ba7867890e76422e2f23b32c7f152b15ebddcd9a19e3159024aece6df80ac910da911bf76505c7c8475076d90bbdafe7a33a84ee5bb7c104d41cdd5554ff125eaf0ecf2e4d42ad218a5634805fa20f881b0b54d8f234a0b434056a5f340c96f7d1434eba2c7bc7096a9e481332f69d2f279a5fd2f4874179fa84b3cf722243b691ef79b85e6cec8a9a9aa00db8c9a3e0756dbae35c69c82bc44227156fa970403d4e9b547348d092f11f59461059870a62bfc9196a7ad7ece5c2b233faa14082dca95e0e5c66fd11fa1d12e2b57be5ab7e95ad28ae6aa5577b902009f9ce07175b3c764f90cd8b232b437c237ae50c0b977ed5de8428edf450e0644823fb42c64b05bdd346150ed7a1bf2d9503e8943fd5b5e52e0f0a1a99afcd245cf8ff8616cd3d467c5351b3357fd96ed53410382ac519bb3863ce1a91da1da23073b3efe1d57b43ddb63107d3000c4c99a58c1265496f78701b3002622ddc943bfa4aafcb3b311521a6ed53e36a5b25cffee9473d5bbe270562d792134771c33f8e49197f2ed2bc3a9c1e026d795bfd0a941dcde0f9b692a221050cad0a2689af23c976a1bafefe059806d552fb62a748cd9509c61f86e1e0cf26c5d1d840d3b8e07abaee866ffb50a1c9fea05074f8277153cbc54dc6cb2999b7c6c67bb386fa78c64cb26d201136939c4c7a39609ad0248221c6866c9b4ac03d5b5c844fea2e67a139f202478cfb1fcbf3dc5463af69a863860c65308642bd556b68d3fca14eb90ef98189d2984339c432f7f8a310366827af348dcfe5d172cc112637dd4a9c091e286174499037963f852f477863f8254e7c41bd26585a4d3e69da41d9776ba3f2c97641bfb0ab8567940be5e9b29586286b0b38c2321d454a6cb5a95cddce5deeb7511e9d2b6aa47853784b0ef7215f1c81492a27e7f9c0deee4889c9ce25434ea950dcb550dfc2a39caa03025dee4f9ae940e7d7b739711b8837b0c583cfa268b0080410d66a413f73422b198cb637e6e275718fb563dc279f8a24d979c39f7c82c9ef9215204114319f828527eef9cfdabe363ad1ec98a2eade2b2fa251a66bf88ead1783a0b66e60cfe766b05532b344a77ae3c6716729a25224c7a542eff9f704d34b6cda2c0eca59f045cac4e681c307eaa7525fc9735ca208a11fdf827d6dc2cc037f99b94b5045a2a12d52f0c32952deb2dc916f0abbffa1f703f5d88fa4fdbbcff83c1de25e4083a421a06c4f55dd19fa77279146c8d0ca1c094097e0d06016a463c16f5dca834d4c85b7f258cf50e3c9eeb9a8d48cca75d445ce758f3ddba9738990482fb39e21925fcd02ec2060256da79d9ff8a1384b485f301a8e223b651697c575511b3a84390f7861fa9a121d278ef89755c45c1a5e2ce334bf54081560b01432ace5cbaf61b80abcc5e4f386de69e0ab7df5c686c4e0134a3ad9915abe154fddcfd9e93b798268c1af26a1cbe0b36cf305bc4e2556691731a6e75b091a5530fe5f81f0ac762b22ac82aeb0450c7aeb9c81b9fbb7a8ae70aab18dba5b2f16f374f45c84e07e889d049d773d9d766fca58b6ee0344ae379c8da0ca7b900d97f265c60a4f527ece2a01f08b0ec5f9423983c84a3ef2dc79cb598865a276b9c52a67a5ec19d6650186fec2e7fb048b9cd20d812b063a17e677765380233a93fab854c0a599ba62ad152fd657e400811ab5f8c136e148c039ded6f43bdcfe2d04311f448e9f0cd7b3b71a61d28e732c331a6df60911fef1238000f7a5878082666a53ca130429a8cc222d8c07353dcb01d9030159047d963f7f8bb67a453aa803af9e33ae60edae3819a433572982f94911d4924b3b5edb600a4fd7c5b12b9f7f1fc582e799355fd4ada8a5b180b1d1d558425ca8dadf6d7a655695616af2e463ce04fc3cfbd0523f4345e51d96d695e1789224fbb89c1bdeb2ed0bdef0e1b53032490b0074b51277bb11d9bbc73f8400e41fa2453dec55fb96d803b46f7d94aa1837dd06af0a1abc3483e7fa065243d83703ac7149af6b08d5254c738f02a6784f00c6017db66af73297c6bc05bc55cbbbf87f7720e54542c868e64c8945a3ce3cb91267e019a9fd5836cfb20f8852cfbdedd7af7ae6c8b81b92d13d65522559d6981b8a1b5016d130f8881edcbc7c0d56f8c31c71940044711bc6cdaf223f0ce81781464a3567dcd3c29e96d854c8625217fe0a3c690269b63bd2d9810674ab84e7ecac792f45ed8bc132ae3cb041f3665dc68334b1b15cd9742b7e3e1806f25aba227b0d95ccd710276fc3d26bac1610d8cbe55c8e5acfa756807c5a091ca5ae688a5de486f6a923cdb7fa5a7c3818392e7fd39c710655599870cb0d42e128d810fa1e6ffbd7a26328e0db120c2083e888039d8ccb60f4b621a020c446ed994eb857e89e2d385bb99ebc851d1509d5f65219645ef5d328f63642d5935898185119c00a6a505b70680a767ee62931769e20cc5c7f9b589581089fc7c154184c4677cd10cdc4e34706359e37875db9b13998fccfc41265222fec111f80efd7027629c0419e1107fea1e271b2dfe6132ea9875449a19f2cbffb8b9798f93e9ccb835985d36c812874ea4107e5222ae9d7a64a4eadcacdb44d84598e02c094412faddd4d101fbdcd1ee52709b4747fcb618de08d896e90b3acfd94717705a71b5e72ee37c0682feda95eb5281a1f9f1867761c08e1fb0e6010801b296d69af75d4980f9a15faa7ee0b862cea5c9681c515504928f1f286e2e40f10a0d61579e0f56178170f1ab1c15d9f67a85bf04fd076236e3e9c6bbb2e2bc98e81ffbdebd7510024aab8d48295881f5cb61c68adfdb19896340d17194307b4ad57184c7f2b05bf7b895abbc77cf998f46c102196ff20ae90e7e805977b7494470a69bdde9878fbb54870bb453f0d469c4be89450ba582e2eb0ef42bff33f242258f9c8a8ccf940f10bbbee1cd5823459d7bbe9a903a0c6e8d00a411b19ed77ceed168074a3ab2f359280dcf87b960aa97d62cc67952948b0e115f8d2244801cb16cd26768fc3ff1a237aeacbe2dcc8f59db26fe5933094215f689c2bb64cb90a475829fb737c3a0db804c584a30d10654dc8caf93348c77df0a955205b0ffb1305160f51f9071d1e3ad6a65144224508fd1fb9db4a3f986d8a359172db24a8d1b3576c1b9d08b48a69c426fa826390e4ded88131d3bd3c135f94dc68fb0c6acc34fb001e2e754f5ce675589932337e1fdd1e17aa3ac91e0e5ab454e7868241712eb182ddbaadd5058ebf9b35da18ba378e72de02b13de942fe6618c43a30e8f3b413b1dbc26cbaecd797edfea609f1fcb33c16ab33100fcaa8fa5959e0641f00bad8a45aa83f411e98b283236ae95055384db8d30a2d5910c4b685a7f9a704be997a4e41cc47f71bced9eda7c734727fb5293b8a5457c9e849427e2d413ff00a4fb4fd9a41fe63ed8523ea0b51a22e8187930a98839506d00a1c83d0b742a5f1ac36115b00c60ef1b9b45fb42bfada7372bdbae305f24a17f0510045a2f7027b951c63acb9a14cf6b172b0a3178d1d2f4c9a519090931d7f5295851f3ce1c92de25e379c23147406906b8e51d334a56bf238393351bc39411a82b464a1ecb9bdb2a6aa15790d73e3ae69f3231fc2b17db75925b6da40a02445ed6c5e59633553ac8d0a49f858b1efce74447724593815b2cc0bfed7919686fac3eacc5f08e042e462bc97799536d6c4c29afe4ad7f564a3ffd8948ad90b7865446a80212a1ecdb9c8d54efc4935e5c056e959fb3113a72394966ff666dc4e519e29224e568eeb58750651846166b0fede3d95df7e99d6fd08dcaa58e93456bcc436c7f839213ac8698a7f8c5948cdf3ccbc56f152b08dacbeed982da2c17fe4a9e19fc9871dfd52a9190eda2d514913835a1b83c6359d56b343520b96416909145ec2c18cb6ef8011d0b98d3fb3f250810dc873fa56309a621632f6040ffa4031fc98cd8418c8ca7af7fcddce5bb83b3bec5792b3ccbaff406f0aa26017e36684850989cf400eac690a7fdcf73241fa14f20e30c604bfb14e7fca1e90acee2eecf185dbfffbbdc15d43bf1efebb898d58fc7016d8344e62e2bbc487ef8209c1e7b0d7b21d8dec7c5fb7e5ec4541f9e8ec5704036e896c5b1b92f358d2d264e9003e8990aa45f25155cc6476bc9f8f41295ff1105cc14486a8d493b1c404c9c18c61dbfc730265f11ea389988580ac248e1ba2742ac85000891ac7597de304e11b5ee23dbe089e244341f5a1d369463b16fd928ff5312adb5b84a737a8bb17eea3717f06b305526ec47e3b9f9599e9606de456e7773c0146ee6f8bf6a04495f4f5a013237f745819a7d1ce82acbb16f5e806554b5702887f599642d82079c95330c725115c88113fa445de28ba3ec3ff23fac35071827c4d1c8ee9cdf2e8a3281e937ad0be10d148f4296d87f6835203f96299083108fa3d116057438f71ef6b96209588828e0ad820295577d2d8a77c87a892777d2244901fd056d9f5634912a2ff1a739f566bed6a8e8dfa1f1bf08217d912c4f0741da49bc5cf8e804384f696f32d065c8054cb84c422b73af5cff4a082c1288f2dbb8e7e5c68968e09e5d682fa87b6d031e86b5cbed9350cd26845542d075dca437fe7c402806346726b95f2d4ba2169e4030c7616178aea633bc607d552b9fdfc6aa7b8f751dcecb15340676f3fab540c50d69effd60e99e86c36c8bf17315a8036a5ad6814d3aaeadeaa3932f1cb31592731329d21fa1cbd801e16e15b20cfba15dc2c2dd2aae32bf5a62d0f94edd7b1f1d20b038c983efbba0af058b9e0f82c4a92e53cb80df40708f7f36a3d61de5f1a0515b0b5b1151647efd33e542b113e5683b4b281d9677a915cb7611f0697b61a2eddc103cf8574201a8b865da95d95b01de1b494e95e2255f821bb84ff56985a9c89ea321bfed4755c3e673b607aac6699e2f14c05d954d64447843e6e5af41d6d876c1db3296ca0e25df0dbb4b7f511991faf82b0fb359563df7e78990e164b5337559033527cd923d62ff8702959041b3039644b0a661dcbd22e972b6b10bbddf336a9e3c7eaa0864c9f24125faf2cabf6727102e327953846255e511a160707417df5308283ca4e0cd3b00f12c9602ac791663b420a2fb4f24f2c4b668eba51d988b6e2347ba77824f6335fa7c68896499506242d0eb61e6c21c4dd3fac2d77fc98eaff624240b58415212ce69d8b5f9248467a3a83644b801507293d2da9c2f6a991225e7a7c9d45a39444981895f57582d51c92171afeeb7bd9d62c2e42db017a40234ea414d7d630fd64a2bb91d151581158e4a8b4da7e8cbdb0070c872fcb48cdf09a54f3bcec93c2387ca305cc589cf73b0c61ae25c9d7d0c86c14ec7304d60cd60147f8721a95e6e410905b20471eb2a16c330ae5bffc0d7d6c2dfec1970ade55af8df6c0e5b666c458900a58fb745da0f58fa52882196f2fe952472735ae42e2eefb957974ad7dcafc8bc8f077b57cff5244bb16e764796f9a0ff087cf34581df7150f912775b938f1e849c5fd716e52c1a8bb13a1a8a5dfbdf453d9c8649913f80302cf041ed89a7e60bf0fbd04c149058f214345a22383da1a45872cbcd055aa359d26f3876eefbc0ed86b5a75d64a6e6d24fedb208bd29054b344b46d15e7ed06e7ab18f31ac8dc94b7873de052c242e1fcfc0dfab3370db6df4a8286aa1be54b6afaf1c74c528819e818ef7b566b644e18920350190591b45ec4a0797fb48f27edd0dc3aced77ef4b260277f8ebb56236f312cc2055d21424d47feff051b99e7ab2a897bd59dd8c9942a10d43a2daa60c49bb8f165814cc839e047fd1c4af5c3528d65a795b5c2a4cfec292c1785880b76ee3d20f08913d5a7d3552fe5709e47fcde9c6216a5467cb54e51d0fe6a0a89bdbc4830ed5fbeb84b6901a9461d205ee6c002b10cf9215a2e65b0feed253fd81ad3406beea00e8a68357ca3819e2160a0bd2f8327b383b7eec29ffdd11d6c5bf609af4329d10aa70a7eeb405b9bd4752b0f20e6d5d117505b6da37bca41dde4be84c6db38fbe70d894c7ab2c07ac9f1e964dced8b7064f33db075533cec3c4e1e123ab76737ea4fb38444fc14c8b0b2deaf646c8f8ad40d0dd059d8800218bf88a9b88d06e95145228365bbb672626d03901326d7c2</script>
 </div>
-<hr>
-<p>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;</p>
-<h3 id="更多内容请参考C-参考文档"><a href="#更多内容请参考C-参考文档" class="headerlink" title="更多内容请参考C++参考文档"></a><p align="right">更多内容请参考<a href="https://www.runoob.com/cplusplus/cpp-tutorial.html" target="_blank" rel="noopener">C++参考文档</a></h3>]]></content>
+<script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">]]></content>
       <categories>
-        <category>程序设计</category>
+        <category>随笔</category>
       </categories>
       <tags>
-        <tag>C++</tag>
-        <tag>程序设计</tag>
+        <tag>推免</tag>
+        <tag>加密</tag>
       </tags>
   </entry>
   <entry>
@@ -653,75 +742,6 @@ H(x) =\sum_{i=1}^np_i(x)log_2(\frac 1 {p_i(x)})</script><p>b=2的时候单位是
       </tags>
   </entry>
   <entry>
-    <title>linux嵌入式开发_1</title>
-    <url>/2020/07/30/linux%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91-1/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="linux基础"><a href="#linux基础" class="headerlink" title="linux基础"></a><strong>linux基础</strong></h1><h2 id="linux是什么？"><a href="#linux是什么？" class="headerlink" title="linux是什么？"></a>linux是什么？</h2><a id="more"></a>
-<ul>
-<li>linux是一款开源操作系统，开放了整组的调用接口给程序猿进行开发和使用。linux操作系统包含内核和系统调用，并不包含应用程序。由于linux的架构继承了unix良好传统，因此越来越多的开发者选择使用linux并为之设计了许多应用级软件。</li>
-</ul>
-<h2 id="开发环境的搭建"><a href="#开发环境的搭建" class="headerlink" title="开发环境的搭建"></a>开发环境的搭建</h2><ul>
-<li>开发环境需要用到交叉开发模式，这一点书上有很详细的介绍，包括硬件环境和软件环境的构建都写的十分清楚，所以这篇文章主要是写一下我在中间遇到的一些问题以及解决方法。虚拟机的话我用的是Ubuntu18.04版本，安装虚拟机啥的网上资源很多，直接百度就行。</li>
-</ul>
-<h2 id="linux下的环境搭建"><a href="#linux下的环境搭建" class="headerlink" title="linux下的环境搭建"></a>linux下的环境搭建</h2><h3 id="1、修改Ubuntu的一些配置"><a href="#1、修改Ubuntu的一些配置" class="headerlink" title="1、修改Ubuntu的一些配置"></a>1、修改Ubuntu的一些配置</h3><ul>
-<li><p>切换国内镜像源</p>
-<p>&ensp;&ensp;&ensp;&ensp;&ensp; 在使用apt命令安装包时，因为系统自带下载源在国外服务器上，所以需要切换为国内镜像源才能提升下载速度。这里有一篇博客详细说明了如何直接根据终端命令修改其配置文件，从而达到修改下载源的目的.或者，，，，你也可以直接用Ubuntu的图形界面去修改，步骤如下： 显示应用程序-&gt;软件和更新-&gt;下载自主服务器改为其他，然后选择合适的镜像源就行了，这里我选择的是阿里的镜像源。</p>
-</li>
-<li><p>修改语言和设置汉语输入法</p>
-<p>&ensp;&ensp;&ensp;&ensp;&ensp; 懒得写，直接贴别人博客了</p>
-</li>
-</ul>
-<p>&ensp;&ensp;&ensp;&ensp;&ensp;<a href="https://blog.csdn.net/langshi_2011/article/details/78993781" target="_blank" rel="noopener">Linux Ubuntu系统设置成中文语言</a></p>
-<p>&ensp;&ensp;&ensp;&ensp;&ensp;<a href="https://blog.csdn.net/sparkstrike/article/details/81487271" target="_blank" rel="noopener">Linux.Ubuntu.中文输入法设置</a></p>
-]]></content>
-      <categories>
-        <category>程序设计</category>
-      </categories>
-      <tags>
-        <tag>linux</tag>
-        <tag>嵌入式开发</tag>
-        <tag>鸟哥的私房菜学习</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Merry Christmas</title>
-    <url>/2020/12/24/merry_christmas/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Merry-Christmas"><a href="#Merry-Christmas" class="headerlink" title="Merry Christmas"></a><center>Merry Christmas</center></h1><center>
-<div style="position:relative; padding-bottom:75%; width:100%; height:0">
-    <iframe src="//player.bilibili.com/player.html?aid=45996894&bvid=BV1xb411e7ru&cid=80590947&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"style="position:absolute; height: 100%; width: 100%;"> </iframe>
-</div>
-</center>
-
-<a id="more"></a>
-<ol>
-<li>git push 方法</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git init</span><br><span class="line">git add .</span><br><span class="line">git commit -m &quot;first commit&quot;</span><br><span class="line">git remote add origin URL</span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
-<p>本过程可以参考我为大家寻找的教程<a href="https://www.codekp.cn/2020/12/12/%E8%A1%A8%E7%99%BD%E7%BD%91%E7%AB%99%E3%80%81%E7%BD%97%E7%9B%98%E6%97%B6%E9%92%9F%E6%95%99%E7%A8%8B/">如何优雅的制作表白网站和罗盘时钟</a></p>
-<ol>
-<li>圣诞网站模板分享</li>
-</ol>
-<ul>
-<li><a href="https://www.codekp.cn/Chrismas/index.html">demo</a></li>
-<li><a href="https://github.com/mmrslwan1110/Chrismas" target="_blank" rel="noopener">源码</a></li>
-</ul>
-<ol>
-<li>电影分享 </li>
-</ol>
-<ul>
-<li><a href="https://www.bilibili.com/bangumi/play/ep258944?theme=movie%3Ffrom%3Dsearch&amp;seid=16305206199116632162" target="_blank" rel="noopener">love actually</a></li>
-</ul>
-<center>
-
-
-<h2 id="彩蛋"><a href="#彩蛋" class="headerlink" title="彩蛋!"></a><a href="https://christmasexperiments.com/" target="_blank" rel="noopener">彩蛋!</a></h2><h2 id=""><a href="#" class="headerlink" title=" "></a> </h2><h6 id="一个假装不存在的彩蛋"><a href="#一个假装不存在的彩蛋" class="headerlink" title="一个假装不存在的彩蛋"></a><a href="https://interview.ueno.co/" target="_blank" rel="noopener">一个假装不存在的彩蛋</a></h6>]]></content>
-      <categories>
-        <category>电影推荐</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>个人简历</title>
     <url>/2020/07/22/%E4%B8%AA%E4%BA%BA%E7%AE%80%E5%8E%86/</url>
     <content><![CDATA[<div id="hexo-blog-encrypt" data-wpm="抱歉, 这个密码看着不太对, 请再试试." data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.">
@@ -737,84 +757,58 @@ H(x) =\sum_{i=1}^np_i(x)log_2(\frac 1 {p_i(x)})</script><p>b=2的时候单位是
         <category>简历</category>
       </categories>
       <tags>
+        <tag>加密</tag>
         <tag>万鲲鹏</tag>
         <tag>个人简历2019</tag>
-        <tag>加密</tag>
       </tags>
   </entry>
   <entry>
-    <title>保研经历</title>
-    <url>/2019/09/28/%E4%BF%9D%E7%A0%94%E7%BB%8F%E5%8E%86/</url>
-    <content><![CDATA[<div id="hexo-blog-encrypt" data-wpm="抱歉, 这个密码看着不太对, 请再试试." data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.">
-  <div class="hbe-input-container">
-  <input type="password" id="hbePass" placeholder="" />
-    <label for="hbePass">您好, 请输入密码查看更多.</label>
-    <div class="bottom-line"></div>
-  </div>
-  <script id="hbeData" type="hbeData" data-hmacdigest="359aabb14e88e16e2ab9c9ca968e7ab9fddf2b046b937cf98d86fdc2adc9c622">a4739802019b5accf4e8257a859c221ddd0928ad877a1a7b073c046e9b67e8c3080ea12c91e9de54f0f9e6b442a02713295c1effed2ead0448067e035633f52210048df9769fd9e4f89640f9a12b6f81e84f0c13b61bb88ccffb71226b7610b346a803efc324dd5507ebac49649a04cb6cfdf290a863946c651b489f8d92aeb1ea6ca599a5e6816426b65eccc3ecbc944418e88a44be080879caaf8c3ed013a6c70bde30ecd5d8e4077818e970a29366185c0715ecf45292814acf86319d04151c681e25714db58727e425b5e52fa60588380f8afd32bf3f36c10a664409e4bc6bc4a8335b9b7aa6b271c306c50a353dc018f4c1200fd44ca230a4c33899cc5a393ba75e2ee25e75d398a67f9d6c7619ca11e6c7a45f0721ad02778ad69f580e05ae56e2cdcdffbef1b6a805f75a71469a86b2f8674d718cf5ae004afc388488e9397d628dab6f6fe45b860c5aa902e61ca703c5d6c1d62f20714c1ba385af55fd558fa6683b33064646e67d35a5c73c0a8c28cf83887bf3b479947cb576371615192f8f42e17e534bb39bc4e4bc1e4fe3f2bae1a98f6a83a22f6188834a45a23145830345e26a5f590657110159b13daec75fde3554faeb53f17b0a296cd1f2c97bb112f570e1c9bb5bcfd7fb2c352a2cd41f54495841675e9d663927488a49c5f2ee6d5db7429c2ec2eede420fbdbe0b83b97c59ffdf2f8a76e750182a4cfec6b8f3d078c52cd13f2aa3b22b9e933e8b4d07ea330e2c2b8910d647ad618f93b5f3fb7a6ccc3045b59005c1aaceb3a9fd2d1e1c7cd347c024dc50987656f73b590c81c5fd2b9342b24006f60fe22c4438496beaf881a0ca4d186e2e4dfb61065a599cc1c5803fde1f0a138489c15f3dd83b13cd237b418e2b3e57468bc4aa6253250f07a860ba24b19b4caa2de1a2c898107e1c36b41a3a9bb9d3b31dab56998e3e33a43e36b110b7d77d5151030d41eef88b9d1989ca777a5210070575c60141800a799727eddb323411532e4eec02f7fa689469b4f75ba867eb379cfffc63666ecbb62f8346aa1c5b626c70ce8b232c5a0518e0d19cd156f4d0c075565cdf0e5c409b770b89c5d91709d5d6e3495597c8acd28f5b02b4795dd7c8ff6a628f9333ae37b5f2bfc82006ae31ba20db2bde5142f0c5c9b75139fe9205c376b4636ded37ef3ae1cb65f80c676c189584c30abd758c03de9506a6175a71232fc974f5c332e78cd22479e3ad96a13653220c99267c39e7c238ee7ef890c441adef7eb256ea5acce62ab8dd01194bda98b21de625574c2484400595f42d8224b1b11f587e0877bcbe3b897864d419995537575b265721d321585dfc199fff4e8d5ce7d387b7a4216d3069167b4b27787c4143a56c5b5970f7229c72d3fef41ade3d6e478d9e58705b57f6e35aaea4656b2d49fc6f43d8f957439d950101cf4fa1b60781ca51cfa33b35a9f13f03568f9566fa59bed3ab03a72ef6c66fb228868a758edff14e04b92bbda9c910c4b062dee1e9fe96278637bc6b0e382d6163885bb0bf96549c8475fe420ae1178705241f44cfbac259a7f37c25a446fdb7e40dbaf54718201151ca72d06d9452cdb719ed69f33cca7262cd0261c9bc2eb30e5e62954fab2c722f36b23df1648ea026230fc3deeceac90fa1468527ee9da61a6f6862df4c1a401a10632ee4059e9fab9ddd6a937fc30152145d43a132c537167519e721cb4ec298e3307df44efa8e44df4475a1498cfe53c89cc26fc1ce6a15b4b497ee1ac7578697464b911e49af529d79a9812e210932550ed648a4b86268bafea9c369d80dafb4a93bbb1c79372db781a7013f832b9a0dcc68408872a50e81db1f5a7f4b6a40ede122e7f314f0b8a12ab8b0420920a3cf875988f03a33ffb88d95ae64a439d908976dcf58618c91c3eda0d5d7ba45a20c64ebd4004546b3552009f7196c8f4b1e558546ed38084779fa2a5e9897016c05f23e6cd85145a1a292c81cf05330515078256f2d50d6cdbfcbd400ed1855fdabc949f8cc3235984716637774558e3c61279edebf9641daf11cb27a95792e05b7fb03651535131bc6e85d074ceafc656d0a4db6744460afd309f8ab6fc380c762d90b52bc9bc6bb5e99f8eb02121f90c3355379d36031f534a1a4641f48016a5b2508ca4d7d90665c34d7ef60a0580e7bba48b97071c317a6fb27b1c2bce9cfb13d24787e4c667fa6716ed0b598ca76fcf3c4c5ba2cd439b7b37294ac6255410047130e22c6d2f155c8484ff19843afa999c2f31ce9de90ef949f5e779fbcc28b901f3e6110fd4fc79207a8c4c2704de9095fb6343d3e890489d49ef9e4d38f53fcd9592e9aae64eaaf79a860d5e9d21cfa7afd3db8454e4093e04d981e26913a148772cf336995d8937590be9e47c38c83b3db759cbbcdb5030da32cc7272e3e68546ce32a5a1aeae597a5e4e43ec5f0225f12beea6c6f744c7d8e7982e0fc45e6261df88a62499a71e8fc0a16695a863971d1a57a7730b81215b55163db6b7e1b15df097f0e4d25b70494ce5fd4767536773108e9ff0b2b22a004824806672fded31848d27395881f6855f64bc8f4d1141182079d13b6501db8dc9d362baba384ff42984429f0029704d06e12d7b12b928b5621d79705ef10d2d359e87ec1a94fb647d82aaa1619fd9a89c03388189fe2bfbe1e4fca582f2c79e579e9d0ad65301482db68d1bbf7fb53eba118a5608bef0130056dcdbedb720fce103e71ad95c79ac882773ac1424391a9eda2ef5ce3ddc02f5d5a10e9c550d7af7640aedaea07b3370c34c9ba22c0a56933b49c7a7be0aada6b99b03fbcd0bf7ca5b8e3da5cbb522d7dcd78bf0adcc8c2bd3f6f228fb756f11f42981ec468680c37b252c97b7de8cdba3a583041650a42a701587413b24711299d0df920bca85e2f06452953b01400ebc22c146cc224343d1cad793d7928b828a5d2e711dbc1fae39464747f62237325f9647901324bb8e0929a64f62141add6a8246e43c0241c8811e1bef293d60c834c3b73c54417b97ad1548e5472d50a55324e7c64cc0730d74f2e146d2e47d9a0cf84624d0205d5ba8ec1e7b0c69a73e452d0a3252da8d62ab7215b45a66a272f68ffc812aace4117ab73ceacce0a9e422831ece560ba1f96e88165819573adedb8a74c68ccd2edcae80a53584e05d036d49c9bc55b38570139e1fd56b2f4a43be7c5e8689900ffbc0916836e6c5e070ee1ef8cdee2e521c30578e3169ebff3a675fdb1451a24fa11860cb63a4d3801433c438633ccc0e0efced18972ced6ca97a1a7eed0a5c7665302a3cba38167b1c54f88985d534d6f5741872a63224343c0610f91d63caa50e128b7fa32236ad411014edb47221f0c82b35c785cb07f6c26feea8a98425c20d575588f074cf1340df096d0d048cbc9963b3e3cd6f2ba7867890e76422e2f23b32c7f152b15ebddcd9a19e3159024aece6df80ac910da911bf76505c7c8475076d90bbdafe7a33a84ee5bb7c104d41cdd5554ff125eaf0ecf2e4d42ad218a5634805fa20f881b0b54d8f234a0b434056a5f340c96f7d1434eba2c7bc7096a9e481332f69d2f279a5fd2f4874179fa84b3cf722243b691ef79b85e6cec8a9a9aa00db8c9a3e0756dbae35c69c82bc44227156fa970403d4e9b547348d092f11f59461059870a62bfc9196a7ad7ece5c2b233faa14082dca95e0e5c66fd11fa1d12e2b57be5ab7e95ad28ae6aa5577b902009f9ce07175b3c764f90cd8b232b437c237ae50c0b977ed5de8428edf450e0644823fb42c64b05bdd346150ed7a1bf2d9503e8943fd5b5e52e0f0a1a99afcd245cf8ff8616cd3d467c5351b3357fd96ed53410382ac519bb3863ce1a91da1da23073b3efe1d57b43ddb63107d3000c4c99a58c1265496f78701b3002622ddc943bfa4aafcb3b311521a6ed53e36a5b25cffee9473d5bbe270562d792134771c33f8e49197f2ed2bc3a9c1e026d795bfd0a941dcde0f9b692a221050cad0a2689af23c976a1bafefe059806d552fb62a748cd9509c61f86e1e0cf26c5d1d840d3b8e07abaee866ffb50a1c9fea05074f8277153cbc54dc6cb2999b7c6c67bb386fa78c64cb26d201136939c4c7a39609ad0248221c6866c9b4ac03d5b5c844fea2e67a139f202478cfb1fcbf3dc5463af69a863860c65308642bd556b68d3fca14eb90ef98189d2984339c432f7f8a310366827af348dcfe5d172cc112637dd4a9c091e286174499037963f852f477863f8254e7c41bd26585a4d3e69da41d9776ba3f2c97641bfb0ab8567940be5e9b29586286b0b38c2321d454a6cb5a95cddce5deeb7511e9d2b6aa47853784b0ef7215f1c81492a27e7f9c0deee4889c9ce25434ea950dcb550dfc2a39caa03025dee4f9ae940e7d7b739711b8837b0c583cfa268b0080410d66a413f73422b198cb637e6e275718fb563dc279f8a24d979c39f7c82c9ef9215204114319f828527eef9cfdabe363ad1ec98a2eade2b2fa251a66bf88ead1783a0b66e60cfe766b05532b344a77ae3c6716729a25224c7a542eff9f704d34b6cda2c0eca59f045cac4e681c307eaa7525fc9735ca208a11fdf827d6dc2cc037f99b94b5045a2a12d52f0c32952deb2dc916f0abbffa1f703f5d88fa4fdbbcff83c1de25e4083a421a06c4f55dd19fa77279146c8d0ca1c094097e0d06016a463c16f5dca834d4c85b7f258cf50e3c9eeb9a8d48cca75d445ce758f3ddba9738990482fb39e21925fcd02ec2060256da79d9ff8a1384b485f301a8e223b651697c575511b3a84390f7861fa9a121d278ef89755c45c1a5e2ce334bf54081560b01432ace5cbaf61b80abcc5e4f386de69e0ab7df5c686c4e0134a3ad9915abe154fddcfd9e93b798268c1af26a1cbe0b36cf305bc4e2556691731a6e75b091a5530fe5f81f0ac762b22ac82aeb0450c7aeb9c81b9fbb7a8ae70aab18dba5b2f16f374f45c84e07e889d049d773d9d766fca58b6ee0344ae379c8da0ca7b900d97f265c60a4f527ece2a01f08b0ec5f9423983c84a3ef2dc79cb598865a276b9c52a67a5ec19d6650186fec2e7fb048b9cd20d812b063a17e677765380233a93fab854c0a599ba62ad152fd657e400811ab5f8c136e148c039ded6f43bdcfe2d04311f448e9f0cd7b3b71a61d28e732c331a6df60911fef1238000f7a5878082666a53ca130429a8cc222d8c07353dcb01d9030159047d963f7f8bb67a453aa803af9e33ae60edae3819a433572982f94911d4924b3b5edb600a4fd7c5b12b9f7f1fc582e799355fd4ada8a5b180b1d1d558425ca8dadf6d7a655695616af2e463ce04fc3cfbd0523f4345e51d96d695e1789224fbb89c1bdeb2ed0bdef0e1b53032490b0074b51277bb11d9bbc73f8400e41fa2453dec55fb96d803b46f7d94aa1837dd06af0a1abc3483e7fa065243d83703ac7149af6b08d5254c738f02a6784f00c6017db66af73297c6bc05bc55cbbbf87f7720e54542c868e64c8945a3ce3cb91267e019a9fd5836cfb20f8852cfbdedd7af7ae6c8b81b92d13d65522559d6981b8a1b5016d130f8881edcbc7c0d56f8c31c71940044711bc6cdaf223f0ce81781464a3567dcd3c29e96d854c8625217fe0a3c690269b63bd2d9810674ab84e7ecac792f45ed8bc132ae3cb041f3665dc68334b1b15cd9742b7e3e1806f25aba227b0d95ccd710276fc3d26bac1610d8cbe55c8e5acfa756807c5a091ca5ae688a5de486f6a923cdb7fa5a7c3818392e7fd39c710655599870cb0d42e128d810fa1e6ffbd7a26328e0db120c2083e888039d8ccb60f4b621a020c446ed994eb857e89e2d385bb99ebc851d1509d5f65219645ef5d328f63642d5935898185119c00a6a505b70680a767ee62931769e20cc5c7f9b589581089fc7c154184c4677cd10cdc4e34706359e37875db9b13998fccfc41265222fec111f80efd7027629c0419e1107fea1e271b2dfe6132ea9875449a19f2cbffb8b9798f93e9ccb835985d36c812874ea4107e5222ae9d7a64a4eadcacdb44d84598e02c094412faddd4d101fbdcd1ee52709b4747fcb618de08d896e90b3acfd94717705a71b5e72ee37c0682feda95eb5281a1f9f1867761c08e1fb0e6010801b296d69af75d4980f9a15faa7ee0b862cea5c9681c515504928f1f286e2e40f10a0d61579e0f56178170f1ab1c15d9f67a85bf04fd076236e3e9c6bbb2e2bc98e81ffbdebd7510024aab8d48295881f5cb61c68adfdb19896340d17194307b4ad57184c7f2b05bf7b895abbc77cf998f46c102196ff20ae90e7e805977b7494470a69bdde9878fbb54870bb453f0d469c4be89450ba582e2eb0ef42bff33f242258f9c8a8ccf940f10bbbee1cd5823459d7bbe9a903a0c6e8d00a411b19ed77ceed168074a3ab2f359280dcf87b960aa97d62cc67952948b0e115f8d2244801cb16cd26768fc3ff1a237aeacbe2dcc8f59db26fe5933094215f689c2bb64cb90a475829fb737c3a0db804c584a30d10654dc8caf93348c77df0a955205b0ffb1305160f51f9071d1e3ad6a65144224508fd1fb9db4a3f986d8a359172db24a8d1b3576c1b9d08b48a69c426fa826390e4ded88131d3bd3c135f94dc68fb0c6acc34fb001e2e754f5ce675589932337e1fdd1e17aa3ac91e0e5ab454e7868241712eb182ddbaadd5058ebf9b35da18ba378e72de02b13de942fe6618c43a30e8f3b413b1dbc26cbaecd797edfea609f1fcb33c16ab33100fcaa8fa5959e0641f00bad8a45aa83f411e98b283236ae95055384db8d30a2d5910c4b685a7f9a704be997a4e41cc47f71bced9eda7c734727fb5293b8a5457c9e849427e2d413ff00a4fb4fd9a41fe63ed8523ea0b51a22e8187930a98839506d00a1c83d0b742a5f1ac36115b00c60ef1b9b45fb42bfada7372bdbae305f24a17f0510045a2f7027b951c63acb9a14cf6b172b0a3178d1d2f4c9a519090931d7f5295851f3ce1c92de25e379c23147406906b8e51d334a56bf238393351bc39411a82b464a1ecb9bdb2a6aa15790d73e3ae69f3231fc2b17db75925b6da40a02445ed6c5e59633553ac8d0a49f858b1efce74447724593815b2cc0bfed7919686fac3eacc5f08e042e462bc97799536d6c4c29afe4ad7f564a3ffd8948ad90b7865446a80212a1ecdb9c8d54efc4935e5c056e959fb3113a72394966ff666dc4e519e29224e568eeb58750651846166b0fede3d95df7e99d6fd08dcaa58e93456bcc436c7f839213ac8698a7f8c5948cdf3ccbc56f152b08dacbeed982da2c17fe4a9e19fc9871dfd52a9190eda2d514913835a1b83c6359d56b343520b96416909145ec2c18cb6ef8011d0b98d3fb3f250810dc873fa56309a621632f6040ffa4031fc98cd8418c8ca7af7fcddce5bb83b3bec5792b3ccbaff406f0aa26017e36684850989cf400eac690a7fdcf73241fa14f20e30c604bfb14e7fca1e90acee2eecf185dbfffbbdc15d43bf1efebb898d58fc7016d8344e62e2bbc487ef8209c1e7b0d7b21d8dec7c5fb7e5ec4541f9e8ec5704036e896c5b1b92f358d2d264e9003e8990aa45f25155cc6476bc9f8f41295ff1105cc14486a8d493b1c404c9c18c61dbfc730265f11ea389988580ac248e1ba2742ac85000891ac7597de304e11b5ee23dbe089e244341f5a1d369463b16fd928ff5312adb5b84a737a8bb17eea3717f06b305526ec47e3b9f9599e9606de456e7773c0146ee6f8bf6a04495f4f5a013237f745819a7d1ce82acbb16f5e806554b5702887f599642d82079c95330c725115c88113fa445de28ba3ec3ff23fac35071827c4d1c8ee9cdf2e8a3281e937ad0be10d148f4296d87f6835203f96299083108fa3d116057438f71ef6b96209588828e0ad820295577d2d8a77c87a892777d2244901fd056d9f5634912a2ff1a739f566bed6a8e8dfa1f1bf08217d912c4f0741da49bc5cf8e804384f696f32d065c8054cb84c422b73af5cff4a082c1288f2dbb8e7e5c68968e09e5d682fa87b6d031e86b5cbed9350cd26845542d075dca437fe7c402806346726b95f2d4ba2169e4030c7616178aea633bc607d552b9fdfc6aa7b8f751dcecb15340676f3fab540c50d69effd60e99e86c36c8bf17315a8036a5ad6814d3aaeadeaa3932f1cb31592731329d21fa1cbd801e16e15b20cfba15dc2c2dd2aae32bf5a62d0f94edd7b1f1d20b038c983efbba0af058b9e0f82c4a92e53cb80df40708f7f36a3d61de5f1a0515b0b5b1151647efd33e542b113e5683b4b281d9677a915cb7611f0697b61a2eddc103cf8574201a8b865da95d95b01de1b494e95e2255f821bb84ff56985a9c89ea321bfed4755c3e673b607aac6699e2f14c05d954d64447843e6e5af41d6d876c1db3296ca0e25df0dbb4b7f511991faf82b0fb359563df7e78990e164b5337559033527cd923d62ff8702959041b3039644b0a661dcbd22e972b6b10bbddf336a9e3c7eaa0864c9f24125faf2cabf6727102e327953846255e511a160707417df5308283ca4e0cd3b00f12c9602ac791663b420a2fb4f24f2c4b668eba51d988b6e2347ba77824f6335fa7c68896499506242d0eb61e6c21c4dd3fac2d77fc98eaff624240b58415212ce69d8b5f9248467a3a83644b801507293d2da9c2f6a991225e7a7c9d45a39444981895f57582d51c92171afeeb7bd9d62c2e42db017a40234ea414d7d630fd64a2bb91d151581158e4a8b4da7e8cbdb0070c872fcb48cdf09a54f3bcec93c2387ca305cc589cf73b0c61ae25c9d7d0c86c14ec7304d60cd60147f8721a95e6e410905b20471eb2a16c330ae5bffc0d7d6c2dfec1970ade55af8df6c0e5b666c458900a58fb745da0f58fa52882196f2fe952472735ae42e2eefb957974ad7dcafc8bc8f077b57cff5244bb16e764796f9a0ff087cf34581df7150f912775b938f1e849c5fd716e52c1a8bb13a1a8a5dfbdf453d9c8649913f80302cf041ed89a7e60bf0fbd04c149058f214345a22383da1a45872cbcd055aa359d26f3876eefbc0ed86b5a75d64a6e6d24fedb208bd29054b344b46d15e7ed06e7ab18f31ac8dc94b7873de052c242e1fcfc0dfab3370db6df4a8286aa1be54b6afaf1c74c528819e818ef7b566b644e18920350190591b45ec4a0797fb48f27edd0dc3aced77ef4b260277f8ebb56236f312cc2055d21424d47feff051b99e7ab2a897bd59dd8c9942a10d43a2daa60c49bb8f165814cc839e047fd1c4af5c3528d65a795b5c2a4cfec292c1785880b76ee3d20f08913d5a7d3552fe5709e47fcde9c6216a5467cb54e51d0fe6a0a89bdbc4830ed5fbeb84b6901a9461d205ee6c002b10cf9215a2e65b0feed253fd81ad3406beea00e8a68357ca3819e2160a0bd2f8327b383b7eec29ffdd11d6c5bf609af4329d10aa70a7eeb405b9bd4752b0f20e6d5d117505b6da37bca41dde4be84c6db38fbe70d894c7ab2c07ac9f1e964dced8b7064f33db075533cec3c4e1e123ab76737ea4fb38444fc14c8b0b2deaf646c8f8ad40d0dd059d8800218bf88a9b88d06e95145228365bbb672626d03901326d7c2</script>
-</div>
-<script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">]]></content>
-      <categories>
-        <category>随笔</category>
-      </categories>
-      <tags>
-        <tag>加密</tag>
-        <tag>推免</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>实时视频传输APP</title>
-    <url>/2021/01/15/%E5%AE%9E%E6%97%B6%E8%A7%86%E9%A2%91%E4%BC%A0%E8%BE%93APP/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><!-- wp:heading -->
-<p><h2><strong>视频通信APP</strong><strong>的设计</strong></h2><br><!-- /wp:heading --></p>
-<!-- wp:heading -->
-<p><h2><strong>1       </strong>功能选择界面</h2><br><!-- /wp:heading --></p>
-<!-- wp:paragraph -->
-<p><p>通过程序设计，首先构建用户功能选择界面，其中包括用户名和该用户的个人签名、个人头像，本处签名选用为个人网站，新的个人网站：<a href="https://www.codekp.cn/">https://www.codekp.cn/</a>。向下依次是Home主界面，主要是APP的地图功能。第二项Gallery为第二个界面，为APP的蓝牙信道检测功能，第三项Slideshow为第三界面，为APP的视频通话功能。点击三个界面选项框可以跳转到自己的界面。</p><br><!-- /wp:paragraph --></p>
-<!-- wp:image {"id":254,"sizeSlug":"large","linkDestination":"none"} -->
-<p><figure class="wp-block-image size-large"><img src="http://www.mmrsl.cn/wp-content/uploads/2021/01/1.png" alt="" class="wp-image-254"/ loading="lazy"></figure><br><!-- /wp:image --></p>
-<!-- wp:paragraph {"align":"center"} -->
-<p><p class="has-text-align-center">图1 APP功能选择界面图</p><br><!-- /wp:paragraph --></p>
-<!-- wp:heading -->
-<p><h2><strong>2       </strong> 定位界面</h2><br><!-- /wp:heading --></p>
-<!-- wp:paragraph -->
-<p><p><a>定位界面，主要由上方的底层用户数据显示界面，和下方的定位地图界面，地图界面采用浏览器形式，并对定位点用红色鲜明坐标在图中进行了标记。</a></p><br><!-- /wp:paragraph --></p>
-<!-- wp:paragraph -->
-<p><p>首先，通过调用安卓底层接口，读取手机的经度、纬度等信息，然后设计了一个浏览器界面，由于时间关系没有调用高德地图的api，直接调用的web静态页面。通过修改URL的页面地址，即可获得如图所示的地图信息显示图。</p><br><!-- /wp:paragraph --></p>
-<!-- wp:image {"id":255,"sizeSlug":"large","linkDestination":"none"} -->
-<p><figure class="wp-block-image size-large"><img src="http://www.mmrsl.cn/wp-content/uploads/2021/01/2-514x1024.png" alt="" class="wp-image-255"/ loading="lazy"></figure><br><!-- /wp:image --></p>
-<!-- wp:paragraph {"align":"center"} -->
-<p><p class="has-text-align-center">图2 APP定位界面</p><br><!-- /wp:paragraph --></p>
-<!-- wp:paragraph -->
-<p><p>其次，由于本文中获取的为GPS原始数据，采用的是国际坐标系(WGS84)，而中国地图采用的为火星坐标系(GCJ02)，其中进行了经纬度的转换，将原始数据转到精准的经纬度数据，并实现精确定位。</p><br><!-- /wp:paragraph --></p>
-<!-- wp:heading -->
-<p><h2><strong>3       </strong>视频通话界面</h2><br><!-- /wp:heading --></p>
-<!-- wp:paragraph -->
-<p><p>视频通话界面，界面左侧为通话对方的实时视频图像，右方为己方的实时视频图像，下方为对方的端口号输入栏，右侧为设置，点击后会连接进对方的视频数据中。</p><br><!-- /wp:paragraph --></p>
-<!-- wp:paragraph -->
-<p><p>首先，先编写程序，读取安卓手机的相机接口。其中的原理是，首先将调用安卓手机的相机功能，然后将拍摄到的视频保存在存储器中的某个地方，然后读取该位置的图片，在右侧视频端进行显示，调用相机接口如图3所示。</p><br><!-- /wp:paragraph --></p>
-<!-- wp:paragraph -->
-<p><p>然后采用socket通信，其中有两种选择，TCP通信和UDP通信两种方式，其各自在自己的使用场景下有各自的优点，但是考虑到UDP不用握手可以完成双向传递，于是选择UDP，同时还可以提高通信速率。</p><br><!-- /wp:paragraph --></p>
-<!-- wp:image {"id":258,"sizeSlug":"large","linkDestination":"none"} -->
-<p><figure class="wp-block-image size-large"><img src="http://www.mmrsl.cn/wp-content/uploads/2021/01/3-1-626x1024.png" alt="" class="wp-image-258"/ loading="lazy"></figure><br><!-- /wp:image --></p>
-<!-- wp:paragraph {"align":"center"} -->
-<p><p class="has-text-align-center">图3 APP视频通话相机功能</p><br><!-- /wp:paragraph --></p>
-<!-- wp:paragraph -->
-<p><p>获取到本地的图像数据后，对图像进行编码，通过UDP通讯协议进行传输，传输到本地IP：192.168.201.217，端口：8888上。然后在另对方手机中输入己方IP地址，点击START按钮即可开始视频通话，视频通话完成图像如下图所示。</p><br><!-- /wp:paragraph --></p>
-<!-- wp:image {"id":259,"sizeSlug":"large","linkDestination":"none"} -->
-<p><figure class="wp-block-image size-large"><img src="http://www.mmrsl.cn/wp-content/uploads/2021/01/4-1-524x1024.png" alt="" class="wp-image-259"/ loading="lazy"></figure><br><!-- /wp:image --></p>
-<!-- wp:paragraph {"align":"center"} -->
-<p><p class="has-text-align-center">图4 APP视频通话界面图</p><br><!-- /wp:paragraph --></p>
-<!-- wp:heading -->
-<p><h2><strong>4      APP</strong>视频demo</h2><br><!-- /wp:heading --></p>
-<!-- wp:video -->
-<p><figure class="wp-block-video"><video controls src="blob:http://www.mmrsl.cn/386ea6cf-f2e7-47b7-9cf8-8346885f1ddd"></video></figure><br><!-- /wp:video --></p>
+    <title>xmu健康打卡ios快捷指令</title>
+    <url>/2020/12/06/%E5%A4%A7%E5%AD%A6ios%E7%B3%BB%E7%BB%9F%E6%89%93%E5%8D%A1%E6%8D%B7%E5%BE%84/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="XMU健康打卡ios快捷指令"><a href="#XMU健康打卡ios快捷指令" class="headerlink" title="XMU健康打卡ios快捷指令"></a><center>XMU健康打卡ios快捷指令</center></h1><h2 id="XMU-Health-Report-Base-On-Iphone"><a href="#XMU-Health-Report-Base-On-Iphone" class="headerlink" title=" XMU Health Report Base On Iphone "></a><center> XMU Health Report Base On Iphone </center></h2><a id="more"></a>
+<h2 id="1-工具"><a href="#1-工具" class="headerlink" title="1.工具"></a>1.工具</h2><ul>
+<li>浏览器</li>
+<li>由于各个网页不同，可能会有不一样的结果，因此这个过程仅供参考。</li>
+<li>下面说一下大概的思路，先用浏览器打开我们打卡的链接，接着打开浏览器，按F12进入开发者模式。</li>
+<li>接着，选择network<center>
+<img src="https://www.codekp.cn/download/img/xmu_r/F12.PNG" width = "400" height = "302" alt="图片名称" align=center / loading="lazy">
+</center></li>
+<li><p>找到POST，不要寻找GET</p>
+<center>
+<img src="https://www.codekp.cn/download/img/xmu_r/get.PNG" width = "400" height = "302" alt="图片名称" align=center / loading="lazy">
+</center>
+</li>
+<li><p>如下：<br><center>
+<img src="https://www.codekp.cn/download/img/xmu_r/post.PNG" width = "400" height = "302" alt="图片名称" align=center / loading="lazy">
+</center><br>将里面的连接保存下来<br><a href="https://ids.xmu.edu.cn/authserver/login?service=https://xmuxg.xmu.edu.cn/login/cas/xmu" target="_blank" rel="noopener">https://ids.xmu.edu.cn/authserver/login?service=https://xmuxg.xmu.edu.cn/login/cas/xmu</a></p>
+</li>
+</ul>
+<p>即找到了我们需要的登录网址。</p>
+<p>接下来记录 username和userpassword，依次填入ios。</p>
+<center>
+<img src="https://www.codekp.cn/download/img/xmu_r/report.PNG" width = "400" height = "302" alt="图片名称" align=center / loading="lazy">
+</center>
+
+
+
+<ul>
+<li>将得到的数据填入一下列表<center>
+<img src="https://www.codekp.cn/download/img/xmu_r/report_ios.jpg" width = "400" height = "302" alt="图片名称" align=center / loading="lazy">
+</center>
+
+
+</li>
+</ul>
+<blockquote>
+<p>仅只写到这里有兴趣的自己继续探索。</p>
+</blockquote>
 ]]></content>
       <categories>
-        <category>安卓APP</category>
+        <category>厦门大学</category>
       </categories>
       <tags>
-        <tag>安卓APP</tag>
+        <tag>厦门大学</tag>
+        <tag>健康打卡</tag>
       </tags>
   </entry>
   <entry>
@@ -869,57 +863,8 @@ H(x) =\sum_{i=1}^np_i(x)log_2(\frac 1 {p_i(x)})</script><p>b=2的时候单位是
         <category>辅助技术</category>
       </categories>
       <tags>
-        <tag>markdown</tag>
         <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>xmu健康打卡ios快捷指令</title>
-    <url>/2020/12/06/%E5%A4%A7%E5%AD%A6ios%E7%B3%BB%E7%BB%9F%E6%89%93%E5%8D%A1%E6%8D%B7%E5%BE%84/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="XMU健康打卡ios快捷指令"><a href="#XMU健康打卡ios快捷指令" class="headerlink" title="XMU健康打卡ios快捷指令"></a><center>XMU健康打卡ios快捷指令</center></h1><h2 id="XMU-Health-Report-Base-On-Iphone"><a href="#XMU-Health-Report-Base-On-Iphone" class="headerlink" title=" XMU Health Report Base On Iphone "></a><center> XMU Health Report Base On Iphone </center></h2><a id="more"></a>
-<h2 id="1-工具"><a href="#1-工具" class="headerlink" title="1.工具"></a>1.工具</h2><ul>
-<li>浏览器</li>
-<li>由于各个网页不同，可能会有不一样的结果，因此这个过程仅供参考。</li>
-<li>下面说一下大概的思路，先用浏览器打开我们打卡的链接，接着打开浏览器，按F12进入开发者模式。</li>
-<li>接着，选择network<center>
-<img src="https://www.codekp.cn/download/img/xmu_r/F12.PNG" width = "400" height = "302" alt="图片名称" align=center / loading="lazy">
-</center></li>
-<li><p>找到POST，不要寻找GET</p>
-<center>
-<img src="https://www.codekp.cn/download/img/xmu_r/get.PNG" width = "400" height = "302" alt="图片名称" align=center / loading="lazy">
-</center>
-</li>
-<li><p>如下：<br><center>
-<img src="https://www.codekp.cn/download/img/xmu_r/post.PNG" width = "400" height = "302" alt="图片名称" align=center / loading="lazy">
-</center><br>将里面的连接保存下来<br><a href="https://ids.xmu.edu.cn/authserver/login?service=https://xmuxg.xmu.edu.cn/login/cas/xmu" target="_blank" rel="noopener">https://ids.xmu.edu.cn/authserver/login?service=https://xmuxg.xmu.edu.cn/login/cas/xmu</a></p>
-</li>
-</ul>
-<p>即找到了我们需要的登录网址。</p>
-<p>接下来记录 username和userpassword，依次填入ios。</p>
-<center>
-<img src="https://www.codekp.cn/download/img/xmu_r/report.PNG" width = "400" height = "302" alt="图片名称" align=center / loading="lazy">
-</center>
-
-
-
-<ul>
-<li>将得到的数据填入一下列表<center>
-<img src="https://www.codekp.cn/download/img/xmu_r/report_ios.jpg" width = "400" height = "302" alt="图片名称" align=center / loading="lazy">
-</center>
-
-
-</li>
-</ul>
-<blockquote>
-<p>仅只写到这里有兴趣的自己继续探索。</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>厦门大学</category>
-      </categories>
-      <tags>
-        <tag>厦门大学</tag>
-        <tag>健康打卡</tag>
+        <tag>markdown</tag>
       </tags>
   </entry>
   <entry>
@@ -996,50 +941,58 @@ r = \frac{|w^Tx+b|}{||w||}</script><ol>
       </tags>
   </entry>
   <entry>
-    <title>百度谷歌搜索引擎索引</title>
-    <url>/2020/12/04/%E7%99%BE%E5%BA%A6%E8%B0%B7%E6%AD%8C%E6%90%9C%E7%8B%97%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E7%B4%A2%E5%BC%95/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="百度谷歌搜索引擎索引"><a href="#百度谷歌搜索引擎索引" class="headerlink" title="百度谷歌搜索引擎索引"></a><center>百度谷歌搜索引擎索引</center></h2><a id="more"></a>
-<h3 id="简单检索"><a href="#简单检索" class="headerlink" title="简单检索"></a>简单检索</h3><p>参考<a href="https://jingyan.baidu.com/article/6b97984dee19b81ca3b0bf4c.html" target="_blank" rel="noopener">如何让自己的网站快速被百度收录</a></p>
-<ol>
-<li>提交链接。</li>
-</ol>
-<ul>
-<li>Google: <a href="http://www.google.com/addurl/?hl=zh-CN" target="_blank" rel="noopener">Google 网站站长工具</a></li>
-<li>Baidu: <a href="https://ziyuan.baidu.com/linksubmit/url" target="_blank" rel="noopener">url提交_站长工具</a></li>
-</ul>
-<ol>
-<li>最有用的方法</li>
-</ol>
-<ul>
-<li>知乎</li>
-<li>CSDN</li>
-<li>豆瓣</li>
-<li>贴吧等平台<br>发帖，贴出自己的网址，搜索引擎就会进行索引。</li>
-</ul>
-<ol>
-<li>2020/12/4<br>目前本网站未被任何引擎索引。<center>
-<img src="https://www.codekp.cn/download/img/csdn/百度为索引.PNG" width = "400" height = "302" alt="图片名称" align=center / loading="lazy">
-</center>
-
-
-</li>
-</ol>
-<h2 id="比较麻烦的检索方式"><a href="#比较麻烦的检索方式" class="headerlink" title="比较麻烦的检索方式"></a>比较麻烦的检索方式</h2><p>  将检索文件放在网站根目录下。<br>  <a href="https://www.codekp.cn/baidu_verify_code-De28227qRL.html">测试连接</a></p>
-<p><center>
-<img src="https://www.codekp.cn/download/img/csdn/检索.PNG" width = "400" height = "302" alt="图片名称" align=center / loading="lazy">
-</center><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure><br>将备案号填入即可很快被检索。</p>
-<h2 id="提高搜索引擎权重"><a href="#提高搜索引擎权重" class="headerlink" title="提高搜索引擎权重"></a>提高搜索引擎权重</h2><ul>
-<li>最简单的方法就是在各种平台多放点网址进去。</li>
-</ul>
-<h2 id="结尾-2020-12-12"><a href="#结尾-2020-12-12" class="headerlink" title="结尾 2020/12/12"></a>结尾 2020/12/12</h2><p>目前网站被百度收录。<br><img src="https://img-blog.csdnimg.cn/20201212234708921.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></p>
+    <title>实时视频传输APP</title>
+    <url>/2021/01/15/%E5%AE%9E%E6%97%B6%E8%A7%86%E9%A2%91%E4%BC%A0%E8%BE%93APP/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><!-- wp:heading -->
+<p><h2><strong>视频通信APP</strong><strong>的设计</strong></h2><br><!-- /wp:heading --></p>
+<!-- wp:heading -->
+<p><h2><strong>1       </strong>功能选择界面</h2><br><!-- /wp:heading --></p>
+<!-- wp:paragraph -->
+<p><p>通过程序设计，首先构建用户功能选择界面，其中包括用户名和该用户的个人签名、个人头像，本处签名选用为个人网站，新的个人网站：<a href="https://www.codekp.cn/">https://www.codekp.cn/</a>。向下依次是Home主界面，主要是APP的地图功能。第二项Gallery为第二个界面，为APP的蓝牙信道检测功能，第三项Slideshow为第三界面，为APP的视频通话功能。点击三个界面选项框可以跳转到自己的界面。</p><br><!-- /wp:paragraph --></p>
+<!-- wp:image {"id":254,"sizeSlug":"large","linkDestination":"none"} -->
+<p><figure class="wp-block-image size-large"><img src="http://www.mmrsl.cn/wp-content/uploads/2021/01/1.png" alt="" class="wp-image-254"/ loading="lazy"></figure><br><!-- /wp:image --></p>
+<!-- wp:paragraph {"align":"center"} -->
+<p><p class="has-text-align-center">图1 APP功能选择界面图</p><br><!-- /wp:paragraph --></p>
+<!-- wp:heading -->
+<p><h2><strong>2       </strong> 定位界面</h2><br><!-- /wp:heading --></p>
+<!-- wp:paragraph -->
+<p><p><a>定位界面，主要由上方的底层用户数据显示界面，和下方的定位地图界面，地图界面采用浏览器形式，并对定位点用红色鲜明坐标在图中进行了标记。</a></p><br><!-- /wp:paragraph --></p>
+<!-- wp:paragraph -->
+<p><p>首先，通过调用安卓底层接口，读取手机的经度、纬度等信息，然后设计了一个浏览器界面，由于时间关系没有调用高德地图的api，直接调用的web静态页面。通过修改URL的页面地址，即可获得如图所示的地图信息显示图。</p><br><!-- /wp:paragraph --></p>
+<!-- wp:image {"id":255,"sizeSlug":"large","linkDestination":"none"} -->
+<p><figure class="wp-block-image size-large"><img src="http://www.mmrsl.cn/wp-content/uploads/2021/01/2-514x1024.png" alt="" class="wp-image-255"/ loading="lazy"></figure><br><!-- /wp:image --></p>
+<!-- wp:paragraph {"align":"center"} -->
+<p><p class="has-text-align-center">图2 APP定位界面</p><br><!-- /wp:paragraph --></p>
+<!-- wp:paragraph -->
+<p><p>其次，由于本文中获取的为GPS原始数据，采用的是国际坐标系(WGS84)，而中国地图采用的为火星坐标系(GCJ02)，其中进行了经纬度的转换，将原始数据转到精准的经纬度数据，并实现精确定位。</p><br><!-- /wp:paragraph --></p>
+<!-- wp:heading -->
+<p><h2><strong>3       </strong>视频通话界面</h2><br><!-- /wp:heading --></p>
+<!-- wp:paragraph -->
+<p><p>视频通话界面，界面左侧为通话对方的实时视频图像，右方为己方的实时视频图像，下方为对方的端口号输入栏，右侧为设置，点击后会连接进对方的视频数据中。</p><br><!-- /wp:paragraph --></p>
+<!-- wp:paragraph -->
+<p><p>首先，先编写程序，读取安卓手机的相机接口。其中的原理是，首先将调用安卓手机的相机功能，然后将拍摄到的视频保存在存储器中的某个地方，然后读取该位置的图片，在右侧视频端进行显示，调用相机接口如图3所示。</p><br><!-- /wp:paragraph --></p>
+<!-- wp:paragraph -->
+<p><p>然后采用socket通信，其中有两种选择，TCP通信和UDP通信两种方式，其各自在自己的使用场景下有各自的优点，但是考虑到UDP不用握手可以完成双向传递，于是选择UDP，同时还可以提高通信速率。</p><br><!-- /wp:paragraph --></p>
+<!-- wp:image {"id":258,"sizeSlug":"large","linkDestination":"none"} -->
+<p><figure class="wp-block-image size-large"><img src="http://www.mmrsl.cn/wp-content/uploads/2021/01/3-1-626x1024.png" alt="" class="wp-image-258"/ loading="lazy"></figure><br><!-- /wp:image --></p>
+<!-- wp:paragraph {"align":"center"} -->
+<p><p class="has-text-align-center">图3 APP视频通话相机功能</p><br><!-- /wp:paragraph --></p>
+<!-- wp:paragraph -->
+<p><p>获取到本地的图像数据后，对图像进行编码，通过UDP通讯协议进行传输，传输到本地IP：192.168.201.217，端口：8888上。然后在另对方手机中输入己方IP地址，点击START按钮即可开始视频通话，视频通话完成图像如下图所示。</p><br><!-- /wp:paragraph --></p>
+<!-- wp:image {"id":259,"sizeSlug":"large","linkDestination":"none"} -->
+<p><figure class="wp-block-image size-large"><img src="http://www.mmrsl.cn/wp-content/uploads/2021/01/4-1-524x1024.png" alt="" class="wp-image-259"/ loading="lazy"></figure><br><!-- /wp:image --></p>
+<!-- wp:paragraph {"align":"center"} -->
+<p><p class="has-text-align-center">图4 APP视频通话界面图</p><br><!-- /wp:paragraph --></p>
+<!-- wp:heading -->
+<p><h2><strong>4      APP</strong>视频demo</h2><br><!-- /wp:heading --></p>
+<!-- wp:video -->
+<p><figure class="wp-block-video"><video controls src="blob:http://www.mmrsl.cn/386ea6cf-f2e7-47b7-9cf8-8346885f1ddd"></video></figure><br><!-- /wp:video --></p>
 ]]></content>
       <categories>
-        <category>谷歌</category>
-        <category>百度</category>
+        <category>安卓APP</category>
       </categories>
       <tags>
-        <tag>hexo</tag>
-        <tag>搜索引擎</tag>
+        <tag>安卓APP</tag>
       </tags>
   </entry>
   <entry>
@@ -1099,148 +1052,140 @@ r = \frac{|w^Tx+b|}{||w||}</script><ol>
       </tags>
   </entry>
   <entry>
-    <title>矩阵分析引论</title>
-    <url>/2020/11/17/%E7%9F%A9%E9%98%B5%E8%AE%BA/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="矩阵分析引论"><a href="#矩阵分析引论" class="headerlink" title="矩阵分析引论"></a><center>矩阵分析引论</center></h1><h2 id="Introduction-to-matrix-analysis"><a href="#Introduction-to-matrix-analysis" class="headerlink" title=" Introduction to matrix analysis "></a><center> Introduction to matrix analysis </center></h2><center>
-<div style="position:relative; padding-bottom:75%; width:100%; height:0">
-    <iframe src="//player.bilibili.com/player.html?aid=11355346&bvid=BV19x411878L&cid=18777309&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position:absolute; height: 100%; width: 100%;"> </iframe>
-</div>
-
-</center>
-
-<a id="more"></a>
-<h2 id="1-线性空间与线性变换"><a href="#1-线性空间与线性变换" class="headerlink" title="1.线性空间与线性变换"></a>1.线性空间与线性变换</h2><ol>
-<li>对加减乘除封闭的集合被称之为数域。矩阵论中较常用的数域是QRC。其中Q:有理数域、R:实数数域、C复数数域。<br>$Q\subset R\subset C$<br>如果一个非空集合在某数域上，以下八条<center>
-<img src="https://www.codekp.cn/download/img/矩阵论/1.PNG" width = "1147" height = "950" alt="图片名称" align=center / loading="lazy">
-</center>
-
-
-</li>
-</ol>
-<h3 id="线性空间例3-（函数空间-f-I-R"><a href="#线性空间例3-（函数空间-f-I-R" class="headerlink" title="线性空间例3.（函数空间$f(I,R)$)"></a>线性空间例3.（函数空间$f(I,R)$)</h3><ul>
-<li>$V:$<br>$F(I，R^n)$<br>$I=(0,1) ,[\frac{1}{2}，5]$函数的定义域<br>$R^n值域空间$<br>以函数为元素的抽象集合，数域取R</li>
-</ul>
+    <title>强化学习</title>
+    <url>/2020/11/20/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Q-learning入门例程及Python实现"><a href="#Q-learning入门例程及Python实现" class="headerlink" title="Q-learning入门例程及Python实现"></a><center>Q-learning入门例程及Python实现</center></h1><p><strong>摘要：Q-learning算法是一种以马尔科夫决策作为理论基础与模型无关的强化学习算法。本文中会描述一个入门级强化学习例程，即房间连通性问题：根据房间的连通性与否及房间出口构建回报矩阵R。并通过python语言利用强化学习算法获得该场景下的评估矩阵Q，最后利用Q矩阵寻找最优路径。</strong><br><a id="more"></a></p>
+<p>关键词：Q-learning；R矩阵；Q矩阵；最优路径决策</p>
+<h2 id="一、从马尔科夫过程到Q学习"><a href="#一、从马尔科夫过程到Q学习" class="headerlink" title="一、从马尔科夫过程到Q学习"></a>一、从马尔科夫过程到Q学习</h2><p>标准的马尔科夫决策过程可以用一个五元组\<S,A,P,R,γ\> 表示，其中：</p>
 <ul>
-<li>： f+g<br>$ +  ： \begin{cases} f_1(x)\ f_2(x)\ f_n(x) \end{cases} + \begin{cases} g_1(x)\ g_2(x)\ g_n(x) \end{cases} = \begin{cases} f_1(x)+g_1(x)\f_2(x)+ g_2(x)\f_n(x)+g_n(x) \end{cases}  x \in I$</li>
-</ul>
-<ul>
-<li>：f<em>k<br>$</em> : \begin{cases} f_1(x)\ f_2(x)\ f_n(x) \end{cases} * k =\begin{cases} kf_1(x)\ kf_2(x)\ kf_n(x) \end{cases}$</li>
-</ul>
-<p>定义：（向量组及向量组拼成向量抽象矩阵）<br>设V是F上的线性空间V中的有限序列$\alpha_1、\alpha2、\alpha3 …\alpha_p $的一个向量组，向量组按顺序排列的行称为向量组拼成的抽象矩阵$[\alpha_1、\alpha2、\alpha3 …\alpha_p ]$<br>序列：抽象或实际数构成的序列，抽象矩阵。用V中的抽象物拼接为一个矩阵。即：抽象的集合。</p>
-<blockquote>
-<p>数乘运算、线性空间满足八条运算规则:</p>
-</blockquote>
-<p>4条：<br>加法有交换律、结合律、有负元、有零元。<br>4条：<br>乘法有两个分配律，数乘法对抽象加法的分配律，数乘法对数值的分配律，先乘后乘以集合和两次分别乘以集合相等，f中的乘法单位元e做数乘法时空间不变。</p>
-<p>标准线性空间：<br>例子<br>二维空间<br>三维空间 ：所有有向线段构成的集合。<br>几何空间：<br>函数空间：函数作为运算对象，所构成的空间。信号的集合构成函数空间。</p>
-<p>将几何空间的解析几何方法抽象到一般的框架下，集合的量变成代数的量，坐标系。<br>考虑什么样的向量组可以模拟成几何的线性空间的问题。<br>向量组：$\alpha_1、\alpha2、\alpha3 …\alpha_p $<br>抽象矩阵：$[\alpha_1、\alpha2、\alpha3 …\alpha_p ]$<br>1行p列的抽象矩阵，可以竖着拼。<br>行向量，横拼接。<br>列向量，竖拼接。<br>向量组的线性相关性：如果存在不全为零的P个数$k_i\in F, i=1,2,…,p$使得<br>$\alpha_1k_1+\alpha2k_2+\alpha3k_3 …\alpha_pk_p=0$<br>则向量组\alpha_1、\alpha2、\alpha3 …\alpha_p称之为线性相关。<br>注： $\exists\begin{cases} k_1\ k_2\ k_n \end{cases} \neq 0，\begin{cases} k_1\ k_2\ k_n \end{cases}\in F^p$</p>
-<p>使得(*)成立，对以上命题进行否定。<br>$\exists a\in P_a $<br>否定$\forall a\notin P_a $</p>
-<p> $\forall \begin{cases} k_1\ k_2\ k_n \end{cases} \neq 0$<br> $\alpha_1k_1+\alpha2k_2+\alpha3k_3 …\alpha_pk_p\neq 0$<br>线性无关</p>
-<p>线性无关即为线性相关的否定，存在系数不全为零的时，使得等号成立，即线性无关。</p>
-<p>$[\alpha_1、\alpha2、\alpha3 …\alpha_p ][x_1,x_2,x_3,…,x_p]^T=0$<br>线性相关《——》有非零解<br>线性无关《——》没有非零解</p>
-<p>线性相关性：目的为了将抽象的序列搬移到几何空间中。</p>
-<h2 id="基"><a href="#基" class="headerlink" title="基"></a>基</h2><p>定义：（两个线性向量组之间的线性表示）<br>$\alpha_1、\alpha_2、\alpha_3 …\alpha_p;\beta_1、\beta_2、\beta_3、…、\beta_p$</p>
-<ol>
-<li>称为$\beta$可以由$\alpha_1、\alpha_2、\alpha_3 …\alpha_p$线性表示，如果存在$ k_1、k_2、k_3 …k_p \subset F$使得<br>$\beta=\alpha_1k_1+\alpha_2k_2+\alpha_3k_3 …+\alpha_pk_p$</li>
-<li>称$\beta_1、\beta_2、\beta_3、…、\beta_p$可以由$\alpha_1、\alpha_2、\alpha_3 …\alpha_p$线性表示，如果每个$\beta_i$据可由$\alpha_1、\alpha_2、\alpha_3 …\alpha_p$线性表示</li>
-</ol>
-<h4 id="矩阵表达"><a href="#矩阵表达" class="headerlink" title="矩阵表达"></a>矩阵表达</h4><p>$[\alpha_1、\alpha_2、\alpha_3 …\alpha_p ][x_1,x_2,x_3,…,x_p]^T=\beta$ 其中$A=[\alpha_1、\alpha2、\alpha3 …\alpha_p ]$</p>
-<ol>
-<li><p>因此$\beta$可由$\alpha_1、\alpha_2、\alpha_3 …\alpha_p$线性表示《=====》非齐次线性方程组有解</p>
+<li><p>S是一个离散有界的状态空间；</p>
 </li>
-<li><p>重点：</p>
+<li><p>A是一个离散的动作空间；</p>
 </li>
-</ol>
-<p>$[\alpha<em>1、\alpha_2、\alpha_3 …\alpha_p] \begin{pmatrix}<br>        x</em>{11} &amp; \cdots &amp; \cdots &amp; \cdots &amp; x<em>{1q} \<br>        x</em>{21} &amp; \cdots &amp;\cdots &amp; \cdots &amp; x<em>{2q} \<br>        \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \<br>        x</em>{p1} &amp; \cdots &amp; \cdots &amp; \cdots &amp; x<em>{pq}\<br>        \end{pmatrix}</em>{pq} =[\beta_1、\beta_2、\beta_3、…、\beta_p]$</p>
-<p>$[\alpha_1、\alpha_2、\alpha_3 …\alpha_p ]$记作A<br>$[\beta_1、\beta_2、\beta_3…\beta_p]$记作B：<br>$AX=B$抽象的矩阵方程</p>
-<p>$[\beta_i]$可有$[\alpha_i]$线性表示《=====》线性方程有解。</p>
-<ol>
-<li>线性表示具有传递性：<br>$[\alpha_1、\alpha2、\alpha3 …\alpha_p ]    、[{\alpha_i}]$<br>$[\beta_1、\beta_2、\beta_3…\beta_q]   、[{\beta_j}]$<br>$[\gamma_1、\gamma_2、\gamma_3…\gamma_t]      、[{\gamma_k}]$   </li>
-</ol>
-<p>$ [{\beta_j}]\leq lin [{\alpha_i}]<br>$且$ [{\gamma_k}]\leq lin [{\beta_j}]<br>$则$ [{\gamma_k}]\leq lin [{\alpha_i}]<br>$</p>
-<p>A$\leq lin$B 意思是A可以由B线性表示。</p>
-<ul>
-<li>证：<br>即 Ax=B、By=C 有解，证明Az=C？<br>C=By=(Ax)y</li>
+<li><p>P为状态转移概率函数，表示agent在状态s下选取动作a后转移到a’的概率；</p>
+</li>
+<li><p>R为回报函数，用于计算agent由当前状态 选取动作 后转移到下一状态<br>得到的立即回报值，由当前状态和选取的动作决定，体现了马尔科夫性的特点；</p>
+</li>
+<li><p>γ是折扣因子，用于确定延迟回报与立即回报的相对比例，<br>越大表明延迟回报的重要程度越高。</p>
+</li>
 </ul>
-<p><img src="https://www.codekp.cn/download/img/矩阵论/目录.png" width = "400" height = "302" alt="图片名称" align=center / loading="lazy"></p>
+<p><img src="https://img-blog.csdnimg.cn/2019092420285149.png" width = "200" height = "40" alt="图片名称" align=center / loading="lazy"></p>
+<p>马尔科夫决策问题的目标是找到一个策略<br>，使其回报函数的长期累积值的数学期望最大。其中，策略π只和状态相关，与时间无关（静态的）。<img src="https://img-blog.csdnimg.cn/20190924203953879.png" width = "15" height = "15" alt="图片名称" align=center / loading="lazy">是t时刻的环境状态，<img src="https://img-blog.csdnimg.cn/20190924204015148.png" width = "15" height = "15" alt="图片名称" align=center / loading="lazy">是t时刻选择的动作。根据Bellman最优准则，得到最优策略 对应的最优指标为：</p>
+<p><img src="https://img-blog.csdnimg.cn/20190924203036514.png" width = "200" height = "40" alt="图片名称" align=center / loading="lazy"></p>
+<p>其中，R(s,a)为r(st,at)的数学期望，<img src="https://img-blog.csdnimg.cn/20190924203122905.png" width = "45" height = "20" alt="图片名称" align=center / loading="lazy">为在状态s下选取动作a后转移到下一状态状态s’的概率。由于某些环境中状态之间的转移概率P不容易获得，直接学习<img src="https://img-blog.csdnimg.cn/20190924203205467.png" width = "60" height = "20" alt="图片名称" align=center / loading="lazy">是很困难的，而Q学习不需要获取转移概率P，因而可用来解决此类具有马尔科夫性的问题。</p>
+<p>Q学习是一种与环境无关的算法，是一种基于数值迭代的动态规划方法。定义一个Q函数作为评估函数：</p>
+<p><img src="https://img-blog.csdnimg.cn/20190924203315691.png" width = "200" height = "30" alt="图片名称" align=center / loading="lazy"></p>
+<p>评估函数Q(s,a)的函数值是从状态s开始选择第一个动作a执行后获得的最大累积回报的折算值，通俗地说，Q值等于立即回报值r(s,a)<br>加上遵循最优策略的折算值，此时的最优策略可改写为：</p>
+<p><img src="https://img-blog.csdnimg.cn/20190924203357997.png" width = "200" height = "30" alt="图片名称" align=center / loading="lazy"></p>
+<p>该策略表达式的意义在于：如果agent用Q函数代替<img src="https://img-blog.csdnimg.cn/20190924204358289.png" width = "15" height = "15" alt="图片名称" align=center / loading="lazy">函数，就可以不考虑转移概率P，只考虑当前状态s的所有可供选择的动作a，并从中选出使Q(s,a)最大的动作，即agent对当前状态的部分Q值做出多次反应，便可以选出动作序列，使全局最优化。</p>
+<p>在Q学习中，agent由初始状态转移到目标状态的过程称为“Episode”，即“场景”。Q函数可以表示为以下的迭代形式进行Q矩阵的更新：</p>
+<p><img src="https://img-blog.csdnimg.cn/20190924203447849.png" width = "300" height = "30" alt="图片名称" align=center / loading="lazy"></p>
+<p>在每一步的迭代中，上式又可写为：</p>
+<p><img src="https://img-blog.csdnimg.cn/20190924203502753.png" width = "300" height = "30" alt="图片名称" align=center / loading="lazy"></p>
+<p>即Q矩阵(st,at)位置元素的值等于回报函数R的相应值加上折扣因子γ乘以转换到下一个状态后最大的Q值。</p>
+<p>上述的Q学习算法可以看出，当划分的状态有限时，每一场景开始时随机选择的初始状态s在算法的指导下探索环境，最终一定可以到达目标状态s*，回报函数R(s,a)是有界的，并且动作的选择能够使每个状态映射到动作对的访问是无限频率，则整个学习过程就能够训练出来。</p>
+<p>Q学习通过对环境的不断探索，积累历史经验，agent通过不断试错来强化自身，最终可以达到自主选择最优动作的目标，即不论出于何种状态，都可给出到达目标状态的最优选择路径，该算法中环境和动作相互影响，动作的选择影响环境状态，环境也可以通过强化回报函数<br>来反馈动作的优劣性，影响动作的选择。</p>
+<h2 id="二、由一个广为流传的小例子了解Q学习的算法逻辑"><a href="#二、由一个广为流传的小例子了解Q学习的算法逻辑" class="headerlink" title="二、由一个广为流传的小例子了解Q学习的算法逻辑"></a>二、由一个广为流传的小例子了解Q学习的算法逻辑</h2><p>一个由门连接的建筑物中有五个房间，如下图所示，分别用0-4号标识，将外界看作一个大房间，同样标识为5。</p>
+<p><img src="https://img-blog.csdnimg.cn/20190924205406684.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dsbV9weQ==,size_16,color_FFFFFF,t_70" width = "400" height = "200" alt="图片名称" align=center / loading="lazy"></p>
+<p>每个房间代表一个节点，门代表连线，可以将上图抽象为下面这样：</p>
+<p><img src="https://img-blog.csdnimg.cn/20190924205532752.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dsbV9weQ==,size_16,color_FFFFFF,t_70" width = "400" height = "200" alt="图片名称" align=center / loading="lazy"><br>agent会被随机放置在任意一个房间里，然后从那个房间出发，一直走到建筑外（即5号房间为目标房间）。门是双向的，所以相邻节点间是双向箭头连接。通过门可以立即得到奖励值100，通过其他门奖励值为0。将所有箭头标注奖励值如下图：</p>
+<p><img src="https://img-blog.csdnimg.cn/20190925124638361.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dsbV9weQ==,size_16,color_FFFFFF,t_70" width = "400" height = "200" alt="图片名称" align=center / loading="lazy"></p>
+<p>在Q学习中，目标是达到奖励最高的状态，所以如果agent到达目标，它将永远在那里。这种类型的目标被称为“吸收目标”。</p>
+<p>想象一下，我们的agent是一个想象的虚拟机器人，可以通过经验学习。<br>agent可以从一个房间转移到另一个房间，但它没有上帝视角，也不知道哪一扇门通向外面。</p>
+<p>按照第一部分Q学习的理论，我们把每个房间抽象为一个状态，选择进入哪号房间作为动作，把状态图和即时奖励值放到下面的奖励值表“回报矩阵R”中：-1表示不可选择的动作，两个状态间没有连接）</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">R &#x3D; np.matrix([[-1, -1, -1, -1, 0, -1],  </span><br><span class="line">[-1, -1, -1, 0, -1, 100],  </span><br><span class="line">[-1, -1, -1, 0, -1, -1],  </span><br><span class="line">[-1, 0, 0, -1, 0, -1],  </span><br><span class="line">[ 0, -1, -1, 0, -1, 100],  </span><br><span class="line">[-1, 0, -1, -1, 0, 100]])</span><br></pre></td></tr></table></figure>
+<p>现在我们将添加一个类似的矩阵“Q”给我们agent的大脑，代表了通过经验学到的东西的记忆。<br>矩阵Q的行表示agent的当前状态，列表示导致下一个状态的可能动作（节点之间的连线）。</p>
+<p>agent开始什么都不知道，矩阵Q被初始化为零。<br>在这个例子中，为了解释简单，我们假设状态的数目是已知的（六个，0-5）。<br>如果我们不知道涉及多少个状态，矩阵Q可能从只有一个元素开始。<br>如果找到新的状态，则在矩阵Q中添加更多的列和行是一项简单的任务。</p>
+<p>Q学习的更新规则如下：</p>
+<p><img src="https://img-blog.csdnimg.cn/20190924203502753.png" width = "200" height = "30" alt="图片名称" align=center / loading="lazy"></p>
+<p>根据这个公式，分配给矩阵Q的特定元素的值等于矩阵R中相应值加上学习参数γ乘以下一状态下所有可能动作的Q的最大值。</p>
+<p>基于算法思想，训练Q矩阵的具体流程如下：</p>
+<ul>
+<li><p>步骤1.初始化仓库环境和算法参数（最大训练周期数，每一场景即为一个周期，折扣因子γ，即时回报函数R和评估矩阵Q。）。</p>
+</li>
+<li><p>步骤2.随机选择一个初始状态s，若s=s*，则结束此场景，重新选择初始状态。</p>
+</li>
+<li><p>步骤3.在当前状态s的所有可能动作中随机选择一个动作a，选择每一动作的概率相等。</p>
+</li>
+<li><p>步骤4.当前状态s选取动作a后到达状态s’。</p>
+</li>
+<li><p>步骤5.使用公式对Q矩阵进行更新。</p>
+</li>
+<li><p>步骤6.设置下一状态为当前状态，s=s‘。若s未达到目标状态，则转步骤3。</p>
+</li>
+<li><p>步骤7.如果算法未达到最大训练周期数，转步骤2进入下一场景。否则结束训练，此时得到训练完毕的收敛Q矩阵。</p>
+</li>
+</ul>
+<p>上面的流程是给agent用来学习经验的。 每一场景都相当于一个培训课程。<br>在每个培训课程中, agent将探索环境 (由矩阵R表示), 接收奖励 (如果有),<br>直到达到目标状态。训练的目的是提高我们的agent的 “大脑”（矩阵 Q）。<br>场景越多，Q矩阵越优化。 在这种情况下, 如果矩阵 Q<br>得到了增强,四处探索时并不会在同一个房间进进出出,<br>agent将找到最快的路线到达目标状态。</p>
+<p>参数γ的范围为0到1（0 \&lt;= γ\&lt; 1）。<br>如果γ接近零，agent将倾向于只考虑立即得到奖励值。<br>如果γ更接近1，那么agent将会考虑更多的权重，愿意延迟得到奖励。</p>
+<p>一旦矩阵Q足够接近收敛状态，我们知道我们的agent已经学习了任意状态到达目标状态的最佳路径。</p>
+<p>例如：</p>
+<ul>
+<li><p>从初始状态2开始，agent可以使用矩阵Q作为指导,从状态2开始，最大Q值表示选择进入状态3的动作。</p>
+</li>
+<li><p>从状态3开始，最大Q值表示有两种并列最优选择：进入状态1或4。假设我们任意选择去1。</p>
+</li>
+<li><p>从状态1开始，最大Q值表示选择进入状态5的动作。</p>
+</li>
+<li><p>因此，最优策略是2 - 3 - 1 - 5。</p>
+</li>
+</ul>
+<p>我们使用Python为训练agent编写代码：<br><figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">import numpy as np  </span><br><span class="line">import random  </span><br><span class="line">  </span><br><span class="line">\# 初始化矩阵  </span><br><span class="line">Q = np.<span class="built_in">zeros</span>((<span class="number">6</span>, <span class="number">6</span>))  </span><br><span class="line">Q = np.matrix(Q)  </span><br><span class="line">  </span><br><span class="line">def wan_find(list, col, list2):  </span><br><span class="line">col_max = <span class="number">0</span>  </span><br><span class="line">col_y = <span class="number">0</span>  </span><br><span class="line">col=col  </span><br><span class="line">\# a = np.linspace(0, 5, 5);  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> in [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]:  </span><br><span class="line"><span class="keyword">if</span> col_max \&lt; list[<span class="built_in">i</span>, col] and (<span class="built_in">i</span> not in list2):  </span><br><span class="line">col_y = <span class="built_in">i</span>  </span><br><span class="line">col_max = list[<span class="built_in">i</span>, col]  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">return</span> col_y, col_max  </span><br><span class="line">  </span><br><span class="line">\# 回报矩阵R  </span><br><span class="line">R = np.matrix([[<span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">0</span>, <span class="number">-1</span>],  </span><br><span class="line">[<span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">0</span>, <span class="number">-1</span>, <span class="number">100</span>],  </span><br><span class="line">[<span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">0</span>, <span class="number">-1</span>, <span class="number">-1</span>],  </span><br><span class="line">[<span class="number">-1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">-1</span>, <span class="number">0</span>, <span class="number">-1</span>],  </span><br><span class="line">[ <span class="number">0</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">0</span>, <span class="number">-1</span>, <span class="number">100</span>],  </span><br><span class="line">[<span class="number">-1</span>, <span class="number">0</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">0</span>, <span class="number">100</span>]])  </span><br><span class="line">  </span><br><span class="line">\# 设立学习参数  </span><br><span class="line">γ = <span class="number">0.8</span>  </span><br><span class="line">  </span><br><span class="line">\# 训练  </span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> in range(<span class="number">2000</span>):  </span><br><span class="line">\# 对每一个训练,随机选择一种状态  </span><br><span class="line">state = random.randint(<span class="number">0</span>, <span class="number">5</span>)  </span><br><span class="line"><span class="keyword">while</span> True:  </span><br><span class="line">\# 选择当前状态下的所有可能动作  </span><br><span class="line">r_pos_action = []  </span><br><span class="line"><span class="keyword">for</span> action in range(<span class="number">6</span>):  </span><br><span class="line"><span class="keyword">if</span> R[state, action] \&gt;= <span class="number">0</span>:  </span><br><span class="line">r_pos_action.append(action)  </span><br><span class="line">  </span><br><span class="line">next_state = r_pos_action[random.randint(<span class="number">0</span>, len(r_pos_action) - <span class="number">1</span>)]  </span><br><span class="line">Q[state, next_state] = R[state, next_state] + γ \* (Q[next_state]).max() \# 更新  </span><br><span class="line">state = next_state  </span><br><span class="line">\# 状态4位最优库存状态  </span><br><span class="line"><span class="keyword">if</span> state == <span class="number">5</span>:  </span><br><span class="line"><span class="keyword">break</span>  </span><br><span class="line">  </span><br><span class="line">Q1=np.<span class="built_in">zeros</span>((<span class="number">6</span>, <span class="number">6</span>))  </span><br><span class="line">Q1=Q/Q.<span class="built_in">max</span>();  </span><br><span class="line">print(Q1)  </span><br><span class="line">\#frist_place = input("请输入在那个地方:")  </span><br><span class="line">\#while frist_place!=5 :  </span><br><span class="line">  </span><br><span class="line">next_place = int(input(<span class="string">'初始房间号'</span>))  </span><br><span class="line">list2 = [next_place]  </span><br><span class="line"><span class="keyword">while</span> next_place != <span class="number">5</span>:  </span><br><span class="line">next_place, value = wan_find(Q1, next_place, list2)  </span><br><span class="line">list2.append(next_place)  </span><br><span class="line">print(list2)</span><br><span class="line"></span><br><span class="line">运行结果为：</span><br><span class="line"></span><br><span class="line">[[<span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.8</span> <span class="number">0.</span> ]</span><br><span class="line"></span><br><span class="line">[<span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.64</span> <span class="number">0.</span> <span class="number">1.</span> ]</span><br><span class="line"></span><br><span class="line">[<span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.64</span> <span class="number">0.</span> <span class="number">0.</span> ]</span><br><span class="line"></span><br><span class="line">[<span class="number">0.</span> <span class="number">0.8</span> <span class="number">0.512</span> <span class="number">0.</span> <span class="number">0.8</span> <span class="number">0.</span> ]</span><br><span class="line"></span><br><span class="line">[<span class="number">0.64</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.64</span> <span class="number">0.</span> <span class="number">1.</span> ]</span><br><span class="line"></span><br><span class="line">[<span class="number">0.</span> <span class="number">0.8</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.8</span> <span class="number">1.</span> ]]</span><br><span class="line"></span><br><span class="line">初始房间号<span class="number">2</span></span><br><span class="line"></span><br><span class="line">[<span class="number">2</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">5</span>]</span><br></pre></td></tr></table></figure></p>
 ]]></content>
       <categories>
-        <category>研究生课程</category>
+        <category>算法</category>
       </categories>
       <tags>
-        <tag>研究生课程</tag>
-        <tag>矩阵论</tag>
+        <tag>matlab</tag>
+        <tag>强化学习</tag>
+        <tag>python</tag>
       </tags>
   </entry>
   <entry>
-    <title>南京大屠杀国家公祭日_网站变成灰色以表悼念</title>
-    <url>/2020/12/13/%E7%BD%91%E7%AB%99%E5%8F%98%E7%81%B0%E7%9A%84%E6%96%B9%E6%B3%95/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="南京大屠杀国家公祭日-网站变成灰色以表悼念"><a href="#南京大屠杀国家公祭日-网站变成灰色以表悼念" class="headerlink" title=" 南京大屠杀国家公祭日_网站变成灰色以表悼念 "></a><center> 南京大屠杀国家公祭日_网站变成灰色以表悼念 </center></h2><div style="position:relative; padding-bottom:75%; width:100%; height:0">
-    <iframe src="//player.bilibili.com/player.html?aid=78993619&bvid=BV1cJ411C7Dg&cid=135180758&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position:absolute; height: 100%; width: 100%;"> </iframe>
-</div>
-
-<a id="more"></a>
-<p>12月13日是第七个南京大屠杀死难者国家公祭日。公祭无辜死难之生命，告慰血与泪浸染之土地。这一天，举国上下以各种形式深切缅怀死难同胞，深切缅怀为中国人民抗日战争胜利献出生命的革命先烈和民族英雄，表达牢记历史、珍爱和平、矢志复兴，身为站长的我们都会让自己的网站的全部网页变成灰色（黑白色），以表示我们对逝者的悼念。</p>
-<h3 id="第一种：修改CSS文件"><a href="#第一种：修改CSS文件" class="headerlink" title="第一种：修改CSS文件"></a>第一种：修改CSS文件</h3><p>我们可以在网页的CSS文件中添加以下的CSS代码，来实现网页黑白色，也就是网站变灰</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">html &#123;</span><br><span class="line">    filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale&#x3D;1);</span><br><span class="line">    -webkit-filter: grayscale(100%);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="第二种：在网页的标签内加入以下代码"><a href="#第二种：在网页的标签内加入以下代码" class="headerlink" title="第二种：在网页的标签内加入以下代码"></a>第二种：在网页的<head>标签内加入以下代码</h3><p>如果你不想改动CSS文件，你可以通过在网页头部中的<head>标签内部加入内联CSS代码的形式实现网站网页变灰</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;style type&#x3D;&quot;text&#x2F;css&quot;&gt;</span><br><span class="line">html &#123;</span><br><span class="line">filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale&#x3D;1);</span><br><span class="line">-webkit-filter: grayscale(100%);&#125;</span><br><span class="line">&lt;&#x2F;style&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="第三种：修改标签加入内联样式"><a href="#第三种：修改标签加入内联样式" class="headerlink" title="第三种：修改标签加入内联样式"></a>第三种：修改<html>标签加入内联样式</h3><p>如里上面的两种方式都不喜欢，可以通过修改<html>标签，以加入内联样式的方法，达到网页变灰的效果</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;html style&#x3D;&quot;filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale&#x3D;1);</span><br><span class="line">-webkit-filter: grayscale(100%);&quot;&gt;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>CSS</category>
-      </categories>
-      <tags>
-        <tag>南京大屠杀国家公祭日</tag>
-        <tag>hexo网站</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>读书笔记</title>
-    <url>/2021/01/15/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><blockquote>
-<p>今年有一个想法，每周阅读一本书，并且在博客中发表阅读心得，每周更新一次。</p>
-<h1 id="阅读笔记"><a href="#阅读笔记" class="headerlink" title="阅读笔记"></a>阅读笔记</h1><h2 id="阅读清单"><a href="#阅读清单" class="headerlink" title="阅读清单"></a>阅读清单</h2><ul>
-<li>[x] 时间简史</li>
-<li>[x] 小王子</li>
-<li>[x] 朱光潜给年轻人的十二封信</li>
-<li>[x] 健身笔记：如何成为一个身材有料的人</li>
-<li>[x] 从零开始学钢琴</li>
-<li>[x] 我与地坛</li>
-<li>[ ] 神曲</li>
-<li>[ ] 月亮与六便士</li>
-<li>[ ] 呐喊</li>
-<li>[ ] 老人与海</li>
-<li>[ ] 追风筝的人</li>
-<li>[ ] 瓦尔登湖</li>
-<li>[ ] 金刚经说什么</li>
-<li>[ ] 牡丹亭</li>
+    <title>百度谷歌搜索引擎索引</title>
+    <url>/2020/12/04/%E7%99%BE%E5%BA%A6%E8%B0%B7%E6%AD%8C%E6%90%9C%E7%8B%97%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E7%B4%A2%E5%BC%95/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="百度谷歌搜索引擎索引"><a href="#百度谷歌搜索引擎索引" class="headerlink" title="百度谷歌搜索引擎索引"></a><center>百度谷歌搜索引擎索引</center></h2><a id="more"></a>
+<h3 id="简单检索"><a href="#简单检索" class="headerlink" title="简单检索"></a>简单检索</h3><p>参考<a href="https://jingyan.baidu.com/article/6b97984dee19b81ca3b0bf4c.html" target="_blank" rel="noopener">如何让自己的网站快速被百度收录</a></p>
+<ol>
+<li>提交链接。</li>
+</ol>
+<ul>
+<li>Google: <a href="http://www.google.com/addurl/?hl=zh-CN" target="_blank" rel="noopener">Google 网站站长工具</a></li>
+<li>Baidu: <a href="https://ziyuan.baidu.com/linksubmit/url" target="_blank" rel="noopener">url提交_站长工具</a></li>
 </ul>
-</blockquote>
-<h2 id="读书心得"><a href="#读书心得" class="headerlink" title="读书心得"></a>读书心得</h2><h3 id="时间简史"><a href="#时间简史" class="headerlink" title="时间简史"></a>时间简史</h3><p>这本书前三章主要讲的是亚里士多德的地心说到哥白尼的日星说，然后到伽利略和牛顿的经典物理学，再到法拉第、麦克斯韦的电磁场理论，基本主要内容还是讲的高中物理，基本上就是一个综述。</p>
-<p>然后讲到量子力学和相对论，如果没读这本书我一开始一直以为相对论和量子力学，两者都是正确的，但是看这本书的时候发现两者只有其中之一是正确的。但目前相对论让我们产生核能，原子弹。量子力学也在不断的发展给人类带来了直接利益，无论两者中的哪一个都无法直接判断是错误的。</p>
-<p>量子力学里面解释的并不是很详细，但是大学物理有讲，我看了这本书印象更深刻了一点，其实量子力学就是，微小的粒子，在进行测量的时候主要是采用的光的反射进行测量，因为该粒子在测量其速度的时，需要使用光进行测量所以其光的能量如果过高就会导致粒子振荡，速度变快。如果测量粒子的位置就需要采用高频率的光波依次获得更小的波长，即可获得粒子的位置。因此我们在某一时刻，只能准确的获得粒子的位置或者速度。不能同时测得粒子的两种物理属性。</p>
-<p>其中讲了一个比较有意思的实验，即红移和蓝移。由于多普勒效应天体正向我们移动的时候其恒星光谱会向红端移动，如果远离我们会向蓝段移动。但是过去了几十年，人类测量了无数光的光谱，均为红移，因此可以得出结论，所有的星体都在远离我们，因此宇宙正在逐渐的扩张。即测不准定理。</p>
-<p><img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fgss0.baidu.com%2F-Po3dSag_xI4khGko9WTAnF6hhy%2Fzhidao%2Fpic%2Fitem%2Fd0c8a786c9177f3ec454da7376cf3bc79f3d566f.jpg&amp;refer=http%3A%2F%2Fgss0.baidu.com&amp;app=2002&amp;size=f9999,10000&amp;q=a80&amp;n=0&amp;g=0n&amp;fmt=jpeg?sec=1613314542&amp;t=b6ae3fe03bf7f657e5ddbac5c9507e4d" alt="在这里插入图片描述" loading="lazy"><br>还有一个实验，其实我们生活在三维空间，但是我们可以推断的空间其实可以到四维空间，因此我们其实是可以脑袋里面构想出四维空间的，其实物理学中早有解释，你想太阳的光需要8分钟才能到地球，因此我们只能看到太阳8分钟前的样子，这样我们其实活在太阳的8分钟之前，即太阳8分钟以后的三维空间之中。</p>
-<p>星球之间主要的力是引力，霍金说主要的力分为强相互作用力、弱相互作用力，电磁力和引力。目前没有公式能将其整合成唯一的定理，因此我联想到了科学事实和客观事实，目前人类所思考的其实是科学事实，不一定是世界的正向，其存在人类的主观判断，因此不一定正确。霍金说宇宙如果有一个扩张，必然会存在一个收缩，而宇宙的收缩可能要在1亿亿年以后，暂时我们不需要担心，但是你可以想象到一件事情，无论是任何事情，即使人类可以长生不死也会有一个必然的终结，除非人类可以同时具备长生不死和穿越时空。</p>
-<p>其实引力只有在天梯之间才成立，但是人类无法通过万有引力定律计算四星运动。因为宇宙太大了，但是当质量密度达到一个点就可以通过引力产生黑洞，其实之前我一直不知道黑洞是个什么东西。但其实黑洞是人类推断出来的一个东西，其实一个小的黑洞可以小到分子级别，比你的指甲小几万倍，只要密度达到就可以产生黑洞和体积无关。因此只要人类发展到一定程度，必然可以人造黑洞，而且这个黑洞可以很小。而分子间主要是强弱相互作用和电磁力。只要讲做到三十钛福特在一个点上就可以造出一个黑洞，但目前实验室只能造出3000福特具体值不清楚但是达不到。<br>黑洞到底是怎么推论出来的呢？其实之前我也在思考黑洞到底是什么，其实很简单，我们知道其他恒星的光通过太阳的时候会因为太阳的引力光会弯曲，这样就只要质量足够的大，光就可以背弯曲成一个圆，或者变成一个抛物线，即光无法离开那个星球，光就像火箭坠机一样，被引力拉回来，即可推论出黑洞的样子大概是一个圆环，中间是黑色的因为中间的光出不来，外侧的光可以因为光的挤压在事件界面上挤压出来，即可为一个圆环状。目前人类已经发现了黑洞。<br>黑洞的重心就是奇点，当然人类是无法前往这个点的，如果有飞行员进入黑洞必死无疑，可能一瞬间就被压成了一个分子，被剥夺其存在性。<br><img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2830392986,3183821195&amp;fm=26&amp;gp=0.jpg" alt="在这里插入图片描述" loading="lazy"><br>讲一讲相对论，相对论其实就是一个测量学，其实之前的物理世界是，不同的参考系其测量是一样的，但是爱因斯坦的相对论其实给了一个很有趣的解释，就是不同的参考系如果你接近了光速，测量是不一样的，因此可以有很多科幻片说的双生子谬论。目前人类能加速的最大速度是电子，在全球最大的电子发射机内，只能将电子加速到光速的0.999999但无法超过光速。很可惜。</p>
-<p>如果超过光速人类就可以时间穿梭，这是为什么，其实你不难想象，如果你开一艘飞船从地球出发，你超过了光速，你就可以在你出发前回到地球，你懂这是什么意思吗，就是你可以前往你出发之前的那个时刻。即时空穿梭。</p>
-<p>其实你们可以想象我们活在一个四维空间中，我们可以通过超光速相当于逆时间移动，就是传统意义的穿越。</p>
-<p>那么我们如何超光速，其实霍金给出了方法，就是利用负能量和正能量在时空中制造一个虫洞，目前可以通过量子力学制造负能量点，其能量守恒定律其实之前有讲过，能量一般都是大于等于零的但是量子力学说可以在空间中制造一个负能量点和正能量点，在这两个点之间可以造成时空扭曲。产生充电，目前离地球最近的一颗恒星是比邻星，距离我们大概4光年，就是光走思念才能到比邻星。我们其实通过虫洞来回比邻星就可以超光速，如果可能的话大概咱们可以回到八年前的地球。</p>
-<p>霍金还推测五维空间不存在，因为如果多维空间存在，那么如果万有引力成立，那么其引力就会按照维数进行下降，因为引力和距离成反比，距离越大引力越小，你想维度没多一维，咱们的引力就会变成  四维空间1/2、五维1/4。。。可以想象到咱们的空间会崩塌，由于人存在性定理，其实这种多维空间是不存在的，或者万有引力有问题。</p>
-<p>看完时间简史，我感觉人类其实是十分渺小的事物，我们对世界的理解其实还很浅薄。大家总觉得目前的科技能够达到很高的地步。其实我想说，人类目前连地球都不能进行完全的探索。而且核能也只是基础，其实任何物质按照质能方程都能进行转换，按照这样的推想，石油未来并不会像现在这样被重视，因为可能一吨海水可以供人类获几百年。</p>
-<p>当初相对论刚出来的时候，全世界可能就几个人能够理解相对论和量子力学，但是现在，研究生可能有几百万人能够同时理解这两门学问，因此未来可能能够存在一个定理即物理学统一定理将一切的公式统合在一起。</p>
-<h3 id="小王子"><a href="#小王子" class="headerlink" title="小王子"></a>小王子</h3><p>小王子讲的其实是飞行员，他在沙漠中遇难他和自己对话的故事，可能是在极端的条件下，他看到了他自己，其实我们也会从这本书中看到小时候的自己，世界上的人被小王子分为了四种，用小王子所路过的星球所指代。这本书很短，2小时就可以读完，其很有趣，让你从小孩子的眼中审视这个世界，到底人们在追寻一些什么。其实细细想来很奇怪，在光里面追光。人生活的是一个过程，不是结果。希望每个人都能懂。<br>小王子对玫瑰和狐狸的解释挺有趣的，可以细细品味。</p>
-<h3 id="朱光潜给年轻人的十二封信"><a href="#朱光潜给年轻人的十二封信" class="headerlink" title="朱光潜给年轻人的十二封信"></a>朱光潜给年轻人的十二封信</h3><p>这本书感觉是给中学生写的，其实我没怎么看进去，希望你们能看进去。</p>
-<h3 id="健身笔记：如何成为一个身材有料的人"><a href="#健身笔记：如何成为一个身材有料的人" class="headerlink" title="健身笔记：如何成为一个身材有料的人"></a>健身笔记：如何成为一个身材有料的人</h3><p>讲如何健身、减肥。健身的动作、流程，减肥的方法，其中对于减肥人士的基础代谢很有用，可以自己去计算一下自己的基础代谢量。</p>
-<h3 id="从零开始学钢琴"><a href="#从零开始学钢琴" class="headerlink" title="从零开始学钢琴"></a>从零开始学钢琴</h3><p>讲钢琴的一些基础知识、如何读五线谱、然后怎么弹、左右 ，右手高音、左手低音、然后从5个音到6个音、到左右手换位置的8个音，到升降调。钢琴其实就是训练只要你会练就能学的很好，加油！<br>今年计划，学会钢琴。</p>
-<h3 id="我与地坛"><a href="#我与地坛" class="headerlink" title="我与地坛"></a>我与地坛</h3><p>史铁生在20岁的年纪失去了自己的双腿、在北京的地坛公园读书思考看到很多的人和事情，主要都是他在地坛里想了些什么，这本书对于有抑郁、对生命失去信心的人很有帮助。<br>还是那句话，人活的是一个过程，绝不是结果，自付价值，自付使命。加油！</p>
+<ol>
+<li>最有用的方法</li>
+</ol>
+<ul>
+<li>知乎</li>
+<li>CSDN</li>
+<li>豆瓣</li>
+<li>贴吧等平台<br>发帖，贴出自己的网址，搜索引擎就会进行索引。</li>
+</ul>
+<ol>
+<li>2020/12/4<br>目前本网站未被任何引擎索引。<center>
+<img src="https://www.codekp.cn/download/img/csdn/百度为索引.PNG" width = "400" height = "302" alt="图片名称" align=center / loading="lazy">
+</center>
+
+
+</li>
+</ol>
+<h2 id="比较麻烦的检索方式"><a href="#比较麻烦的检索方式" class="headerlink" title="比较麻烦的检索方式"></a>比较麻烦的检索方式</h2><p>  将检索文件放在网站根目录下。<br>  <a href="https://www.codekp.cn/baidu_verify_code-De28227qRL.html">测试连接</a></p>
+<p><center>
+<img src="https://www.codekp.cn/download/img/csdn/检索.PNG" width = "400" height = "302" alt="图片名称" align=center / loading="lazy">
+</center><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure><br>将备案号填入即可很快被检索。</p>
+<h2 id="提高搜索引擎权重"><a href="#提高搜索引擎权重" class="headerlink" title="提高搜索引擎权重"></a>提高搜索引擎权重</h2><ul>
+<li>最简单的方法就是在各种平台多放点网址进去。</li>
+</ul>
+<h2 id="结尾-2020-12-12"><a href="#结尾-2020-12-12" class="headerlink" title="结尾 2020/12/12"></a>结尾 2020/12/12</h2><p>目前网站被百度收录。<br><img src="https://img-blog.csdnimg.cn/20201212234708921.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></p>
 ]]></content>
       <categories>
-        <category>阅读</category>
+        <category>谷歌</category>
+        <category>百度</category>
       </categories>
       <tags>
-        <tag>读书笔记</tag>
+        <tag>hexo</tag>
+        <tag>搜索引擎</tag>
       </tags>
   </entry>
   <entry>
@@ -1396,53 +1341,6 @@ r = \frac{|w^Tx+b|}{||w||}</script><ol>
       </tags>
   </entry>
   <entry>
-    <title>如何优雅的制作表白网站和罗盘时钟</title>
-    <url>/2020/12/12/%E8%A1%A8%E7%99%BD%E7%BD%91%E7%AB%99%E3%80%81%E7%BD%97%E7%9B%98%E6%97%B6%E9%92%9F%E6%95%99%E7%A8%8B/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="如何优雅的制作表白网站和罗盘时钟"><a href="#如何优雅的制作表白网站和罗盘时钟" class="headerlink" title=" 如何优雅的制作表白网站和罗盘时钟"></a><center> 如何优雅的制作表白网站和罗盘时钟</center></h2><a id="more"></a>
-<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>GitHub 是一个面向开源及私有软件项目的托管平台，因为只支持 Git 作为唯一的版本库格式进行托管，故名 GitHub。</p>
-<p>GitHub 于 2008 年 4 月 10 日正式上线，除了 Git 代码仓库托管及基本的 Web 管理界面以外，还提供了订阅、讨论组、文本渲染、在线文件编辑器、协作图谱（报表）、代码片段分享（Gist）等功能。目前，其注册用户已经超过 350 万，托管版本数量也是非常之多，其中不乏知名开源项目 Ruby on Rails、jQuery、python 等。</p>
-<p>本文需要先下载git <a href="https://git-scm.com/downloads" target="_blank" rel="noopener">下载地址</a></p>
-<p>git教程请参考<a href="https://www.liaoxuefeng.com/wiki/896043488029600" target="_blank" rel="noopener">廖雪峰Git</a></p>
-<h3 id="首先我们来学习一下，一些git的push方法"><a href="#首先我们来学习一下，一些git的push方法" class="headerlink" title="首先我们来学习一下，一些git的push方法"></a>首先我们来学习一下，一些git的push方法</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git init</span><br><span class="line">git add .</span><br><span class="line">git commit -m &quot;first commit&quot;</span><br><span class="line">git branch -M main</span><br><span class="line">git remote add origin https:&#x2F;&#x2F;github.com&#x2F;mmrslwan1110&#x2F;Clock.git</span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
-<p>本过程可以参考我为大家寻找的教程<a href="https://www.cnblogs.com/lijiayi/p/githubpages.html" target="_blank" rel="noopener">github创建账号、上传文件</a></p>
-<h3 id="表白网站源码和罗盘时钟源码"><a href="#表白网站源码和罗盘时钟源码" class="headerlink" title="表白网站源码和罗盘时钟源码"></a>表白网站源码和罗盘时钟源码</h3><h4 id="表白网站源码"><a href="#表白网站源码" class="headerlink" title="表白网站源码"></a>表白网站源码</h4><p><a href="https://github.com/mmrslwan1110/love" target="_blank" rel="noopener">表白网站源码_github</a><br><a href="https://codekp.cn/love" target="_blank" rel="noopener">表白网站效果_codekp.cn</a></p>
-<p>当然为大家也准备了一个更全的合集方便大家使用下载<a href="https://github.com/wanghaodi/LoveSourceCode" target="_blank" rel="noopener">13个表白网站源码</a></p>
-<blockquote>
-<p>申明没有女朋友所以这个网站是初始状态仅供学习参考</p>
-<h4 id="罗盘时钟源码"><a href="#罗盘时钟源码" class="headerlink" title="罗盘时钟源码"></a>罗盘时钟源码</h4><h5 id="下载源码"><a href="#下载源码" class="headerlink" title="下载源码"></a>下载源码</h5><p>建议采用命令行形式下载会更快，当然可以直接downloadzip文件。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone  https:&#x2F;&#x2F;github.com&#x2F;mmrslwan1110&#x2F;Clock.git</span><br></pre></td></tr></table></figure><br><img src="https://img-blog.csdnimg.cn/20201212231940305.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70#pic_center" alt="删除内部.git文件" loading="lazy">删除download下来的.git文件</p>
-<h5 id="上传源码到自己的web"><a href="#上传源码到自己的web" class="headerlink" title="上传源码到自己的web"></a>上传源码到自己的web</h5><ol>
-<li>创建自己的仓库 参考1中教程</li>
-<li>输入git init<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
-<img src="https://img-blog.csdnimg.cn/20201212232314167.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy">可以看到git创建了一个.git文件</li>
-<li>git add .<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git add .</span><br></pre></td></tr></table></figure>
-<img src="https://img-blog.csdnimg.cn/20201212232615556.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></li>
-</ol>
-</blockquote>
-<ol>
-<li>git commit -m “first commit”<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git commit -m &quot;first commit&quot;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p><img src="https://img-blog.csdnimg.cn/20201212232746366.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></p>
-<ol>
-<li>git remote add origin <a href="https://github.com/mmrslwan1110/Clock.git" target="_blank" rel="noopener">https://github.com/mmrslwan1110/Clock.git</a><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">git remote add origin https:&#x2F;&#x2F;github.com&#x2F;mmrslwan1110&#x2F;Clock.git</span><br></pre></td></tr></table></figure>
-<img src="https://img-blog.csdnimg.cn/20201212233029800.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></li>
-</ol>
-<p>记得换成自己的链接哦</p>
-<ol>
-<li>git push -u origin master<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
-<img src="https://img-blog.csdnimg.cn/20201212233354499.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy">已经发布到自己的网站了可以访问看看自己的网站测一下效果哦。</li>
-</ol>
-<p><a href="https://github.com/mmrslwan1110/Clock" target="_blank" rel="noopener">罗盘时钟源码_github</a><br><a href="https://codekp.cn/Clock" target="_blank" rel="noopener">罗盘时钟效果_codekp.cn</a></p>
-]]></content>
-      <categories>
-        <category>JavaScript</category>
-      </categories>
-      <tags>
-        <tag>表白网站</tag>
-        <tag>罗盘时钟</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>网站视频下载及按帧将视频转为jpg</title>
     <url>/2020/10/15/%E7%BD%91%E7%AB%99%E8%A7%86%E9%A2%91%E4%B8%8B%E8%BD%BD%E5%8F%8A%E6%8C%89%E5%B8%A7%E8%BD%AC%E4%B8%BAjpg/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="网站视频下载及按帧转为jpg"><a href="#网站视频下载及按帧转为jpg" class="headerlink" title="网站视频下载及按帧转为jpg"></a>网站视频下载及按帧转为jpg</h1><h2 id="1、准备切割视频"><a href="#1、准备切割视频" class="headerlink" title="1、准备切割视频"></a>1、准备切割视频</h2><p>视频切割算法:<br><figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">clc;</span><br><span class="line">clear;</span><br><span class="line"><span class="comment">%读取视频</span></span><br><span class="line">video_file=<span class="string">'D:\1.mp4'</span>;</span><br><span class="line">obj=VideoReader(video_file);</span><br><span class="line">frame_num=obj.NumberOfFrames;<span class="comment">%一共有多少帧</span></span><br><span class="line"><span class="comment">% 分离图片</span></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:<span class="number">15</span><span class="comment">%读取前15帧</span></span><br><span class="line">    img=strcat(<span class="string">'D:\picture\',num2str(i));</span></span><br><span class="line"><span class="string">    img=strcat(img,'</span>.jpg');</span><br><span class="line">    I=read(obj,<span class="built_in">i</span>);<span class="comment">%读出第15帧图片</span></span><br><span class="line">    imwrite(I,strcat(<span class="string">'D:\picture\',num2str(i),'</span>.jpg'),<span class="string">'jpg'</span>);<span class="comment">% 保存帧</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure></p>
@@ -1494,93 +1392,224 @@ r = \frac{|w^Tx+b|}{||w||}</script><ol>
       </tags>
   </entry>
   <entry>
-    <title>强化学习</title>
-    <url>/2020/11/20/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Q-learning入门例程及Python实现"><a href="#Q-learning入门例程及Python实现" class="headerlink" title="Q-learning入门例程及Python实现"></a><center>Q-learning入门例程及Python实现</center></h1><p><strong>摘要：Q-learning算法是一种以马尔科夫决策作为理论基础与模型无关的强化学习算法。本文中会描述一个入门级强化学习例程，即房间连通性问题：根据房间的连通性与否及房间出口构建回报矩阵R。并通过python语言利用强化学习算法获得该场景下的评估矩阵Q，最后利用Q矩阵寻找最优路径。</strong><br><a id="more"></a></p>
-<p>关键词：Q-learning；R矩阵；Q矩阵；最优路径决策</p>
-<h2 id="一、从马尔科夫过程到Q学习"><a href="#一、从马尔科夫过程到Q学习" class="headerlink" title="一、从马尔科夫过程到Q学习"></a>一、从马尔科夫过程到Q学习</h2><p>标准的马尔科夫决策过程可以用一个五元组\<S,A,P,R,γ\> 表示，其中：</p>
-<ul>
-<li><p>S是一个离散有界的状态空间；</p>
+    <title>矩阵分析引论</title>
+    <url>/2020/11/17/%E7%9F%A9%E9%98%B5%E8%AE%BA/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="矩阵分析引论"><a href="#矩阵分析引论" class="headerlink" title="矩阵分析引论"></a><center>矩阵分析引论</center></h1><h2 id="Introduction-to-matrix-analysis"><a href="#Introduction-to-matrix-analysis" class="headerlink" title=" Introduction to matrix analysis "></a><center> Introduction to matrix analysis </center></h2><center>
+<div style="position:relative; padding-bottom:75%; width:100%; height:0">
+    <iframe src="//player.bilibili.com/player.html?aid=11355346&bvid=BV19x411878L&cid=18777309&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position:absolute; height: 100%; width: 100%;"> </iframe>
+</div>
+
+</center>
+
+<a id="more"></a>
+<h2 id="1-线性空间与线性变换"><a href="#1-线性空间与线性变换" class="headerlink" title="1.线性空间与线性变换"></a>1.线性空间与线性变换</h2><ol>
+<li>对加减乘除封闭的集合被称之为数域。矩阵论中较常用的数域是QRC。其中Q:有理数域、R:实数数域、C复数数域。<br>$Q\subset R\subset C$<br>如果一个非空集合在某数域上，以下八条<center>
+<img src="https://www.codekp.cn/download/img/矩阵论/1.PNG" width = "1147" height = "950" alt="图片名称" align=center / loading="lazy">
+</center>
+
+
 </li>
-<li><p>A是一个离散的动作空间；</p>
-</li>
-<li><p>P为状态转移概率函数，表示agent在状态s下选取动作a后转移到a’的概率；</p>
-</li>
-<li><p>R为回报函数，用于计算agent由当前状态 选取动作 后转移到下一状态<br>得到的立即回报值，由当前状态和选取的动作决定，体现了马尔科夫性的特点；</p>
-</li>
-<li><p>γ是折扣因子，用于确定延迟回报与立即回报的相对比例，<br>越大表明延迟回报的重要程度越高。</p>
-</li>
+</ol>
+<h3 id="线性空间例3-（函数空间-f-I-R"><a href="#线性空间例3-（函数空间-f-I-R" class="headerlink" title="线性空间例3.（函数空间$f(I,R)$)"></a>线性空间例3.（函数空间$f(I,R)$)</h3><ul>
+<li>$V:$<br>$F(I，R^n)$<br>$I=(0,1) ,[\frac{1}{2}，5]$函数的定义域<br>$R^n值域空间$<br>以函数为元素的抽象集合，数域取R</li>
 </ul>
-<p><img src="https://img-blog.csdnimg.cn/2019092420285149.png" width = "200" height = "40" alt="图片名称" align=center / loading="lazy"></p>
-<p>马尔科夫决策问题的目标是找到一个策略<br>，使其回报函数的长期累积值的数学期望最大。其中，策略π只和状态相关，与时间无关（静态的）。<img src="https://img-blog.csdnimg.cn/20190924203953879.png" width = "15" height = "15" alt="图片名称" align=center / loading="lazy">是t时刻的环境状态，<img src="https://img-blog.csdnimg.cn/20190924204015148.png" width = "15" height = "15" alt="图片名称" align=center / loading="lazy">是t时刻选择的动作。根据Bellman最优准则，得到最优策略 对应的最优指标为：</p>
-<p><img src="https://img-blog.csdnimg.cn/20190924203036514.png" width = "200" height = "40" alt="图片名称" align=center / loading="lazy"></p>
-<p>其中，R(s,a)为r(st,at)的数学期望，<img src="https://img-blog.csdnimg.cn/20190924203122905.png" width = "45" height = "20" alt="图片名称" align=center / loading="lazy">为在状态s下选取动作a后转移到下一状态状态s’的概率。由于某些环境中状态之间的转移概率P不容易获得，直接学习<img src="https://img-blog.csdnimg.cn/20190924203205467.png" width = "60" height = "20" alt="图片名称" align=center / loading="lazy">是很困难的，而Q学习不需要获取转移概率P，因而可用来解决此类具有马尔科夫性的问题。</p>
-<p>Q学习是一种与环境无关的算法，是一种基于数值迭代的动态规划方法。定义一个Q函数作为评估函数：</p>
-<p><img src="https://img-blog.csdnimg.cn/20190924203315691.png" width = "200" height = "30" alt="图片名称" align=center / loading="lazy"></p>
-<p>评估函数Q(s,a)的函数值是从状态s开始选择第一个动作a执行后获得的最大累积回报的折算值，通俗地说，Q值等于立即回报值r(s,a)<br>加上遵循最优策略的折算值，此时的最优策略可改写为：</p>
-<p><img src="https://img-blog.csdnimg.cn/20190924203357997.png" width = "200" height = "30" alt="图片名称" align=center / loading="lazy"></p>
-<p>该策略表达式的意义在于：如果agent用Q函数代替<img src="https://img-blog.csdnimg.cn/20190924204358289.png" width = "15" height = "15" alt="图片名称" align=center / loading="lazy">函数，就可以不考虑转移概率P，只考虑当前状态s的所有可供选择的动作a，并从中选出使Q(s,a)最大的动作，即agent对当前状态的部分Q值做出多次反应，便可以选出动作序列，使全局最优化。</p>
-<p>在Q学习中，agent由初始状态转移到目标状态的过程称为“Episode”，即“场景”。Q函数可以表示为以下的迭代形式进行Q矩阵的更新：</p>
-<p><img src="https://img-blog.csdnimg.cn/20190924203447849.png" width = "300" height = "30" alt="图片名称" align=center / loading="lazy"></p>
-<p>在每一步的迭代中，上式又可写为：</p>
-<p><img src="https://img-blog.csdnimg.cn/20190924203502753.png" width = "300" height = "30" alt="图片名称" align=center / loading="lazy"></p>
-<p>即Q矩阵(st,at)位置元素的值等于回报函数R的相应值加上折扣因子γ乘以转换到下一个状态后最大的Q值。</p>
-<p>上述的Q学习算法可以看出，当划分的状态有限时，每一场景开始时随机选择的初始状态s在算法的指导下探索环境，最终一定可以到达目标状态s*，回报函数R(s,a)是有界的，并且动作的选择能够使每个状态映射到动作对的访问是无限频率，则整个学习过程就能够训练出来。</p>
-<p>Q学习通过对环境的不断探索，积累历史经验，agent通过不断试错来强化自身，最终可以达到自主选择最优动作的目标，即不论出于何种状态，都可给出到达目标状态的最优选择路径，该算法中环境和动作相互影响，动作的选择影响环境状态，环境也可以通过强化回报函数<br>来反馈动作的优劣性，影响动作的选择。</p>
-<h2 id="二、由一个广为流传的小例子了解Q学习的算法逻辑"><a href="#二、由一个广为流传的小例子了解Q学习的算法逻辑" class="headerlink" title="二、由一个广为流传的小例子了解Q学习的算法逻辑"></a>二、由一个广为流传的小例子了解Q学习的算法逻辑</h2><p>一个由门连接的建筑物中有五个房间，如下图所示，分别用0-4号标识，将外界看作一个大房间，同样标识为5。</p>
-<p><img src="https://img-blog.csdnimg.cn/20190924205406684.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dsbV9weQ==,size_16,color_FFFFFF,t_70" width = "400" height = "200" alt="图片名称" align=center / loading="lazy"></p>
-<p>每个房间代表一个节点，门代表连线，可以将上图抽象为下面这样：</p>
-<p><img src="https://img-blog.csdnimg.cn/20190924205532752.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dsbV9weQ==,size_16,color_FFFFFF,t_70" width = "400" height = "200" alt="图片名称" align=center / loading="lazy"><br>agent会被随机放置在任意一个房间里，然后从那个房间出发，一直走到建筑外（即5号房间为目标房间）。门是双向的，所以相邻节点间是双向箭头连接。通过门可以立即得到奖励值100，通过其他门奖励值为0。将所有箭头标注奖励值如下图：</p>
-<p><img src="https://img-blog.csdnimg.cn/20190925124638361.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dsbV9weQ==,size_16,color_FFFFFF,t_70" width = "400" height = "200" alt="图片名称" align=center / loading="lazy"></p>
-<p>在Q学习中，目标是达到奖励最高的状态，所以如果agent到达目标，它将永远在那里。这种类型的目标被称为“吸收目标”。</p>
-<p>想象一下，我们的agent是一个想象的虚拟机器人，可以通过经验学习。<br>agent可以从一个房间转移到另一个房间，但它没有上帝视角，也不知道哪一扇门通向外面。</p>
-<p>按照第一部分Q学习的理论，我们把每个房间抽象为一个状态，选择进入哪号房间作为动作，把状态图和即时奖励值放到下面的奖励值表“回报矩阵R”中：-1表示不可选择的动作，两个状态间没有连接）</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">R &#x3D; np.matrix([[-1, -1, -1, -1, 0, -1],  </span><br><span class="line">[-1, -1, -1, 0, -1, 100],  </span><br><span class="line">[-1, -1, -1, 0, -1, -1],  </span><br><span class="line">[-1, 0, 0, -1, 0, -1],  </span><br><span class="line">[ 0, -1, -1, 0, -1, 100],  </span><br><span class="line">[-1, 0, -1, -1, 0, 100]])</span><br></pre></td></tr></table></figure>
-<p>现在我们将添加一个类似的矩阵“Q”给我们agent的大脑，代表了通过经验学到的东西的记忆。<br>矩阵Q的行表示agent的当前状态，列表示导致下一个状态的可能动作（节点之间的连线）。</p>
-<p>agent开始什么都不知道，矩阵Q被初始化为零。<br>在这个例子中，为了解释简单，我们假设状态的数目是已知的（六个，0-5）。<br>如果我们不知道涉及多少个状态，矩阵Q可能从只有一个元素开始。<br>如果找到新的状态，则在矩阵Q中添加更多的列和行是一项简单的任务。</p>
-<p>Q学习的更新规则如下：</p>
-<p><img src="https://img-blog.csdnimg.cn/20190924203502753.png" width = "200" height = "30" alt="图片名称" align=center / loading="lazy"></p>
-<p>根据这个公式，分配给矩阵Q的特定元素的值等于矩阵R中相应值加上学习参数γ乘以下一状态下所有可能动作的Q的最大值。</p>
-<p>基于算法思想，训练Q矩阵的具体流程如下：</p>
 <ul>
-<li><p>步骤1.初始化仓库环境和算法参数（最大训练周期数，每一场景即为一个周期，折扣因子γ，即时回报函数R和评估矩阵Q。）。</p>
-</li>
-<li><p>步骤2.随机选择一个初始状态s，若s=s*，则结束此场景，重新选择初始状态。</p>
-</li>
-<li><p>步骤3.在当前状态s的所有可能动作中随机选择一个动作a，选择每一动作的概率相等。</p>
-</li>
-<li><p>步骤4.当前状态s选取动作a后到达状态s’。</p>
-</li>
-<li><p>步骤5.使用公式对Q矩阵进行更新。</p>
-</li>
-<li><p>步骤6.设置下一状态为当前状态，s=s‘。若s未达到目标状态，则转步骤3。</p>
-</li>
-<li><p>步骤7.如果算法未达到最大训练周期数，转步骤2进入下一场景。否则结束训练，此时得到训练完毕的收敛Q矩阵。</p>
-</li>
+<li>： f+g<br>$ +  ： \begin{cases} f_1(x)\ f_2(x)\ f_n(x) \end{cases} + \begin{cases} g_1(x)\ g_2(x)\ g_n(x) \end{cases} = \begin{cases} f_1(x)+g_1(x)\f_2(x)+ g_2(x)\f_n(x)+g_n(x) \end{cases}  x \in I$</li>
 </ul>
-<p>上面的流程是给agent用来学习经验的。 每一场景都相当于一个培训课程。<br>在每个培训课程中, agent将探索环境 (由矩阵R表示), 接收奖励 (如果有),<br>直到达到目标状态。训练的目的是提高我们的agent的 “大脑”（矩阵 Q）。<br>场景越多，Q矩阵越优化。 在这种情况下, 如果矩阵 Q<br>得到了增强,四处探索时并不会在同一个房间进进出出,<br>agent将找到最快的路线到达目标状态。</p>
-<p>参数γ的范围为0到1（0 \&lt;= γ\&lt; 1）。<br>如果γ接近零，agent将倾向于只考虑立即得到奖励值。<br>如果γ更接近1，那么agent将会考虑更多的权重，愿意延迟得到奖励。</p>
-<p>一旦矩阵Q足够接近收敛状态，我们知道我们的agent已经学习了任意状态到达目标状态的最佳路径。</p>
-<p>例如：</p>
 <ul>
-<li><p>从初始状态2开始，agent可以使用矩阵Q作为指导,从状态2开始，最大Q值表示选择进入状态3的动作。</p>
-</li>
-<li><p>从状态3开始，最大Q值表示有两种并列最优选择：进入状态1或4。假设我们任意选择去1。</p>
-</li>
-<li><p>从状态1开始，最大Q值表示选择进入状态5的动作。</p>
-</li>
-<li><p>因此，最优策略是2 - 3 - 1 - 5。</p>
-</li>
+<li>：f<em>k<br>$</em> : \begin{cases} f_1(x)\ f_2(x)\ f_n(x) \end{cases} * k =\begin{cases} kf_1(x)\ kf_2(x)\ kf_n(x) \end{cases}$</li>
 </ul>
-<p>我们使用Python为训练agent编写代码：<br><figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">import numpy as np  </span><br><span class="line">import random  </span><br><span class="line">  </span><br><span class="line">\# 初始化矩阵  </span><br><span class="line">Q = np.<span class="built_in">zeros</span>((<span class="number">6</span>, <span class="number">6</span>))  </span><br><span class="line">Q = np.matrix(Q)  </span><br><span class="line">  </span><br><span class="line">def wan_find(list, col, list2):  </span><br><span class="line">col_max = <span class="number">0</span>  </span><br><span class="line">col_y = <span class="number">0</span>  </span><br><span class="line">col=col  </span><br><span class="line">\# a = np.linspace(0, 5, 5);  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> in [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]:  </span><br><span class="line"><span class="keyword">if</span> col_max \&lt; list[<span class="built_in">i</span>, col] and (<span class="built_in">i</span> not in list2):  </span><br><span class="line">col_y = <span class="built_in">i</span>  </span><br><span class="line">col_max = list[<span class="built_in">i</span>, col]  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">return</span> col_y, col_max  </span><br><span class="line">  </span><br><span class="line">\# 回报矩阵R  </span><br><span class="line">R = np.matrix([[<span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">0</span>, <span class="number">-1</span>],  </span><br><span class="line">[<span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">0</span>, <span class="number">-1</span>, <span class="number">100</span>],  </span><br><span class="line">[<span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">0</span>, <span class="number">-1</span>, <span class="number">-1</span>],  </span><br><span class="line">[<span class="number">-1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">-1</span>, <span class="number">0</span>, <span class="number">-1</span>],  </span><br><span class="line">[ <span class="number">0</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">0</span>, <span class="number">-1</span>, <span class="number">100</span>],  </span><br><span class="line">[<span class="number">-1</span>, <span class="number">0</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">0</span>, <span class="number">100</span>]])  </span><br><span class="line">  </span><br><span class="line">\# 设立学习参数  </span><br><span class="line">γ = <span class="number">0.8</span>  </span><br><span class="line">  </span><br><span class="line">\# 训练  </span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> in range(<span class="number">2000</span>):  </span><br><span class="line">\# 对每一个训练,随机选择一种状态  </span><br><span class="line">state = random.randint(<span class="number">0</span>, <span class="number">5</span>)  </span><br><span class="line"><span class="keyword">while</span> True:  </span><br><span class="line">\# 选择当前状态下的所有可能动作  </span><br><span class="line">r_pos_action = []  </span><br><span class="line"><span class="keyword">for</span> action in range(<span class="number">6</span>):  </span><br><span class="line"><span class="keyword">if</span> R[state, action] \&gt;= <span class="number">0</span>:  </span><br><span class="line">r_pos_action.append(action)  </span><br><span class="line">  </span><br><span class="line">next_state = r_pos_action[random.randint(<span class="number">0</span>, len(r_pos_action) - <span class="number">1</span>)]  </span><br><span class="line">Q[state, next_state] = R[state, next_state] + γ \* (Q[next_state]).max() \# 更新  </span><br><span class="line">state = next_state  </span><br><span class="line">\# 状态4位最优库存状态  </span><br><span class="line"><span class="keyword">if</span> state == <span class="number">5</span>:  </span><br><span class="line"><span class="keyword">break</span>  </span><br><span class="line">  </span><br><span class="line">Q1=np.<span class="built_in">zeros</span>((<span class="number">6</span>, <span class="number">6</span>))  </span><br><span class="line">Q1=Q/Q.<span class="built_in">max</span>();  </span><br><span class="line">print(Q1)  </span><br><span class="line">\#frist_place = input("请输入在那个地方:")  </span><br><span class="line">\#while frist_place!=5 :  </span><br><span class="line">  </span><br><span class="line">next_place = int(input(<span class="string">'初始房间号'</span>))  </span><br><span class="line">list2 = [next_place]  </span><br><span class="line"><span class="keyword">while</span> next_place != <span class="number">5</span>:  </span><br><span class="line">next_place, value = wan_find(Q1, next_place, list2)  </span><br><span class="line">list2.append(next_place)  </span><br><span class="line">print(list2)</span><br><span class="line"></span><br><span class="line">运行结果为：</span><br><span class="line"></span><br><span class="line">[[<span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.8</span> <span class="number">0.</span> ]</span><br><span class="line"></span><br><span class="line">[<span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.64</span> <span class="number">0.</span> <span class="number">1.</span> ]</span><br><span class="line"></span><br><span class="line">[<span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.64</span> <span class="number">0.</span> <span class="number">0.</span> ]</span><br><span class="line"></span><br><span class="line">[<span class="number">0.</span> <span class="number">0.8</span> <span class="number">0.512</span> <span class="number">0.</span> <span class="number">0.8</span> <span class="number">0.</span> ]</span><br><span class="line"></span><br><span class="line">[<span class="number">0.64</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.64</span> <span class="number">0.</span> <span class="number">1.</span> ]</span><br><span class="line"></span><br><span class="line">[<span class="number">0.</span> <span class="number">0.8</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.8</span> <span class="number">1.</span> ]]</span><br><span class="line"></span><br><span class="line">初始房间号<span class="number">2</span></span><br><span class="line"></span><br><span class="line">[<span class="number">2</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">5</span>]</span><br></pre></td></tr></table></figure></p>
+<p>定义：（向量组及向量组拼成向量抽象矩阵）<br>设V是F上的线性空间V中的有限序列$\alpha_1、\alpha2、\alpha3 …\alpha_p $的一个向量组，向量组按顺序排列的行称为向量组拼成的抽象矩阵$[\alpha_1、\alpha2、\alpha3 …\alpha_p ]$<br>序列：抽象或实际数构成的序列，抽象矩阵。用V中的抽象物拼接为一个矩阵。即：抽象的集合。</p>
+<blockquote>
+<p>数乘运算、线性空间满足八条运算规则:</p>
+</blockquote>
+<p>4条：<br>加法有交换律、结合律、有负元、有零元。<br>4条：<br>乘法有两个分配律，数乘法对抽象加法的分配律，数乘法对数值的分配律，先乘后乘以集合和两次分别乘以集合相等，f中的乘法单位元e做数乘法时空间不变。</p>
+<p>标准线性空间：<br>例子<br>二维空间<br>三维空间 ：所有有向线段构成的集合。<br>几何空间：<br>函数空间：函数作为运算对象，所构成的空间。信号的集合构成函数空间。</p>
+<p>将几何空间的解析几何方法抽象到一般的框架下，集合的量变成代数的量，坐标系。<br>考虑什么样的向量组可以模拟成几何的线性空间的问题。<br>向量组：$\alpha_1、\alpha2、\alpha3 …\alpha_p $<br>抽象矩阵：$[\alpha_1、\alpha2、\alpha3 …\alpha_p ]$<br>1行p列的抽象矩阵，可以竖着拼。<br>行向量，横拼接。<br>列向量，竖拼接。<br>向量组的线性相关性：如果存在不全为零的P个数$k_i\in F, i=1,2,…,p$使得<br>$\alpha_1k_1+\alpha2k_2+\alpha3k_3 …\alpha_pk_p=0$<br>则向量组\alpha_1、\alpha2、\alpha3 …\alpha_p称之为线性相关。<br>注： $\exists\begin{cases} k_1\ k_2\ k_n \end{cases} \neq 0，\begin{cases} k_1\ k_2\ k_n \end{cases}\in F^p$</p>
+<p>使得(*)成立，对以上命题进行否定。<br>$\exists a\in P_a $<br>否定$\forall a\notin P_a $</p>
+<p> $\forall \begin{cases} k_1\ k_2\ k_n \end{cases} \neq 0$<br> $\alpha_1k_1+\alpha2k_2+\alpha3k_3 …\alpha_pk_p\neq 0$<br>线性无关</p>
+<p>线性无关即为线性相关的否定，存在系数不全为零的时，使得等号成立，即线性无关。</p>
+<p>$[\alpha_1、\alpha2、\alpha3 …\alpha_p ][x_1,x_2,x_3,…,x_p]^T=0$<br>线性相关《——》有非零解<br>线性无关《——》没有非零解</p>
+<p>线性相关性：目的为了将抽象的序列搬移到几何空间中。</p>
+<h2 id="基"><a href="#基" class="headerlink" title="基"></a>基</h2><p>定义：（两个线性向量组之间的线性表示）<br>$\alpha_1、\alpha_2、\alpha_3 …\alpha_p;\beta_1、\beta_2、\beta_3、…、\beta_p$</p>
+<ol>
+<li>称为$\beta$可以由$\alpha_1、\alpha_2、\alpha_3 …\alpha_p$线性表示，如果存在$ k_1、k_2、k_3 …k_p \subset F$使得<br>$\beta=\alpha_1k_1+\alpha_2k_2+\alpha_3k_3 …+\alpha_pk_p$</li>
+<li>称$\beta_1、\beta_2、\beta_3、…、\beta_p$可以由$\alpha_1、\alpha_2、\alpha_3 …\alpha_p$线性表示，如果每个$\beta_i$据可由$\alpha_1、\alpha_2、\alpha_3 …\alpha_p$线性表示</li>
+</ol>
+<h4 id="矩阵表达"><a href="#矩阵表达" class="headerlink" title="矩阵表达"></a>矩阵表达</h4><p>$[\alpha_1、\alpha_2、\alpha_3 …\alpha_p ][x_1,x_2,x_3,…,x_p]^T=\beta$ 其中$A=[\alpha_1、\alpha2、\alpha3 …\alpha_p ]$</p>
+<ol>
+<li><p>因此$\beta$可由$\alpha_1、\alpha_2、\alpha_3 …\alpha_p$线性表示《=====》非齐次线性方程组有解</p>
+</li>
+<li><p>重点：</p>
+</li>
+</ol>
+<p>$[\alpha<em>1、\alpha_2、\alpha_3 …\alpha_p] \begin{pmatrix}<br>        x</em>{11} &amp; \cdots &amp; \cdots &amp; \cdots &amp; x<em>{1q} \<br>        x</em>{21} &amp; \cdots &amp;\cdots &amp; \cdots &amp; x<em>{2q} \<br>        \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \<br>        x</em>{p1} &amp; \cdots &amp; \cdots &amp; \cdots &amp; x<em>{pq}\<br>        \end{pmatrix}</em>{pq} =[\beta_1、\beta_2、\beta_3、…、\beta_p]$</p>
+<p>$[\alpha_1、\alpha_2、\alpha_3 …\alpha_p ]$记作A<br>$[\beta_1、\beta_2、\beta_3…\beta_p]$记作B：<br>$AX=B$抽象的矩阵方程</p>
+<p>$[\beta_i]$可有$[\alpha_i]$线性表示《=====》线性方程有解。</p>
+<ol>
+<li>线性表示具有传递性：<br>$[\alpha_1、\alpha2、\alpha3 …\alpha_p ]    、[{\alpha_i}]$<br>$[\beta_1、\beta_2、\beta_3…\beta_q]   、[{\beta_j}]$<br>$[\gamma_1、\gamma_2、\gamma_3…\gamma_t]      、[{\gamma_k}]$   </li>
+</ol>
+<p>$ [{\beta_j}]\leq lin [{\alpha_i}]<br>$且$ [{\gamma_k}]\leq lin [{\beta_j}]<br>$则$ [{\gamma_k}]\leq lin [{\alpha_i}]<br>$</p>
+<p>A$\leq lin$B 意思是A可以由B线性表示。</p>
+<ul>
+<li>证：<br>即 Ax=B、By=C 有解，证明Az=C？<br>C=By=(Ax)y</li>
+</ul>
+<p><img src="https://www.codekp.cn/download/img/矩阵论/目录.png" width = "400" height = "302" alt="图片名称" align=center / loading="lazy"></p>
 ]]></content>
       <categories>
-        <category>算法</category>
+        <category>研究生课程</category>
       </categories>
       <tags>
-        <tag>matlab</tag>
-        <tag>python</tag>
-        <tag>强化学习</tag>
+        <tag>研究生课程</tag>
+        <tag>矩阵论</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>读书笔记</title>
+    <url>/2021/01/27/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><blockquote>
+<p>今年有一个想法，每周阅读一本书，并且在博客中发表阅读心得，每周更新一次。</p>
+<h1 id="阅读笔记"><a href="#阅读笔记" class="headerlink" title="阅读笔记"></a>阅读笔记</h1><h2 id="阅读清单"><a href="#阅读清单" class="headerlink" title="阅读清单"></a>阅读清单</h2><ul>
+<li>[x] 时间简史</li>
+<li>[x] 小王子</li>
+<li>[x] 朱光潜给年轻人的十二封信</li>
+<li>[x] 健身笔记：如何成为一个身材有料的人</li>
+<li>[x] 从零开始学钢琴</li>
+<li>[x] 我与地坛</li>
+<li>[x] 当下的力量</li>
+<li>[x] 人间值得</li>
+<li>[x] 鳗鱼的旅行</li>
+<li>[ ] 啊哪啊那神去村</li>
+<li>[ ] 非暴力沟通</li>
+<li>[ ] 长大了就会变好吗</li>
+<li>[ ] 巨大的拥抱</li>
+<li>[ ] 女生呵护指南</li>
+<li>[ ] 当你学会独处</li>
+<li>[ ] 莫泊桑短片小说集</li>
+<li>[ ] 飞鸟集</li>
+<li>[ ] 挪威的森林</li>
+<li>[ ] 神曲</li>
+<li>[ ] 月亮与六便士</li>
+<li>[ ] 呐喊</li>
+<li>[ ] 老人与海</li>
+<li>[ ] 追风筝的人</li>
+<li>[ ] 瓦尔登湖</li>
+<li>[ ] 金刚经说什么</li>
+<li>[ ] 牡丹亭</li>
+<li>[ ] 我在未来等你</li>
+<li>[ ] 苏菲的世界</li>
+<li>[ ] 鲁迅杂文集</li>
+<li>[ ] 无人生还</li>
+<li>[ ] 万物起源</li>
+<li>[ ] 人类简史<h2 id="读书心得"><a href="#读书心得" class="headerlink" title="读书心得"></a>读书心得</h2><h3 id="时间简史"><a href="#时间简史" class="headerlink" title="时间简史"></a>时间简史</h3>这本书前三章主要讲的是亚里士多德的地心说到哥白尼的日星说，然后到伽利略和牛顿的经典物理学，再到法拉第、麦克斯韦的电磁场理论，基本主要内容还是讲的高中物理，基本上就是一个综述。</li>
+</ul>
+</blockquote>
+<p>然后讲到量子力学和相对论，如果没读这本书我一开始一直以为相对论和量子力学，两者都是正确的，但是看这本书的时候发现两者只有其中之一是正确的。但目前相对论让我们产生核能，原子弹。量子力学也在不断的发展给人类带来了直接利益，无论两者中的哪一个都无法直接判断是错误的。</p>
+<p>量子力学里面解释的并不是很详细，但是大学物理有讲，我看了这本书印象更深刻了一点，其实量子力学就是，微小的粒子，在进行测量的时候主要是采用的光的反射进行测量，因为该粒子在测量其速度的时，需要使用光进行测量所以其光的能量如果过高就会导致粒子振荡，速度变快。如果测量粒子的位置就需要采用高频率的光波依次获得更小的波长，即可获得粒子的位置。因此我们在某一时刻，只能准确的获得粒子的位置或者速度。不能同时测得粒子的两种物理属性。</p>
+<p>其中讲了一个比较有意思的实验，即红移和蓝移。由于多普勒效应天体正向我们移动的时候其恒星光谱会向红端移动，如果远离我们会向蓝段移动。但是过去了几十年，人类测量了无数光的光谱，均为红移，因此可以得出结论，所有的星体都在远离我们，因此宇宙正在逐渐的扩张。即测不准定理。</p>
+<p><img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fgss0.baidu.com%2F-Po3dSag_xI4khGko9WTAnF6hhy%2Fzhidao%2Fpic%2Fitem%2Fd0c8a786c9177f3ec454da7376cf3bc79f3d566f.jpg&amp;refer=http%3A%2F%2Fgss0.baidu.com&amp;app=2002&amp;size=f9999,10000&amp;q=a80&amp;n=0&amp;g=0n&amp;fmt=jpeg?sec=1613314542&amp;t=b6ae3fe03bf7f657e5ddbac5c9507e4d" alt="在这里插入图片描述" loading="lazy"><br>还有一个实验，其实我们生活在三维空间，但是我们可以推断的空间其实可以到四维空间，因此我们其实是可以脑袋里面构想出四维空间的，其实物理学中早有解释，你想太阳的光需要8分钟才能到地球，因此我们只能看到太阳8分钟前的样子，这样我们其实活在太阳的8分钟之前，即太阳8分钟以后的三维空间之中。</p>
+<p>星球之间主要的力是引力，霍金说主要的力分为强相互作用力、弱相互作用力，电磁力和引力。目前没有公式能将其整合成唯一的定理，因此我联想到了科学事实和客观事实，目前人类所思考的其实是科学事实，不一定是世界的正向，其存在人类的主观判断，因此不一定正确。霍金说宇宙如果有一个扩张，必然会存在一个收缩，而宇宙的收缩可能要在1亿亿年以后，暂时我们不需要担心，但是你可以想象到一件事情，无论是任何事情，即使人类可以长生不死也会有一个必然的终结，除非人类可以同时具备长生不死和穿越时空。</p>
+<p>其实引力只有在天梯之间才成立，但是人类无法通过万有引力定律计算四星运动。因为宇宙太大了，但是当质量密度达到一个点就可以通过引力产生黑洞，其实之前我一直不知道黑洞是个什么东西。但其实黑洞是人类推断出来的一个东西，其实一个小的黑洞可以小到分子级别，比你的指甲小几万倍，只要密度达到就可以产生黑洞和体积无关。因此只要人类发展到一定程度，必然可以人造黑洞，而且这个黑洞可以很小。而分子间主要是强弱相互作用和电磁力。只要讲做到三十钛福特在一个点上就可以造出一个黑洞，但目前实验室只能造出3000福特具体值不清楚但是达不到。<br>黑洞到底是怎么推论出来的呢？其实之前我也在思考黑洞到底是什么，其实很简单，我们知道其他恒星的光通过太阳的时候会因为太阳的引力光会弯曲，这样就只要质量足够的大，光就可以背弯曲成一个圆，或者变成一个抛物线，即光无法离开那个星球，光就像火箭坠机一样，被引力拉回来，即可推论出黑洞的样子大概是一个圆环，中间是黑色的因为中间的光出不来，外侧的光可以因为光的挤压在事件界面上挤压出来，即可为一个圆环状。目前人类已经发现了黑洞。<br>黑洞的重心就是奇点，当然人类是无法前往这个点的，如果有飞行员进入黑洞必死无疑，可能一瞬间就被压成了一个分子，被剥夺其存在性。<br><img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2830392986,3183821195&amp;fm=26&amp;gp=0.jpg" alt="在这里插入图片描述" loading="lazy"><br>讲一讲相对论，相对论其实就是一个测量学，其实之前的物理世界是，不同的参考系其测量是一样的，但是爱因斯坦的相对论其实给了一个很有趣的解释，就是不同的参考系如果你接近了光速，测量是不一样的，因此可以有很多科幻片说的双生子谬论。目前人类能加速的最大速度是电子，在全球最大的电子发射机内，只能将电子加速到光速的0.999999但无法超过光速。很可惜。</p>
+<p>如果超过光速人类就可以时间穿梭，这是为什么，其实你不难想象，如果你开一艘飞船从地球出发，你超过了光速，你就可以在你出发前回到地球，你懂这是什么意思吗，就是你可以前往你出发之前的那个时刻。即时空穿梭。</p>
+<p>其实你们可以想象我们活在一个四维空间中，我们可以通过超光速相当于逆时间移动，就是传统意义的穿越。</p>
+<p>那么我们如何超光速，其实霍金给出了方法，就是利用负能量和正能量在时空中制造一个虫洞，目前可以通过量子力学制造负能量点，其能量守恒定律其实之前有讲过，能量一般都是大于等于零的但是量子力学说可以在空间中制造一个负能量点和正能量点，在这两个点之间可以造成时空扭曲。产生充电，目前离地球最近的一颗恒星是比邻星，距离我们大概4光年，就是光走思念才能到比邻星。我们其实通过虫洞来回比邻星就可以超光速，如果可能的话大概咱们可以回到八年前的地球。</p>
+<p>霍金还推测五维空间不存在，因为如果多维空间存在，那么如果万有引力成立，那么其引力就会按照维数进行下降，因为引力和距离成反比，距离越大引力越小，你想维度没多一维，咱们的引力就会变成  四维空间1/2、五维1/4。。。可以想象到咱们的空间会崩塌，由于人存在性定理，其实这种多维空间是不存在的，或者万有引力有问题。</p>
+<p>看完时间简史，我感觉人类其实是十分渺小的事物，我们对世界的理解其实还很浅薄。大家总觉得目前的科技能够达到很高的地步。其实我想说，人类目前连地球都不能进行完全的探索。而且核能也只是基础，其实任何物质按照质能方程都能进行转换，按照这样的推想，石油未来并不会像现在这样被重视，因为可能一吨海水可以供人类获几百年。</p>
+<p>当初相对论刚出来的时候，全世界可能就几个人能够理解相对论和量子力学，但是现在，研究生可能有几百万人能够同时理解这两门学问，因此未来可能能够存在一个定理即物理学统一定理将一切的公式统合在一起。</p>
+<h3 id="小王子"><a href="#小王子" class="headerlink" title="小王子"></a>小王子</h3><p>小王子讲的其实是飞行员，他在沙漠中遇难他和自己对话的故事，可能是在极端的条件下，他看到了他自己，其实我们也会从这本书中看到小时候的自己，世界上的人被小王子分为了四种，用小王子所路过的星球所指代。这本书很短，2小时就可以读完，其很有趣，让你从小孩子的眼中审视这个世界，到底人们在追寻一些什么。其实细细想来很奇怪，在光里面追光。人生活的是一个过程，不是结果。希望每个人都能懂。<br>小王子对玫瑰和狐狸的解释挺有趣的，可以细细品味。</p>
+<h3 id="朱光潜给年轻人的十二封信"><a href="#朱光潜给年轻人的十二封信" class="headerlink" title="朱光潜给年轻人的十二封信"></a>朱光潜给年轻人的十二封信</h3><p>这本书感觉是给中学生写的，其实我没怎么看进去，希望你们能看进去。</p>
+<h3 id="健身笔记：如何成为一个身材有料的人"><a href="#健身笔记：如何成为一个身材有料的人" class="headerlink" title="健身笔记：如何成为一个身材有料的人"></a>健身笔记：如何成为一个身材有料的人</h3><p>讲如何健身、减肥。健身的动作、流程，减肥的方法，其中对于减肥人士的基础代谢很有用，可以自己去计算一下自己的基础代谢量。</p>
+<h3 id="从零开始学钢琴"><a href="#从零开始学钢琴" class="headerlink" title="从零开始学钢琴"></a>从零开始学钢琴</h3><p>讲钢琴的一些基础知识、如何读五线谱、然后怎么弹、左右 ，右手高音、左手低音、然后从5个音到6个音、到左右手换位置的8个音，到升降调。钢琴其实就是训练只要你会练就能学的很好，加油！<br>今年计划，学会钢琴。</p>
+<h3 id="我与地坛"><a href="#我与地坛" class="headerlink" title="我与地坛"></a>我与地坛</h3><p>史铁生在20岁的年纪失去了自己的双腿、在北京的地坛公园读书思考看到很多的人和事情，主要都是他在地坛里想了些什么，这本书对于有抑郁、对生命失去信心的人很有帮助。<br>还是那句话，人活的是一个过程，绝不是结果，自付价值，自付使命。加油！</p>
+<h3 id="当下的力量"><a href="#当下的力量" class="headerlink" title="当下的力量"></a>当下的力量</h3><p>主要讲的就是，让我们去除时间观念，没有未来，没有过去，我们能够把握的只有当下，不要</p>
+<p>未来不会拯救你，未来不会因为你的期待而自动变得更好，你能把握的只有当下的每一秒。</p>
+<p>你要学会感受生活中的每一秒，在每一秒享受生活，做自己喜欢的事情，做自己想要做的事情。</p>
+<blockquote>
+<p>是的——春天需要你。经常会有一颗星<br>等着你抬头去看。波涛会从遥远的过去<br>向你涌来，或者当你从一扇<br>开着的窗下走过，小提琴的音乐<br>会渴望你倾听。所有这些都是使命。<br>可是你能完成吗？</p>
+</blockquote>
+<p>关注在当下真的很神奇的，你关注与当下，然后体会很多感觉，而不只是去思考，你能感觉到你很幸福。<br>但是文中有句话说我思故我在是错误的，这个有待辩证，但是也有很多的道理，可以减少思考，但是不要像文章中完全不思考，完全不思考我尝试过会降低智商，和物质基础。<br>当下的力量，推荐大家看看。<br><img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fcdnimg103.lizhi.fm%2Faudio_cover%2F2018%2F07%2F01%2F2678344019888704519_320x320.jpg&amp;refer=http%3A%2F%2Fcdnimg103.lizhi.fm&amp;app=2002&amp;size=f9999,10000&amp;q=a80&amp;n=0&amp;g=0n&amp;fmt=jpeg?sec=1614341106&amp;t=7d39c87785083627fc5441116ca0cde2" alt="在这里插入图片描述" loading="lazy"></p>
+<h3 id="人间值得"><a href="#人间值得" class="headerlink" title="人间值得"></a>人间值得</h3><p>这是一个护士给一位日本老奶奶写的自传，讲的是中村恒子从出生到90岁的故事，一直在工作，有讲很多方法论，如何让自己幸福，如何和生活和解，如何让自己过的幸福，探索人生的真谛。其中讲了许多和工作相关的故事，就比如不要抱怨一般尝试后都能行，学会把工作当成是人生的一部分不要去排斥你的工作，也不要因为很多事情烦恼，没有什么必要性。不以物喜，不以己悲。<br>人生是一场经历，热爱生活，享受这段过程。<br>泰山崩于前而色不变，黄河决于顶而面不惊。人生，一定要有一颗强大的内心，才不会轻易被打倒。人生，要学会坚强，在遇到挫折的时候才能从容地去面对，让自己处于泰山之崩而沉着镇定，处于黄河之边而不惊不慌，人生想要会当凌绝顶，一览众山小，就要从山脚下开始战胜重重困难，一步一步往上爬，才能有可能到达山顶。<br><img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F201909%2F13%2F20190913213654_kmuwe.thumb.400_0.jpg&amp;refer=http%3A%2F%2Fc-ssl.duitang.com&amp;app=2002&amp;size=f9999,10000&amp;q=a80&amp;n=0&amp;g=0n&amp;fmt=jpeg?sec=1614341233&amp;t=792b0fafbd08b514b5c2a9b68d1ecc69" alt="在这里插入图片描述" loading="lazy"></p>
+<h3 id="鳗鱼的旅行"><a href="#鳗鱼的旅行" class="headerlink" title="鳗鱼的旅行"></a>鳗鱼的旅行</h3><p>这篇文章，很有趣，讲的是鳗鱼习性的研究历程，鳗鱼这个生物很有趣，在古希腊时期到18世纪，鳗鱼一直都不被认为是一种鱼，是一种独立的物种，即鳗鱼非鱼，其实我现在也觉得这玩意不是鱼。<br>很有趣啊，鳗鱼这个生物，亚里士多德在生物志中有详细的调查，这应该是当时最详细的一篇调查，鳗鱼这种生物当干旱的时候不存在，但是来年春天当水满了以后鳗鱼又会出现，就仿佛是从泥土里长出来的。<br>所有的人都不知道鳗鱼这种生物从哪来的，这个问题困扰了人类n久。你们难以想象1920年上世纪人类才知道鳗鱼的习性，所有你们可以知道人类目前的科技水平只能达到什么程度了吗？<br>当时为了找到一条带卵的鳗鱼，政府发出巨额赏金，于是当时大量的鱼民拿其他鱼的卵放在鳗鱼的体内，你可能难以想象。当然对科学研究有一定的影响，就直到1920年。<br>1920年有个研究员一直躲到一战结束才敢开船去找鳗鱼的发源地，方法也很简单，就是慢慢的去捕鱼，他从英国一直开到太平洋，鳗鱼的大小越来越小，最终才确定了鳗鱼的出生地，是在一片海里，而且很神奇的是就只有那一块是鳗鱼的出生地，不在别的地方繁衍，就在这一片海域。<br>最后研究表明，鳗鱼一开始是雌性，游几千海里前往其他水域进行生存，等玩腻了，每条鳗鱼选择的时间不一样，只要不繁衍这货可以活50年，这对于生物是极其长寿的，但是当他游会那片海域准备繁衍的时候，这时鳗鱼就会变成雄性，然后繁衍，随后就会死去。很浪漫，可能鳗鱼一生走的路比许多人要远得多。<br>是一个很不错的科技题材的小说，全球的鳗鱼都来自于同一片海域，而且每一条鳗鱼都是游了这么远来到的你的身边，无一例外，你吃的每一条鳗鱼都是一位旅行家。不知道你的旅行的目的是什么，但鳗鱼显然告诉了你它的答案。<br><img src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3999767242,4285497006&amp;fm=26&amp;gp=0.jpg" alt="在这里插入图片描述" loading="lazy"></p>
+<h3 id="北飞的候鸟"><a href="#北飞的候鸟" class="headerlink" title="北飞的候鸟"></a>北飞的候鸟</h3><p>如果有来生，要做一棵树， 站成永恒。没有悲欢的姿势， 一半在尘土里安详， 一半在风里飞扬； 一半洒落荫凉， 一半沐浴阳光。 非常沉默、非常骄傲。 从不依靠、从不寻找。   </p>
+<p>如果有来生，要化成一阵风， 一瞬间也能成为永恒。 没有善感的情怀， 没有多情的眼睛。 一半在雨里洒脱， 一半在春光里旅行； 寂寞了，孤自去远行， 把淡淡的思念统带走， 从不思念、从不爱恋；   </p>
+<p>如果有来生，要做一只鸟， 飞越永恒，没有迷途的苦恼。东方有火红的希望，南方有温暖的巢床， 向西逐退残阳，向北唤醒芬芳。  如果有来生， 希望每次相遇， 都能化为永恒。<br><img src="https://iknow-pic.cdn.bcebos.com/63d9f2d3572c11df7624b6486e2762d0f603c2e0?x-bce-process=image/resize,m_lfit,w_600,h_800,limit_1" alt="在这里插入图片描述" loading="lazy"></p>
+]]></content>
+      <categories>
+        <category>阅读</category>
+      </categories>
+      <tags>
+        <tag>读书笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>南京大屠杀国家公祭日_网站变成灰色以表悼念</title>
+    <url>/2020/12/13/%E7%BD%91%E7%AB%99%E5%8F%98%E7%81%B0%E7%9A%84%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="南京大屠杀国家公祭日-网站变成灰色以表悼念"><a href="#南京大屠杀国家公祭日-网站变成灰色以表悼念" class="headerlink" title=" 南京大屠杀国家公祭日_网站变成灰色以表悼念 "></a><center> 南京大屠杀国家公祭日_网站变成灰色以表悼念 </center></h2><div style="position:relative; padding-bottom:75%; width:100%; height:0">
+    <iframe src="//player.bilibili.com/player.html?aid=78993619&bvid=BV1cJ411C7Dg&cid=135180758&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position:absolute; height: 100%; width: 100%;"> </iframe>
+</div>
+
+<a id="more"></a>
+<p>12月13日是第七个南京大屠杀死难者国家公祭日。公祭无辜死难之生命，告慰血与泪浸染之土地。这一天，举国上下以各种形式深切缅怀死难同胞，深切缅怀为中国人民抗日战争胜利献出生命的革命先烈和民族英雄，表达牢记历史、珍爱和平、矢志复兴，身为站长的我们都会让自己的网站的全部网页变成灰色（黑白色），以表示我们对逝者的悼念。</p>
+<h3 id="第一种：修改CSS文件"><a href="#第一种：修改CSS文件" class="headerlink" title="第一种：修改CSS文件"></a>第一种：修改CSS文件</h3><p>我们可以在网页的CSS文件中添加以下的CSS代码，来实现网页黑白色，也就是网站变灰</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">html &#123;</span><br><span class="line">    filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale&#x3D;1);</span><br><span class="line">    -webkit-filter: grayscale(100%);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="第二种：在网页的标签内加入以下代码"><a href="#第二种：在网页的标签内加入以下代码" class="headerlink" title="第二种：在网页的标签内加入以下代码"></a>第二种：在网页的<head>标签内加入以下代码</h3><p>如果你不想改动CSS文件，你可以通过在网页头部中的<head>标签内部加入内联CSS代码的形式实现网站网页变灰</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;style type&#x3D;&quot;text&#x2F;css&quot;&gt;</span><br><span class="line">html &#123;</span><br><span class="line">filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale&#x3D;1);</span><br><span class="line">-webkit-filter: grayscale(100%);&#125;</span><br><span class="line">&lt;&#x2F;style&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="第三种：修改标签加入内联样式"><a href="#第三种：修改标签加入内联样式" class="headerlink" title="第三种：修改标签加入内联样式"></a>第三种：修改<html>标签加入内联样式</h3><p>如里上面的两种方式都不喜欢，可以通过修改<html>标签，以加入内联样式的方法，达到网页变灰的效果</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;html style&#x3D;&quot;filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale&#x3D;1);</span><br><span class="line">-webkit-filter: grayscale(100%);&quot;&gt;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>CSS</category>
+      </categories>
+      <tags>
+        <tag>南京大屠杀国家公祭日</tag>
+        <tag>hexo网站</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>如何优雅的制作表白网站和罗盘时钟</title>
+    <url>/2020/12/12/%E8%A1%A8%E7%99%BD%E7%BD%91%E7%AB%99%E3%80%81%E7%BD%97%E7%9B%98%E6%97%B6%E9%92%9F%E6%95%99%E7%A8%8B/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="如何优雅的制作表白网站和罗盘时钟"><a href="#如何优雅的制作表白网站和罗盘时钟" class="headerlink" title=" 如何优雅的制作表白网站和罗盘时钟"></a><center> 如何优雅的制作表白网站和罗盘时钟</center></h2><a id="more"></a>
+<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>GitHub 是一个面向开源及私有软件项目的托管平台，因为只支持 Git 作为唯一的版本库格式进行托管，故名 GitHub。</p>
+<p>GitHub 于 2008 年 4 月 10 日正式上线，除了 Git 代码仓库托管及基本的 Web 管理界面以外，还提供了订阅、讨论组、文本渲染、在线文件编辑器、协作图谱（报表）、代码片段分享（Gist）等功能。目前，其注册用户已经超过 350 万，托管版本数量也是非常之多，其中不乏知名开源项目 Ruby on Rails、jQuery、python 等。</p>
+<p>本文需要先下载git <a href="https://git-scm.com/downloads" target="_blank" rel="noopener">下载地址</a></p>
+<p>git教程请参考<a href="https://www.liaoxuefeng.com/wiki/896043488029600" target="_blank" rel="noopener">廖雪峰Git</a></p>
+<h3 id="首先我们来学习一下，一些git的push方法"><a href="#首先我们来学习一下，一些git的push方法" class="headerlink" title="首先我们来学习一下，一些git的push方法"></a>首先我们来学习一下，一些git的push方法</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git init</span><br><span class="line">git add .</span><br><span class="line">git commit -m &quot;first commit&quot;</span><br><span class="line">git branch -M main</span><br><span class="line">git remote add origin https:&#x2F;&#x2F;github.com&#x2F;mmrslwan1110&#x2F;Clock.git</span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
+<p>本过程可以参考我为大家寻找的教程<a href="https://www.cnblogs.com/lijiayi/p/githubpages.html" target="_blank" rel="noopener">github创建账号、上传文件</a></p>
+<h3 id="表白网站源码和罗盘时钟源码"><a href="#表白网站源码和罗盘时钟源码" class="headerlink" title="表白网站源码和罗盘时钟源码"></a>表白网站源码和罗盘时钟源码</h3><h4 id="表白网站源码"><a href="#表白网站源码" class="headerlink" title="表白网站源码"></a>表白网站源码</h4><p><a href="https://github.com/mmrslwan1110/love" target="_blank" rel="noopener">表白网站源码_github</a><br><a href="https://codekp.cn/love" target="_blank" rel="noopener">表白网站效果_codekp.cn</a></p>
+<p>当然为大家也准备了一个更全的合集方便大家使用下载<a href="https://github.com/wanghaodi/LoveSourceCode" target="_blank" rel="noopener">13个表白网站源码</a></p>
+<blockquote>
+<p>申明没有女朋友所以这个网站是初始状态仅供学习参考</p>
+<h4 id="罗盘时钟源码"><a href="#罗盘时钟源码" class="headerlink" title="罗盘时钟源码"></a>罗盘时钟源码</h4><h5 id="下载源码"><a href="#下载源码" class="headerlink" title="下载源码"></a>下载源码</h5><p>建议采用命令行形式下载会更快，当然可以直接downloadzip文件。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone  https:&#x2F;&#x2F;github.com&#x2F;mmrslwan1110&#x2F;Clock.git</span><br></pre></td></tr></table></figure><br><img src="https://img-blog.csdnimg.cn/20201212231940305.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70#pic_center" alt="删除内部.git文件" loading="lazy">删除download下来的.git文件</p>
+<h5 id="上传源码到自己的web"><a href="#上传源码到自己的web" class="headerlink" title="上传源码到自己的web"></a>上传源码到自己的web</h5><ol>
+<li>创建自己的仓库 参考1中教程</li>
+<li>输入git init<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
+<img src="https://img-blog.csdnimg.cn/20201212232314167.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy">可以看到git创建了一个.git文件</li>
+<li>git add .<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git add .</span><br></pre></td></tr></table></figure>
+<img src="https://img-blog.csdnimg.cn/20201212232615556.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></li>
+</ol>
+</blockquote>
+<ol>
+<li>git commit -m “first commit”<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git commit -m &quot;first commit&quot;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><img src="https://img-blog.csdnimg.cn/20201212232746366.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></p>
+<ol>
+<li>git remote add origin <a href="https://github.com/mmrslwan1110/Clock.git" target="_blank" rel="noopener">https://github.com/mmrslwan1110/Clock.git</a><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">git remote add origin https:&#x2F;&#x2F;github.com&#x2F;mmrslwan1110&#x2F;Clock.git</span><br></pre></td></tr></table></figure>
+<img src="https://img-blog.csdnimg.cn/20201212233029800.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></li>
+</ol>
+<p>记得换成自己的链接哦</p>
+<ol>
+<li>git push -u origin master<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
+<img src="https://img-blog.csdnimg.cn/20201212233354499.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy">已经发布到自己的网站了可以访问看看自己的网站测一下效果哦。</li>
+</ol>
+<p><a href="https://github.com/mmrslwan1110/Clock" target="_blank" rel="noopener">罗盘时钟源码_github</a><br><a href="https://codekp.cn/Clock" target="_blank" rel="noopener">罗盘时钟效果_codekp.cn</a></p>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>表白网站</tag>
+        <tag>罗盘时钟</tag>
       </tags>
   </entry>
 </search>
