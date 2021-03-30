@@ -16,87 +16,6 @@
       </tags>
   </entry>
   <entry>
-    <title>linux学习笔记</title>
-    <url>/2021/03/26/linux%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="linux操作系统学习笔记"><a href="#linux操作系统学习笔记" class="headerlink" title="linux操作系统学习笔记"></a><center>linux操作系统学习笔记</center></h1><h1 id="linux"><a href="#linux" class="headerlink" title="linux"></a>linux</h1><h2 id="linux常用命令"><a href="#linux常用命令" class="headerlink" title="linux常用命令"></a>linux常用命令</h2><h3 id="ls"><a href="#ls" class="headerlink" title="ls"></a>ls</h3><p><img src="https://www.runoob.com/wp-content/uploads/2014/06/d0c50-linux2bfile2bsystem2bhierarchy.jpg" alt="" loading="lazy"></p>
-<ul>
-<li>系统启动必须：<br>/boot：存放的启动</li>
-</ul>
-<p>Linux 时使用的内核文件，包括连接文件以及镜像文件。</p>
-<p>/etc：存放所有的系统需要的配置文件和子目录列表，更改目录下的文件可能会导致系统不能启动。</p>
-<p>/lib：存放基本代码库（比如c++库），其作用类似于Windows里的DLL文件。几乎所有的应用程序都需要用到这些共享库。</p>
-<p>/sys： 这是linux2.6内核的一个很大的变化。该目录下安装了2.6内核中新出现的一个文件系统 sysfs 。sysfs文件系统集成了下面3种文件系统的信息：针对进程信息的proc文件系统、针对设备的devfs文件系统以及针对伪终端的devpts文件系统。该文件系统是内核设备树的一个直观反映。当一个内核对象被创建的时候，对应的文件和目录也在内核对象子系统中</p>
-<ul>
-<li>指令集合：</li>
-</ul>
-<p>/bin：存放着最常用的程序和指令</p>
-<p>/sbin：只有系统管理员能使用的程序和指令。<br>外部文件管理：</p>
-<p>/dev ：Device(设备)的缩写, 存放的是Linux的外部设备。注意：在Linux中访问设备和访问文件的方式是相同的。</p>
-<p>/media：类windows的其他设备，例如U盘、光驱等等，识别后linux会把设备放到这个目录下。</p>
-<p>/mnt：临时挂载别的文件系统的，我们可以将光驱挂载在/mnt/上，然后进入该目录就可以查看光驱里的内容了。<br>临时文件：</p>
-<p>/run：是一个临时文件系统，存储系统启动以来的信息。当系统重启时，这个目录下的文件应该被删掉或清除。如果你的系统上有 /var/run 目录，应该让它指向 run。</p>
-<p>/lost+found：一般情况下<br>为空的，系统非法关机后，这里就存放一些文件。</p>
-<p>/tmp：这个目录是用来存放一些临时文件的。</p>
-<ul>
-<li>账户：</li>
-</ul>
-<p>/root：系统管理员的用户主目录。</p>
-<p>/home：用户的主目录，以用户的账号命名的。</p>
-<p>/usr：用户的很多应用程序和文件都放在这个目录下，类似于windows下的program files目录。</p>
-<p>/usr/bin：系统用户使用的应用程序与指令。</p>
-<p>/usr/sbin：超级用户使用的比较高级的管理程序和系统守护程序。</p>
-<p>/usr/src：内核源代码默认的放置目录。</p>
-<ul>
-<li>运行过程中要用：</li>
-</ul>
-<p>/var：存放经常修改的数据，比如程序运行的日志文件（/var/log 目录下）。</p>
-<p>/proc：管理内存空间！虚拟的目录，是系统内存的映射，我们可以直接访问这个目录来，获取系统信息。这个目录的内容不在硬盘上而是在内存里，我们也可以直接修改里面的某些文件来做修改。<br>扩展用的：</p>
-<p>/opt：默认是空的，我们安装额外软件可以放在这个里面。</p>
-<p>/srv：存放服务启动后需要提取的数据（不用服务器就是空）</p>
-<h3 id="参考文档："><a href="#参考文档：" class="headerlink" title="参考文档："></a>参考文档：</h3><ul>
-<li><a href="https://blog.csdn.net/weixin_44895651/article/details/105289038?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522161672253016780269872208%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&amp;request_id=161672253016780269872208&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_yy~default-1-105289038.first_rank_v2_pc_rank_v29&amp;utm_term=linux" target="_blank" rel="noopener">Linux常用命令汇总</a></li>
-<li><a href="https://blog.csdn.net/FollowMyFell/article/details/108117228" target="_blank" rel="noopener">参考</a></li>
-<li><a href="https://blog.csdn.net/ThinkWon/article/details/104588679?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522161672253016780269872208%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&amp;request_id=161672253016780269872208&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_yy~default-2-104588679.first_rank_v2_pc_rank_v29&amp;utm_term=linux" target="_blank" rel="noopener">linux面试题</a><h1 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h1><h2 id="Docker优点"><a href="#Docker优点" class="headerlink" title="Docker优点"></a>Docker优点</h2></li>
-</ul>
-<p>Docker 是一个用于开发，交付和运行应用程序的开放平台。Docker 使您能够将应用程序与基础架构分开，从而可以快速交付软件。借助 Docker，您可以与管理应用程序相同的方式来管理基础架构。通过利用 Docker 的方法来快速交付，测试和部署代码，您可以大大减少编写代码和在生产环境中运行代码之间的延迟。</p>
-<h2 id="Docker-架构"><a href="#Docker-架构" class="headerlink" title="Docker 架构"></a>Docker 架构</h2><h3 id="Docker-包括三个基本概念"><a href="#Docker-包括三个基本概念" class="headerlink" title="Docker 包括三个基本概念:"></a>Docker 包括三个基本概念:</h3><ul>
-<li>镜像（Image）：Docker 镜像（Image），就相当于是一个 root 文件系统。比如官方镜像 ubuntu:16.04 就包含了完整的一套 Ubuntu16.04 最小系统的 root 文件系统。</li>
-<li>容器（Container）：镜像（Image）和容器（Container）的关系，就像是面向对象程序设计中的类和实例一样，镜像是静态的定义，容器是镜像运行时的实体。容器可以被创建、启动、停止、删除、暂停等。</li>
-<li>仓库（Repository）：仓库可看成一个代码控制中心，用来保存镜像。<br>Docker 使用客户端-服务器 (C/S) 架构模式，使用远程API来管理和创建Docker容器。</li>
-</ul>
-<p>Docker 容器通过 Docker 镜像来创建。</p>
-<p>容器与镜像的关系类似于面向对象编程中的对象与类。</p>
-<h2 id="Docker使用"><a href="#Docker使用" class="headerlink" title="Docker使用"></a>Docker使用</h2><h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p><code>curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun</code></p>
-<h3 id="Docker-Hello-World"><a href="#Docker-Hello-World" class="headerlink" title="Docker Hello World"></a>Docker Hello World</h3><p>Docker 允许你在容器内运行应用程序， 使用 docker run 命令来在容器内运行一个应用程序。</p>
-<p>输出Hello world</p>
-<p><code>runoob@runoob:~$ docker run ubuntu:15.10 /bin/echo &quot;Hello world&quot;</code></p>
-<p><code>Hello world</code></p>
-<h4 id="各个参数解析："><a href="#各个参数解析：" class="headerlink" title="各个参数解析："></a>各个参数解析：</h4><p><img src="https://pic4.zhimg.com/80/v2-0db8d8426beb695f4146cc3ea540037d_1440w.jpg?source=1940ef5c" alt="" loading="lazy"></p>
-<ul>
-<li><p>docker: Docker 的二进制执行文件。</p>
-</li>
-<li><p>run: 与前面的 docker 组合来运行一个容器。</p>
-</li>
-<li><p>ubuntu:15.10 指定要运行的镜像，Docker 首先从本地主机上查找镜像是否存在，如果不存在，Docker 就会从镜像仓库 Docker Hub 下载公共镜像。</p>
-</li>
-<li><p>/bin/echo “Hello world”: 在启动的容器里执行的命令</p>
-</li>
-</ul>
-<p>以上命令完整的意思可以解释为：Docker 以 ubuntu15.10 镜像创建一个新容器，然后在容器里执行 bin/echo “Hello world”，然后输出结果。</p>
-<h3 id="Docker运行交互式的容器"><a href="#Docker运行交互式的容器" class="headerlink" title="Docker运行交互式的容器"></a>Docker运行交互式的容器</h3><p>我们通过 docker 的两个参数 -i -t，让 docker 运行的容器实现”对话”的能力：</p>
-<p><code>docker run -i -t ubuntu:15.10 /bin/bash</code></p>
-<p>Docker就相当于操作系统上的集装箱，节约空间，提高程序运行速度。<br><img src="https://pic1.zhimg.com/80/5d2cabafe63f33389c8a5c8ae1e576bb_1440w.jpg?source=1940ef5c" alt="" loading="lazy"></p>
-<h3 id="Docker和虚拟机相比的优势"><a href="#Docker和虚拟机相比的优势" class="headerlink" title="Docker和虚拟机相比的优势"></a>Docker和虚拟机相比的优势</h3><p><img src="https://pic4.zhimg.com/80/v2-f6e6d28348d25e91e0c794e9b47a1de9_1440w.jpg?source=1940ef5c" alt="" loading="lazy"></p>
-]]></content>
-      <categories>
-        <category>linux</category>
-      </categories>
-      <tags>
-        <tag>linux</tag>
-        <tag>嵌入式开发</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>c++_常用语法</title>
     <url>/2020/07/31/c/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="C-常用语法"><a href="#C-常用语法" class="headerlink" title="C++常用语法"></a><center>C++常用语法</center></h1><h3 id="2020-08-01"><a href="#2020-08-01" class="headerlink" title="2020_08_01"></a><p align="right">2020_08_01</p></h3><blockquote>
@@ -271,6 +190,117 @@
       </tags>
   </entry>
   <entry>
+    <title>linux学习笔记</title>
+    <url>/2021/03/26/linux%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="linux操作系统学习笔记"><a href="#linux操作系统学习笔记" class="headerlink" title="linux操作系统学习笔记"></a><center>linux操作系统学习笔记</center></h1><h1 id="linux"><a href="#linux" class="headerlink" title="linux"></a>linux</h1><h2 id="linux常用命令"><a href="#linux常用命令" class="headerlink" title="linux常用命令"></a>linux常用命令</h2><h3 id="ls"><a href="#ls" class="headerlink" title="ls"></a>ls</h3><p><img src="https://www.runoob.com/wp-content/uploads/2014/06/d0c50-linux2bfile2bsystem2bhierarchy.jpg" alt="" loading="lazy"></p>
+<ul>
+<li>系统启动必须：<br>/boot：存放的启动</li>
+</ul>
+<p>Linux 时使用的内核文件，包括连接文件以及镜像文件。</p>
+<p>/etc：存放所有的系统需要的配置文件和子目录列表，更改目录下的文件可能会导致系统不能启动。</p>
+<p>/lib：存放基本代码库（比如c++库），其作用类似于Windows里的DLL文件。几乎所有的应用程序都需要用到这些共享库。</p>
+<p>/sys： 这是linux2.6内核的一个很大的变化。该目录下安装了2.6内核中新出现的一个文件系统 sysfs 。sysfs文件系统集成了下面3种文件系统的信息：针对进程信息的proc文件系统、针对设备的devfs文件系统以及针对伪终端的devpts文件系统。该文件系统是内核设备树的一个直观反映。当一个内核对象被创建的时候，对应的文件和目录也在内核对象子系统中</p>
+<ul>
+<li>指令集合：</li>
+</ul>
+<p>/bin：存放着最常用的程序和指令</p>
+<p>/sbin：只有系统管理员能使用的程序和指令。<br>外部文件管理：</p>
+<p>/dev ：Device(设备)的缩写, 存放的是Linux的外部设备。注意：在Linux中访问设备和访问文件的方式是相同的。</p>
+<p>/media：类windows的其他设备，例如U盘、光驱等等，识别后linux会把设备放到这个目录下。</p>
+<p>/mnt：临时挂载别的文件系统的，我们可以将光驱挂载在/mnt/上，然后进入该目录就可以查看光驱里的内容了。<br>临时文件：</p>
+<p>/run：是一个临时文件系统，存储系统启动以来的信息。当系统重启时，这个目录下的文件应该被删掉或清除。如果你的系统上有 /var/run 目录，应该让它指向 run。</p>
+<p>/lost+found：一般情况下<br>为空的，系统非法关机后，这里就存放一些文件。</p>
+<p>/tmp：这个目录是用来存放一些临时文件的。</p>
+<ul>
+<li>账户：</li>
+</ul>
+<p>/root：系统管理员的用户主目录。</p>
+<p>/home：用户的主目录，以用户的账号命名的。</p>
+<p>/usr：用户的很多应用程序和文件都放在这个目录下，类似于windows下的program files目录。</p>
+<p>/usr/bin：系统用户使用的应用程序与指令。</p>
+<p>/usr/sbin：超级用户使用的比较高级的管理程序和系统守护程序。</p>
+<p>/usr/src：内核源代码默认的放置目录。</p>
+<ul>
+<li>运行过程中要用：</li>
+</ul>
+<p>/var：存放经常修改的数据，比如程序运行的日志文件（/var/log 目录下）。</p>
+<p>/proc：管理内存空间！虚拟的目录，是系统内存的映射，我们可以直接访问这个目录来，获取系统信息。这个目录的内容不在硬盘上而是在内存里，我们也可以直接修改里面的某些文件来做修改。<br>扩展用的：</p>
+<p>/opt：默认是空的，我们安装额外软件可以放在这个里面。</p>
+<p>/srv：存放服务启动后需要提取的数据（不用服务器就是空）</p>
+<h3 id="参考文档："><a href="#参考文档：" class="headerlink" title="参考文档："></a>参考文档：</h3><ul>
+<li><a href="https://blog.csdn.net/weixin_44895651/article/details/105289038?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522161672253016780269872208%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&amp;request_id=161672253016780269872208&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_yy~default-1-105289038.first_rank_v2_pc_rank_v29&amp;utm_term=linux" target="_blank" rel="noopener">Linux常用命令汇总</a></li>
+<li><a href="https://blog.csdn.net/FollowMyFell/article/details/108117228" target="_blank" rel="noopener">参考</a></li>
+<li><a href="https://blog.csdn.net/ThinkWon/article/details/104588679?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522161672253016780269872208%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&amp;request_id=161672253016780269872208&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_yy~default-2-104588679.first_rank_v2_pc_rank_v29&amp;utm_term=linux" target="_blank" rel="noopener">linux面试题</a><h1 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h1><h2 id="Docker优点"><a href="#Docker优点" class="headerlink" title="Docker优点"></a>Docker优点</h2></li>
+</ul>
+<p>Docker 是一个用于开发，交付和运行应用程序的开放平台。Docker 使您能够将应用程序与基础架构分开，从而可以快速交付软件。借助 Docker，您可以与管理应用程序相同的方式来管理基础架构。通过利用 Docker 的方法来快速交付，测试和部署代码，您可以大大减少编写代码和在生产环境中运行代码之间的延迟。</p>
+<h2 id="Docker-架构"><a href="#Docker-架构" class="headerlink" title="Docker 架构"></a>Docker 架构</h2><h3 id="Docker-包括三个基本概念"><a href="#Docker-包括三个基本概念" class="headerlink" title="Docker 包括三个基本概念:"></a>Docker 包括三个基本概念:</h3><ul>
+<li>镜像（Image）：Docker 镜像（Image），就相当于是一个 root 文件系统。比如官方镜像 ubuntu:16.04 就包含了完整的一套 Ubuntu16.04 最小系统的 root 文件系统。</li>
+<li>容器（Container）：镜像（Image）和容器（Container）的关系，就像是面向对象程序设计中的类和实例一样，镜像是静态的定义，容器是镜像运行时的实体。容器可以被创建、启动、停止、删除、暂停等。</li>
+<li>仓库（Repository）：仓库可看成一个代码控制中心，用来保存镜像。<br>Docker 使用客户端-服务器 (C/S) 架构模式，使用远程API来管理和创建Docker容器。</li>
+</ul>
+<p>Docker 容器通过 Docker 镜像来创建。</p>
+<p>容器与镜像的关系类似于面向对象编程中的对象与类。</p>
+<h2 id="Docker使用"><a href="#Docker使用" class="headerlink" title="Docker使用"></a>Docker使用</h2><h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p><code>curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun</code></p>
+<h3 id="Docker-Hello-World"><a href="#Docker-Hello-World" class="headerlink" title="Docker Hello World"></a>Docker Hello World</h3><p>Docker 允许你在容器内运行应用程序， 使用 docker run 命令来在容器内运行一个应用程序。</p>
+<p>输出Hello world</p>
+<p><code>runoob@runoob:~$ docker run ubuntu:15.10 /bin/echo &quot;Hello world&quot;</code></p>
+<p><code>Hello world</code></p>
+<h4 id="各个参数解析："><a href="#各个参数解析：" class="headerlink" title="各个参数解析："></a>各个参数解析：</h4><p><img src="https://pic4.zhimg.com/80/v2-0db8d8426beb695f4146cc3ea540037d_1440w.jpg?source=1940ef5c" alt="" loading="lazy"></p>
+<ul>
+<li><p>docker: Docker 的二进制执行文件。</p>
+</li>
+<li><p>run: 与前面的 docker 组合来运行一个容器。</p>
+</li>
+<li><p>ubuntu:15.10 指定要运行的镜像，Docker 首先从本地主机上查找镜像是否存在，如果不存在，Docker 就会从镜像仓库 Docker Hub 下载公共镜像。</p>
+</li>
+<li><p>/bin/echo “Hello world”: 在启动的容器里执行的命令</p>
+</li>
+</ul>
+<p>以上命令完整的意思可以解释为：Docker 以 ubuntu15.10 镜像创建一个新容器，然后在容器里执行 bin/echo “Hello world”，然后输出结果。</p>
+<h3 id="Docker运行交互式的容器"><a href="#Docker运行交互式的容器" class="headerlink" title="Docker运行交互式的容器"></a>Docker运行交互式的容器</h3><p>我们通过 docker 的两个参数 -i -t，让 docker 运行的容器实现”对话”的能力：</p>
+<p><code>docker run -i -t ubuntu:15.10 /bin/bash</code></p>
+<p>Docker就相当于操作系统上的集装箱，节约空间，提高程序运行速度。<br><img src="https://pic1.zhimg.com/80/5d2cabafe63f33389c8a5c8ae1e576bb_1440w.jpg?source=1940ef5c" alt="" loading="lazy"></p>
+<h3 id="Docker和虚拟机相比的优势"><a href="#Docker和虚拟机相比的优势" class="headerlink" title="Docker和虚拟机相比的优势"></a>Docker和虚拟机相比的优势</h3><p><img src="https://pic4.zhimg.com/80/v2-f6e6d28348d25e91e0c794e9b47a1de9_1440w.jpg?source=1940ef5c" alt="" loading="lazy"></p>
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+        <tag>嵌入式开发</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>linux嵌入式开发_1</title>
+    <url>/2020/07/30/linux%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91-1/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="linux基础"><a href="#linux基础" class="headerlink" title="linux基础"></a><strong>linux基础</strong></h1><h2 id="linux是什么？"><a href="#linux是什么？" class="headerlink" title="linux是什么？"></a>linux是什么？</h2><a id="more"></a>
+<ul>
+<li>linux是一款开源操作系统，开放了整组的调用接口给程序猿进行开发和使用。linux操作系统包含内核和系统调用，并不包含应用程序。由于linux的架构继承了unix良好传统，因此越来越多的开发者选择使用linux并为之设计了许多应用级软件。</li>
+</ul>
+<h2 id="开发环境的搭建"><a href="#开发环境的搭建" class="headerlink" title="开发环境的搭建"></a>开发环境的搭建</h2><ul>
+<li>开发环境需要用到交叉开发模式，这一点书上有很详细的介绍，包括硬件环境和软件环境的构建都写的十分清楚，所以这篇文章主要是写一下我在中间遇到的一些问题以及解决方法。虚拟机的话我用的是Ubuntu18.04版本，安装虚拟机啥的网上资源很多，直接百度就行。</li>
+</ul>
+<h2 id="linux下的环境搭建"><a href="#linux下的环境搭建" class="headerlink" title="linux下的环境搭建"></a>linux下的环境搭建</h2><h3 id="1、修改Ubuntu的一些配置"><a href="#1、修改Ubuntu的一些配置" class="headerlink" title="1、修改Ubuntu的一些配置"></a>1、修改Ubuntu的一些配置</h3><ul>
+<li><p>切换国内镜像源</p>
+<p>&ensp;&ensp;&ensp;&ensp;&ensp; 在使用apt命令安装包时，因为系统自带下载源在国外服务器上，所以需要切换为国内镜像源才能提升下载速度。这里有一篇博客详细说明了如何直接根据终端命令修改其配置文件，从而达到修改下载源的目的.或者，，，，你也可以直接用Ubuntu的图形界面去修改，步骤如下： 显示应用程序-&gt;软件和更新-&gt;下载自主服务器改为其他，然后选择合适的镜像源就行了，这里我选择的是阿里的镜像源。</p>
+</li>
+<li><p>修改语言和设置汉语输入法</p>
+<p>&ensp;&ensp;&ensp;&ensp;&ensp; 懒得写，直接贴别人博客了</p>
+</li>
+</ul>
+<p>&ensp;&ensp;&ensp;&ensp;&ensp;<a href="https://blog.csdn.net/langshi_2011/article/details/78993781" target="_blank" rel="noopener">Linux Ubuntu系统设置成中文语言</a></p>
+<p>&ensp;&ensp;&ensp;&ensp;&ensp;<a href="https://blog.csdn.net/sparkstrike/article/details/81487271" target="_blank" rel="noopener">Linux.Ubuntu.中文输入法设置</a></p>
+]]></content>
+      <categories>
+        <category>程序设计</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+        <tag>嵌入式开发</tag>
+        <tag>鸟哥的私房菜学习</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Merry Christmas</title>
     <url>/2020/12/24/merry_christmas/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Merry-Christmas"><a href="#Merry-Christmas" class="headerlink" title="Merry Christmas"></a><center>Merry Christmas</center></h1><center>
@@ -307,36 +337,6 @@
       </categories>
       <tags>
         <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>linux嵌入式开发_1</title>
-    <url>/2020/07/30/linux%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91-1/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="linux基础"><a href="#linux基础" class="headerlink" title="linux基础"></a><strong>linux基础</strong></h1><h2 id="linux是什么？"><a href="#linux是什么？" class="headerlink" title="linux是什么？"></a>linux是什么？</h2><a id="more"></a>
-<ul>
-<li>linux是一款开源操作系统，开放了整组的调用接口给程序猿进行开发和使用。linux操作系统包含内核和系统调用，并不包含应用程序。由于linux的架构继承了unix良好传统，因此越来越多的开发者选择使用linux并为之设计了许多应用级软件。</li>
-</ul>
-<h2 id="开发环境的搭建"><a href="#开发环境的搭建" class="headerlink" title="开发环境的搭建"></a>开发环境的搭建</h2><ul>
-<li>开发环境需要用到交叉开发模式，这一点书上有很详细的介绍，包括硬件环境和软件环境的构建都写的十分清楚，所以这篇文章主要是写一下我在中间遇到的一些问题以及解决方法。虚拟机的话我用的是Ubuntu18.04版本，安装虚拟机啥的网上资源很多，直接百度就行。</li>
-</ul>
-<h2 id="linux下的环境搭建"><a href="#linux下的环境搭建" class="headerlink" title="linux下的环境搭建"></a>linux下的环境搭建</h2><h3 id="1、修改Ubuntu的一些配置"><a href="#1、修改Ubuntu的一些配置" class="headerlink" title="1、修改Ubuntu的一些配置"></a>1、修改Ubuntu的一些配置</h3><ul>
-<li><p>切换国内镜像源</p>
-<p>&ensp;&ensp;&ensp;&ensp;&ensp; 在使用apt命令安装包时，因为系统自带下载源在国外服务器上，所以需要切换为国内镜像源才能提升下载速度。这里有一篇博客详细说明了如何直接根据终端命令修改其配置文件，从而达到修改下载源的目的.或者，，，，你也可以直接用Ubuntu的图形界面去修改，步骤如下： 显示应用程序-&gt;软件和更新-&gt;下载自主服务器改为其他，然后选择合适的镜像源就行了，这里我选择的是阿里的镜像源。</p>
-</li>
-<li><p>修改语言和设置汉语输入法</p>
-<p>&ensp;&ensp;&ensp;&ensp;&ensp; 懒得写，直接贴别人博客了</p>
-</li>
-</ul>
-<p>&ensp;&ensp;&ensp;&ensp;&ensp;<a href="https://blog.csdn.net/langshi_2011/article/details/78993781" target="_blank" rel="noopener">Linux Ubuntu系统设置成中文语言</a></p>
-<p>&ensp;&ensp;&ensp;&ensp;&ensp;<a href="https://blog.csdn.net/sparkstrike/article/details/81487271" target="_blank" rel="noopener">Linux.Ubuntu.中文输入法设置</a></p>
-]]></content>
-      <categories>
-        <category>程序设计</category>
-      </categories>
-      <tags>
-        <tag>linux</tag>
-        <tag>嵌入式开发</tag>
-        <tag>鸟哥的私房菜学习</tag>
       </tags>
   </entry>
   <entry>
@@ -687,6 +687,20 @@ r = \frac{|w^Tx+b|}{||w||}</script><ol>
       </tags>
   </entry>
   <entry>
+    <title>深度学习_花书</title>
+    <url>/2020/07/30/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E8%8A%B1%E4%B9%A6/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="深度学习"><a href="#深度学习" class="headerlink" title="深度学习"></a>深度学习</h1><a id="more"></a>
+<p>&nbsp;&nbsp; 深度学习(DL, Deep Learning)是机器学习(ML, Machine Learning)领域中一个新的研究方向，它被引入机器学习使其更接近于最初的目标——人工智能(AI, Artificial Intelligence)。<br>&nbsp;&nbsp; 深度学习是学习样本数据的内在规律和表示层次，这些学习过程中获得的信息对诸如文字，图像和声音等数据的解释有很大的帮助。它的最终目标是让机器能够像人一样具有分析学习能力，能够识别文字、图像和声音等数据。 深度学习是一个复杂的机器学习算法，在语音和图像识别方面取得的效果，远远超过先前相关技术。<br>&nbsp;&nbsp; 深度学习在搜索技术，数据挖掘，机器学习，机器翻译，自然语言处理，多媒体学习，语音，推荐和个性化技术，以及其他相关领域都取得了很多成果。深度学习使机器模仿视听和思考等人类的活动，解决了很多复杂的模式识别难题，使得人工智能相关技术取得了很大进步。  </p>
+]]></content>
+      <categories>
+        <category>研究生课程</category>
+      </categories>
+      <tags>
+        <tag>深度学习</tag>
+        <tag>分类器</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>深度学习CIFAR-10</title>
     <url>/2021/03/15/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0CIFAR-10/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="深度学习CIFAR-10"><a href="#深度学习CIFAR-10" class="headerlink" title=" 深度学习CIFAR-10 "></a><center> 深度学习CIFAR-10 </center></h1><p>忽然对CNN卷积神经网络比较感兴趣，于是选择了CIFAR-10数据集进行机器视觉的学习。<br><a id="more"></a></p>
@@ -752,20 +766,6 @@ r = \frac{|w^Tx+b|}{||w||}</script><ol>
       <tags>
         <tag>hexo</tag>
         <tag>搜索引擎</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>深度学习_花书</title>
-    <url>/2020/07/30/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E8%8A%B1%E4%B9%A6/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="深度学习"><a href="#深度学习" class="headerlink" title="深度学习"></a>深度学习</h1><a id="more"></a>
-<p>&nbsp;&nbsp; 深度学习(DL, Deep Learning)是机器学习(ML, Machine Learning)领域中一个新的研究方向，它被引入机器学习使其更接近于最初的目标——人工智能(AI, Artificial Intelligence)。<br>&nbsp;&nbsp; 深度学习是学习样本数据的内在规律和表示层次，这些学习过程中获得的信息对诸如文字，图像和声音等数据的解释有很大的帮助。它的最终目标是让机器能够像人一样具有分析学习能力，能够识别文字、图像和声音等数据。 深度学习是一个复杂的机器学习算法，在语音和图像识别方面取得的效果，远远超过先前相关技术。<br>&nbsp;&nbsp; 深度学习在搜索技术，数据挖掘，机器学习，机器翻译，自然语言处理，多媒体学习，语音，推荐和个性化技术，以及其他相关领域都取得了很多成果。深度学习使机器模仿视听和思考等人类的活动，解决了很多复杂的模式识别难题，使得人工智能相关技术取得了很大进步。  </p>
-]]></content>
-      <categories>
-        <category>研究生课程</category>
-      </categories>
-      <tags>
-        <tag>深度学习</tag>
-        <tag>分类器</tag>
       </tags>
   </entry>
   <entry>
@@ -1018,159 +1018,6 @@ r = \frac{|w^Tx+b|}{||w||}</script><ol>
       </tags>
   </entry>
   <entry>
-    <title>计算机通信网</title>
-    <url>/2021/03/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%80%9A%E4%BF%A1%E7%BD%91/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="计算机通信网"><a href="#计算机通信网" class="headerlink" title="计算机通信网"></a><center>计算机通信网</center></h1><h2 id="网络层"><a href="#网络层" class="headerlink" title="网络层"></a>网络层</h2><h3 id="子网划分"><a href="#子网划分" class="headerlink" title="子网划分"></a>子网划分</h3><p>a类地址：1~126</p>
-<p>b类地址：128~191</p>
-<p>c类地址：192~223</p>
-<p>d类：224~239拥有组播通信</p>
-<p>E类：240~255 保留给科学研究使用</p>
-<p>私有地址包括3组 ：</p>
-<p>A类：10.0.0.0~10.255.255.255</p>
-<p>B类：172.16.0.0~172.31.255.255</p>
-<p>C类：192.168.0.0~192.168.255.255</p>
-<h3 id="路由器-route"><a href="#路由器-route" class="headerlink" title="路由器 route"></a>路由器 route</h3><p>把东西从一个地方送到另外一个地方的过程中，根据什么理由找到最佳的路的过程。</p>
-<p>​跨越从源主机到目标主机的一个互联网络来转发数据包的过程。</p>
-<p>路由器：router<br>能够将数据包转发到正确的目的地，并在转发的过程中选择最佳路径的设备就是路由器。</p>
-<p>按顺序传输文件，按需送达文件。</p>
-<p>在路由器上，有两个重要的东西，一个是路由算法，用来确定通过网络的端到端路径；另一个是转发表，转发表确定了本路由器如何转发分组。需要注意的是对于转发表，目的地址是32位的IP地址，所有转发表是按照地址的范围转发的。<br><img src="https://img-blog.csdn.net/20170928165940545" alt="" loading="lazy"></p>
-<h3 id="路由表"><a href="#路由表" class="headerlink" title="路由表"></a>路由表</h3><ul>
-<li>路由表是在内存中存放在内核中的。</li>
-<li>路由器根据路由表进行路径的选择</li>
-<li>路由表中有目标网段和端口<h4 id="路由的类型："><a href="#路由的类型：" class="headerlink" title="路由的类型："></a>路由的类型：</h4></li>
-</ul>
-<ol>
-<li>​直连路由 </li>
-</ol>
-<p>满足的条件（配置好ip地址，激活接口up状态）</p>
-<ol>
-<li>​静态路由</li>
-</ol>
-<p>需要人去手工的添加-》单向的<br>​</p>
-<ol>
-<li>默认路由</li>
-</ol>
-<p>当找不到匹配路由时走默认路由==》属于特殊的静态路由==》填写网关实质上就是配置一条默认路由</p>
-<ol>
-<li>动态路由</li>
-</ol>
-<p>路由器之间会互相告诉其他的路由器我能到哪里，相互进行学习–》动态路由协议：rip协议、ospf协议<br>shishenme</p>
-<ol>
-<li>路由的优先级：</li>
-</ol>
-<p>​直连路由–》静态路由–》动态路由–》默认路由</p>
-<ul>
-<li>路由转发数据包的封装过程：</li>
-</ul>
-<p><img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpicture-pool.oss-cn-beijing.aliyuncs.com%2F006tNc79gy1g2xpmjpx6lj30zu0gmq9y.jpg&amp;refer=http%3A%2F%2Fpicture-pool.oss-cn-beijing.aliyuncs.com&amp;app=2002&amp;size=f9999,10000&amp;q=a80&amp;n=0&amp;g=0n&amp;fmt=jpeg?sec=1619161640&amp;t=56a7ccf16296086feabc7da65a75f7b7" alt="" loading="lazy"></p>
-<h3 id="网络连接的建立"><a href="#网络连接的建立" class="headerlink" title="网络连接的建立"></a>网络连接的建立</h3><p>传输层</p>
-<h3 id="虚电路和数据报"><a href="#虚电路和数据报" class="headerlink" title="虚电路和数据报"></a>虚电路和数据报</h3><h4 id="区别："><a href="#区别：" class="headerlink" title="区别："></a>区别：</h4><p>虚电路：严格预留资源，不会造成资源浪费，类似飞机。</p>
-<p>数据报：不预留资源，统计复用，类似公交车。</p>
-<p>网络层可以在两台主机之间提供无连接服务或连接服务。由网络层向运输层提供</p>
-<p>虚电路网络：仅提供连接服务</p>
-<p>数据报网络：仅提供无连接服务</p>
-<blockquote>
-<p>保障数据报里，端到端的通信。</p>
-</blockquote>
-<ol>
-<li>建立连接</li>
-</ol>
-<p>在建立阶段，发送运输层与网络层联系，指定接收方地址，等待网络建立虚电路。网络层决定发送方和接收方之间的路径，即该虚电路的所有分组要通过的一系列链路和路由器。网络层也为沿着该路径的每条链路决定VC号。最后，网络层在沿着路径的每台路由器的转发表中增加一个表项。</p>
-<ol>
-<li>数据传送</li>
-</ol>
-<p><img src="https://img-blog.csdn.net/20180523215900208" alt="" loading="lazy"></p>
-<ol>
-<li>虚电路删除。</li>
-</ol>
-<p>当发送方（或接收方）通知网络层它希望终止该虚电路时，就启动该阶段。网络层通常将通知网络另一侧的端系统结束呼叫，并更新路径上每台路由器中的转发表以表明该虚电路已不存在。</p>
-<h3 id="运输层连接建立和网络层连接建立区别："><a href="#运输层连接建立和网络层连接建立区别：" class="headerlink" title="运输层连接建立和网络层连接建立区别："></a>运输层连接建立和网络层连接建立区别：</h3><p>运输层的连接建立仅涉及两个端系统，两个端系统独自决定运输层连接的参数（初始序号和流量控制窗口长度），端系统知道该运输层连接，但网络中路由器对这些完全不知情。</p>
-<p>虚电路网络层，沿着两个端系统之间的路径上的路由器都要参与虚电路的建立，且每台路由器都完全知道经过它的所有虚电路。</p>
-<p>端系统向网络发送指示虚电路启动与终止的报文，以及路由器之间传递的用于建立虚电路（即修改路由器表中的连接状态）的报文，被称为信令报文，用来交换这些报文的协议称为信令协议。<br>在路由器上，有两个重要的东西，一个是路由算法，用来确定通过网络的端到端路径；另一个是转发表，转发表确定了本路由器如何转发分组。需要注意的是对于转发表，目的地址是32位的IP地址，那么就有几十亿各IP地址，一个路由器不可能维护一个几十亿的表，所有转发表是按照地址的范围转发的，如图七。</p>
-<h3 id="IP最长匹配原则"><a href="#IP最长匹配原则" class="headerlink" title="IP最长匹配原则"></a>IP最长匹配原则</h3><p>不多做解释，可以自行看下图所示方法。<br><img src="https://img-blog.csdn.net/20170928165948842" alt="" loading="lazy"></p>
-<h2 id="参考博客："><a href="#参考博客：" class="headerlink" title="参考博客："></a>参考博客：</h2><ul>
-<li><a href="https://blog.csdn.net/qq_43297621/article/details/108132285#t27" target="_blank" rel="noopener">网络层详解</a></li>
-<li><a href="https://blog.csdn.net/qq_22238021/article/details/80426135" target="_blank" rel="noopener">虚电路和数据报网络</a></li>
-</ul>
-<p>问题：</p>
-<ol>
-<li>构建数学模型，通过模型对数据报和虚电路进行性能分析。</li>
-<li>最长前缀匹配的优势是什么。</li>
-</ol>
-<p>用什么角度评判网路的各种性能。</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>数据指标</th>
-<th>虚电路</th>
-<th>数据报</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>可靠性</td>
-<td>v</td>
-<td>x</td>
-</tr>
-<tr>
-<td>健壮性</td>
-<td>v</td>
-<td>x</td>
-</tr>
-<tr>
-<td>差错控制</td>
-<td>v</td>
-<td>x</td>
-</tr>
-<tr>
-<td>Qos</td>
-<td>v</td>
-<td>x</td>
-</tr>
-<tr>
-<td>时间空间（建立连接、多经）</td>
-<td>v</td>
-<td>x</td>
-</tr>
-<tr>
-<td>安全性（病毒、监听、伪装）</td>
-<td>v</td>
-<td>x</td>
-</tr>
-<tr>
-<td>时间开销</td>
-<td>v</td>
-<td>x</td>
-</tr>
-<tr>
-<td>平衡节能</td>
-<td>v</td>
-<td>x</td>
-</tr>
-<tr>
-<td>网路复杂度</td>
-<td>v</td>
-<td>x</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ul>
-<li><p>虚电路服务适用与交互作用，不仅及时、传输较为可靠且网路开销小。</p>
-</li>
-<li><p>数据报服务适用于单个分组构成的、不具交互作用的信息及对传输要求不高的场合。</p>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>研究生课程</category>
-      </categories>
-      <tags>
-        <tag>研究生课程</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>网站视频下载及按帧将视频转为jpg</title>
     <url>/2020/10/15/%E7%BD%91%E7%AB%99%E8%A7%86%E9%A2%91%E4%B8%8B%E8%BD%BD%E5%8F%8A%E6%8C%89%E5%B8%A7%E8%BD%AC%E4%B8%BAjpg/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="网站视频下载及按帧转为jpg"><a href="#网站视频下载及按帧转为jpg" class="headerlink" title="网站视频下载及按帧转为jpg"></a>网站视频下载及按帧转为jpg</h1><h2 id="1、准备切割视频"><a href="#1、准备切割视频" class="headerlink" title="1、准备切割视频"></a>1、准备切割视频</h2><p>视频切割算法:<br><figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">clc;</span><br><span class="line">clear;</span><br><span class="line"><span class="comment">%读取视频</span></span><br><span class="line">video_file=<span class="string">'D:\1.mp4'</span>;</span><br><span class="line">obj=VideoReader(video_file);</span><br><span class="line">frame_num=obj.NumberOfFrames;<span class="comment">%一共有多少帧</span></span><br><span class="line"><span class="comment">% 分离图片</span></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:<span class="number">15</span><span class="comment">%读取前15帧</span></span><br><span class="line">    img=strcat(<span class="string">'D:\picture\',num2str(i));</span></span><br><span class="line"><span class="string">    img=strcat(img,'</span>.jpg');</span><br><span class="line">    I=read(obj,<span class="built_in">i</span>);<span class="comment">%读出第15帧图片</span></span><br><span class="line">    imwrite(I,strcat(<span class="string">'D:\picture\',num2str(i),'</span>.jpg'),<span class="string">'jpg'</span>);<span class="comment">% 保存帧</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure></p>
@@ -1266,6 +1113,158 @@ r = \frac{|w^Tx+b|}{||w||}</script><ol>
       <tags>
         <tag>表白网站</tag>
         <tag>罗盘时钟</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>计算机通信网</title>
+    <url>/2021/03/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%80%9A%E4%BF%A1%E7%BD%91/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="计算机通信网"><a href="#计算机通信网" class="headerlink" title="计算机通信网"></a><center>计算机通信网</center></h1><h2 id="网络层"><a href="#网络层" class="headerlink" title="网络层"></a>网络层</h2><h3 id="子网划分"><a href="#子网划分" class="headerlink" title="子网划分"></a>子网划分</h3><p>a类地址：1~126</p>
+<p>b类地址：128~191</p>
+<p>c类地址：192~223</p>
+<p>d类：224~239拥有组播通信</p>
+<p>E类：240~255 保留给科学研究使用</p>
+<p>私有地址包括3组 ：</p>
+<p>A类：10.0.0.0~10.255.255.255</p>
+<p>B类：172.16.0.0~172.31.255.255</p>
+<p>C类：192.168.0.0~192.168.255.255</p>
+<h3 id="路由器-route"><a href="#路由器-route" class="headerlink" title="路由器 route"></a>路由器 route</h3><p>把东西从一个地方送到另外一个地方的过程中，根据什么理由找到最佳的路的过程。</p>
+<p>​跨越从源主机到目标主机的一个互联网络来转发数据包的过程。</p>
+<p>路由器：router<br>能够将数据包转发到正确的目的地，并在转发的过程中选择最佳路径的设备就是路由器。</p>
+<p>按顺序传输文件，按需送达文件。</p>
+<p>在路由器上，有两个重要的东西，一个是路由算法，用来确定通过网络的端到端路径；另一个是转发表，转发表确定了本路由器如何转发分组。需要注意的是对于转发表，目的地址是32位的IP地址，所有转发表是按照地址的范围转发的。<br><img src="https://img-blog.csdn.net/20170928165940545" alt="" loading="lazy"></p>
+<h3 id="路由表"><a href="#路由表" class="headerlink" title="路由表"></a>路由表</h3><ul>
+<li>路由表是在内存中存放在内核中的。</li>
+<li>路由器根据路由表进行路径的选择</li>
+<li>路由表中有目标网段和端口<h4 id="路由的类型："><a href="#路由的类型：" class="headerlink" title="路由的类型："></a>路由的类型：</h4></li>
+</ul>
+<ol>
+<li>​直连路由 </li>
+</ol>
+<p>满足的条件（配置好ip地址，激活接口up状态）</p>
+<ol>
+<li>​静态路由</li>
+</ol>
+<p>需要人去手工的添加-》单向的<br>​</p>
+<ol>
+<li>默认路由</li>
+</ol>
+<p>当找不到匹配路由时走默认路由==》属于特殊的静态路由==》填写网关实质上就是配置一条默认路由</p>
+<ol>
+<li>动态路由</li>
+</ol>
+<p>路由器之间会互相告诉其他的路由器我能到哪里，相互进行学习–》动态路由协议：rip协议、ospf协议<br>shishenme</p>
+<ol>
+<li>路由的优先级：</li>
+</ol>
+<p>​直连路由–》静态路由–》动态路由–》默认路由</p>
+<ul>
+<li>路由转发数据包的封装过程：</li>
+</ul>
+<p><img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpicture-pool.oss-cn-beijing.aliyuncs.com%2F006tNc79gy1g2xpmjpx6lj30zu0gmq9y.jpg&amp;refer=http%3A%2F%2Fpicture-pool.oss-cn-beijing.aliyuncs.com&amp;app=2002&amp;size=f9999,10000&amp;q=a80&amp;n=0&amp;g=0n&amp;fmt=jpeg?sec=1619161640&amp;t=56a7ccf16296086feabc7da65a75f7b7" alt="" loading="lazy"></p>
+<h3 id="网络连接的建立"><a href="#网络连接的建立" class="headerlink" title="网络连接的建立"></a>网络连接的建立</h3><p>传输层</p>
+<h3 id="虚电路和数据报"><a href="#虚电路和数据报" class="headerlink" title="虚电路和数据报"></a>虚电路和数据报</h3><h4 id="区别："><a href="#区别：" class="headerlink" title="区别："></a>区别：</h4><p>虚电路：严格预留资源，不会造成资源浪费，类似飞机。</p>
+<p>数据报：不预留资源，统计复用，类似公交车。</p>
+<p>网络层可以在两台主机之间提供无连接服务或连接服务。由网络层向运输层提供</p>
+<p>虚电路网络：仅提供连接服务</p>
+<p>数据报网络：仅提供无连接服务</p>
+<blockquote>
+<p>保障数据报里，端到端的通信。</p>
+</blockquote>
+<ol>
+<li>建立连接</li>
+</ol>
+<p>在建立阶段，发送运输层与网络层联系，指定接收方地址，等待网络建立虚电路。网络层决定发送方和接收方之间的路径，即该虚电路的所有分组要通过的一系列链路和路由器。网络层也为沿着该路径的每条链路决定VC号。最后，网络层在沿着路径的每台路由器的转发表中增加一个表项。</p>
+<ol>
+<li>数据传送</li>
+</ol>
+<p><img src="https://img-blog.csdn.net/20180523215900208" alt="" loading="lazy"></p>
+<ol>
+<li>虚电路删除。</li>
+</ol>
+<p>当发送方（或接收方）通知网络层它希望终止该虚电路时，就启动该阶段。网络层通常将通知网络另一侧的端系统结束呼叫，并更新路径上每台路由器中的转发表以表明该虚电路已不存在。</p>
+<h3 id="运输层连接建立和网络层连接建立区别："><a href="#运输层连接建立和网络层连接建立区别：" class="headerlink" title="运输层连接建立和网络层连接建立区别："></a>运输层连接建立和网络层连接建立区别：</h3><p>运输层的连接建立仅涉及两个端系统，两个端系统独自决定运输层连接的参数（初始序号和流量控制窗口长度），端系统知道该运输层连接，但网络中路由器对这些完全不知情。</p>
+<p>虚电路网络层，沿着两个端系统之间的路径上的路由器都要参与虚电路的建立，且每台路由器都完全知道经过它的所有虚电路。</p>
+<p>端系统向网络发送指示虚电路启动与终止的报文，以及路由器之间传递的用于建立虚电路（即修改路由器表中的连接状态）的报文，被称为信令报文，用来交换这些报文的协议称为信令协议。<br>在路由器上，有两个重要的东西，一个是路由算法，用来确定通过网络的端到端路径；另一个是转发表，转发表确定了本路由器如何转发分组。需要注意的是对于转发表，目的地址是32位的IP地址，那么就有几十亿各IP地址，一个路由器不可能维护一个几十亿的表，所有转发表是按照地址的范围转发的，如图七。</p>
+<h3 id="IP最长匹配原则"><a href="#IP最长匹配原则" class="headerlink" title="IP最长匹配原则"></a>IP最长匹配原则</h3><p>不多做解释，可以自行看下图所示方法。<br><img src="https://img-blog.csdn.net/20170928165948842" alt="" loading="lazy"></p>
+<h3 id="问题："><a href="#问题：" class="headerlink" title="问题："></a>问题：</h3><ol>
+<li>构建数学模型，通过模型对数据报和虚电路进行性能分析。</li>
+<li>最长前缀匹配的优势是什么。</li>
+</ol>
+<p>用什么角度评判网路的各种性能。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>数据指标</th>
+<th>虚电路</th>
+<th>数据报</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>可靠性</td>
+<td>v</td>
+<td>x</td>
+</tr>
+<tr>
+<td>健壮性</td>
+<td>v</td>
+<td>x</td>
+</tr>
+<tr>
+<td>差错控制</td>
+<td>v</td>
+<td>x</td>
+</tr>
+<tr>
+<td>Qos</td>
+<td>v</td>
+<td>x</td>
+</tr>
+<tr>
+<td>时间空间（建立连接、多经）</td>
+<td>v</td>
+<td>x</td>
+</tr>
+<tr>
+<td>安全性（病毒、监听、伪装）</td>
+<td>v</td>
+<td>x</td>
+</tr>
+<tr>
+<td>时间开销</td>
+<td>v</td>
+<td>x</td>
+</tr>
+<tr>
+<td>平衡节能</td>
+<td>v</td>
+<td>x</td>
+</tr>
+<tr>
+<td>网路复杂度</td>
+<td>x</td>
+<td>v</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ul>
+<li><p>虚电路服务适用与交互作用，不仅及时、传输较为可靠且网路开销小。</p>
+</li>
+<li><p>数据报服务适用于单个分组构成的、不具交互作用的信息及对传输要求不高的场合。</p>
+</li>
+</ul>
+<h2 id="参考博客："><a href="#参考博客：" class="headerlink" title="参考博客："></a>参考博客：</h2><ul>
+<li><a href="https://blog.csdn.net/qq_43297621/article/details/108132285#t27" target="_blank" rel="noopener">网络层详解</a></li>
+<li><a href="https://blog.csdn.net/qq_22238021/article/details/80426135" target="_blank" rel="noopener">虚电路和数据报网络</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>研究生课程</category>
+      </categories>
+      <tags>
+        <tag>研究生课程</tag>
       </tags>
   </entry>
   <entry>
