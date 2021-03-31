@@ -259,39 +259,6 @@
       </tags>
   </entry>
   <entry>
-    <title>python放大按图片中心剪切、缩小</title>
-    <url>/2021/03/31/python%E6%94%BE%E5%A4%A7%E6%8C%89%E5%9B%BE%E7%89%87%E4%B8%AD%E5%BF%83%E5%89%AA%E5%88%87%E3%80%81%E7%BC%A9%E5%B0%8F/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="python放大并按图片中心剪切、放大"><a href="#python放大并按图片中心剪切、放大" class="headerlink" title="python放大并按图片中心剪切、放大"></a>python放大并按图片中心剪切、放大</h1><div class="table-container">
-<table>
-<thead>
-<tr>
-<th>缩小</th>
-<th>原始大小</th>
-<th>放大并剪切后</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><img src="https://img-blog.csdnimg.cn/20210331104832232.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></td>
-<td><img src="https://img-blog.csdnimg.cn/20210331103805575.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></td>
-<td><img src="https://img-blog.csdnimg.cn/20210331103730206.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></td>
-</tr>
-</tbody>
-</table>
-</div>
-<h3 id="放大"><a href="#放大" class="headerlink" title="放大"></a>放大</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">img&#x3D;crop_image(cv2.resize(img, None, fx&#x3D;1, fy&#x3D;1, interpolation&#x3D;cv2.INTER_CUBIC),new_height,new_width)</span><br></pre></td></tr></table></figure>
-<h3 id="缩小"><a href="#缩小" class="headerlink" title="缩小"></a>缩小</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mini&#x3D; cv2.resize(cv2.copyMakeBorder(img, P_A, P_A, P_A, P_A, cv2.BORDER_REPLICATE), (150, 150))</span><br></pre></td></tr></table></figure>
-<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><p>其中有将矩阵转Image、Image转矩阵两个过程。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">def crop_image(re_img,new_height,new_width):</span><br><span class="line">    re_img&#x3D;Image.fromarray(np.uint8(re_img))</span><br><span class="line">    width, height &#x3D; re_img.size</span><br><span class="line">    left &#x3D; (width - new_width)&#x2F;2</span><br><span class="line">    top &#x3D; (height - new_height)&#x2F;2</span><br><span class="line">    right &#x3D; (width + new_width)&#x2F;2</span><br><span class="line">    bottom &#x3D; (height + new_height)&#x2F;2</span><br><span class="line">    crop_im &#x3D; re_img.crop((left, top, right, bottom)) #Cropping Image</span><br><span class="line">    crop_im &#x3D; np.asarray(crop_im)</span><br><span class="line">    return crop_im</span><br><span class="line"></span><br><span class="line">new_width &#x3D; 150     #Enter the crop image width</span><br><span class="line">new_height &#x3D; 150    #Enter the crop image height</span><br><span class="line"></span><br><span class="line">img &#x3D; cv2.imread(&quot;learn&#x2F;cats&#x2F;cat.3.jpg&quot;)</span><br><span class="line">img&#x3D;cv2.resize(img,(150,150))</span><br><span class="line">P_A&#x3D;50</span><br><span class="line">img&#x3D;crop_image(cv2.resize(img, None, fx&#x3D;1, fy&#x3D;1, interpolation&#x3D;cv2.INTER_CUBIC),new_height,new_width)</span><br><span class="line"></span><br><span class="line">plt.imshow(img)</span><br><span class="line">plt.title(&#39;cat&#39;)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>python</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>linux学习笔记</title>
     <url>/2021/03/26/linux%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="linux操作系统学习笔记"><a href="#linux操作系统学习笔记" class="headerlink" title="linux操作系统学习笔记"></a><center>linux操作系统学习笔记</center></h1><h1 id="linux"><a href="#linux" class="headerlink" title="linux"></a>linux</h1><h2 id="linux常用命令"><a href="#linux常用命令" class="headerlink" title="linux常用命令"></a>linux常用命令</h2><h3 id="ls"><a href="#ls" class="headerlink" title="ls"></a>ls</h3><p><img src="https://www.runoob.com/wp-content/uploads/2014/06/d0c50-linux2bfile2bsystem2bhierarchy.jpg" alt="" loading="lazy"></p>
@@ -373,6 +340,36 @@
       </tags>
   </entry>
   <entry>
+    <title>linux嵌入式开发_1</title>
+    <url>/2020/07/30/linux%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91-1/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="linux基础"><a href="#linux基础" class="headerlink" title="linux基础"></a><strong>linux基础</strong></h1><h2 id="linux是什么？"><a href="#linux是什么？" class="headerlink" title="linux是什么？"></a>linux是什么？</h2><a id="more"></a>
+<ul>
+<li>linux是一款开源操作系统，开放了整组的调用接口给程序猿进行开发和使用。linux操作系统包含内核和系统调用，并不包含应用程序。由于linux的架构继承了unix良好传统，因此越来越多的开发者选择使用linux并为之设计了许多应用级软件。</li>
+</ul>
+<h2 id="开发环境的搭建"><a href="#开发环境的搭建" class="headerlink" title="开发环境的搭建"></a>开发环境的搭建</h2><ul>
+<li>开发环境需要用到交叉开发模式，这一点书上有很详细的介绍，包括硬件环境和软件环境的构建都写的十分清楚，所以这篇文章主要是写一下我在中间遇到的一些问题以及解决方法。虚拟机的话我用的是Ubuntu18.04版本，安装虚拟机啥的网上资源很多，直接百度就行。</li>
+</ul>
+<h2 id="linux下的环境搭建"><a href="#linux下的环境搭建" class="headerlink" title="linux下的环境搭建"></a>linux下的环境搭建</h2><h3 id="1、修改Ubuntu的一些配置"><a href="#1、修改Ubuntu的一些配置" class="headerlink" title="1、修改Ubuntu的一些配置"></a>1、修改Ubuntu的一些配置</h3><ul>
+<li><p>切换国内镜像源</p>
+<p>&ensp;&ensp;&ensp;&ensp;&ensp; 在使用apt命令安装包时，因为系统自带下载源在国外服务器上，所以需要切换为国内镜像源才能提升下载速度。这里有一篇博客详细说明了如何直接根据终端命令修改其配置文件，从而达到修改下载源的目的.或者，，，，你也可以直接用Ubuntu的图形界面去修改，步骤如下： 显示应用程序-&gt;软件和更新-&gt;下载自主服务器改为其他，然后选择合适的镜像源就行了，这里我选择的是阿里的镜像源。</p>
+</li>
+<li><p>修改语言和设置汉语输入法</p>
+<p>&ensp;&ensp;&ensp;&ensp;&ensp; 懒得写，直接贴别人博客了</p>
+</li>
+</ul>
+<p>&ensp;&ensp;&ensp;&ensp;&ensp;<a href="https://blog.csdn.net/langshi_2011/article/details/78993781" target="_blank" rel="noopener">Linux Ubuntu系统设置成中文语言</a></p>
+<p>&ensp;&ensp;&ensp;&ensp;&ensp;<a href="https://blog.csdn.net/sparkstrike/article/details/81487271" target="_blank" rel="noopener">Linux.Ubuntu.中文输入法设置</a></p>
+]]></content>
+      <categories>
+        <category>程序设计</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+        <tag>嵌入式开发</tag>
+        <tag>鸟哥的私房菜学习</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Merry Christmas</title>
     <url>/2020/12/24/merry_christmas/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Merry-Christmas"><a href="#Merry-Christmas" class="headerlink" title="Merry Christmas"></a><center>Merry Christmas</center></h1><center>
@@ -412,33 +409,36 @@
       </tags>
   </entry>
   <entry>
-    <title>linux嵌入式开发_1</title>
-    <url>/2020/07/30/linux%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91-1/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="linux基础"><a href="#linux基础" class="headerlink" title="linux基础"></a><strong>linux基础</strong></h1><h2 id="linux是什么？"><a href="#linux是什么？" class="headerlink" title="linux是什么？"></a>linux是什么？</h2><a id="more"></a>
-<ul>
-<li>linux是一款开源操作系统，开放了整组的调用接口给程序猿进行开发和使用。linux操作系统包含内核和系统调用，并不包含应用程序。由于linux的架构继承了unix良好传统，因此越来越多的开发者选择使用linux并为之设计了许多应用级软件。</li>
-</ul>
-<h2 id="开发环境的搭建"><a href="#开发环境的搭建" class="headerlink" title="开发环境的搭建"></a>开发环境的搭建</h2><ul>
-<li>开发环境需要用到交叉开发模式，这一点书上有很详细的介绍，包括硬件环境和软件环境的构建都写的十分清楚，所以这篇文章主要是写一下我在中间遇到的一些问题以及解决方法。虚拟机的话我用的是Ubuntu18.04版本，安装虚拟机啥的网上资源很多，直接百度就行。</li>
-</ul>
-<h2 id="linux下的环境搭建"><a href="#linux下的环境搭建" class="headerlink" title="linux下的环境搭建"></a>linux下的环境搭建</h2><h3 id="1、修改Ubuntu的一些配置"><a href="#1、修改Ubuntu的一些配置" class="headerlink" title="1、修改Ubuntu的一些配置"></a>1、修改Ubuntu的一些配置</h3><ul>
-<li><p>切换国内镜像源</p>
-<p>&ensp;&ensp;&ensp;&ensp;&ensp; 在使用apt命令安装包时，因为系统自带下载源在国外服务器上，所以需要切换为国内镜像源才能提升下载速度。这里有一篇博客详细说明了如何直接根据终端命令修改其配置文件，从而达到修改下载源的目的.或者，，，，你也可以直接用Ubuntu的图形界面去修改，步骤如下： 显示应用程序-&gt;软件和更新-&gt;下载自主服务器改为其他，然后选择合适的镜像源就行了，这里我选择的是阿里的镜像源。</p>
-</li>
-<li><p>修改语言和设置汉语输入法</p>
-<p>&ensp;&ensp;&ensp;&ensp;&ensp; 懒得写，直接贴别人博客了</p>
-</li>
-</ul>
-<p>&ensp;&ensp;&ensp;&ensp;&ensp;<a href="https://blog.csdn.net/langshi_2011/article/details/78993781" target="_blank" rel="noopener">Linux Ubuntu系统设置成中文语言</a></p>
-<p>&ensp;&ensp;&ensp;&ensp;&ensp;<a href="https://blog.csdn.net/sparkstrike/article/details/81487271" target="_blank" rel="noopener">Linux.Ubuntu.中文输入法设置</a></p>
+    <title>python放大按图片中心剪切、缩小</title>
+    <url>/2021/03/31/python%E6%94%BE%E5%A4%A7%E6%8C%89%E5%9B%BE%E7%89%87%E4%B8%AD%E5%BF%83%E5%89%AA%E5%88%87%E3%80%81%E7%BC%A9%E5%B0%8F/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="python放大并按图片中心剪切、放大"><a href="#python放大并按图片中心剪切、放大" class="headerlink" title="python放大并按图片中心剪切、放大"></a>python放大并按图片中心剪切、放大</h1><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>缩小</th>
+<th>原始大小</th>
+<th>放大并剪切后</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="https://img-blog.csdnimg.cn/20210331104832232.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></td>
+<td><img src="https://img-blog.csdnimg.cn/20210331103805575.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></td>
+<td><img src="https://img-blog.csdnimg.cn/20210331103730206.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="放大"><a href="#放大" class="headerlink" title="放大"></a>放大</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">img&#x3D;crop_image(cv2.resize(img, None, fx&#x3D;1, fy&#x3D;1, interpolation&#x3D;cv2.INTER_CUBIC),new_height,new_width)</span><br></pre></td></tr></table></figure>
+<h3 id="缩小"><a href="#缩小" class="headerlink" title="缩小"></a>缩小</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mini&#x3D; cv2.resize(cv2.copyMakeBorder(img, P_A, P_A, P_A, P_A, cv2.BORDER_REPLICATE), (150, 150))</span><br></pre></td></tr></table></figure>
+<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><p>其中有将矩阵转Image、Image转矩阵两个过程。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">def crop_image(re_img,new_height,new_width):</span><br><span class="line">    re_img&#x3D;Image.fromarray(np.uint8(re_img))</span><br><span class="line">    width, height &#x3D; re_img.size</span><br><span class="line">    left &#x3D; (width - new_width)&#x2F;2</span><br><span class="line">    top &#x3D; (height - new_height)&#x2F;2</span><br><span class="line">    right &#x3D; (width + new_width)&#x2F;2</span><br><span class="line">    bottom &#x3D; (height + new_height)&#x2F;2</span><br><span class="line">    crop_im &#x3D; re_img.crop((left, top, right, bottom)) #Cropping Image</span><br><span class="line">    crop_im &#x3D; np.asarray(crop_im)</span><br><span class="line">    return crop_im</span><br><span class="line"></span><br><span class="line">new_width &#x3D; 150     #Enter the crop image width</span><br><span class="line">new_height &#x3D; 150    #Enter the crop image height</span><br><span class="line"></span><br><span class="line">img &#x3D; cv2.imread(&quot;learn&#x2F;cats&#x2F;cat.3.jpg&quot;)</span><br><span class="line">img&#x3D;cv2.resize(img,(150,150))</span><br><span class="line">P_A&#x3D;50</span><br><span class="line">img&#x3D;crop_image(cv2.resize(img, None, fx&#x3D;1, fy&#x3D;1, interpolation&#x3D;cv2.INTER_CUBIC),new_height,new_width)</span><br><span class="line"></span><br><span class="line">plt.imshow(img)</span><br><span class="line">plt.title(&#39;cat&#39;)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
-        <category>程序设计</category>
+        <category>python</category>
       </categories>
       <tags>
-        <tag>linux</tag>
-        <tag>嵌入式开发</tag>
-        <tag>鸟哥的私房菜学习</tag>
+        <tag>python</tag>
       </tags>
   </entry>
   <entry>
@@ -459,6 +459,58 @@
       <tags>
         <tag>推免</tag>
         <tag>加密</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>合成厦大</title>
+    <url>/2021/01/31/%E5%90%88%E6%88%90%E5%8E%A6%E5%A4%A7/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="合成厦大"><a href="#合成厦大" class="headerlink" title="合成厦大"></a><center>合成厦大</center></h1><p>最近合成大西瓜蛮火的，就想把里面的图片改了，然后做一个自己的合成厦大。<br><a id="more"></a></p>
+<h2 id="找合成大西瓜的源码"><a href="#找合成大西瓜的源码" class="headerlink" title="找合成大西瓜的源码"></a>找合成大西瓜的源码</h2><p>首先只是想做个python的发现没有python的源码，但是最后找到了一个网址，找到了源码<br><a href="https://github.com/liyupi/daxigua/releases/tag/1.0.0" target="_blank" rel="noopener" title="合成大西瓜">合成大西瓜</a>大家也可以自行下载。</p>
+<h2 id="然后看懂源码里面的东西"><a href="#然后看懂源码里面的东西" class="headerlink" title="然后看懂源码里面的东西"></a>然后看懂源码里面的东西</h2><p>其实仔细看看就是把里面的资源文件给改掉就可以达到目的，接下来编写excel记录需要修改的文件，然后依次修改修改里面的文件。<br>可以通过F12开发者模式找到每种水果对应什么图片。<br>这里我用excel将所有水果修改后的图片、像素和图片内容一一对应，有需要的可以自行修改内容：<br><a href="http://www.mmrsl.cn/wp-content/uploads/2021/01/wp_editor_md_d946f9006675e38d1a687a8510a70136.jpg" target="_blank" rel="noopener"><img src="http://www.mmrsl.cn/wp-content/uploads/2021/01/wp_editor_md_d946f9006675e38d1a687a8510a70136.jpg" alt="" loading="lazy"></a><br>可以参考上诉的图片进行修改。</p>
+<h2 id="去广告"><a href="#去广告" class="headerlink" title="去广告"></a>去广告</h2><p>去广告其实如果会的话可以F12找到那个广告的网址，然后将广告网址替换成自己的网址。（不多赘述，可以自行尝试）</p>
+<h2 id="上线发布"><a href="#上线发布" class="headerlink" title="上线发布"></a>上线发布</h2><p>本人采用的是github，如何上传可以参考我之前的文章—<a href="https://www.codekp.cn/2020/12/12/%E8%A1%A8%E7%99%BD%E7%BD%91%E7%AB%99%E3%80%81%E7%BD%97%E7%9B%98%E6%97%B6%E9%92%9F%E6%95%99%E7%A8%8B/" title="如何优雅的制作表白网站">如何优雅的制作表白网站</a>。</p>
+<h3 id="GitHub"><a href="#GitHub" class="headerlink" title="GitHub"></a>GitHub</h3><p>GitHub 是一个面向开源及私有软件项目的托管平台，因为只支持 Git 作为唯一的版本库格式进行托管，故名 GitHub。</p>
+<p>GitHub 于 2008 年 4 月 10 日正式上线，除了 Git 代码仓库托管及基本的 Web 管理界面以外，还提供了订阅、讨论组、文本渲染、在线文件编辑器、协作图谱（报表）、代码片段分享（Gist）等功能。目前，其注册用户已经超过 350 万，托管版本数量也是非常之多，其中不乏知名开源项目 Ruby on Rails、jQuery、python 等。</p>
+<p>本文需要先下载git <a href="https://git-scm.com/downloads" target="_blank" rel="noopener">下载地址</a></p>
+<p>git教程请参考<a href="https://www.liaoxuefeng.com/wiki/896043488029600" target="_blank" rel="noopener">廖雪峰Git</a></p>
+<h3 id="首先我们来学习一下，一些git的push方法"><a href="#首先我们来学习一下，一些git的push方法" class="headerlink" title="首先我们来学习一下，一些git的push方法"></a>首先我们来学习一下，一些git的push方法</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git init</span><br><span class="line">git add .</span><br><span class="line">git commit -m &quot;first commit&quot;</span><br><span class="line">git branch -M main</span><br><span class="line">git remote add origin https:&#x2F;&#x2F;github.com&#x2F;mmrslwan1110&#x2F;HCXMU.git</span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
+<p>本过程可以参考我为大家寻找的教程<a href="https://www.cnblogs.com/lijiayi/p/githubpages.html" target="_blank" rel="noopener">github创建账号、上传文件</a></p>
+<h5 id="合成大西瓜源码下载"><a href="#合成大西瓜源码下载" class="headerlink" title="合成大西瓜源码下载"></a>合成大西瓜源码下载</h5><p>建议采用命令行形式下载会更快，当然可以直接downloadzip文件。</p>
+<h5 id="上传源码到自己的web"><a href="#上传源码到自己的web" class="headerlink" title="上传源码到自己的web"></a>上传源码到自己的web</h5><ol>
+<li>创建自己的仓库 参考1中教程</li>
+<li>输入git init<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
+<img src="https://img-blog.csdnimg.cn/20201212232314167.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy">可以看到git创建了一个.git文件</li>
+<li><p>git add .</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git add .</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/20201212232615556.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></p>
+</li>
+<li><p>git commit -m “first commit”</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git commit -m &quot;first commit&quot;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><img src="https://img-blog.csdnimg.cn/20201212232746366.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></p>
+<ol>
+<li>git remote add origin <a href="https://github.com/mmrslwan1110/Clock.git" target="_blank" rel="noopener">https://github.com/mmrslwan1110/Clock.git</a><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">git remote add origin https:&#x2F;&#x2F;github.com&#x2F;mmrslwan1110&#x2F;Clock.git</span><br></pre></td></tr></table></figure>
+<img src="https://img-blog.csdnimg.cn/20201212233029800.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></li>
+</ol>
+<p>记得换成自己的链接哦</p>
+<ol>
+<li>git push -u origin master<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
+<img src="https://img-blog.csdnimg.cn/20201212233354499.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy">已经发布到自己的网站了可以访问看看自己的网站测一下效果哦。</li>
+</ol>
+<h2 id="发现由于我替换的资源是白底的导致游戏很奇怪"><a href="#发现由于我替换的资源是白底的导致游戏很奇怪" class="headerlink" title="发现由于我替换的资源是白底的导致游戏很奇怪"></a>发现由于我替换的资源是白底的导致游戏很奇怪</h2><p> 该问题有两种解决方法</p>
+<ul>
+<li>1.修改图片，想办法将图片的底层白底删除成为空白</li>
+<li>2.修改背景，将背景变为白色。<h3 id="为了偷懒先采用方法2改背景"><a href="#为了偷懒先采用方法2改背景" class="headerlink" title="为了偷懒先采用方法2改背景"></a>为了偷懒先采用方法2改背景</h3>先用F12开发者模式找到背景所在的位置<br><img src="http://www.mmrsl.cn/wp-content/uploads/2021/01/CS4LXVGR7B5BT322.png" alt="" loading="lazy"><br>将图片修改为白色，接下来就很简单了，测试<br><a href="http://www.mmrsl.cn/wp-content/uploads/2021/01/wp_editor_md_7c98485a44cce7e35a943f7808afeebe.jpg" target="_blank" rel="noopener"><img src="http://www.mmrsl.cn/wp-content/uploads/2021/01/wp_editor_md_7c98485a44cce7e35a943f7808afeebe.jpg" alt="" loading="lazy"></a><br>测试发现还是会有突兀的白色边框出现，接下来咱们只能修改每张素材的背景颜色了。<h3 id="采用方法1修改图片背景"><a href="#采用方法1修改图片背景" class="headerlink" title="采用方法1修改图片背景"></a>采用方法1修改图片背景</h3>通过PS对每张图片进行修改，将所有图片的背景白色底全部去掉，然后就恢复到了这样。<br><img src="http://www.mmrsl.cn/wp-content/uploads/2021/01/E45185267C0E492E2A061A6C3E7E9DF7.jpg" alt="" loading="lazy"><br>接下来将之前的底复原，即可得到结果，最终版本如下<br><img src="http://www.mmrsl.cn/wp-content/uploads/2021/01/BD7F4999E4F669692729B18BB026DC2B.jpg" alt="" loading="lazy"></li>
+</ul>
+<h2 id="合成大西瓜游戏运行"><a href="#合成大西瓜游戏运行" class="headerlink" title="合成大西瓜游戏运行"></a>合成大西瓜游戏运行</h2><p>体验网址为：<a href="https://www.codekp.cn/HCXMU/index.html" title="合成厦大">合成厦大</a></p>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>合成大西瓜</tag>
+        <tag>厦门大学</tag>
       </tags>
   </entry>
   <entry>
@@ -515,58 +567,6 @@
       <tags>
         <tag>hexo</tag>
         <tag>markdown</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>合成厦大</title>
-    <url>/2021/01/31/%E5%90%88%E6%88%90%E5%8E%A6%E5%A4%A7/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="合成厦大"><a href="#合成厦大" class="headerlink" title="合成厦大"></a><center>合成厦大</center></h1><p>最近合成大西瓜蛮火的，就想把里面的图片改了，然后做一个自己的合成厦大。<br><a id="more"></a></p>
-<h2 id="找合成大西瓜的源码"><a href="#找合成大西瓜的源码" class="headerlink" title="找合成大西瓜的源码"></a>找合成大西瓜的源码</h2><p>首先只是想做个python的发现没有python的源码，但是最后找到了一个网址，找到了源码<br><a href="https://github.com/liyupi/daxigua/releases/tag/1.0.0" target="_blank" rel="noopener" title="合成大西瓜">合成大西瓜</a>大家也可以自行下载。</p>
-<h2 id="然后看懂源码里面的东西"><a href="#然后看懂源码里面的东西" class="headerlink" title="然后看懂源码里面的东西"></a>然后看懂源码里面的东西</h2><p>其实仔细看看就是把里面的资源文件给改掉就可以达到目的，接下来编写excel记录需要修改的文件，然后依次修改修改里面的文件。<br>可以通过F12开发者模式找到每种水果对应什么图片。<br>这里我用excel将所有水果修改后的图片、像素和图片内容一一对应，有需要的可以自行修改内容：<br><a href="http://www.mmrsl.cn/wp-content/uploads/2021/01/wp_editor_md_d946f9006675e38d1a687a8510a70136.jpg" target="_blank" rel="noopener"><img src="http://www.mmrsl.cn/wp-content/uploads/2021/01/wp_editor_md_d946f9006675e38d1a687a8510a70136.jpg" alt="" loading="lazy"></a><br>可以参考上诉的图片进行修改。</p>
-<h2 id="去广告"><a href="#去广告" class="headerlink" title="去广告"></a>去广告</h2><p>去广告其实如果会的话可以F12找到那个广告的网址，然后将广告网址替换成自己的网址。（不多赘述，可以自行尝试）</p>
-<h2 id="上线发布"><a href="#上线发布" class="headerlink" title="上线发布"></a>上线发布</h2><p>本人采用的是github，如何上传可以参考我之前的文章—<a href="https://www.codekp.cn/2020/12/12/%E8%A1%A8%E7%99%BD%E7%BD%91%E7%AB%99%E3%80%81%E7%BD%97%E7%9B%98%E6%97%B6%E9%92%9F%E6%95%99%E7%A8%8B/" title="如何优雅的制作表白网站">如何优雅的制作表白网站</a>。</p>
-<h3 id="GitHub"><a href="#GitHub" class="headerlink" title="GitHub"></a>GitHub</h3><p>GitHub 是一个面向开源及私有软件项目的托管平台，因为只支持 Git 作为唯一的版本库格式进行托管，故名 GitHub。</p>
-<p>GitHub 于 2008 年 4 月 10 日正式上线，除了 Git 代码仓库托管及基本的 Web 管理界面以外，还提供了订阅、讨论组、文本渲染、在线文件编辑器、协作图谱（报表）、代码片段分享（Gist）等功能。目前，其注册用户已经超过 350 万，托管版本数量也是非常之多，其中不乏知名开源项目 Ruby on Rails、jQuery、python 等。</p>
-<p>本文需要先下载git <a href="https://git-scm.com/downloads" target="_blank" rel="noopener">下载地址</a></p>
-<p>git教程请参考<a href="https://www.liaoxuefeng.com/wiki/896043488029600" target="_blank" rel="noopener">廖雪峰Git</a></p>
-<h3 id="首先我们来学习一下，一些git的push方法"><a href="#首先我们来学习一下，一些git的push方法" class="headerlink" title="首先我们来学习一下，一些git的push方法"></a>首先我们来学习一下，一些git的push方法</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git init</span><br><span class="line">git add .</span><br><span class="line">git commit -m &quot;first commit&quot;</span><br><span class="line">git branch -M main</span><br><span class="line">git remote add origin https:&#x2F;&#x2F;github.com&#x2F;mmrslwan1110&#x2F;HCXMU.git</span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
-<p>本过程可以参考我为大家寻找的教程<a href="https://www.cnblogs.com/lijiayi/p/githubpages.html" target="_blank" rel="noopener">github创建账号、上传文件</a></p>
-<h5 id="合成大西瓜源码下载"><a href="#合成大西瓜源码下载" class="headerlink" title="合成大西瓜源码下载"></a>合成大西瓜源码下载</h5><p>建议采用命令行形式下载会更快，当然可以直接downloadzip文件。</p>
-<h5 id="上传源码到自己的web"><a href="#上传源码到自己的web" class="headerlink" title="上传源码到自己的web"></a>上传源码到自己的web</h5><ol>
-<li>创建自己的仓库 参考1中教程</li>
-<li>输入git init<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
-<img src="https://img-blog.csdnimg.cn/20201212232314167.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy">可以看到git创建了一个.git文件</li>
-<li><p>git add .</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git add .</span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20201212232615556.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></p>
-</li>
-<li><p>git commit -m “first commit”</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git commit -m &quot;first commit&quot;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p><img src="https://img-blog.csdnimg.cn/20201212232746366.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></p>
-<ol>
-<li>git remote add origin <a href="https://github.com/mmrslwan1110/Clock.git" target="_blank" rel="noopener">https://github.com/mmrslwan1110/Clock.git</a><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">git remote add origin https:&#x2F;&#x2F;github.com&#x2F;mmrslwan1110&#x2F;Clock.git</span><br></pre></td></tr></table></figure>
-<img src="https://img-blog.csdnimg.cn/20201212233029800.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></li>
-</ol>
-<p>记得换成自己的链接哦</p>
-<ol>
-<li>git push -u origin master<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
-<img src="https://img-blog.csdnimg.cn/20201212233354499.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy">已经发布到自己的网站了可以访问看看自己的网站测一下效果哦。</li>
-</ol>
-<h2 id="发现由于我替换的资源是白底的导致游戏很奇怪"><a href="#发现由于我替换的资源是白底的导致游戏很奇怪" class="headerlink" title="发现由于我替换的资源是白底的导致游戏很奇怪"></a>发现由于我替换的资源是白底的导致游戏很奇怪</h2><p> 该问题有两种解决方法</p>
-<ul>
-<li>1.修改图片，想办法将图片的底层白底删除成为空白</li>
-<li>2.修改背景，将背景变为白色。<h3 id="为了偷懒先采用方法2改背景"><a href="#为了偷懒先采用方法2改背景" class="headerlink" title="为了偷懒先采用方法2改背景"></a>为了偷懒先采用方法2改背景</h3>先用F12开发者模式找到背景所在的位置<br><img src="http://www.mmrsl.cn/wp-content/uploads/2021/01/CS4LXVGR7B5BT322.png" alt="" loading="lazy"><br>将图片修改为白色，接下来就很简单了，测试<br><a href="http://www.mmrsl.cn/wp-content/uploads/2021/01/wp_editor_md_7c98485a44cce7e35a943f7808afeebe.jpg" target="_blank" rel="noopener"><img src="http://www.mmrsl.cn/wp-content/uploads/2021/01/wp_editor_md_7c98485a44cce7e35a943f7808afeebe.jpg" alt="" loading="lazy"></a><br>测试发现还是会有突兀的白色边框出现，接下来咱们只能修改每张素材的背景颜色了。<h3 id="采用方法1修改图片背景"><a href="#采用方法1修改图片背景" class="headerlink" title="采用方法1修改图片背景"></a>采用方法1修改图片背景</h3>通过PS对每张图片进行修改，将所有图片的背景白色底全部去掉，然后就恢复到了这样。<br><img src="http://www.mmrsl.cn/wp-content/uploads/2021/01/E45185267C0E492E2A061A6C3E7E9DF7.jpg" alt="" loading="lazy"><br>接下来将之前的底复原，即可得到结果，最终版本如下<br><img src="http://www.mmrsl.cn/wp-content/uploads/2021/01/BD7F4999E4F669692729B18BB026DC2B.jpg" alt="" loading="lazy"></li>
-</ul>
-<h2 id="合成大西瓜游戏运行"><a href="#合成大西瓜游戏运行" class="headerlink" title="合成大西瓜游戏运行"></a>合成大西瓜游戏运行</h2><p>体验网址为：<a href="https://www.codekp.cn/HCXMU/index.html" title="合成厦大">合成厦大</a></p>
-]]></content>
-      <categories>
-        <category>JavaScript</category>
-      </categories>
-      <tags>
-        <tag>合成大西瓜</tag>
-        <tag>厦门大学</tag>
       </tags>
   </entry>
   <entry>
@@ -871,57 +871,6 @@ r = \frac{|w^Tx+b|}{||w||}</script><ol>
       </tags>
   </entry>
   <entry>
-    <title>网站视频下载及按帧将视频转为jpg</title>
-    <url>/2020/10/15/%E7%BD%91%E7%AB%99%E8%A7%86%E9%A2%91%E4%B8%8B%E8%BD%BD%E5%8F%8A%E6%8C%89%E5%B8%A7%E8%BD%AC%E4%B8%BAjpg/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="网站视频下载及按帧转为jpg"><a href="#网站视频下载及按帧转为jpg" class="headerlink" title="网站视频下载及按帧转为jpg"></a>网站视频下载及按帧转为jpg</h1><h2 id="1、准备切割视频"><a href="#1、准备切割视频" class="headerlink" title="1、准备切割视频"></a>1、准备切割视频</h2><p>视频切割算法:<br><figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">clc;</span><br><span class="line">clear;</span><br><span class="line"><span class="comment">%读取视频</span></span><br><span class="line">video_file=<span class="string">'D:\1.mp4'</span>;</span><br><span class="line">obj=VideoReader(video_file);</span><br><span class="line">frame_num=obj.NumberOfFrames;<span class="comment">%一共有多少帧</span></span><br><span class="line"><span class="comment">% 分离图片</span></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:<span class="number">15</span><span class="comment">%读取前15帧</span></span><br><span class="line">    img=strcat(<span class="string">'D:\picture\',num2str(i));</span></span><br><span class="line"><span class="string">    img=strcat(img,'</span>.jpg');</span><br><span class="line">    I=read(obj,<span class="built_in">i</span>);<span class="comment">%读出第15帧图片</span></span><br><span class="line">    imwrite(I,strcat(<span class="string">'D:\picture\',num2str(i),'</span>.jpg'),<span class="string">'jpg'</span>);<span class="comment">% 保存帧</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="2、问题"><a href="#2、问题" class="headerlink" title="2、问题"></a>2、问题</h2><h4 id="考虑使用-you-get下载视频"><a href="#考虑使用-you-get下载视频" class="headerlink" title="考虑使用 you-get下载视频"></a>考虑使用 you-get下载视频</h4><ol>
-<li>首先安装<br><kbd>pip install you-get</kbd></li>
-<li>下载<br><kbd>you-get -i [URL]</kbd><br>-i:查看可以下载的详细信息<br><kbd>you-get —format=dash-flv  [URL]</kbd></li>
-</ol>
-<p>以此方法可以直接下载大部分网站上的视频。</p>
-<h4 id="例子：以小鲤鱼历险记为例bilibili"><a href="#例子：以小鲤鱼历险记为例bilibili" class="headerlink" title="例子：以小鲤鱼历险记为例bilibili"></a>例子：以小鲤鱼历险记为例<a href="https://www.bilibili.com/video/BV1Ns411r7cX?from=search&amp;seid=2589828094683508837" target="_blank" rel="noopener">bilibili</a></h4><ol>
-<li>直接通过you-get进行下载<br>下载到的文件一般是flv需要解码，不能直接读取。<br><kbd>you-get <a href="https://www.bilibili.com/video/BV1Ns411r7cX?from=search&amp;seid=2589828094683508837" target="_blank" rel="noopener">https://www.bilibili.com/video/BV1Ns411r7cX?from=search&amp;seid=2589828094683508837</a></kbd></li>
-</ol>
-<p><img src="https://img-blog.csdnimg.cn/20201120164038867.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></p>
-<ol>
-<li><p>通过you-get -i 获取视频信息<br>找到需求的部分，本例使用小鲤鱼历险记mp4、720p为例。<br><kbd>you-get -i <a href="https://www.bilibili.com/video/BV1Ns411r7cX?from=search&amp;seid=2589828094683508837" target="_blank" rel="noopener">https://www.bilibili.com/video/BV1Ns411r7cX?from=search&amp;seid=2589828094683508837</a></kbd><br><img src="https://img-blog.csdnimg.cn/20201120164038873.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></p>
-</li>
-<li><p>通过you-get —format=dash-flv  获取视频信息<br>找到需求的部分，本例使用小鲤鱼历险记mp4、720p为例。 </p>
-</li>
-</ol>
-<p><kbd>you-get —format=dash-720  <a href="https://www.bilibili.com/video/BV1Ns411r7cX?from=search&amp;seid=2589828094683508837" target="_blank" rel="noopener">https://www.bilibili.com/video/BV1Ns411r7cX?from=search&amp;seid=2589828094683508837</a></kbd></p>
-<p><img src="https://img-blog.csdnimg.cn/20201120164038865.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></p>
-<ol>
-<li>下载下来的文件地址为终端所在地址：<br>本文中为<kbd>E:\Users\root\【720p】小鲤鱼历险记【2006】【完结】【无水印高清】 (P1. 小鲤鱼历险记 01)[00].mp4</kbd></li>
-</ol>
-<p><img src="https://img-blog.csdnimg.cn/20201120164038861.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></p>
-<h4 id="hevc未安装"><a href="#hevc未安装" class="headerlink" title="hevc未安装"></a>hevc未安装</h4><p>导致matlab无法读取下载的软件</p>
-<h2 id="3、方法"><a href="#3、方法" class="headerlink" title="3、方法"></a>3、方法</h2><p>1、安装codec，网上有很多hevc但是目前免费办法中国区无法下载，于是参考很多文章后选择下载codec。</p>
-<p>参考：</p>
-<ul>
-<li><ol>
-<li><a href="http://www.codecguide.com/download_k-lite_codec_pack_basic.htm" target="_blank" rel="noopener">http://www.codecguide.com/download_k-lite_codec_pack_basic.htm</a></li>
-</ol>
-</li>
-<li><ol>
-<li><a href="https://www.jianshu.com/p/dd7f04c27a79" target="_blank" rel="noopener">https://www.jianshu.com/p/dd7f04c27a79</a></li>
-</ol>
-</li>
-<li><ol>
-<li><a href="https://mmrslwan1110.github.io" target="_blank" rel="noopener">https://mmrslwan1110.github.io</a></li>
-</ol>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>辅助技术</category>
-      </categories>
-      <tags>
-        <tag>matlab</tag>
-        <tag>视频</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>矩阵分析引论</title>
     <url>/2020/11/17/%E7%9F%A9%E9%98%B5%E8%AE%BA/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="矩阵分析引论"><a href="#矩阵分析引论" class="headerlink" title="矩阵分析引论"></a><center>矩阵分析引论</center></h1><h2 id="Introduction-to-matrix-analysis"><a href="#Introduction-to-matrix-analysis" class="headerlink" title=" Introduction to matrix analysis "></a><center> Introduction to matrix analysis </center></h2><center>
@@ -992,30 +941,6 @@ r = \frac{|w^Tx+b|}{||w||}</script><ol>
       <tags>
         <tag>研究生课程</tag>
         <tag>矩阵论</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>南京大屠杀国家公祭日_网站变成灰色以表悼念</title>
-    <url>/2020/12/13/%E7%BD%91%E7%AB%99%E5%8F%98%E7%81%B0%E7%9A%84%E6%96%B9%E6%B3%95/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="南京大屠杀国家公祭日-网站变成灰色以表悼念"><a href="#南京大屠杀国家公祭日-网站变成灰色以表悼念" class="headerlink" title=" 南京大屠杀国家公祭日_网站变成灰色以表悼念 "></a><center> 南京大屠杀国家公祭日_网站变成灰色以表悼念 </center></h2><div style="position:relative; padding-bottom:75%; width:100%; height:0">
-    <iframe src="//player.bilibili.com/player.html?aid=78993619&bvid=BV1cJ411C7Dg&cid=135180758&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position:absolute; height: 100%; width: 100%;"> </iframe>
-</div>
-
-<a id="more"></a>
-<p>12月13日是第七个南京大屠杀死难者国家公祭日。公祭无辜死难之生命，告慰血与泪浸染之土地。这一天，举国上下以各种形式深切缅怀死难同胞，深切缅怀为中国人民抗日战争胜利献出生命的革命先烈和民族英雄，表达牢记历史、珍爱和平、矢志复兴，身为站长的我们都会让自己的网站的全部网页变成灰色（黑白色），以表示我们对逝者的悼念。</p>
-<h3 id="第一种：修改CSS文件"><a href="#第一种：修改CSS文件" class="headerlink" title="第一种：修改CSS文件"></a>第一种：修改CSS文件</h3><p>我们可以在网页的CSS文件中添加以下的CSS代码，来实现网页黑白色，也就是网站变灰</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">html &#123;</span><br><span class="line">    filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale&#x3D;1);</span><br><span class="line">    -webkit-filter: grayscale(100%);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="第二种：在网页的标签内加入以下代码"><a href="#第二种：在网页的标签内加入以下代码" class="headerlink" title="第二种：在网页的标签内加入以下代码"></a>第二种：在网页的<head>标签内加入以下代码</h3><p>如果你不想改动CSS文件，你可以通过在网页头部中的<head>标签内部加入内联CSS代码的形式实现网站网页变灰</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;style type&#x3D;&quot;text&#x2F;css&quot;&gt;</span><br><span class="line">html &#123;</span><br><span class="line">filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale&#x3D;1);</span><br><span class="line">-webkit-filter: grayscale(100%);&#125;</span><br><span class="line">&lt;&#x2F;style&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="第三种：修改标签加入内联样式"><a href="#第三种：修改标签加入内联样式" class="headerlink" title="第三种：修改标签加入内联样式"></a>第三种：修改<html>标签加入内联样式</h3><p>如里上面的两种方式都不喜欢，可以通过修改<html>标签，以加入内联样式的方法，达到网页变灰的效果</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;html style&#x3D;&quot;filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale&#x3D;1);</span><br><span class="line">-webkit-filter: grayscale(100%);&quot;&gt;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>CSS</category>
-      </categories>
-      <tags>
-        <tag>南京大屠杀国家公祭日</tag>
-        <tag>hexo网站</tag>
       </tags>
   </entry>
   <entry>
@@ -1171,6 +1096,92 @@ r = \frac{|w^Tx+b|}{||w||}</script><ol>
       </tags>
   </entry>
   <entry>
+    <title>南京大屠杀国家公祭日_网站变成灰色以表悼念</title>
+    <url>/2020/12/13/%E7%BD%91%E7%AB%99%E5%8F%98%E7%81%B0%E7%9A%84%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="南京大屠杀国家公祭日-网站变成灰色以表悼念"><a href="#南京大屠杀国家公祭日-网站变成灰色以表悼念" class="headerlink" title=" 南京大屠杀国家公祭日_网站变成灰色以表悼念 "></a><center> 南京大屠杀国家公祭日_网站变成灰色以表悼念 </center></h2><div style="position:relative; padding-bottom:75%; width:100%; height:0">
+    <iframe src="//player.bilibili.com/player.html?aid=78993619&bvid=BV1cJ411C7Dg&cid=135180758&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position:absolute; height: 100%; width: 100%;"> </iframe>
+</div>
+
+<a id="more"></a>
+<p>12月13日是第七个南京大屠杀死难者国家公祭日。公祭无辜死难之生命，告慰血与泪浸染之土地。这一天，举国上下以各种形式深切缅怀死难同胞，深切缅怀为中国人民抗日战争胜利献出生命的革命先烈和民族英雄，表达牢记历史、珍爱和平、矢志复兴，身为站长的我们都会让自己的网站的全部网页变成灰色（黑白色），以表示我们对逝者的悼念。</p>
+<h3 id="第一种：修改CSS文件"><a href="#第一种：修改CSS文件" class="headerlink" title="第一种：修改CSS文件"></a>第一种：修改CSS文件</h3><p>我们可以在网页的CSS文件中添加以下的CSS代码，来实现网页黑白色，也就是网站变灰</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">html &#123;</span><br><span class="line">    filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale&#x3D;1);</span><br><span class="line">    -webkit-filter: grayscale(100%);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="第二种：在网页的标签内加入以下代码"><a href="#第二种：在网页的标签内加入以下代码" class="headerlink" title="第二种：在网页的标签内加入以下代码"></a>第二种：在网页的<head>标签内加入以下代码</h3><p>如果你不想改动CSS文件，你可以通过在网页头部中的<head>标签内部加入内联CSS代码的形式实现网站网页变灰</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;style type&#x3D;&quot;text&#x2F;css&quot;&gt;</span><br><span class="line">html &#123;</span><br><span class="line">filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale&#x3D;1);</span><br><span class="line">-webkit-filter: grayscale(100%);&#125;</span><br><span class="line">&lt;&#x2F;style&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="第三种：修改标签加入内联样式"><a href="#第三种：修改标签加入内联样式" class="headerlink" title="第三种：修改标签加入内联样式"></a>第三种：修改<html>标签加入内联样式</h3><p>如里上面的两种方式都不喜欢，可以通过修改<html>标签，以加入内联样式的方法，达到网页变灰的效果</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;html style&#x3D;&quot;filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale&#x3D;1);</span><br><span class="line">-webkit-filter: grayscale(100%);&quot;&gt;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>CSS</category>
+      </categories>
+      <tags>
+        <tag>南京大屠杀国家公祭日</tag>
+        <tag>hexo网站</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>网站视频下载及按帧将视频转为jpg</title>
+    <url>/2020/10/15/%E7%BD%91%E7%AB%99%E8%A7%86%E9%A2%91%E4%B8%8B%E8%BD%BD%E5%8F%8A%E6%8C%89%E5%B8%A7%E8%BD%AC%E4%B8%BAjpg/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="网站视频下载及按帧转为jpg"><a href="#网站视频下载及按帧转为jpg" class="headerlink" title="网站视频下载及按帧转为jpg"></a>网站视频下载及按帧转为jpg</h1><h2 id="1、准备切割视频"><a href="#1、准备切割视频" class="headerlink" title="1、准备切割视频"></a>1、准备切割视频</h2><p>视频切割算法:<br><figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">clc;</span><br><span class="line">clear;</span><br><span class="line"><span class="comment">%读取视频</span></span><br><span class="line">video_file=<span class="string">'D:\1.mp4'</span>;</span><br><span class="line">obj=VideoReader(video_file);</span><br><span class="line">frame_num=obj.NumberOfFrames;<span class="comment">%一共有多少帧</span></span><br><span class="line"><span class="comment">% 分离图片</span></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:<span class="number">15</span><span class="comment">%读取前15帧</span></span><br><span class="line">    img=strcat(<span class="string">'D:\picture\',num2str(i));</span></span><br><span class="line"><span class="string">    img=strcat(img,'</span>.jpg');</span><br><span class="line">    I=read(obj,<span class="built_in">i</span>);<span class="comment">%读出第15帧图片</span></span><br><span class="line">    imwrite(I,strcat(<span class="string">'D:\picture\',num2str(i),'</span>.jpg'),<span class="string">'jpg'</span>);<span class="comment">% 保存帧</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="2、问题"><a href="#2、问题" class="headerlink" title="2、问题"></a>2、问题</h2><h4 id="考虑使用-you-get下载视频"><a href="#考虑使用-you-get下载视频" class="headerlink" title="考虑使用 you-get下载视频"></a>考虑使用 you-get下载视频</h4><ol>
+<li>首先安装<br><kbd>pip install you-get</kbd></li>
+<li>下载<br><kbd>you-get -i [URL]</kbd><br>-i:查看可以下载的详细信息<br><kbd>you-get —format=dash-flv  [URL]</kbd></li>
+</ol>
+<p>以此方法可以直接下载大部分网站上的视频。</p>
+<h4 id="例子：以小鲤鱼历险记为例bilibili"><a href="#例子：以小鲤鱼历险记为例bilibili" class="headerlink" title="例子：以小鲤鱼历险记为例bilibili"></a>例子：以小鲤鱼历险记为例<a href="https://www.bilibili.com/video/BV1Ns411r7cX?from=search&amp;seid=2589828094683508837" target="_blank" rel="noopener">bilibili</a></h4><ol>
+<li>直接通过you-get进行下载<br>下载到的文件一般是flv需要解码，不能直接读取。<br><kbd>you-get <a href="https://www.bilibili.com/video/BV1Ns411r7cX?from=search&amp;seid=2589828094683508837" target="_blank" rel="noopener">https://www.bilibili.com/video/BV1Ns411r7cX?from=search&amp;seid=2589828094683508837</a></kbd></li>
+</ol>
+<p><img src="https://img-blog.csdnimg.cn/20201120164038867.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></p>
+<ol>
+<li><p>通过you-get -i 获取视频信息<br>找到需求的部分，本例使用小鲤鱼历险记mp4、720p为例。<br><kbd>you-get -i <a href="https://www.bilibili.com/video/BV1Ns411r7cX?from=search&amp;seid=2589828094683508837" target="_blank" rel="noopener">https://www.bilibili.com/video/BV1Ns411r7cX?from=search&amp;seid=2589828094683508837</a></kbd><br><img src="https://img-blog.csdnimg.cn/20201120164038873.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></p>
+</li>
+<li><p>通过you-get —format=dash-flv  获取视频信息<br>找到需求的部分，本例使用小鲤鱼历险记mp4、720p为例。 </p>
+</li>
+</ol>
+<p><kbd>you-get —format=dash-720  <a href="https://www.bilibili.com/video/BV1Ns411r7cX?from=search&amp;seid=2589828094683508837" target="_blank" rel="noopener">https://www.bilibili.com/video/BV1Ns411r7cX?from=search&amp;seid=2589828094683508837</a></kbd></p>
+<p><img src="https://img-blog.csdnimg.cn/20201120164038865.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></p>
+<ol>
+<li>下载下来的文件地址为终端所在地址：<br>本文中为<kbd>E:\Users\root\【720p】小鲤鱼历险记【2006】【完结】【无水印高清】 (P1. 小鲤鱼历险记 01)[00].mp4</kbd></li>
+</ol>
+<p><img src="https://img-blog.csdnimg.cn/20201120164038861.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></p>
+<h4 id="hevc未安装"><a href="#hevc未安装" class="headerlink" title="hevc未安装"></a>hevc未安装</h4><p>导致matlab无法读取下载的软件</p>
+<h2 id="3、方法"><a href="#3、方法" class="headerlink" title="3、方法"></a>3、方法</h2><p>1、安装codec，网上有很多hevc但是目前免费办法中国区无法下载，于是参考很多文章后选择下载codec。</p>
+<p>参考：</p>
+<ul>
+<li><ol>
+<li><a href="http://www.codecguide.com/download_k-lite_codec_pack_basic.htm" target="_blank" rel="noopener">http://www.codecguide.com/download_k-lite_codec_pack_basic.htm</a></li>
+</ol>
+</li>
+<li><ol>
+<li><a href="https://www.jianshu.com/p/dd7f04c27a79" target="_blank" rel="noopener">https://www.jianshu.com/p/dd7f04c27a79</a></li>
+</ol>
+</li>
+<li><ol>
+<li><a href="https://mmrslwan1110.github.io" target="_blank" rel="noopener">https://mmrslwan1110.github.io</a></li>
+</ol>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>辅助技术</category>
+      </categories>
+      <tags>
+        <tag>matlab</tag>
+        <tag>视频</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>虚电路和数据报对比模型</title>
+    <url>/2021/03/31/%E8%99%9A%E7%94%B5%E8%B7%AF%E5%92%8C%E6%95%B0%E6%8D%AE%E6%8A%A5%E5%AF%B9%E6%AF%94%E6%A8%A1%E5%9E%8B/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
+      <categories>
+        <category>研究生课程</category>
+      </categories>
+      <tags>
+        <tag>网路比较</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>如何优雅的制作表白网站和罗盘时钟</title>
     <url>/2020/12/12/%E8%A1%A8%E7%99%BD%E7%BD%91%E7%AB%99%E3%80%81%E7%BD%97%E7%9B%98%E6%97%B6%E9%92%9F%E6%95%99%E7%A8%8B/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="如何优雅的制作表白网站和罗盘时钟"><a href="#如何优雅的制作表白网站和罗盘时钟" class="headerlink" title=" 如何优雅的制作表白网站和罗盘时钟"></a><center> 如何优雅的制作表白网站和罗盘时钟</center></h2><a id="more"></a>
@@ -1215,6 +1226,212 @@ r = \frac{|w^Tx+b|}{||w||}</script><ol>
       <tags>
         <tag>表白网站</tag>
         <tag>罗盘时钟</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>计算机通信网</title>
+    <url>/2021/03/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%80%9A%E4%BF%A1%E7%BD%91/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="计算机通信网"><a href="#计算机通信网" class="headerlink" title="计算机通信网"></a><center>计算机通信网</center></h1><h2 id="网络层"><a href="#网络层" class="headerlink" title="网络层"></a>网络层</h2><h3 id="子网划分"><a href="#子网划分" class="headerlink" title="子网划分"></a>子网划分</h3><p>a类地址：1~126</p>
+<p>b类地址：128~191</p>
+<p>c类地址：192~223</p>
+<p>d类：224~239拥有组播通信</p>
+<p>E类：240~255 保留给科学研究使用</p>
+<p>私有地址包括3组 ：</p>
+<p>A类：10.0.0.0~10.255.255.255</p>
+<p>B类：172.16.0.0~172.31.255.255</p>
+<p>C类：192.168.0.0~192.168.255.255</p>
+<h3 id="路由器-route"><a href="#路由器-route" class="headerlink" title="路由器 route"></a>路由器 route</h3><p>把东西从一个地方送到另外一个地方的过程中，根据什么理由找到最佳的路的过程。</p>
+<p>​跨越从源主机到目标主机的一个互联网络来转发数据包的过程。</p>
+<p>路由器：router<br>能够将数据包转发到正确的目的地，并在转发的过程中选择最佳路径的设备就是路由器。</p>
+<p>按顺序传输文件，按需送达文件。</p>
+<p>在路由器上，有两个重要的东西，一个是路由算法，用来确定通过网络的端到端路径；另一个是转发表，转发表确定了本路由器如何转发分组。需要注意的是对于转发表，目的地址是32位的IP地址，所有转发表是按照地址的范围转发的。<br><img src="https://img-blog.csdn.net/20170928165940545" alt="" loading="lazy"></p>
+<h3 id="路由表"><a href="#路由表" class="headerlink" title="路由表"></a>路由表</h3><ul>
+<li>路由表是在内存中存放在内核中的。</li>
+<li>路由器根据路由表进行路径的选择</li>
+<li>路由表中有目标网段和端口<h4 id="路由的类型："><a href="#路由的类型：" class="headerlink" title="路由的类型："></a>路由的类型：</h4></li>
+</ul>
+<ol>
+<li>​直连路由 </li>
+</ol>
+<p>满足的条件（配置好ip地址，激活接口up状态）</p>
+<ol>
+<li>​静态路由</li>
+</ol>
+<p>需要人去手工的添加-》单向的<br>​</p>
+<ol>
+<li>默认路由</li>
+</ol>
+<p>当找不到匹配路由时走默认路由==》属于特殊的静态路由==》填写网关实质上就是配置一条默认路由</p>
+<ol>
+<li>动态路由</li>
+</ol>
+<p>路由器之间会互相告诉其他的路由器我能到哪里，相互进行学习–》动态路由协议：rip协议、ospf协议<br>shishenme</p>
+<ol>
+<li>路由的优先级：</li>
+</ol>
+<p>​直连路由–》静态路由–》动态路由–》默认路由</p>
+<ul>
+<li>路由转发数据包的封装过程：</li>
+</ul>
+<p><img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpicture-pool.oss-cn-beijing.aliyuncs.com%2F006tNc79gy1g2xpmjpx6lj30zu0gmq9y.jpg&amp;refer=http%3A%2F%2Fpicture-pool.oss-cn-beijing.aliyuncs.com&amp;app=2002&amp;size=f9999,10000&amp;q=a80&amp;n=0&amp;g=0n&amp;fmt=jpeg?sec=1619161640&amp;t=56a7ccf16296086feabc7da65a75f7b7" alt="" loading="lazy"></p>
+<h3 id="网络连接的建立"><a href="#网络连接的建立" class="headerlink" title="网络连接的建立"></a>网络连接的建立</h3><p>传输层</p>
+<h3 id="虚电路和数据报"><a href="#虚电路和数据报" class="headerlink" title="虚电路和数据报"></a>虚电路和数据报</h3><h4 id="区别："><a href="#区别：" class="headerlink" title="区别："></a>区别：</h4><p>虚电路：严格预留资源，不会造成资源浪费，类似飞机。</p>
+<p>数据报：不预留资源，统计复用，类似公交车。</p>
+<p>网络层可以在两台主机之间提供无连接服务或连接服务。由网络层向运输层提供</p>
+<p>虚电路网络：仅提供连接服务</p>
+<p>数据报网络：仅提供无连接服务</p>
+<blockquote>
+<p>保障数据报里，端到端的通信。</p>
+</blockquote>
+<ol>
+<li>建立连接</li>
+</ol>
+<p>在建立阶段，发送运输层与网络层联系，指定接收方地址，等待网络建立虚电路。网络层决定发送方和接收方之间的路径，即该虚电路的所有分组要通过的一系列链路和路由器。网络层也为沿着该路径的每条链路决定VC号。最后，网络层在沿着路径的每台路由器的转发表中增加一个表项。</p>
+<ol>
+<li>数据传送</li>
+</ol>
+<p><img src="https://img-blog.csdn.net/20180523215900208" alt="" loading="lazy"></p>
+<ol>
+<li>虚电路删除。</li>
+</ol>
+<p>当发送方（或接收方）通知网络层它希望终止该虚电路时，就启动该阶段。网络层通常将通知网络另一侧的端系统结束呼叫，并更新路径上每台路由器中的转发表以表明该虚电路已不存在。</p>
+<h3 id="运输层连接建立和网络层连接建立区别："><a href="#运输层连接建立和网络层连接建立区别：" class="headerlink" title="运输层连接建立和网络层连接建立区别："></a>运输层连接建立和网络层连接建立区别：</h3><p>运输层的连接建立仅涉及两个端系统，两个端系统独自决定运输层连接的参数（初始序号和流量控制窗口长度），端系统知道该运输层连接，但网络中路由器对这些完全不知情。</p>
+<p>虚电路网络层，沿着两个端系统之间的路径上的路由器都要参与虚电路的建立，且每台路由器都完全知道经过它的所有虚电路。</p>
+<h3 id="IP最长匹配原则"><a href="#IP最长匹配原则" class="headerlink" title="IP最长匹配原则"></a>IP最长匹配原则</h3><p>不多做解释，可以自行看下图所示方法。<br><img src="https://img-blog.csdn.net/20170928165948842" alt="" loading="lazy"></p>
+<h3 id="问题："><a href="#问题：" class="headerlink" title="问题："></a>问题：</h3><ol>
+<li>构建数学模型，通过模型对数据报和虚电路进行性能分析。</li>
+<li>最长前缀匹配的优势是什么。</li>
+</ol>
+<p>用什么角度评判网路的各种性能。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>数据指标</th>
+<th>虚电路</th>
+<th>数据报</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>可靠性</td>
+<td>v</td>
+<td>x</td>
+</tr>
+<tr>
+<td>健壮性</td>
+<td>v</td>
+<td>x</td>
+</tr>
+<tr>
+<td>差错控制</td>
+<td>v</td>
+<td>x</td>
+</tr>
+<tr>
+<td>Qos</td>
+<td>v</td>
+<td>x</td>
+</tr>
+<tr>
+<td>时间空间（建立连接、多经）</td>
+<td>v</td>
+<td>x</td>
+</tr>
+<tr>
+<td>安全性（病毒、监听、伪装）</td>
+<td>v</td>
+<td>x</td>
+</tr>
+<tr>
+<td>时间开销</td>
+<td>v</td>
+<td>x</td>
+</tr>
+<tr>
+<td>平衡节能</td>
+<td>v</td>
+<td>x</td>
+</tr>
+<tr>
+<td>网路复杂度</td>
+<td>x</td>
+<td>v</td>
+</tr>
+<tr>
+<td>带宽</td>
+<td>v</td>
+<td>x</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ul>
+<li><p>虚电路服务适用与交互作用，不仅及时、传输较为可靠且网路开销小。</p>
+</li>
+<li><p>数据报服务适用于单个分组构成的、不具交互作用的信息及对传输要求不高的场合。</p>
+</li>
+</ul>
+<h3 id="IP数据报格式"><a href="#IP数据报格式" class="headerlink" title="IP数据报格式"></a>IP数据报格式</h3><p><img src="https://bkimg.cdn.bcebos.com/pic/c2fdfc039245d688274d540cacc27d1ed31b24cf?x-bce-process=image/watermark,image_d2F0ZXIvYmFpa2U4MA==,g_7,xp_5,yp_5/format,f_auto" alt="" loading="lazy"></p>
+<p>Internet(datagram)、ATM(VC)</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>数据指标</th>
+<th>虚电路</th>
+<th>数据报</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>速率</td>
+<td>v</td>
+<td>x</td>
+</tr>
+<tr>
+<td>带宽</td>
+<td>v</td>
+<td>x</td>
+</tr>
+<tr>
+<td>吞吐量</td>
+<td>v</td>
+<td>x</td>
+</tr>
+<tr>
+<td>时延</td>
+<td>v</td>
+<td>x</td>
+</tr>
+<tr>
+<td>时延带宽积</td>
+<td>v</td>
+<td>x</td>
+</tr>
+<tr>
+<td>往返时间</td>
+<td>v</td>
+<td>x</td>
+</tr>
+<tr>
+<td>利用率</td>
+<td>v</td>
+<td>x</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="参考博客："><a href="#参考博客：" class="headerlink" title="参考博客："></a>参考博客：</h2><ul>
+<li><a href="https://blog.csdn.net/qq_43297621/article/details/108132285#t27" target="_blank" rel="noopener">网络层详解</a></li>
+<li><a href="https://blog.csdn.net/qq_22238021/article/details/80426135" target="_blank" rel="noopener">虚电路和数据报网络</a></li>
+</ul>
+<h2 id="路由算法"><a href="#路由算法" class="headerlink" title="路由算法"></a>路由算法</h2>]]></content>
+      <categories>
+        <category>研究生课程</category>
+      </categories>
+      <tags>
+        <tag>研究生课程</tag>
       </tags>
   </entry>
   <entry>
@@ -1768,270 +1985,6 @@ H(x) =\sum_{i=1}^np_i(x)log_2(\frac 1 {p_i(x)})</script><p>b=2的时候单位是
         <tag>python</tag>
         <tag>matlab</tag>
         <tag>强化学习</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>计算机通信网</title>
-    <url>/2021/03/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%80%9A%E4%BF%A1%E7%BD%91/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="计算机通信网"><a href="#计算机通信网" class="headerlink" title="计算机通信网"></a><center>计算机通信网</center></h1><h2 id="网络层"><a href="#网络层" class="headerlink" title="网络层"></a>网络层</h2><h3 id="子网划分"><a href="#子网划分" class="headerlink" title="子网划分"></a>子网划分</h3><p>a类地址：1~126</p>
-<p>b类地址：128~191</p>
-<p>c类地址：192~223</p>
-<p>d类：224~239拥有组播通信</p>
-<p>E类：240~255 保留给科学研究使用</p>
-<p>私有地址包括3组 ：</p>
-<p>A类：10.0.0.0~10.255.255.255</p>
-<p>B类：172.16.0.0~172.31.255.255</p>
-<p>C类：192.168.0.0~192.168.255.255</p>
-<h3 id="路由器-route"><a href="#路由器-route" class="headerlink" title="路由器 route"></a>路由器 route</h3><p>把东西从一个地方送到另外一个地方的过程中，根据什么理由找到最佳的路的过程。</p>
-<p>​跨越从源主机到目标主机的一个互联网络来转发数据包的过程。</p>
-<p>路由器：router<br>能够将数据包转发到正确的目的地，并在转发的过程中选择最佳路径的设备就是路由器。</p>
-<p>按顺序传输文件，按需送达文件。</p>
-<p>在路由器上，有两个重要的东西，一个是路由算法，用来确定通过网络的端到端路径；另一个是转发表，转发表确定了本路由器如何转发分组。需要注意的是对于转发表，目的地址是32位的IP地址，所有转发表是按照地址的范围转发的。<br><img src="https://img-blog.csdn.net/20170928165940545" alt="" loading="lazy"></p>
-<h3 id="路由表"><a href="#路由表" class="headerlink" title="路由表"></a>路由表</h3><ul>
-<li>路由表是在内存中存放在内核中的。</li>
-<li>路由器根据路由表进行路径的选择</li>
-<li>路由表中有目标网段和端口<h4 id="路由的类型："><a href="#路由的类型：" class="headerlink" title="路由的类型："></a>路由的类型：</h4></li>
-</ul>
-<ol>
-<li>​直连路由 </li>
-</ol>
-<p>满足的条件（配置好ip地址，激活接口up状态）</p>
-<ol>
-<li>​静态路由</li>
-</ol>
-<p>需要人去手工的添加-》单向的<br>​</p>
-<ol>
-<li>默认路由</li>
-</ol>
-<p>当找不到匹配路由时走默认路由==》属于特殊的静态路由==》填写网关实质上就是配置一条默认路由</p>
-<ol>
-<li>动态路由</li>
-</ol>
-<p>路由器之间会互相告诉其他的路由器我能到哪里，相互进行学习–》动态路由协议：rip协议、ospf协议<br>shishenme</p>
-<ol>
-<li>路由的优先级：</li>
-</ol>
-<p>​直连路由–》静态路由–》动态路由–》默认路由</p>
-<ul>
-<li>路由转发数据包的封装过程：</li>
-</ul>
-<p><img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpicture-pool.oss-cn-beijing.aliyuncs.com%2F006tNc79gy1g2xpmjpx6lj30zu0gmq9y.jpg&amp;refer=http%3A%2F%2Fpicture-pool.oss-cn-beijing.aliyuncs.com&amp;app=2002&amp;size=f9999,10000&amp;q=a80&amp;n=0&amp;g=0n&amp;fmt=jpeg?sec=1619161640&amp;t=56a7ccf16296086feabc7da65a75f7b7" alt="" loading="lazy"></p>
-<h3 id="网络连接的建立"><a href="#网络连接的建立" class="headerlink" title="网络连接的建立"></a>网络连接的建立</h3><p>传输层</p>
-<h3 id="虚电路和数据报"><a href="#虚电路和数据报" class="headerlink" title="虚电路和数据报"></a>虚电路和数据报</h3><h4 id="区别："><a href="#区别：" class="headerlink" title="区别："></a>区别：</h4><p>虚电路：严格预留资源，不会造成资源浪费，类似飞机。</p>
-<p>数据报：不预留资源，统计复用，类似公交车。</p>
-<p>网络层可以在两台主机之间提供无连接服务或连接服务。由网络层向运输层提供</p>
-<p>虚电路网络：仅提供连接服务</p>
-<p>数据报网络：仅提供无连接服务</p>
-<blockquote>
-<p>保障数据报里，端到端的通信。</p>
-</blockquote>
-<ol>
-<li>建立连接</li>
-</ol>
-<p>在建立阶段，发送运输层与网络层联系，指定接收方地址，等待网络建立虚电路。网络层决定发送方和接收方之间的路径，即该虚电路的所有分组要通过的一系列链路和路由器。网络层也为沿着该路径的每条链路决定VC号。最后，网络层在沿着路径的每台路由器的转发表中增加一个表项。</p>
-<ol>
-<li>数据传送</li>
-</ol>
-<p><img src="https://img-blog.csdn.net/20180523215900208" alt="" loading="lazy"></p>
-<ol>
-<li>虚电路删除。</li>
-</ol>
-<p>当发送方（或接收方）通知网络层它希望终止该虚电路时，就启动该阶段。网络层通常将通知网络另一侧的端系统结束呼叫，并更新路径上每台路由器中的转发表以表明该虚电路已不存在。</p>
-<h3 id="运输层连接建立和网络层连接建立区别："><a href="#运输层连接建立和网络层连接建立区别：" class="headerlink" title="运输层连接建立和网络层连接建立区别："></a>运输层连接建立和网络层连接建立区别：</h3><p>运输层的连接建立仅涉及两个端系统，两个端系统独自决定运输层连接的参数（初始序号和流量控制窗口长度），端系统知道该运输层连接，但网络中路由器对这些完全不知情。</p>
-<p>虚电路网络层，沿着两个端系统之间的路径上的路由器都要参与虚电路的建立，且每台路由器都完全知道经过它的所有虚电路。</p>
-<h1 id="Linux进程断连后重新进入该进程"><a href="#Linux进程断连后重新进入该进程" class="headerlink" title="Linux进程断连后重新进入该进程"></a>Linux进程断连后重新进入该进程</h1><h2 id="Putty-or-Xshell"><a href="#Putty-or-Xshell" class="headerlink" title="Putty or Xshell"></a>Putty or Xshell</h2><p>首先推荐这两款软件附下载地址</p>
-<ul>
-<li><a href="https://www.baidu.com/s?ie=utf-8&amp;f=8&amp;rsv_bp=1&amp;rsv_idx=1&amp;tn=02003390_2_hao_pg&amp;wd=putty&amp;fenlei=256&amp;oq=linux%2520nohup%25E5%2590%258E%25E6%2580%258E%25E4%25B9%2588%25E8%25BF%259B%25E5%2585%25A5&amp;rsv_pq=a035ea760005dcd7&amp;rsv_t=2798tx2%2BkxpcNpvxPWiiy5OmKO49HU24tj7gyYA9ux%2FeHi83slME5HXfMhUJ6bBi6f1MApmcD6w&amp;rqlang=cn&amp;rsv_enter=1&amp;rsv_dl=tb&amp;rsv_btype=t&amp;inputT=1242&amp;rsv_sug3=66&amp;rsv_sug1=62&amp;rsv_sug7=100&amp;rsv_sug2=0&amp;rsv_sug4=2217" target="_blank" rel="noopener">putty</a></li>
-<li><a href="https://www.baidu.com/s?ie=utf-8&amp;f=8&amp;rsv_bp=1&amp;rsv_idx=1&amp;tn=02003390_2_hao_pg&amp;wd=Xshell&amp;fenlei=256&amp;oq=putty&amp;rsv_pq=b0799f87000715fa&amp;rsv_t=f14bcCxih9eDCmSbfD4GsjdA4Ze6qJeGljF5NTRMBryZiLfHD1G7o8s694yHumKPIvB8FLKiS6U&amp;rqlang=cn&amp;rsv_enter=1&amp;rsv_dl=tb&amp;rsv_btype=t&amp;inputT=1642&amp;rsv_sug3=74&amp;rsv_sug1=72&amp;rsv_sug7=100&amp;rsv_sug2=0&amp;rsv_sug4=2664" target="_blank" rel="noopener">Xshell</a><h3 id="设置putty字体和全屏显示连接linux"><a href="#设置putty字体和全屏显示连接linux" class="headerlink" title="设置putty字体和全屏显示连接linux"></a>设置putty字体和全屏显示连接linux</h3><img src="https://img-blog.csdnimg.cn/20210331101315844.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><br><img src="https://img-blog.csdnimg.cn/20210331101324638.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><br><img src="https://img-blog.csdnimg.cn/20210331101359368.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><br>设置成功后就可以进入远程linux系统了。</li>
-</ul>
-<h3 id="进入全屏"><a href="#进入全屏" class="headerlink" title="进入全屏"></a>进入全屏</h3><p>全屏：<kbd>Alt</kbd> + <kbd>Enter</kbd><br><img src="https://img-blog.csdnimg.cn/20210331101530527.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></p>
-<h2 id="linux进程"><a href="#linux进程" class="headerlink" title="linux进程"></a>linux进程</h2><p>直接输入python main.py即可调度进行，但是在断开连接后，该进程就会被消除，这很让人头疼。</p>
-<h3 id="后台执行"><a href="#后台执行" class="headerlink" title="后台执行"></a>后台执行</h3><p>一般运行linux上的程序都是执行 .sh 文件（./sh文件），那如果不影响当前CMD窗口的操作，需要后台运行怎么办呢？</p>
-<p>这时就需要借助 nohup 和 &amp; 命令来实现。</p>
-<p><code>nohup python3 main.py &amp;</code></p>
-<ol>
-<li>nohup </li>
-</ol>
-<p>加在一个命令的最前面，表示不挂断的运行命令</p>
-<ol>
-<li>&amp;</li>
-</ol>
-<p>加载一个命令的最后面，表示这个命令放在后台执行</p>
-<h3 id="查看后台运行的命令"><a href="#查看后台运行的命令" class="headerlink" title="查看后台运行的命令"></a>查看后台运行的命令</h3><p>有两个命令可以来查看，ps 和 jobs。区别在于 jobs 只能查看当前终端后台执行的任务，换了终端就看不见了。而ps命令适用于查看瞬时进程的动态，可以看到别的终端的任务。</p>
-<ol>
-<li>jobs 查看后台运行的命令</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">dogandcat$ jobs</span><br><span class="line">[1]+  Running                 nohup python3 pridict.py &amp;</span><br></pre></td></tr></table></figure>
-<ol>
-<li><p>ps查看进程</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;dogandcat$ ps</span><br><span class="line">  PID TTY          TIME CMD</span><br><span class="line">20712 pts&#x2F;6    00:00:00 bash</span><br><span class="line">20793 pts&#x2F;6    02:49:24 python3</span><br><span class="line">22397 pts&#x2F;6    00:00:00 ps</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>kill </p>
-</li>
-</ol>
-<p>（1）通过jobs命令查看jobnum，然后执行   kill %jobnum</p>
-<p>（2）通过ps命令查看进程号PID，然后执行  kill %PID</p>
-<p>如果是前台进程的话，直接执行 Ctrl+c 就可以终止了</p>
-<h3 id="前后台进程的切换与控制"><a href="#前后台进程的切换与控制" class="headerlink" title="前后台进程的切换与控制"></a>前后台进程的切换与控制</h3><p>（1）fg命令</p>
-<p>将后台中的命令调至前台继续运行</p>
-<p>如果后台中有多个命令，可以先用jobs查看jobnun，然后用 fg %jobnum 将选中的命令调出。</p>
-<p>（2）Ctrl + z 命令</p>
-<p>将一个正在前台执行的命令放到后台，并且处于暂停状态</p>
-<p>（3）bg命令</p>
-<p>将一个在后台暂停的命令，变成在后台继续执行</p>
-<p>如果后台中有多个命令，可以先用jobs查看jobnum，然后用 bg %jobnum 将选中的命令调出继续执行。</p>
-<h2 id="演示"><a href="#演示" class="headerlink" title="演示"></a>演示</h2><ul>
-<li>首先后台运行一个进程：</li>
-</ul>
-<p><img src="https://img-blog.csdnimg.cn/20210331102625662.png" alt="在这里插入图片描述" loading="lazy"></p>
-<ul>
-<li>用jobs找到进程号<br><img src="https://img-blog.csdnimg.cn/20210331102723639.png" alt="在这里插入图片描述" loading="lazy"></li>
-<li>fg %1 回到进程<br><img src="https://img-blog.csdnimg.cn/20210331102915834.png" alt="在这里插入图片描述" loading="lazy"><br>退出：<kbd>Ctrl</kbd> + <kbd>Z</kbd></li>
-</ul>
-<p>-bg %1 继续执行进程<br><img src="https://img-blog.csdnimg.cn/20210331103034174.png" alt="在这里插入图片描述" loading="lazy"></p>
-<h3 id="尝试断开连接后jobs无法找到进程号"><a href="#尝试断开连接后jobs无法找到进程号" class="headerlink" title="尝试断开连接后jobs无法找到进程号"></a>尝试断开连接后jobs无法找到进程号</h3><h2 id="第二次尝试采用GUN-Screen"><a href="#第二次尝试采用GUN-Screen" class="headerlink" title="第二次尝试采用GUN Screen"></a>第二次尝试采用GUN Screen</h2><h3 id="Screen-Python3-main-py"><a href="#Screen-Python3-main-py" class="headerlink" title="Screen Python3 main.py"></a>Screen Python3 main.py</h3><p>创建一个窗口运行python 运行文件<br><img src="https://img-blog.csdnimg.cn/20210331112321190.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></p>
-<h3 id="Screen-ls"><a href="#Screen-ls" class="headerlink" title="Screen -ls"></a>Screen -ls</h3><p><img src="https://img-blog.csdnimg.cn/20210331112220692.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><br>找到屏幕号</p>
-<h3 id="screen-r-27884"><a href="#screen-r-27884" class="headerlink" title="screen -r 27884"></a>screen -r 27884</h3><p>进入屏幕号</p>
-<p>linux远程断联后重新进入该进程</p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
-<li><a href="https://blog.csdn.net/john_hongming/article/details/17219871" target="_blank" rel="noopener">linux 关闭远程回话之后保持进程继续
-</a><br>端系统向网络发送指示虚电路启动与终止的报文，以及路由器之间传递的用于建立虚电路（即修改路由器表中的连接状态）的报文，被称为信令报文，用来交换这些报文的协议称为信令协议。<br>在路由器上，有两个重要的东西，一个是路由算法，用来确定通过网络的端到端路径；另一个是转发表，转发表确定了本路由器如何转发分组。需要注意的是对于转发表，目的地址是32位的IP地址，那么就有几十亿各IP地址，一个路由器不可能维护一个几十亿的表，所有转发表是按照地址的范围转发的，如图七。</li>
-</ul>
-<h3 id="IP最长匹配原则"><a href="#IP最长匹配原则" class="headerlink" title="IP最长匹配原则"></a>IP最长匹配原则</h3><p>不多做解释，可以自行看下图所示方法。<br><img src="https://img-blog.csdn.net/20170928165948842" alt="" loading="lazy"></p>
-<h3 id="问题："><a href="#问题：" class="headerlink" title="问题："></a>问题：</h3><ol>
-<li>构建数学模型，通过模型对数据报和虚电路进行性能分析。</li>
-<li>最长前缀匹配的优势是什么。</li>
-</ol>
-<p>用什么角度评判网路的各种性能。</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>数据指标</th>
-<th>虚电路</th>
-<th>数据报</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>可靠性</td>
-<td>v</td>
-<td>x</td>
-</tr>
-<tr>
-<td>健壮性</td>
-<td>v</td>
-<td>x</td>
-</tr>
-<tr>
-<td>差错控制</td>
-<td>v</td>
-<td>x</td>
-</tr>
-<tr>
-<td>Qos</td>
-<td>v</td>
-<td>x</td>
-</tr>
-<tr>
-<td>时间空间（建立连接、多经）</td>
-<td>v</td>
-<td>x</td>
-</tr>
-<tr>
-<td>安全性（病毒、监听、伪装）</td>
-<td>v</td>
-<td>x</td>
-</tr>
-<tr>
-<td>时间开销</td>
-<td>v</td>
-<td>x</td>
-</tr>
-<tr>
-<td>平衡节能</td>
-<td>v</td>
-<td>x</td>
-</tr>
-<tr>
-<td>网路复杂度</td>
-<td>x</td>
-<td>v</td>
-</tr>
-<tr>
-<td>带宽</td>
-<td>v</td>
-<td>x</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ul>
-<li><p>虚电路服务适用与交互作用，不仅及时、传输较为可靠且网路开销小。</p>
-</li>
-<li><p>数据报服务适用于单个分组构成的、不具交互作用的信息及对传输要求不高的场合。</p>
-</li>
-</ul>
-<h3 id="IP数据报格式"><a href="#IP数据报格式" class="headerlink" title="IP数据报格式"></a>IP数据报格式</h3><p><img src="https://bkimg.cdn.bcebos.com/pic/c2fdfc039245d688274d540cacc27d1ed31b24cf?x-bce-process=image/watermark,image_d2F0ZXIvYmFpa2U4MA==,g_7,xp_5,yp_5/format,f_auto" alt="" loading="lazy"></p>
-<p>Internet(datagram)、ATM(VC)</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>数据指标</th>
-<th>虚电路</th>
-<th>数据报</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>速率</td>
-<td>v</td>
-<td>x</td>
-</tr>
-<tr>
-<td>带宽</td>
-<td>v</td>
-<td>x</td>
-</tr>
-<tr>
-<td>吞吐量</td>
-<td>v</td>
-<td>x</td>
-</tr>
-<tr>
-<td>时延</td>
-<td>v</td>
-<td>x</td>
-</tr>
-<tr>
-<td>时延带宽积</td>
-<td>v</td>
-<td>x</td>
-</tr>
-<tr>
-<td>往返时间</td>
-<td>v</td>
-<td>x</td>
-</tr>
-<tr>
-<td>利用率</td>
-<td>v</td>
-<td>x</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h2 id="参考博客："><a href="#参考博客：" class="headerlink" title="参考博客："></a>参考博客：</h2><ul>
-<li><a href="https://blog.csdn.net/qq_43297621/article/details/108132285#t27" target="_blank" rel="noopener">网络层详解</a></li>
-<li><a href="https://blog.csdn.net/qq_22238021/article/details/80426135" target="_blank" rel="noopener">虚电路和数据报网络</a></li>
-</ul>
-<h2 id="路由算法"><a href="#路由算法" class="headerlink" title="路由算法"></a>路由算法</h2>]]></content>
-      <categories>
-        <category>研究生课程</category>
-      </categories>
-      <tags>
-        <tag>研究生课程</tag>
       </tags>
   </entry>
   <entry>
