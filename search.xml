@@ -70,21 +70,6 @@
       </tags>
   </entry>
   <entry>
-    <title>b站视频分享</title>
-    <url>/2017/11/17/b%E7%AB%99%E8%A7%86%E9%A2%91%E5%88%86%E4%BA%AB/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><div style="position:relative; padding-bottom:75%; width:100%; height:0">
-    <iframe src="//player.bilibili.com/player.html?aid=414001980&bvid=BV1TV411z7aB&cid=218691406&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position:absolute; height: 100%; width: 100%;"> </iframe>
-</div><br><a id="more"></a></p>
-]]></content>
-      <categories>
-        <category>分享</category>
-      </categories>
-      <tags>
-        <tag>b站视频</tag>
-        <tag>分享</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>c++_常用语法</title>
     <url>/2020/07/31/c/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="C-常用语法"><a href="#C-常用语法" class="headerlink" title="C++常用语法"></a><center>C++常用语法</center></h1><h3 id="2020-08-01"><a href="#2020-08-01" class="headerlink" title="2020_08_01"></a><p align="right">2020_08_01</p></h3><blockquote>
@@ -214,48 +199,18 @@
       </tags>
   </entry>
   <entry>
-    <title>linux下安装pytorch</title>
-    <url>/2021/03/23/linux%E4%B8%8B%E5%AE%89%E8%A3%85pytorch/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="linux安装pytorch教程"><a href="#linux安装pytorch教程" class="headerlink" title="linux安装pytorch教程"></a><center>linux安装pytorch教程</center></h1><h2 id="安装Anaconda"><a href="#安装Anaconda" class="headerlink" title="安装Anaconda"></a>安装Anaconda</h2><h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>前往Anaconda官网进行下载，网址如下：<a href="https://www.anaconda.com/products/individual" target="_blank" rel="noopener">https://www.anaconda.com/products/individual</a></p>
-<p><img src="https://img-blog.csdnimg.cn/20210323104855666.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></p>
-<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>进入下载保存的目录，打开终端，根据我们下载好的版本输入安装命令：</p>
-<p><code>bash Anaconda3-5.0.1-Linux-x86_64.sh</code></p>
-<h3 id="conda环境配置"><a href="#conda环境配置" class="headerlink" title="conda环境配置"></a>conda环境配置</h3><h4 id="配置conda命令可以全局使用"><a href="#配置conda命令可以全局使用" class="headerlink" title="配置conda命令可以全局使用"></a>配置conda命令可以全局使用</h4><ol>
-<li><p>刚安装anaconda环境完成时，conda命令是无法使用的，需要进行全局配置，配置方法如下：</p>
-</li>
-<li><p>vi或者vim命令编辑~/.bashrc文件，<br>输入a命令插入：<br><code>vim ~/.bashrc</code><br>在文件末尾添加如下内容：</p>
-</li>
-</ol>
-<p><code>export PATH=&#39;anaconda的安装目录/bin:$PATH&#39;</code></p>
-<ol>
-<li>“ESC”退出编辑模式， “：”进入命令模式，输入wq!保存退出；如果无法推出使用shift+zz退出</li>
-<li>让修改生效，执行命令：source ~/.bashrc<br>此时，再任意路径下都可以使用conda命令了，如下图：<br><img src="https://img-blog.csdnimg.cn/20210323105646753.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><h2 id="安装pytorch"><a href="#安装pytorch" class="headerlink" title="安装pytorch"></a>安装pytorch</h2>打开终端，输入</li>
-</ol>
-<p><code>conda create -n deeplearning python=3.6 pandas numpy matplotlib jupyter notebook</code></p>
-<p>输入上面的代码后等待片刻</p>
-<p>当创建虚拟环境成功之后，我们输入以下命令激活我们创建的环境</p>
-<p><code>source activate deeplearning</code></p>
-<p>安装PyTorch<br>在上一步激活环境后<br><code>source activate deeplearning</code></p>
-<p>接下來，我們需要安裝PyTorch。</p>
-<p>首先，我们进入Pytorch官网，在官网内，有一个PyTorch安装的环境选择，我是笔记本上的linux系统，所以我选择<br>Stable<br>OS：linux<br>Pip<br>Python<br>CPU<br><img src="https://img-blog.csdnimg.cn/20210323105902719.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></p>
-<p>终端在深度环境下输入<br><code>pip install torch==1.8.0+cpu torchvision==0.9.0+cpu torchaudio==0.8.0 -f https://download.pytorch.org/whl/torch_stable.html</code></p>
-<h2 id="检查是否安装成功"><a href="#检查是否安装成功" class="headerlink" title="检查是否安装成功"></a>检查是否安装成功</h2><p>激活虚拟环境</p>
-<p><code>source activate deeplearning</code></p>
-<p>输入以下命令：</p>
-<p><code>jupyter notebook</code></p>
-<p>这个时候会自动打开一个网页</p>
-<p><img src="https://img-blog.csdnimg.cn/20210323105615719.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><br>新建一个页面后输入以下内容进行允许，若相同则安装成功<br><img src="https://img-blog.csdnimg.cn/20210323104939624.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></p>
-<p>以上有一步骤如果操作失误容易出现问题，可以采用<br>在使用anaconda装python时，有时候路径可能没有加入到系统路径中，要手动加入：</p>
-<h1 id="将anaconda的bin目录加入PATH，根据版本不同。确定anaconda的名字，如果是默认的，python3-7生成anaconda3"><a href="#将anaconda的bin目录加入PATH，根据版本不同。确定anaconda的名字，如果是默认的，python3-7生成anaconda3" class="headerlink" title="将anaconda的bin目录加入PATH，根据版本不同。确定anaconda的名字，如果是默认的，python3.7生成anaconda3"></a>将anaconda的bin目录加入PATH，根据版本不同。确定anaconda的名字，如果是默认的，python3.7生成anaconda3</h1><p><code>echo &#39;export PATH=&quot;~/anaconda3/bin:$PATH&quot;&#39;&gt;&gt;~/.bashrc</code></p>
-<p>然后更新bashrc，即可立即生效，不用关机，source ~/.bashrc用来重启环境变量。</p>
-<p><code>source ~/.bashrc</code></p>
+    <title>b站视频分享</title>
+    <url>/2017/11/17/b%E7%AB%99%E8%A7%86%E9%A2%91%E5%88%86%E4%BA%AB/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><div style="position:relative; padding-bottom:75%; width:100%; height:0">
+    <iframe src="//player.bilibili.com/player.html?aid=414001980&bvid=BV1TV411z7aB&cid=218691406&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position:absolute; height: 100%; width: 100%;"> </iframe>
+</div><br><a id="more"></a></p>
 ]]></content>
       <categories>
-        <category>linux</category>
+        <category>分享</category>
       </categories>
       <tags>
-        <tag>linux</tag>
-        <tag>嵌入式开发</tag>
+        <tag>b站视频</tag>
+        <tag>分享</tag>
       </tags>
   </entry>
   <entry>
@@ -340,33 +295,48 @@
       </tags>
   </entry>
   <entry>
-    <title>linux嵌入式开发_1</title>
-    <url>/2020/07/30/linux%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91-1/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="linux基础"><a href="#linux基础" class="headerlink" title="linux基础"></a><strong>linux基础</strong></h1><h2 id="linux是什么？"><a href="#linux是什么？" class="headerlink" title="linux是什么？"></a>linux是什么？</h2><a id="more"></a>
-<ul>
-<li>linux是一款开源操作系统，开放了整组的调用接口给程序猿进行开发和使用。linux操作系统包含内核和系统调用，并不包含应用程序。由于linux的架构继承了unix良好传统，因此越来越多的开发者选择使用linux并为之设计了许多应用级软件。</li>
-</ul>
-<h2 id="开发环境的搭建"><a href="#开发环境的搭建" class="headerlink" title="开发环境的搭建"></a>开发环境的搭建</h2><ul>
-<li>开发环境需要用到交叉开发模式，这一点书上有很详细的介绍，包括硬件环境和软件环境的构建都写的十分清楚，所以这篇文章主要是写一下我在中间遇到的一些问题以及解决方法。虚拟机的话我用的是Ubuntu18.04版本，安装虚拟机啥的网上资源很多，直接百度就行。</li>
-</ul>
-<h2 id="linux下的环境搭建"><a href="#linux下的环境搭建" class="headerlink" title="linux下的环境搭建"></a>linux下的环境搭建</h2><h3 id="1、修改Ubuntu的一些配置"><a href="#1、修改Ubuntu的一些配置" class="headerlink" title="1、修改Ubuntu的一些配置"></a>1、修改Ubuntu的一些配置</h3><ul>
-<li><p>切换国内镜像源</p>
-<p>&ensp;&ensp;&ensp;&ensp;&ensp; 在使用apt命令安装包时，因为系统自带下载源在国外服务器上，所以需要切换为国内镜像源才能提升下载速度。这里有一篇博客详细说明了如何直接根据终端命令修改其配置文件，从而达到修改下载源的目的.或者，，，，你也可以直接用Ubuntu的图形界面去修改，步骤如下： 显示应用程序-&gt;软件和更新-&gt;下载自主服务器改为其他，然后选择合适的镜像源就行了，这里我选择的是阿里的镜像源。</p>
+    <title>linux下安装pytorch</title>
+    <url>/2021/03/23/linux%E4%B8%8B%E5%AE%89%E8%A3%85pytorch/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="linux安装pytorch教程"><a href="#linux安装pytorch教程" class="headerlink" title="linux安装pytorch教程"></a><center>linux安装pytorch教程</center></h1><h2 id="安装Anaconda"><a href="#安装Anaconda" class="headerlink" title="安装Anaconda"></a>安装Anaconda</h2><h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>前往Anaconda官网进行下载，网址如下：<a href="https://www.anaconda.com/products/individual" target="_blank" rel="noopener">https://www.anaconda.com/products/individual</a></p>
+<p><img src="https://img-blog.csdnimg.cn/20210323104855666.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>进入下载保存的目录，打开终端，根据我们下载好的版本输入安装命令：</p>
+<p><code>bash Anaconda3-5.0.1-Linux-x86_64.sh</code></p>
+<h3 id="conda环境配置"><a href="#conda环境配置" class="headerlink" title="conda环境配置"></a>conda环境配置</h3><h4 id="配置conda命令可以全局使用"><a href="#配置conda命令可以全局使用" class="headerlink" title="配置conda命令可以全局使用"></a>配置conda命令可以全局使用</h4><ol>
+<li><p>刚安装anaconda环境完成时，conda命令是无法使用的，需要进行全局配置，配置方法如下：</p>
 </li>
-<li><p>修改语言和设置汉语输入法</p>
-<p>&ensp;&ensp;&ensp;&ensp;&ensp; 懒得写，直接贴别人博客了</p>
+<li><p>vi或者vim命令编辑~/.bashrc文件，<br>输入a命令插入：<br><code>vim ~/.bashrc</code><br>在文件末尾添加如下内容：</p>
 </li>
-</ul>
-<p>&ensp;&ensp;&ensp;&ensp;&ensp;<a href="https://blog.csdn.net/langshi_2011/article/details/78993781" target="_blank" rel="noopener">Linux Ubuntu系统设置成中文语言</a></p>
-<p>&ensp;&ensp;&ensp;&ensp;&ensp;<a href="https://blog.csdn.net/sparkstrike/article/details/81487271" target="_blank" rel="noopener">Linux.Ubuntu.中文输入法设置</a></p>
+</ol>
+<p><code>export PATH=&#39;anaconda的安装目录/bin:$PATH&#39;</code></p>
+<ol>
+<li>“ESC”退出编辑模式， “：”进入命令模式，输入wq!保存退出；如果无法推出使用shift+zz退出</li>
+<li>让修改生效，执行命令：source ~/.bashrc<br>此时，再任意路径下都可以使用conda命令了，如下图：<br><img src="https://img-blog.csdnimg.cn/20210323105646753.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><h2 id="安装pytorch"><a href="#安装pytorch" class="headerlink" title="安装pytorch"></a>安装pytorch</h2>打开终端，输入</li>
+</ol>
+<p><code>conda create -n deeplearning python=3.6 pandas numpy matplotlib jupyter notebook</code></p>
+<p>输入上面的代码后等待片刻</p>
+<p>当创建虚拟环境成功之后，我们输入以下命令激活我们创建的环境</p>
+<p><code>source activate deeplearning</code></p>
+<p>安装PyTorch<br>在上一步激活环境后<br><code>source activate deeplearning</code></p>
+<p>接下來，我們需要安裝PyTorch。</p>
+<p>首先，我们进入Pytorch官网，在官网内，有一个PyTorch安装的环境选择，我是笔记本上的linux系统，所以我选择<br>Stable<br>OS：linux<br>Pip<br>Python<br>CPU<br><img src="https://img-blog.csdnimg.cn/20210323105902719.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></p>
+<p>终端在深度环境下输入<br><code>pip install torch==1.8.0+cpu torchvision==0.9.0+cpu torchaudio==0.8.0 -f https://download.pytorch.org/whl/torch_stable.html</code></p>
+<h2 id="检查是否安装成功"><a href="#检查是否安装成功" class="headerlink" title="检查是否安装成功"></a>检查是否安装成功</h2><p>激活虚拟环境</p>
+<p><code>source activate deeplearning</code></p>
+<p>输入以下命令：</p>
+<p><code>jupyter notebook</code></p>
+<p>这个时候会自动打开一个网页</p>
+<p><img src="https://img-blog.csdnimg.cn/20210323105615719.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><br>新建一个页面后输入以下内容进行允许，若相同则安装成功<br><img src="https://img-blog.csdnimg.cn/20210323104939624.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></p>
+<p>以上有一步骤如果操作失误容易出现问题，可以采用<br>在使用anaconda装python时，有时候路径可能没有加入到系统路径中，要手动加入：</p>
+<h1 id="将anaconda的bin目录加入PATH，根据版本不同。确定anaconda的名字，如果是默认的，python3-7生成anaconda3"><a href="#将anaconda的bin目录加入PATH，根据版本不同。确定anaconda的名字，如果是默认的，python3-7生成anaconda3" class="headerlink" title="将anaconda的bin目录加入PATH，根据版本不同。确定anaconda的名字，如果是默认的，python3.7生成anaconda3"></a>将anaconda的bin目录加入PATH，根据版本不同。确定anaconda的名字，如果是默认的，python3.7生成anaconda3</h1><p><code>echo &#39;export PATH=&quot;~/anaconda3/bin:$PATH&quot;&#39;&gt;&gt;~/.bashrc</code></p>
+<p>然后更新bashrc，即可立即生效，不用关机，source ~/.bashrc用来重启环境变量。</p>
+<p><code>source ~/.bashrc</code></p>
 ]]></content>
       <categories>
-        <category>程序设计</category>
+        <category>linux</category>
       </categories>
       <tags>
         <tag>linux</tag>
         <tag>嵌入式开发</tag>
-        <tag>鸟哥的私房菜学习</tag>
       </tags>
   </entry>
   <entry>
@@ -406,6 +376,36 @@
       </categories>
       <tags>
         <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>linux嵌入式开发_1</title>
+    <url>/2020/07/30/linux%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91-1/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="linux基础"><a href="#linux基础" class="headerlink" title="linux基础"></a><strong>linux基础</strong></h1><h2 id="linux是什么？"><a href="#linux是什么？" class="headerlink" title="linux是什么？"></a>linux是什么？</h2><a id="more"></a>
+<ul>
+<li>linux是一款开源操作系统，开放了整组的调用接口给程序猿进行开发和使用。linux操作系统包含内核和系统调用，并不包含应用程序。由于linux的架构继承了unix良好传统，因此越来越多的开发者选择使用linux并为之设计了许多应用级软件。</li>
+</ul>
+<h2 id="开发环境的搭建"><a href="#开发环境的搭建" class="headerlink" title="开发环境的搭建"></a>开发环境的搭建</h2><ul>
+<li>开发环境需要用到交叉开发模式，这一点书上有很详细的介绍，包括硬件环境和软件环境的构建都写的十分清楚，所以这篇文章主要是写一下我在中间遇到的一些问题以及解决方法。虚拟机的话我用的是Ubuntu18.04版本，安装虚拟机啥的网上资源很多，直接百度就行。</li>
+</ul>
+<h2 id="linux下的环境搭建"><a href="#linux下的环境搭建" class="headerlink" title="linux下的环境搭建"></a>linux下的环境搭建</h2><h3 id="1、修改Ubuntu的一些配置"><a href="#1、修改Ubuntu的一些配置" class="headerlink" title="1、修改Ubuntu的一些配置"></a>1、修改Ubuntu的一些配置</h3><ul>
+<li><p>切换国内镜像源</p>
+<p>&ensp;&ensp;&ensp;&ensp;&ensp; 在使用apt命令安装包时，因为系统自带下载源在国外服务器上，所以需要切换为国内镜像源才能提升下载速度。这里有一篇博客详细说明了如何直接根据终端命令修改其配置文件，从而达到修改下载源的目的.或者，，，，你也可以直接用Ubuntu的图形界面去修改，步骤如下： 显示应用程序-&gt;软件和更新-&gt;下载自主服务器改为其他，然后选择合适的镜像源就行了，这里我选择的是阿里的镜像源。</p>
+</li>
+<li><p>修改语言和设置汉语输入法</p>
+<p>&ensp;&ensp;&ensp;&ensp;&ensp; 懒得写，直接贴别人博客了</p>
+</li>
+</ul>
+<p>&ensp;&ensp;&ensp;&ensp;&ensp;<a href="https://blog.csdn.net/langshi_2011/article/details/78993781" target="_blank" rel="noopener">Linux Ubuntu系统设置成中文语言</a></p>
+<p>&ensp;&ensp;&ensp;&ensp;&ensp;<a href="https://blog.csdn.net/sparkstrike/article/details/81487271" target="_blank" rel="noopener">Linux.Ubuntu.中文输入法设置</a></p>
+]]></content>
+      <categories>
+        <category>程序设计</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+        <tag>嵌入式开发</tag>
+        <tag>鸟哥的私房菜学习</tag>
       </tags>
   </entry>
   <entry>
@@ -459,6 +459,58 @@
       <tags>
         <tag>推免</tag>
         <tag>加密</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>合成厦大</title>
+    <url>/2021/01/31/%E5%90%88%E6%88%90%E5%8E%A6%E5%A4%A7/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="合成厦大"><a href="#合成厦大" class="headerlink" title="合成厦大"></a><center>合成厦大</center></h1><p>最近合成大西瓜蛮火的，就想把里面的图片改了，然后做一个自己的合成厦大。<br><a id="more"></a></p>
+<h2 id="找合成大西瓜的源码"><a href="#找合成大西瓜的源码" class="headerlink" title="找合成大西瓜的源码"></a>找合成大西瓜的源码</h2><p>首先只是想做个python的发现没有python的源码，但是最后找到了一个网址，找到了源码<br><a href="https://github.com/liyupi/daxigua/releases/tag/1.0.0" target="_blank" rel="noopener" title="合成大西瓜">合成大西瓜</a>大家也可以自行下载。</p>
+<h2 id="然后看懂源码里面的东西"><a href="#然后看懂源码里面的东西" class="headerlink" title="然后看懂源码里面的东西"></a>然后看懂源码里面的东西</h2><p>其实仔细看看就是把里面的资源文件给改掉就可以达到目的，接下来编写excel记录需要修改的文件，然后依次修改修改里面的文件。<br>可以通过F12开发者模式找到每种水果对应什么图片。<br>这里我用excel将所有水果修改后的图片、像素和图片内容一一对应，有需要的可以自行修改内容：<br><a href="http://www.mmrsl.cn/wp-content/uploads/2021/01/wp_editor_md_d946f9006675e38d1a687a8510a70136.jpg" target="_blank" rel="noopener"><img src="http://www.mmrsl.cn/wp-content/uploads/2021/01/wp_editor_md_d946f9006675e38d1a687a8510a70136.jpg" alt="" loading="lazy"></a><br>可以参考上诉的图片进行修改。</p>
+<h2 id="去广告"><a href="#去广告" class="headerlink" title="去广告"></a>去广告</h2><p>去广告其实如果会的话可以F12找到那个广告的网址，然后将广告网址替换成自己的网址。（不多赘述，可以自行尝试）</p>
+<h2 id="上线发布"><a href="#上线发布" class="headerlink" title="上线发布"></a>上线发布</h2><p>本人采用的是github，如何上传可以参考我之前的文章—<a href="https://www.codekp.cn/2020/12/12/%E8%A1%A8%E7%99%BD%E7%BD%91%E7%AB%99%E3%80%81%E7%BD%97%E7%9B%98%E6%97%B6%E9%92%9F%E6%95%99%E7%A8%8B/" title="如何优雅的制作表白网站">如何优雅的制作表白网站</a>。</p>
+<h3 id="GitHub"><a href="#GitHub" class="headerlink" title="GitHub"></a>GitHub</h3><p>GitHub 是一个面向开源及私有软件项目的托管平台，因为只支持 Git 作为唯一的版本库格式进行托管，故名 GitHub。</p>
+<p>GitHub 于 2008 年 4 月 10 日正式上线，除了 Git 代码仓库托管及基本的 Web 管理界面以外，还提供了订阅、讨论组、文本渲染、在线文件编辑器、协作图谱（报表）、代码片段分享（Gist）等功能。目前，其注册用户已经超过 350 万，托管版本数量也是非常之多，其中不乏知名开源项目 Ruby on Rails、jQuery、python 等。</p>
+<p>本文需要先下载git <a href="https://git-scm.com/downloads" target="_blank" rel="noopener">下载地址</a></p>
+<p>git教程请参考<a href="https://www.liaoxuefeng.com/wiki/896043488029600" target="_blank" rel="noopener">廖雪峰Git</a></p>
+<h3 id="首先我们来学习一下，一些git的push方法"><a href="#首先我们来学习一下，一些git的push方法" class="headerlink" title="首先我们来学习一下，一些git的push方法"></a>首先我们来学习一下，一些git的push方法</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git init</span><br><span class="line">git add .</span><br><span class="line">git commit -m &quot;first commit&quot;</span><br><span class="line">git branch -M main</span><br><span class="line">git remote add origin https:&#x2F;&#x2F;github.com&#x2F;mmrslwan1110&#x2F;HCXMU.git</span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
+<p>本过程可以参考我为大家寻找的教程<a href="https://www.cnblogs.com/lijiayi/p/githubpages.html" target="_blank" rel="noopener">github创建账号、上传文件</a></p>
+<h5 id="合成大西瓜源码下载"><a href="#合成大西瓜源码下载" class="headerlink" title="合成大西瓜源码下载"></a>合成大西瓜源码下载</h5><p>建议采用命令行形式下载会更快，当然可以直接downloadzip文件。</p>
+<h5 id="上传源码到自己的web"><a href="#上传源码到自己的web" class="headerlink" title="上传源码到自己的web"></a>上传源码到自己的web</h5><ol>
+<li>创建自己的仓库 参考1中教程</li>
+<li>输入git init<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
+<img src="https://img-blog.csdnimg.cn/20201212232314167.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy">可以看到git创建了一个.git文件</li>
+<li><p>git add .</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git add .</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/20201212232615556.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></p>
+</li>
+<li><p>git commit -m “first commit”</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git commit -m &quot;first commit&quot;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><img src="https://img-blog.csdnimg.cn/20201212232746366.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></p>
+<ol>
+<li>git remote add origin <a href="https://github.com/mmrslwan1110/Clock.git" target="_blank" rel="noopener">https://github.com/mmrslwan1110/Clock.git</a><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">git remote add origin https:&#x2F;&#x2F;github.com&#x2F;mmrslwan1110&#x2F;Clock.git</span><br></pre></td></tr></table></figure>
+<img src="https://img-blog.csdnimg.cn/20201212233029800.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></li>
+</ol>
+<p>记得换成自己的链接哦</p>
+<ol>
+<li>git push -u origin master<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
+<img src="https://img-blog.csdnimg.cn/20201212233354499.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy">已经发布到自己的网站了可以访问看看自己的网站测一下效果哦。</li>
+</ol>
+<h2 id="发现由于我替换的资源是白底的导致游戏很奇怪"><a href="#发现由于我替换的资源是白底的导致游戏很奇怪" class="headerlink" title="发现由于我替换的资源是白底的导致游戏很奇怪"></a>发现由于我替换的资源是白底的导致游戏很奇怪</h2><p> 该问题有两种解决方法</p>
+<ul>
+<li>1.修改图片，想办法将图片的底层白底删除成为空白</li>
+<li>2.修改背景，将背景变为白色。<h3 id="为了偷懒先采用方法2改背景"><a href="#为了偷懒先采用方法2改背景" class="headerlink" title="为了偷懒先采用方法2改背景"></a>为了偷懒先采用方法2改背景</h3>先用F12开发者模式找到背景所在的位置<br><img src="http://www.mmrsl.cn/wp-content/uploads/2021/01/CS4LXVGR7B5BT322.png" alt="" loading="lazy"><br>将图片修改为白色，接下来就很简单了，测试<br><a href="http://www.mmrsl.cn/wp-content/uploads/2021/01/wp_editor_md_7c98485a44cce7e35a943f7808afeebe.jpg" target="_blank" rel="noopener"><img src="http://www.mmrsl.cn/wp-content/uploads/2021/01/wp_editor_md_7c98485a44cce7e35a943f7808afeebe.jpg" alt="" loading="lazy"></a><br>测试发现还是会有突兀的白色边框出现，接下来咱们只能修改每张素材的背景颜色了。<h3 id="采用方法1修改图片背景"><a href="#采用方法1修改图片背景" class="headerlink" title="采用方法1修改图片背景"></a>采用方法1修改图片背景</h3>通过PS对每张图片进行修改，将所有图片的背景白色底全部去掉，然后就恢复到了这样。<br><img src="http://www.mmrsl.cn/wp-content/uploads/2021/01/E45185267C0E492E2A061A6C3E7E9DF7.jpg" alt="" loading="lazy"><br>接下来将之前的底复原，即可得到结果，最终版本如下<br><img src="http://www.mmrsl.cn/wp-content/uploads/2021/01/BD7F4999E4F669692729B18BB026DC2B.jpg" alt="" loading="lazy"></li>
+</ul>
+<h2 id="合成大西瓜游戏运行"><a href="#合成大西瓜游戏运行" class="headerlink" title="合成大西瓜游戏运行"></a>合成大西瓜游戏运行</h2><p>体验网址为：<a href="https://www.codekp.cn/HCXMU/index.html" title="合成厦大">合成厦大</a></p>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>合成大西瓜</tag>
+        <tag>厦门大学</tag>
       </tags>
   </entry>
   <entry>
@@ -518,107 +570,6 @@
       </tags>
   </entry>
   <entry>
-    <title>合成厦大</title>
-    <url>/2021/01/31/%E5%90%88%E6%88%90%E5%8E%A6%E5%A4%A7/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="合成厦大"><a href="#合成厦大" class="headerlink" title="合成厦大"></a><center>合成厦大</center></h1><p>最近合成大西瓜蛮火的，就想把里面的图片改了，然后做一个自己的合成厦大。<br><a id="more"></a></p>
-<h2 id="找合成大西瓜的源码"><a href="#找合成大西瓜的源码" class="headerlink" title="找合成大西瓜的源码"></a>找合成大西瓜的源码</h2><p>首先只是想做个python的发现没有python的源码，但是最后找到了一个网址，找到了源码<br><a href="https://github.com/liyupi/daxigua/releases/tag/1.0.0" target="_blank" rel="noopener" title="合成大西瓜">合成大西瓜</a>大家也可以自行下载。</p>
-<h2 id="然后看懂源码里面的东西"><a href="#然后看懂源码里面的东西" class="headerlink" title="然后看懂源码里面的东西"></a>然后看懂源码里面的东西</h2><p>其实仔细看看就是把里面的资源文件给改掉就可以达到目的，接下来编写excel记录需要修改的文件，然后依次修改修改里面的文件。<br>可以通过F12开发者模式找到每种水果对应什么图片。<br>这里我用excel将所有水果修改后的图片、像素和图片内容一一对应，有需要的可以自行修改内容：<br><a href="http://www.mmrsl.cn/wp-content/uploads/2021/01/wp_editor_md_d946f9006675e38d1a687a8510a70136.jpg" target="_blank" rel="noopener"><img src="http://www.mmrsl.cn/wp-content/uploads/2021/01/wp_editor_md_d946f9006675e38d1a687a8510a70136.jpg" alt="" loading="lazy"></a><br>可以参考上诉的图片进行修改。</p>
-<h2 id="去广告"><a href="#去广告" class="headerlink" title="去广告"></a>去广告</h2><p>去广告其实如果会的话可以F12找到那个广告的网址，然后将广告网址替换成自己的网址。（不多赘述，可以自行尝试）</p>
-<h2 id="上线发布"><a href="#上线发布" class="headerlink" title="上线发布"></a>上线发布</h2><p>本人采用的是github，如何上传可以参考我之前的文章—<a href="https://www.codekp.cn/2020/12/12/%E8%A1%A8%E7%99%BD%E7%BD%91%E7%AB%99%E3%80%81%E7%BD%97%E7%9B%98%E6%97%B6%E9%92%9F%E6%95%99%E7%A8%8B/" title="如何优雅的制作表白网站">如何优雅的制作表白网站</a>。</p>
-<h3 id="GitHub"><a href="#GitHub" class="headerlink" title="GitHub"></a>GitHub</h3><p>GitHub 是一个面向开源及私有软件项目的托管平台，因为只支持 Git 作为唯一的版本库格式进行托管，故名 GitHub。</p>
-<p>GitHub 于 2008 年 4 月 10 日正式上线，除了 Git 代码仓库托管及基本的 Web 管理界面以外，还提供了订阅、讨论组、文本渲染、在线文件编辑器、协作图谱（报表）、代码片段分享（Gist）等功能。目前，其注册用户已经超过 350 万，托管版本数量也是非常之多，其中不乏知名开源项目 Ruby on Rails、jQuery、python 等。</p>
-<p>本文需要先下载git <a href="https://git-scm.com/downloads" target="_blank" rel="noopener">下载地址</a></p>
-<p>git教程请参考<a href="https://www.liaoxuefeng.com/wiki/896043488029600" target="_blank" rel="noopener">廖雪峰Git</a></p>
-<h3 id="首先我们来学习一下，一些git的push方法"><a href="#首先我们来学习一下，一些git的push方法" class="headerlink" title="首先我们来学习一下，一些git的push方法"></a>首先我们来学习一下，一些git的push方法</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git init</span><br><span class="line">git add .</span><br><span class="line">git commit -m &quot;first commit&quot;</span><br><span class="line">git branch -M main</span><br><span class="line">git remote add origin https:&#x2F;&#x2F;github.com&#x2F;mmrslwan1110&#x2F;HCXMU.git</span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
-<p>本过程可以参考我为大家寻找的教程<a href="https://www.cnblogs.com/lijiayi/p/githubpages.html" target="_blank" rel="noopener">github创建账号、上传文件</a></p>
-<h5 id="合成大西瓜源码下载"><a href="#合成大西瓜源码下载" class="headerlink" title="合成大西瓜源码下载"></a>合成大西瓜源码下载</h5><p>建议采用命令行形式下载会更快，当然可以直接downloadzip文件。</p>
-<h5 id="上传源码到自己的web"><a href="#上传源码到自己的web" class="headerlink" title="上传源码到自己的web"></a>上传源码到自己的web</h5><ol>
-<li>创建自己的仓库 参考1中教程</li>
-<li>输入git init<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
-<img src="https://img-blog.csdnimg.cn/20201212232314167.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy">可以看到git创建了一个.git文件</li>
-<li><p>git add .</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git add .</span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20201212232615556.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></p>
-</li>
-<li><p>git commit -m “first commit”</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git commit -m &quot;first commit&quot;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p><img src="https://img-blog.csdnimg.cn/20201212232746366.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></p>
-<ol>
-<li>git remote add origin <a href="https://github.com/mmrslwan1110/Clock.git" target="_blank" rel="noopener">https://github.com/mmrslwan1110/Clock.git</a><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">git remote add origin https:&#x2F;&#x2F;github.com&#x2F;mmrslwan1110&#x2F;Clock.git</span><br></pre></td></tr></table></figure>
-<img src="https://img-blog.csdnimg.cn/20201212233029800.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></li>
-</ol>
-<p>记得换成自己的链接哦</p>
-<ol>
-<li>git push -u origin master<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
-<img src="https://img-blog.csdnimg.cn/20201212233354499.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy">已经发布到自己的网站了可以访问看看自己的网站测一下效果哦。</li>
-</ol>
-<h2 id="发现由于我替换的资源是白底的导致游戏很奇怪"><a href="#发现由于我替换的资源是白底的导致游戏很奇怪" class="headerlink" title="发现由于我替换的资源是白底的导致游戏很奇怪"></a>发现由于我替换的资源是白底的导致游戏很奇怪</h2><p> 该问题有两种解决方法</p>
-<ul>
-<li>1.修改图片，想办法将图片的底层白底删除成为空白</li>
-<li>2.修改背景，将背景变为白色。<h3 id="为了偷懒先采用方法2改背景"><a href="#为了偷懒先采用方法2改背景" class="headerlink" title="为了偷懒先采用方法2改背景"></a>为了偷懒先采用方法2改背景</h3>先用F12开发者模式找到背景所在的位置<br><img src="http://www.mmrsl.cn/wp-content/uploads/2021/01/CS4LXVGR7B5BT322.png" alt="" loading="lazy"><br>将图片修改为白色，接下来就很简单了，测试<br><a href="http://www.mmrsl.cn/wp-content/uploads/2021/01/wp_editor_md_7c98485a44cce7e35a943f7808afeebe.jpg" target="_blank" rel="noopener"><img src="http://www.mmrsl.cn/wp-content/uploads/2021/01/wp_editor_md_7c98485a44cce7e35a943f7808afeebe.jpg" alt="" loading="lazy"></a><br>测试发现还是会有突兀的白色边框出现，接下来咱们只能修改每张素材的背景颜色了。<h3 id="采用方法1修改图片背景"><a href="#采用方法1修改图片背景" class="headerlink" title="采用方法1修改图片背景"></a>采用方法1修改图片背景</h3>通过PS对每张图片进行修改，将所有图片的背景白色底全部去掉，然后就恢复到了这样。<br><img src="http://www.mmrsl.cn/wp-content/uploads/2021/01/E45185267C0E492E2A061A6C3E7E9DF7.jpg" alt="" loading="lazy"><br>接下来将之前的底复原，即可得到结果，最终版本如下<br><img src="http://www.mmrsl.cn/wp-content/uploads/2021/01/BD7F4999E4F669692729B18BB026DC2B.jpg" alt="" loading="lazy"></li>
-</ul>
-<h2 id="合成大西瓜游戏运行"><a href="#合成大西瓜游戏运行" class="headerlink" title="合成大西瓜游戏运行"></a>合成大西瓜游戏运行</h2><p>体验网址为：<a href="https://www.codekp.cn/HCXMU/index.html" title="合成厦大">合成厦大</a></p>
-]]></content>
-      <categories>
-        <category>JavaScript</category>
-      </categories>
-      <tags>
-        <tag>合成大西瓜</tag>
-        <tag>厦门大学</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>xmu健康打卡ios快捷指令</title>
-    <url>/2020/12/06/%E5%A4%A7%E5%AD%A6ios%E7%B3%BB%E7%BB%9F%E6%89%93%E5%8D%A1%E6%8D%B7%E5%BE%84/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="XMU健康打卡ios快捷指令"><a href="#XMU健康打卡ios快捷指令" class="headerlink" title="XMU健康打卡ios快捷指令"></a><center>XMU健康打卡ios快捷指令</center></h1><h2 id="XMU-Health-Report-Base-On-Iphone"><a href="#XMU-Health-Report-Base-On-Iphone" class="headerlink" title=" XMU Health Report Base On Iphone "></a><center> XMU Health Report Base On Iphone </center></h2><a id="more"></a>
-<h2 id="1-工具"><a href="#1-工具" class="headerlink" title="1.工具"></a>1.工具</h2><ul>
-<li>浏览器</li>
-<li>由于各个网页不同，可能会有不一样的结果，因此这个过程仅供参考。</li>
-<li>下面说一下大概的思路，先用浏览器打开我们打卡的链接，接着打开浏览器，按F12进入开发者模式。</li>
-<li>接着，选择network<center>
-<img src="https://www.codekp.cn/download/img/xmu_r/F12.PNG" width = "400" height = "302" alt="图片名称" align=center / loading="lazy">
-</center></li>
-<li><p>找到POST，不要寻找GET</p>
-<center>
-<img src="https://www.codekp.cn/download/img/xmu_r/get.PNG" width = "400" height = "302" alt="图片名称" align=center / loading="lazy">
-</center>
-</li>
-<li><p>如下：<br><center>
-<img src="https://www.codekp.cn/download/img/xmu_r/post.PNG" width = "400" height = "302" alt="图片名称" align=center / loading="lazy">
-</center><br>将里面的连接保存下来<br><a href="https://ids.xmu.edu.cn/authserver/login?service=https://xmuxg.xmu.edu.cn/login/cas/xmu" target="_blank" rel="noopener">https://ids.xmu.edu.cn/authserver/login?service=https://xmuxg.xmu.edu.cn/login/cas/xmu</a></p>
-</li>
-</ul>
-<p>即找到了我们需要的登录网址。</p>
-<p>接下来记录 username和userpassword，依次填入ios。</p>
-<center>
-<img src="https://www.codekp.cn/download/img/xmu_r/report.PNG" width = "400" height = "302" alt="图片名称" align=center / loading="lazy">
-</center>
-
-
-
-<ul>
-<li>将得到的数据填入一下列表<center>
-<img src="https://www.codekp.cn/download/img/xmu_r/report_ios.jpg" width = "400" height = "302" alt="图片名称" align=center / loading="lazy">
-</center>
-
-
-</li>
-</ul>
-<blockquote>
-<p>仅只写到这里有兴趣的自己继续探索。</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>厦门大学</category>
-      </categories>
-      <tags>
-        <tag>厦门大学</tag>
-        <tag>健康打卡</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>实时视频传输APP</title>
     <url>/2021/01/15/%E5%AE%9E%E6%97%B6%E8%A7%86%E9%A2%91%E4%BC%A0%E8%BE%93APP/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><!-- wp:heading -->
@@ -671,6 +622,55 @@
       </categories>
       <tags>
         <tag>安卓APP</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>xmu健康打卡ios快捷指令</title>
+    <url>/2020/12/06/%E5%A4%A7%E5%AD%A6ios%E7%B3%BB%E7%BB%9F%E6%89%93%E5%8D%A1%E6%8D%B7%E5%BE%84/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="XMU健康打卡ios快捷指令"><a href="#XMU健康打卡ios快捷指令" class="headerlink" title="XMU健康打卡ios快捷指令"></a><center>XMU健康打卡ios快捷指令</center></h1><h2 id="XMU-Health-Report-Base-On-Iphone"><a href="#XMU-Health-Report-Base-On-Iphone" class="headerlink" title=" XMU Health Report Base On Iphone "></a><center> XMU Health Report Base On Iphone </center></h2><a id="more"></a>
+<h2 id="1-工具"><a href="#1-工具" class="headerlink" title="1.工具"></a>1.工具</h2><ul>
+<li>浏览器</li>
+<li>由于各个网页不同，可能会有不一样的结果，因此这个过程仅供参考。</li>
+<li>下面说一下大概的思路，先用浏览器打开我们打卡的链接，接着打开浏览器，按F12进入开发者模式。</li>
+<li>接着，选择network<center>
+<img src="https://www.codekp.cn/download/img/xmu_r/F12.PNG" width = "400" height = "302" alt="图片名称" align=center / loading="lazy">
+</center></li>
+<li><p>找到POST，不要寻找GET</p>
+<center>
+<img src="https://www.codekp.cn/download/img/xmu_r/get.PNG" width = "400" height = "302" alt="图片名称" align=center / loading="lazy">
+</center>
+</li>
+<li><p>如下：<br><center>
+<img src="https://www.codekp.cn/download/img/xmu_r/post.PNG" width = "400" height = "302" alt="图片名称" align=center / loading="lazy">
+</center><br>将里面的连接保存下来<br><a href="https://ids.xmu.edu.cn/authserver/login?service=https://xmuxg.xmu.edu.cn/login/cas/xmu" target="_blank" rel="noopener">https://ids.xmu.edu.cn/authserver/login?service=https://xmuxg.xmu.edu.cn/login/cas/xmu</a></p>
+</li>
+</ul>
+<p>即找到了我们需要的登录网址。</p>
+<p>接下来记录 username和userpassword，依次填入ios。</p>
+<center>
+<img src="https://www.codekp.cn/download/img/xmu_r/report.PNG" width = "400" height = "302" alt="图片名称" align=center / loading="lazy">
+</center>
+
+
+
+<ul>
+<li>将得到的数据填入一下列表<center>
+<img src="https://www.codekp.cn/download/img/xmu_r/report_ios.jpg" width = "400" height = "302" alt="图片名称" align=center / loading="lazy">
+</center>
+
+
+</li>
+</ul>
+<blockquote>
+<p>仅只写到这里有兴趣的自己继续探索。</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>厦门大学</category>
+      </categories>
+      <tags>
+        <tag>厦门大学</tag>
+        <tag>健康打卡</tag>
       </tags>
   </entry>
   <entry>
@@ -747,27 +747,6 @@ r = \frac{|w^Tx+b|}{||w||}</script><ol>
       </tags>
   </entry>
   <entry>
-    <title>水声通信实验课程作业</title>
-    <url>/2020/11/17/%E6%B0%B4%E5%A3%B0%E9%80%9A%E4%BF%A1%E8%AF%BE%E7%A8%8B/</url>
-    <content><![CDATA[<div id="hexo-blog-encrypt" data-wpm="抱歉, 这个密码看着不太对, 请再试试." data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.">
-  <div class="hbe-input-container">
-  <input type="password" id="hbePass" placeholder="" />
-    <label for="hbePass">您好, 请输入密码查看更多.</label>
-    <div class="bottom-line"></div>
-  </div>
-  <script id="hbeData" type="hbeData" data-hmacdigest="8dedec4c69a00d131aaf078bc8c36ece6397d2acdd8b3628d7c168f5f0a9c8de">6d2a434e5df4e9b3bd9474828405505beb9a6280244b73c99bbcd84f86024e86a316a7987633e345a0e027b85a68a668ba9a062d6775fcd5b986de7c6b609b862b29ac140eca1aeb3911bb606310cc5662f1f75f5e649e46f85d86fbf7c7c8fc62dde82b86b50f1ca4819d60cc02e9ec0ddf3e9680de2fd2464939511ea23671ba374d20574f51faabd75182e5366445696a024622d8f6897ecdc8d7f8cf6870d1aa2962112c3cea0c2b9846371f51c687e1c882d2b6bd173f80950a457c44dc6aa4d1ad6797e03a43ceee1db621c62fd90a0ab3c520033d0624d6211b2cd1534dc6c16c7200ab7bdf35ce682ffd93d982881672d9ab3b9d0df0b74dbf6c1990b71cd7feeb402a312b2723ae1d052c80ad0024fb734814dd229ebb43c9cdc02bd7a09a5737b6a897578d5a40161c43ab793c8638cd046b5d2ad0a32cf85cd33fd23657c90a97cf85b40675131ff458a0d708f111f672c8ee90643fd35927db69f78352c4045850c55649ded1133e66962eb9a047881b2b9c3faa6d454f7594463456197e669518fee89dd85f4f214805bda19d09354a97bb43e35c0af1d40808378b1b28a64c25b7699d899b3bb22d46486d21d80852531f895653cd1d40c2ff2a22223189cb9960e709bdd5a3bd724c5ac2929992ad3504e2b9624dfbe59f05c563c677958f5b1521ef9a6b1c9ba5883ce0820397acf0806055b3afc43a49f5d9dd27fa283ff70b496665d9e95d47d2188629f70afeb997dd7998ada990069aea64c7ea061b59286da09d31f1e0ce1b939d010e692237d40e60ae4295583a76440e3b3cbffb981f1632aa7e630ec7cefd44ebca0d09e2b516ab869eac4c99d99440d0d17dab2f3c96bfec047c4195cd69bbc7af94227bd57eee66cf74e8a46e346520cbccdb536bb8f731cd769b82a2c07df05b84361f14cd00c0a97cec6670a34aff18afa5229cb1b32030f3681d95cdf59a425fbe4c716055318f4b93ae5d8a50bfde20c92e70600fcae9e1cb67717c1db712f83d45c118d77c879061e40e93b96beeb417b6150c4bf280a33cf3a25209b0f4e48d3381440c7d22ada997ebb9e194c833a9eddcdd743ac77674f989927238f75a9646fdcc55650e3f5f869bbbbeb13da78fba06a091f4554a02a4b4979aed241aaa765f8b459918b79a408541a9250df81fcb1d4936a2f394836369fe7650010617a8ce08aca87dfd3e6d770692d5197e0c78aac998e6e762e877031ad285d01c2768e3828a2a99c3eeeb2fdcc9ff802b1332fcc83a9b69e56cec299a721cd0e64a97cc1e421a3e2f3e7a515a0f3c6ea1c36e44afd0ff6118b88cd5d16206d07366167769782992b77b4ad4af0cc7ea84d1b652b09213ab2e2720b17906a97174c6cb4eba34ef4377aa123e14997ac6dfec7ec216ec535918a07f0cb99d14b4a4748cbd1a89732e97d91ba66de4cd8e3f56ce6ff64f509b29af0f5420a844c206d4dba686f134a0712d9f57871f35a133b443b5c64982e88ef74f51fa7e02482fd69b5f8811e93f9c3f6ea59f0d4a66fb4d6b47a2c44b3549358e5dd17ef65f717cc4777cd460e3022b8b089548e65a8c17a84bb3dca367f343e4bc918d49fac8dd8c8a1e973cb8f4d00b9fffb2585b8f4ddc6b7e22355d1db2576aa31050d4de102c2b891fc4a81f234533d674e31bd4d315783ab8f2d315518e4d37b3e64e4e6a4ebdf4a4f55d324449cff0b138201ee1b719aa589d19085f999b629651a1d9065e04172c3861f54b20b784c6367d4e0c0cc4f62e309a8ed95f1b28bfd283c5d11a9a41efdc41558b3f292c79da236013c8eb435ad434dd19656a4c81923b04a519dd50686e6757866cb84bced612bae4385514c2e0f6fe9cb5f30c1a4637bfb2872f4fccd7147c55ebab99ea5070639ae3623bc0034f5421c74380d3cefb139b592b08f4135ae7ac9ef6c6be754ca208410374f18cf61a3d1d0a8ce1638d978ec5a6a8c3b6e0d3ee4ed7e90e4733a2370adbfbf8600c1f8ab2b75aec4f4bddf76c40d31400f504a9fb09dc936507a73b3b69eea2ba5a9497dc6717df642af7cf778567f0f711b97bd1533b7662f1adb8504a935399c4b31cb2b5e6d01942e44e94ae88002b402ddfcc85444a1095c7ab946ca8dad65813cb3cf2357274eb0f76e4a58261cba99397d890f58690c4f66e16d75326bd6acd45478ea950ff0b084016385f3315d8693c5b02fe442b5fa876bd65c5d2020aafa68a0a1d3f19141807ccbb304d15c7fb0ac13d19483c7782d470611549b66a54a5343cd5c64c54b16d97e981137fd78287df41b3d33ae3e1178c953192409175910ec3979d7cae7c4befe701412428419798e55d7b2527c76fb31f52626e2e380bcff47205704f9b8f8d2c3ea1218f929a6b7c1fb38f71cbe21de26e7e0412cc855df6142776b2e1bc0e11d1281a1c04d9f2a337e7c0c22d04dd940a8788855688c66cd46e79a6b490db912f2829de5140985bab73ce037d7be2dc185d8675a1bdc0de5a2ba0d131332bd8a971a446f55469d18b493323323d9784f6676d446d75b6303531585aeebfd2a5b427b459b3318e415b1356154f7febbeba632023e86a47201be0d6ba534ff64c8c0eeaa436a47ab039212ff7488440fa96c543855649725648ee200284cc9ce43065a536f94cd383090e2592a49b21aa2a02517eb622034dcdb6fd4ed9226bd093d0b80579f6298a2095e34ae1c48f4faa40dc0856e6fa54d8c442ab97ca227344b7e660f5ea9383b50a92508e42047da1c1ca177fe03a6e39923c81ed2c8a9e413093fda3b00a724ff36922fb2160807114c6bd7d80fd5c40f60e71a864ecfa7409bb46b66903b1c76e436963fe5ac2caa31e06b1f4cdb1b75032fe19e970844768494406e0eb6de1f303fdf4c4b776ca0ba22531af5177755a35fc599f6fe0ae69e1f833c6b705a4856feff17358063ab803e1f0675b8d3e1fce7b20c7b28ba72844d99637ac4eb6275912d05c064e1215287f0fa061abe8e9ff15ff7bc341a25f607064a2a4ee254b4e030d1ba107b2cc272737b0316b7bf2a926834a60fd05b973980640b0e5abf047c7914d18342c2b60e2902b2ec80b305e974fa8bf71fdc6def438f608d7043ced474adafdb6aaec4c5d8d5cc1652707d2316ce84027496118b2bf7a9be5b8a1c6a2ef9173c4f380a855b03fe1cec6b819532b20fbb3480fe877e6ca555f641edbb57f573b661941592877d462ccc907989481c66dc812a3fea5e492438ddc4894603c115a7bfecb1f7a5e6334ee21de677cc4f30231a258d3765d1295e60724978a53fb0ffe35397557ac2d1387b4b414057db85f80b91b3381f31013f0c9c7dc440dbf6d1d197b931626697a186772e3653e31892cf3ba9d0f3629df42018ec39b37ea844b097e113d927bdcf06d329d55efef99617c704d7449ee5c4e0988ca995696990fce949d092f3de0726185194faf7cd628705301bf5fbfa6e31e70e75d9f8ab6f0d0b11accce365b96965142cb1dfbf25fccdeebbcf2032ce093a6b6786256fc39b94c33e672c3676368115bacff11ece427cb48feff8c8a5973c2020cff58ddb8b909fd207077e74d06b967edf1e90f208d56f12ffb58fe779c69b80de089ae20e50811aeb24c4c9b6b1a9833617b318d2edf1a0e757f245e34eb8e5f5d46483222164a8054139b14d36db9f426d819bd0093281d641aa0133c1993ca28d65d996a71d92798fc12f4f948c4b71e0e913dac77ee56e726a87813818df3bb2ecd7530a2ecf9e72a512a14eaffb0cf7250666ffada606cdc32bcb89cadf69a50215fa8e72e825e6153899b30f3403db6eb16cf27ed52de0d9ce002b7ee33d18dea2b4ae142dfed1e665a5a1740ab97488761a74bd8a4fb710ea600ee0951e9b55b69ed810381ed0132083cf4fbf82be3c1d6e5b90cba7f83470e7fd96b9d6ccca8f5a9774f58d8548ee9f8c1efa8195c54d7dcdc38e3d26be405472ca84f798b3e6491392d36ab09dc3155155cadb75b0421dc0c595d93e08fdb5b5bb3a6a02e3bc632baae46f49f16c20a7b31324d62a5fe545b2979080dda5c60fb4459e721d64b7674a5b240a41243f866738be008a74f7b0b9e9a6c82ab8ff26f1a853f8dfc3769ec5b3130fef975858ec422f7e88b8dcb40ff0e27e964f59c22cfdb0cfebd14d4a05d64126d035b686d224840c5ba636747be3d4493b132c3d048b65585f213ddf3a395a895e99232ab971b70639ae1ee61b7b275dd8d89701f7f4b411589082daff78103e67e73f19e8bf77084447af6dd0f257d643e956b1cf4b3d554f3e83d6d06d1b08453426334fc7a9cdd3d9768d27fdc58403d9d60288d2887d3110d8cdb043647873dee4d8be6be1e1275b94750748bf974aae5dc06e967eb1cc1809a69e26903db3bb8739805b049b086eb19b0c18123c055fb5158495a9fa9ec31b8e297e16e6c5893029106bf7ec2e2e7f72125cee40b3eb183f872fc3c4514deeb0bbf06839e6eb6d41e0d1fb6ffd45ad2e95433165116080bd1401b12f1912e80ec1f1c37112d1ff44c415f55beec15b9d20d2e059363d424bf7b6079ae1f95ded43cb476f678390804c6e6236f3ffafee2a37c0de6d947b449b668afbbe57173560de04b118df3c82476ec7eec2c7c2a5a6cf5c2cd25ceb293d31c96576086a6c0764474fba7515b301900facac8a541e277564e8a26e3307716ea550bbfd7a9e946251bff7d1881e706275c1b44fb924a1dbff92db533cf6ae2ab501a3c11a37573c4998a37f079681b5d3474bfb81e038f6ae4c9c27a58ebbcfc34863368411bc068cf4c6b4825abc1c31c2f3ea9d1b2348a1c3d93b3a0320bad05eacbf78d649e9fc755c05cb1ea2bac7403e78c0c7745a79cbeab431fb73a73ddbec114571b5a9b3b20a0523abbd48a031610fd3d3b4cab1ea06efbde80d65169194db0932dab76cc8d97a19e304f40b2f9d6b5fa20b6927c9940ad950560bd408675ab65659a5682bec0edc1bbe04d6c5debdda8669e89b18cafce75ee2dc25f1673a78f46c81f9a33f075c00987de2482d312a152552a13ebc7111f1cadc19186c1abb5dbcf3978eed8e65346c83b79513b93ed5b82c0b5c98aa07748e52584f6bf6fc6e49f236673546df6fc57573f59ca0977f1723db74fac2e54fe9868af7bfc80fedbdc49022029e28fd0b54b81ccc498ec22e017146b8cf174102150375e455d5ea9cc1c646d3441bed286bcd36ad09c8717f9910f0ee88109fa8fd33cdbe120ae18e8920aa26194f0264ba909d57276f0d2d923d7c1e63843a800f30f8fe1146a457a32624856dedc1b5f170b65804d50288e761a4c0cfd3698ea4a8f7d9ce48dd8a548f5239bf5144ea9d4bda66d0e2bfc8ed56658b19ed761699492c7ef281262c984113c20295cb5988391b55f114ee590e6d77ea85d5f1e60773f7734ddc7524d8e0b432c62f1e662b82719f9346d6f312bfa7dfca219b42d8241523e6fcea1c63b16a9603d93d66ed351b6773ac7f44900a37d45465ac7e99b6b023a10f5c12adf66032d48b86437c1cc442085fce72bbc395ef164911ca43ad111846369135fff62162edb421c0d87726be29f31fd07113529159f4044a9584c80282be83103dba75df425b3297189673a2426d5425d900e2576bcb898a8834411a85eefa79a99a15575de789fc4917f23893c4e01b4eb0211f7d1f4bf88a6ed8175c7b126654eafdc1dd9000e6b80450b966031ad4b1ede86bc199e5e64a58a3adbedbeeec4e94cfc55154c80774599169de6a9f141f5e0b8a5a412f7e5c3ab7738422d1dfd7ae4ad226bdc927e5f99f2ba2f60a25cff348543a5a3f783c9ada7df0bcaaaa1a2b84055683e8864612c1d26cac83b8c14cf87a402300c7b98f4e8fd797003c9d9ba8a4dff7255dd02bb5b912119326f2be5acce1d3201fcbf59a2400c9da57fcfd5fb777aad45fb352dc548accf00cbed6a4544610f3ad001e2ad5b20e889e3d8d1785e51c060cf0fb05ccb991f87f237b426a280480784e62498eef439dcd2947fc709e5a11f66d641d61e4246b0f666ceea5a4aad0c63b4e152bf2bcfff6f875f9829d916e1c6bf8bc0090051a9049e8213cf99addacf54244ce50f7e7dd4f6a08f1c1f8bb7116b7ba60b9b3d7ccece5c9265847c02f18a53564c0ff611991e7267677cc1e405cb10b78d36c99bc1b9183d7ec149aeac22b89c9789b9f7ca7cd41b52d37f60aab67194a0a75bea3e10f2b50b0690c5b89c59e2af9088d9ad782b3db0b69ea53d954c840f4017c83d966a3d33e990f0f68f221f1e943ecae98c6a8fd8519ba59fa2ff3c0fcd74e6d1ebbfcc353a16ae6b6f5dfebe588af31fd24dafdb45a7e190a7b2d6381621abae6bad5260b7ed29bf0635aba4fe422395ce656736c175ad54b724d1aeef8f86797564580ccb9bada62984267935ef3d73bcb11cc60a428421a508652d74c39ff60531a5eca76400fabe7883055f65f7052cdddc94d41b752ec8133bcfe9d1880003e29ddcc1f96c89398e4dc147b698bac149ef0cf6927e12f5a8fd63d73e82f018b859a6df7a14ae89e60700cc72a1b07c570c1ff0afe476724569e4f4968639c0a8e27965379d8c014294eea388f37664ad8285740ca5d55dba9530245fb09ca9fbc0abbc18c74dbbfb2078025f5bfe8f6789f2a7c64e5578bb3c096ee33c0acae75913cd017f40dedf798e98fac5c0c629908a46441b6bd192b8a4ccad8f72268e848c734cdfefa40d03eb78c75dd413f9c4dfca05d34c6c1d44d53f57d975dfd4d8b58824915ba32658a1b1e111b9e96c35618d9ec6b712dba2395a01646faed9587e3c405151393b56a0f013d73e078b56c468b482d04f7431f555c2ee9f83f2aa5f2fe6d19af38731b3c53f6166f22182a8dac99e21231df2b7ffe081acde0215fd3847cdb85c74e379fcff251959d2ffe22752ed6b28f1540a08834eacf433bdfc10591de3fe7d896223360e26e4b64241c02287a5b46966d75b5b5c4f844b38057ce88d8bdfbcdc12ed5ea140ebabc70c1a2e418337479ae49de912c87a2d0b0fdcc0c08e06096b5653fa6915c6c80fca1366722e8cee17ad8a846aa906459a7e66c50cd5be8ea5c7030c843bf2c80f887e6882ab94f16fc545ffc1a6fa7833bf906929517a642f670b3c3c592da368a19da9afd20fa7cc11b4462b9f777f1acf2e5935d4181766394385e31affe2ac9e55a028a6b15067027ddd004d0dfd012bf42929dee90d110ac740745f98bbbfe3273a4cff85cf2ef5e3482d79e5860d7804c28a069449122e69953d533aab243d1973b3551f51da6f3b4b44655f9c28d95e0d312b72f6560b02e29a8b9827e2d0b8982ac4300318e8c43b2702a8e144649dcb2e6bb2091bcb88198960ced4d2862b98fc351007a24b549a2accaad6d1a6e0d9a451a476c456b14d222c69e41b4d37000bdc0715647709a062d860c443cd89d1ae89a0491429f6a7f44d46d1ec315bcd7e376799c280a48b3d164ec9a6c53c31971f0c574db0b95a07e5145dcb2a60445b6cf4751ae65cd3b40ecb23b02525c7e3e4cbb71428a9664a26bb98147adca9cc8aa493b59bd17febb8fd125b1a9c3fdf995a728a72e0e0c97f0d7e36d3b6880457300d167a3a8f831c2fb991d11754563ddd27618ca071ecb6e423177523ef48a31d8fe2d08f60f53d9b5857dcea28585908da0e5360658f87513ac996b792d0e3e87bd558f4ae5f559610f71189fadfde5bfbe16ac9a7572a6eeea59eb97bbe69a9425e245185a47bc2189834c674a63dc7c456fa250992e6446abf17011c20984b38504a58b0a8b32f29639af956b16ddb34bd369428ef5ca9a532d9cc14e5fd0b80625ad4968ede200bcf4fad8326d971af530f8a6b3284a4638e20d045cd7e6c9119fd00e0efcfa16938ac9e2a1a4635b0118db0183b30b59862736c3e40cb9c1e0f1083d80cf428a41d6231f956c9aa05b43b65de09cbb24bf5bd4c82139edee1cf0f50caefda670d755c43108f0da418846dc047cfe3cba0d0fa5f7fdaace94691c870c503c3a0fcb0f640981b8f9dff0ead4571d3d59c5e5f1a08fb3babc991f6cff284042973ff1f2f95eb9fc139efc4e3bfa56178ee753a4137bbf88c921ea400bc292b382ddfe3d8c9eb82a055e983f54f55b0cd6438824b3d14ad3be5401f9af0e334eaf0058f7a9ba93f85b0e56310913888becac2aaf889343e6070f0b90c0e8d8395a3b6b246278e1214048fd4f319a7adef1249f728dcf511dfe60b13cb747a1ba1aa20a49288f035c1054d553f7b98ec6d8ee15fbe0b14911b80fc5bb88e15d3760a83f519a698b675fc7e234a89b80e1eede24f1a339a82af9d1eb3db05900836e71360ee1f7b61313c400c319a2dd03cfb5e161d54fc4495dc05138823b1f2178ea47e01ebb5e86a5d50b6e56a3969c434db261d8e6f02de59cdad1b15fbf7e154a94588114fb61de86a57d6963761e7264809b513b199fde16ee8e8f5dc1c2a441f699a3068c02a008a3a8145c4864c80ff3730f6ab35e62ad8a50c9f0285f1ac0a211c9f25eb8a4097019cb4e1bb346943fb93947539fd24fbc343756a2003a3d1717ebb03594ed88aea2a78cc594e71b360db2d7abef13297678f9c328b7f39b16a6d96e4791f35ac99b2164ea1931836c35ef05c33d510ceee2c8156eb8e8c0aad9f36d3a12c6cc0ba9e12abc22cf14c3fa5ede8e5af28f8c51c867b2b61f3fe28971fd380528c3a56c09c63820aa419650b18a72183baec5403c579d618fbf7beea33de1641b91e5247fffd4b82a1ce181d439091a75bec239b57096a5b669b2fe37ab739580c6309fa92fccb622fefad59305af0ab9318c06b4341da21589b168a33f5b94abbb5af361cb9662e314d7c828491459afaf87e690f69d4f1e82b3aae7ece9331cf514878b7d4a730fed6701935789821648b304b830fe357fa407a44cad20e39d5976f642aa31e12a41cf3eca88376ea723a476dcb0f035c27f79b7cfd97b8f9f8289c451ca3def768ed39bec6e24f072e17376ea73c8a097acce9c7b0dd38556f737d5907dcb736eb51365bd53c3d1aa506dc63ba072f2848cfb13c37751b510131ce43f8d1b2eb928b8985553eaee9f8095df799d33236a7ca9405a3719ba7e4e291074367ebb2f891f7b3a00c58738449e0b5030393f3fbaab939f88982efeb1b6c7e0e01956699aa0eb2d1b8f8d4b095ebe53c3d2b27f773442289d5546b4317cdddcf76992fc1da2f209c1464f05ad14e69e88af69f130c0064c1bb5d908cce1b24d793fa23b02e4589671bbea6b27a7264ca3f9bd61fe05afb2424600f004aefc1dd4ee6264bf12f36d70cb3b42124b6eaa9ed82c4b68622317015f62d51fcc0f31ea3073fa0c5b84a94acc12919062b3c579afecd80ff247afb988d6b4e87d78a47b797476e094033e5ba4dc315eb6074e288bba18496908c42621836cbe1cf185f493099f27147b8e6d3f37d73e3d99f7926f813486013a4ce57dba3f10bdfd534e89927355bfa522ba167af8ddae337593c2d69ec7991abb1eb141bfe42564b21dacddd161f00d237cbc4c5842e11027eda3a3ab49a11a71a8df812623457a39b5fe9e81d9426c402d1dbac69d44f1e35e4dde4f769e86939ec226f3151841c407193bc49ff1c6305b5614da3b5f0c51f6e1defcfde256dc969989f1575820007007730ca3762f02c58162d1f2cc1b00fcd0e19799162c92c9f8da6900d7c9fc6e269ce518752b7173fac5e98e334eeabcc9889aa26aaafcdb51451703f141e6b2ba10821c7c1f5dc2043810beac6456e9a6a51d1d733efb702f8d06ba0213a056ab48e0ba466fd3971ac53c39e4f1d4a94380d6cfed1470cd4c0bb10c7b14ccfb16c944f81fb8540a9d96046a32d16febb0c64e18de84d987c859335de1893401953213a07ca7ac96dc173d3529a51267b0ecdbda32d9b95dc4a1265d191e56f969c85d44c241f5c0afd0fb97f1e2c6b8b28707496fe7b1601874c5a7ee1383b7860668eed45029d953d57833814d8b5f070d1a451fa2ab57cdb8ab71b3132bd8e25940c39e83a37bf29946722a295f4047ba8ed2de82d61ed7506f93fb0750f57a578c8b37e33962dcf6da405ac7b79fcd659e5a3bbd2e936ba528a1c1894eb9a104cec414cd3c07c4c8bc5dd4bf4608ddddc4bc2133fdb60d1c08f6b29696a3c5ca7e7975c529e1f381803bc8fbe610163dd12e43adb600416189df298f1c46769feb530f5d33c09188cf88fedac37754cfb2ef827241842d1287081f02962e356dce6d987b46cf24094807f4a6260cabd7ebee397c846982134bcb5b7a9657c05d6dabda4e208a99530a7da3ced75ae068610ba0b9293dad040377889fb1cc879eaeb23b9fb06c9ca12c1447b684144e0ed8ae4f7dadc0dfa3fbe7962a7997df1282aefeb2b89bfb29c44a48bb632f2fbfbd7d87eb0852be607fe59dbc71faa87ce30e022925f7980e9946e7989691fe64268bf3d6eb2ee10bb0b6441e5f9380b237ce716fff636a496eabdd51c77a93a403f808518023737684243f7e602de44cce1e59e3f0c42c2a06e6125ac500c23b5026375eea86da8ef516a30782866697ee511b697b32bccde3a0dbf5520f1c3519c45b80ee9f77503b16a2d391f71392dd801275c8448ee821569199475ff9cc4f7ba3919c396c521af0f792e88ba371e4b99c25cb9aa63a6ef3f281f7b07d039cba0a4c802228edc1f1666c1557d2dcd995005df1470ef7d2372676b377f9dd7c9132d75cb632602e8d0af9181491f9b35ffd2c52a25de4b1a3e096776fbe3422fd384feb961c0b142815709ed1961cf5373e74c620406b801b41e5fd3821f98505f1fbd090ae0387f2d29437235373359054773ccfbfe1ce541bc71a9776855c30c4fdc2ca1874ad76a06fd709e62ec6f8f6f230dd2eb8cf1222903a10311a24191adb70c5a04a5e6e9455f1270a4da768e9479f886339f063b8f2a221fb8cdeb01474b6877f5b03b3ea1d65b0b2fe0f4fc81fab67e40cafc417b28b7e1f00e96645f9d9d2fff9b5d0519782c7ee44e2c3fbfeb10f64dacfa0067b82dc4fea62cab508084723e7686767f9e6a1879d2db309289b63037728848edad9f488d591e240c37c9920133ea3d714da1dda602ea964550330a3cebdbd7c35caa48c36d51bb8e5bd893c65cf8f3c973610dcf81cca960502b81418d43b9b1b15bb959038fbbad9f7af3fd9b3c4c0c486b647e8ea9dbbb27c9da8bbb35c29ebb7bbb41d7d0c18e09ba6c9ba54fbdbb3045d4b316e1bf8f76abdda4c415630f0136414b4e689b9653dc82db3130b76d4a278ee649dcbcf6a2b1560f42382cb526ea3e9bd5ffb6775192a10b4cfdbd689439f59fe55465b1e3929815d4b95668f736c1cd0dbff3047ecccf6baf0f2aa75b3e3e4925c4f0ff16c4c7326e3b6dd2c82e46359036d22242130a07b917acd4ef96d8e36b7900338c9351726b54995f58bc549eaab15fa49714d84b716f1a0a097017566abf6213f3dfa402ef223fcb7aeab6ee9cec97d7ffcf71da48ae81e3a8ac184a291c5f7db3fd1cc569d4d7221494556fa71b0c8b31ddc2c4e135bdbdfb287c3d47f5cf56a22b33d0439ccf818c9d2305544a26450fda3f5b944475472c1e453a3a1318d187971220471b27a7e93c23155deb8d267035cd7dbb1ab344c91a13311a2f4fbed9bd81522811577e4b69ffab9c942fea4aed69e8b4ad58919f10b5c49a3a2b74f5b9c6a1b015ad7e06defb3a5f14738c679b23d1ee6bc777e11c8ed42bf29f88d866c2d44f5eca6c37fdd07a36211a4e6fbcc20344ca02d2a893112a02ef70ce05e2fe3616cb61ef0d882d04bf8b71ac1c6b5cb59fc966ef8b4044a8c9c0537fd7da5ad0f2b10961acbb304daf3157beccdfe71e4ec3e2b533ec98ed379e36ff4f6514317e03b495545732f39d4c3095acc852a55980fb0eca418c03bd63f166874aa89d1b32dba45a501f72f2e0704aef0d674dd3b2a380fd4a17e3d71aeb1f372b66bfc750b58f8816e0ced804b88a88c7b73ff2f54ebc2a1586df37628a38ac532bc5152199cd4f57a6627a470db07147ea9803862050c95197a8e7952041d672b67c111d09c4e0e749a5a904740e83fed9f0a54334db3026fc3a29d06395c39d14fe573d2b2b1efa38daf66f189989dc3581ed712fd0a00bf2c42b1e3ba692f2592077a0bf4d4afebbcb68acfa5bb963ca0bcca62290fcb1fdfceaa08ed79e0a9d44ef7a830d5706b0908066fbeb4fb8490743dcc24930751f1c74559e41f64b0e6d9abf5de6f878cca08d612e328c0947d8ab5d6d3068262a9fefc5414dd6f2876642e736b5e9d40ad2a2755a45957e1b072a909c4742a432bdaf61f221ff826db2c59e3931dc2aa3dd28d0ca0e2ec16566e5dc11ad4065b04ec8b77ddceff8c3ef80ccf073710102d1ed1f4e6f392b8ebdf6f11da366be43710e3b54a14dbe59d9c7e0de96166cd00b469e2f504faf4240027805e7b8c3632898b72dfc82bd374d532e3ceb98c56f8c8b03bc1fe832c42e34aa83556e2f4302c6740171116bfb504d2220aea95dd9096aea7f46aea00d329f69f1beb8988f958091946c0c725f55f06b1ccd5fe4a4e9c0689413578934dce7768c9b062d2619cf63b183740b968ae0d80e5fe47c17779d032726ea973804a1560dce3bff744be71d8c67f640d7e23a93e9211b324110aea24cbcb155f0a4a3c07d5ff5f6151eac5cded041b0ead96afa01355f35112ecbd660279ec2413efad808977723721b95bf6a15f59de1eb5b28ce4c89868bf798a3287e4e32beef29fe07c8bd4fc101c5fd85408c9bb3d5b14b53748e51ca86110217246c0086a8343020f9b6f021c6db7d1611836f068aba9c5af1d5f03fb790c3d198321e1867fed53e68059fc04ab8d7f83261b80e71048463d082412617acebd7db5991ea24c71675e382c0ff39e8c7de2885a9a87db0e6be68aa32c5abf05fcbbffcdacc04b96ddf4b323e55993b88da79962feeca417eade4d39eb45b657125982c4d2735bd719901fc3a7438dcc578a6b2ac13179b0b4ca48eb70ca1b71482962028df3f74995cecb1fa41a97eafb64c48d6e0870d0dddf785a20858231c9e124ee54a61267f162047047922c2ed76bf54a7328afcd086ba31ce207366b3b222ed85bccbba0513e2436ca4aad13acdac3cd423c4176a4e2c75cf358a1164563259c8a40f84e6b61c3944c02cfdfb9108a5258725fdfd14abb39726af2d9e021be7b2f1038e51eea8da245e280f5b71d9c54b165028ca997f31bd7142afd78210a4adc3d187690fe7b506a5e5b0af2da1278e15b5c97ba22486161613c023d14bc68d460ae271743a3f9c0605805e0c60764ec3bb94079a1d84e08d41caabe4413d6a07935cf2b2cecac4ca99b0ff54de7171dfa63013f4553f33732c20fad2106b16dc2afac7746640eaad9b30b386efdec2b50a746336663ea8901e046e9337ecf6f45380be7e343844121aab9d79f4bc0d95fec3f731afc98a5fc9369ef0b6dd9ca2c2ff1240810d05a091e2585b2cc352b41522b367cd22467c1bf8f405fdd582e0b9d0185275bf960f2626a0089cf63e815d22df4f12021ef6900b692144b8ee221d56d6cf577be1c5ef3d52c00b84a7111031485f8b79adea1f67f30c35054cd233334bab99089b3672ecd8d9fb6dfbeeb3adaa6f114f8ede9e5ce8ad8805d4b94a38719d59cd844b345928c2447d19400b31ed4be6e973f414326eba96d01fc0e985cab7cebedd0dccb5cb412f601ec25f0d05a843d63469bd1b3c9f78ffcd8a0aeb0f1cbfe9fa5126c7a59d2e4fc5a9b5495a943e6487bdad9e8f9e9643767f16e13aa3f0ab7d76190878f127906aca484095d84f6d8a272a2aaf14316609459135c05c961183ca8dc6bb5a1c8e756d69b1633220226f26f53fc441488c14ae44ff3a1b58163435a6699cf2974e903ef3b3d28b7dc3d3296beadd3f3d1a17ce84dd5a6ce65482223e5de6dacf8bb771dad40ea9ec6faed8b6dc61dcb0f51cb6e96cc5a5d8906a4dd1a8da993d6d03b9e9cfd4053247e51808ba18eb6d7fa2a883eb4b85faf5fe508237bdfcfdb8170d95b40a0ab1f9cb6f596b06e523e8a8b2affe06262c3572dacc5d1b7fec666a09edf8ac2df84633b47391ab35b47b406ee97fddaeec1b571c2cb4886f91785c82069f434b7d9ebf6fc69418f5b5c8f91a219dae5f4da33c43f827d7bd2977dcf6ae9fc857fcecc2a453088e1722a28a03e3dd51faad1b1bbab6597efe9c297a08376ebeae514851f491efd36c098cc4cb6e5ee42652d9ebc414bcb83474780b10c688b00c9c591d00c8aa735ab7eecda46b4f0ca3b295b96d0df46a7570758bf687c7760e7122f613de9d621e47e5dcd855b59c42d7b06d61c8ba6dede513d07564892078085107a93eb2a27dd5903d5e00674c445ba5c294ccf6ca600ad70e434ecc389f7006a61e9d3280fb98b4d7f3bc6f1c8cfcadadf466be5e606a55e4ed77157ed7f847e63f7f1b188efe897e1df046df941cedc95924438dd574c9003d4f039b4c015680214a92e4c125b10aea029326809c2220baab643d17dc63208dbbd8f6b01f6d1156351f7620dfc645240a09b513ac8b1490cd79ed8c491576e5e39e5ca542f997ec495cf4159a33289e3265872f0867b5ad58618144ee979de942c4c7fa82a75e52b7a536b17f9914dc11cb96c1db6320c50e003f088ce732e883c1c1ed91f76462f5db8e813f6a0324cde61b27cff87fbb56bb3d88b59909d6b51dcef1b7f6045661b712d4bcbdf9eff4851200b6aafdbff9822fa2cb643c8380a773bf765cbbf1cc012563421213b18799a1bdf9043a74b01413c70ffe0ab49f597bd27fef84e824a46f6c73ca38bdae18067ea37c3da786eca69af42fe4a8a12d17f9c466c967ad0857106f8dfc7e1d1ba4fccd168d04f474e0f15e49f4e007a9435b05c32802ee7c8e98f7251f896784880a0168cef01ac85779ae72daee0e03be1ff358d5e8f5ba17d7a3251f96eeedbe1bc143ab09d1e2f62dc472261d9b71a19ab3d24766d4b1bea5e0b80d3113c16ce7dc67f34c47ec758c25c5ef536580fc12fb3d4fcc3d4892ef9bcdbe69abd7d97705764bead2e51a5c8903efda054b8b7a172108085c48e86bf12686be355fbb673c11745015efded935251ea05311a6b2f897ce896dec4fe6f7cd3dec9be50b1c9e50c083d2cc3a731fe729a8e3ed33cc3a7720f0dc2bfe0daa4b8da7c42bac640e94c072384dfece45c74fc880f93d9e59b00da41e799d283649d62e184c73f704489014c85da623915465f681e09ba137d28dd89fe2a8c70a0dfd08bdb0739df0569ca5247761a55c352ba92a85916529a050fc2981521e6b28044d9b0ee70a0ca174712562630c4e11f4f45530472c05b7119bf152440914c5943ba022ec18c54d0df11ab55da140bf77</script>
-</div>
-<script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">]]></content>
-      <categories>
-        <category>研究生课程</category>
-      </categories>
-      <tags>
-        <tag>研究生课程</tag>
-        <tag>matlab</tag>
-        <tag>水声通信</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>水声通信课程作业业_二</title>
     <url>/2020/12/04/%E6%B0%B4%E5%A3%B0%E9%80%9A%E4%BF%A1%E8%AF%BE%E7%A8%8B%E4%BD%9C%E4%B8%9A%E4%B8%9A-%E4%BA%8C/</url>
     <content><![CDATA[<div id="hexo-blog-encrypt" data-wpm="抱歉, 这个密码看着不太对, 请再试试." data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.">
@@ -789,17 +768,24 @@ r = \frac{|w^Tx+b|}{||w||}</script><ol>
       </tags>
   </entry>
   <entry>
-    <title>深度学习_花书</title>
-    <url>/2020/07/30/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E8%8A%B1%E4%B9%A6/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="深度学习"><a href="#深度学习" class="headerlink" title="深度学习"></a>深度学习</h1><a id="more"></a>
-<p>&nbsp;&nbsp; 深度学习(DL, Deep Learning)是机器学习(ML, Machine Learning)领域中一个新的研究方向，它被引入机器学习使其更接近于最初的目标——人工智能(AI, Artificial Intelligence)。<br>&nbsp;&nbsp; 深度学习是学习样本数据的内在规律和表示层次，这些学习过程中获得的信息对诸如文字，图像和声音等数据的解释有很大的帮助。它的最终目标是让机器能够像人一样具有分析学习能力，能够识别文字、图像和声音等数据。 深度学习是一个复杂的机器学习算法，在语音和图像识别方面取得的效果，远远超过先前相关技术。<br>&nbsp;&nbsp; 深度学习在搜索技术，数据挖掘，机器学习，机器翻译，自然语言处理，多媒体学习，语音，推荐和个性化技术，以及其他相关领域都取得了很多成果。深度学习使机器模仿视听和思考等人类的活动，解决了很多复杂的模式识别难题，使得人工智能相关技术取得了很大进步。  </p>
-]]></content>
+    <title>水声通信实验课程作业</title>
+    <url>/2020/11/17/%E6%B0%B4%E5%A3%B0%E9%80%9A%E4%BF%A1%E8%AF%BE%E7%A8%8B/</url>
+    <content><![CDATA[<div id="hexo-blog-encrypt" data-wpm="抱歉, 这个密码看着不太对, 请再试试." data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.">
+  <div class="hbe-input-container">
+  <input type="password" id="hbePass" placeholder="" />
+    <label for="hbePass">您好, 请输入密码查看更多.</label>
+    <div class="bottom-line"></div>
+  </div>
+  <script id="hbeData" type="hbeData" data-hmacdigest="8dedec4c69a00d131aaf078bc8c36ece6397d2acdd8b3628d7c168f5f0a9c8de">6d2a434e5df4e9b3bd9474828405505beb9a6280244b73c99bbcd84f86024e86a316a7987633e345a0e027b85a68a668ba9a062d6775fcd5b986de7c6b609b862b29ac140eca1aeb3911bb606310cc5662f1f75f5e649e46f85d86fbf7c7c8fc62dde82b86b50f1ca4819d60cc02e9ec0ddf3e9680de2fd2464939511ea23671ba374d20574f51faabd75182e5366445696a024622d8f6897ecdc8d7f8cf6870d1aa2962112c3cea0c2b9846371f51c687e1c882d2b6bd173f80950a457c44dc6aa4d1ad6797e03a43ceee1db621c62fd90a0ab3c520033d0624d6211b2cd1534dc6c16c7200ab7bdf35ce682ffd93d982881672d9ab3b9d0df0b74dbf6c1990b71cd7feeb402a312b2723ae1d052c80ad0024fb734814dd229ebb43c9cdc02bd7a09a5737b6a897578d5a40161c43ab793c8638cd046b5d2ad0a32cf85cd33fd23657c90a97cf85b40675131ff458a0d708f111f672c8ee90643fd35927db69f78352c4045850c55649ded1133e66962eb9a047881b2b9c3faa6d454f7594463456197e669518fee89dd85f4f214805bda19d09354a97bb43e35c0af1d40808378b1b28a64c25b7699d899b3bb22d46486d21d80852531f895653cd1d40c2ff2a22223189cb9960e709bdd5a3bd724c5ac2929992ad3504e2b9624dfbe59f05c563c677958f5b1521ef9a6b1c9ba5883ce0820397acf0806055b3afc43a49f5d9dd27fa283ff70b496665d9e95d47d2188629f70afeb997dd7998ada990069aea64c7ea061b59286da09d31f1e0ce1b939d010e692237d40e60ae4295583a76440e3b3cbffb981f1632aa7e630ec7cefd44ebca0d09e2b516ab869eac4c99d99440d0d17dab2f3c96bfec047c4195cd69bbc7af94227bd57eee66cf74e8a46e346520cbccdb536bb8f731cd769b82a2c07df05b84361f14cd00c0a97cec6670a34aff18afa5229cb1b32030f3681d95cdf59a425fbe4c716055318f4b93ae5d8a50bfde20c92e70600fcae9e1cb67717c1db712f83d45c118d77c879061e40e93b96beeb417b6150c4bf280a33cf3a25209b0f4e48d3381440c7d22ada997ebb9e194c833a9eddcdd743ac77674f989927238f75a9646fdcc55650e3f5f869bbbbeb13da78fba06a091f4554a02a4b4979aed241aaa765f8b459918b79a408541a9250df81fcb1d4936a2f394836369fe7650010617a8ce08aca87dfd3e6d770692d5197e0c78aac998e6e762e877031ad285d01c2768e3828a2a99c3eeeb2fdcc9ff802b1332fcc83a9b69e56cec299a721cd0e64a97cc1e421a3e2f3e7a515a0f3c6ea1c36e44afd0ff6118b88cd5d16206d07366167769782992b77b4ad4af0cc7ea84d1b652b09213ab2e2720b17906a97174c6cb4eba34ef4377aa123e14997ac6dfec7ec216ec535918a07f0cb99d14b4a4748cbd1a89732e97d91ba66de4cd8e3f56ce6ff64f509b29af0f5420a844c206d4dba686f134a0712d9f57871f35a133b443b5c64982e88ef74f51fa7e02482fd69b5f8811e93f9c3f6ea59f0d4a66fb4d6b47a2c44b3549358e5dd17ef65f717cc4777cd460e3022b8b089548e65a8c17a84bb3dca367f343e4bc918d49fac8dd8c8a1e973cb8f4d00b9fffb2585b8f4ddc6b7e22355d1db2576aa31050d4de102c2b891fc4a81f234533d674e31bd4d315783ab8f2d315518e4d37b3e64e4e6a4ebdf4a4f55d324449cff0b138201ee1b719aa589d19085f999b629651a1d9065e04172c3861f54b20b784c6367d4e0c0cc4f62e309a8ed95f1b28bfd283c5d11a9a41efdc41558b3f292c79da236013c8eb435ad434dd19656a4c81923b04a519dd50686e6757866cb84bced612bae4385514c2e0f6fe9cb5f30c1a4637bfb2872f4fccd7147c55ebab99ea5070639ae3623bc0034f5421c74380d3cefb139b592b08f4135ae7ac9ef6c6be754ca208410374f18cf61a3d1d0a8ce1638d978ec5a6a8c3b6e0d3ee4ed7e90e4733a2370adbfbf8600c1f8ab2b75aec4f4bddf76c40d31400f504a9fb09dc936507a73b3b69eea2ba5a9497dc6717df642af7cf778567f0f711b97bd1533b7662f1adb8504a935399c4b31cb2b5e6d01942e44e94ae88002b402ddfcc85444a1095c7ab946ca8dad65813cb3cf2357274eb0f76e4a58261cba99397d890f58690c4f66e16d75326bd6acd45478ea950ff0b084016385f3315d8693c5b02fe442b5fa876bd65c5d2020aafa68a0a1d3f19141807ccbb304d15c7fb0ac13d19483c7782d470611549b66a54a5343cd5c64c54b16d97e981137fd78287df41b3d33ae3e1178c953192409175910ec3979d7cae7c4befe701412428419798e55d7b2527c76fb31f52626e2e380bcff47205704f9b8f8d2c3ea1218f929a6b7c1fb38f71cbe21de26e7e0412cc855df6142776b2e1bc0e11d1281a1c04d9f2a337e7c0c22d04dd940a8788855688c66cd46e79a6b490db912f2829de5140985bab73ce037d7be2dc185d8675a1bdc0de5a2ba0d131332bd8a971a446f55469d18b493323323d9784f6676d446d75b6303531585aeebfd2a5b427b459b3318e415b1356154f7febbeba632023e86a47201be0d6ba534ff64c8c0eeaa436a47ab039212ff7488440fa96c543855649725648ee200284cc9ce43065a536f94cd383090e2592a49b21aa2a02517eb622034dcdb6fd4ed9226bd093d0b80579f6298a2095e34ae1c48f4faa40dc0856e6fa54d8c442ab97ca227344b7e660f5ea9383b50a92508e42047da1c1ca177fe03a6e39923c81ed2c8a9e413093fda3b00a724ff36922fb2160807114c6bd7d80fd5c40f60e71a864ecfa7409bb46b66903b1c76e436963fe5ac2caa31e06b1f4cdb1b75032fe19e970844768494406e0eb6de1f303fdf4c4b776ca0ba22531af5177755a35fc599f6fe0ae69e1f833c6b705a4856feff17358063ab803e1f0675b8d3e1fce7b20c7b28ba72844d99637ac4eb6275912d05c064e1215287f0fa061abe8e9ff15ff7bc341a25f607064a2a4ee254b4e030d1ba107b2cc272737b0316b7bf2a926834a60fd05b973980640b0e5abf047c7914d18342c2b60e2902b2ec80b305e974fa8bf71fdc6def438f608d7043ced474adafdb6aaec4c5d8d5cc1652707d2316ce84027496118b2bf7a9be5b8a1c6a2ef9173c4f380a855b03fe1cec6b819532b20fbb3480fe877e6ca555f641edbb57f573b661941592877d462ccc907989481c66dc812a3fea5e492438ddc4894603c115a7bfecb1f7a5e6334ee21de677cc4f30231a258d3765d1295e60724978a53fb0ffe35397557ac2d1387b4b414057db85f80b91b3381f31013f0c9c7dc440dbf6d1d197b931626697a186772e3653e31892cf3ba9d0f3629df42018ec39b37ea844b097e113d927bdcf06d329d55efef99617c704d7449ee5c4e0988ca995696990fce949d092f3de0726185194faf7cd628705301bf5fbfa6e31e70e75d9f8ab6f0d0b11accce365b96965142cb1dfbf25fccdeebbcf2032ce093a6b6786256fc39b94c33e672c3676368115bacff11ece427cb48feff8c8a5973c2020cff58ddb8b909fd207077e74d06b967edf1e90f208d56f12ffb58fe779c69b80de089ae20e50811aeb24c4c9b6b1a9833617b318d2edf1a0e757f245e34eb8e5f5d46483222164a8054139b14d36db9f426d819bd0093281d641aa0133c1993ca28d65d996a71d92798fc12f4f948c4b71e0e913dac77ee56e726a87813818df3bb2ecd7530a2ecf9e72a512a14eaffb0cf7250666ffada606cdc32bcb89cadf69a50215fa8e72e825e6153899b30f3403db6eb16cf27ed52de0d9ce002b7ee33d18dea2b4ae142dfed1e665a5a1740ab97488761a74bd8a4fb710ea600ee0951e9b55b69ed810381ed0132083cf4fbf82be3c1d6e5b90cba7f83470e7fd96b9d6ccca8f5a9774f58d8548ee9f8c1efa8195c54d7dcdc38e3d26be405472ca84f798b3e6491392d36ab09dc3155155cadb75b0421dc0c595d93e08fdb5b5bb3a6a02e3bc632baae46f49f16c20a7b31324d62a5fe545b2979080dda5c60fb4459e721d64b7674a5b240a41243f866738be008a74f7b0b9e9a6c82ab8ff26f1a853f8dfc3769ec5b3130fef975858ec422f7e88b8dcb40ff0e27e964f59c22cfdb0cfebd14d4a05d64126d035b686d224840c5ba636747be3d4493b132c3d048b65585f213ddf3a395a895e99232ab971b70639ae1ee61b7b275dd8d89701f7f4b411589082daff78103e67e73f19e8bf77084447af6dd0f257d643e956b1cf4b3d554f3e83d6d06d1b08453426334fc7a9cdd3d9768d27fdc58403d9d60288d2887d3110d8cdb043647873dee4d8be6be1e1275b94750748bf974aae5dc06e967eb1cc1809a69e26903db3bb8739805b049b086eb19b0c18123c055fb5158495a9fa9ec31b8e297e16e6c5893029106bf7ec2e2e7f72125cee40b3eb183f872fc3c4514deeb0bbf06839e6eb6d41e0d1fb6ffd45ad2e95433165116080bd1401b12f1912e80ec1f1c37112d1ff44c415f55beec15b9d20d2e059363d424bf7b6079ae1f95ded43cb476f678390804c6e6236f3ffafee2a37c0de6d947b449b668afbbe57173560de04b118df3c82476ec7eec2c7c2a5a6cf5c2cd25ceb293d31c96576086a6c0764474fba7515b301900facac8a541e277564e8a26e3307716ea550bbfd7a9e946251bff7d1881e706275c1b44fb924a1dbff92db533cf6ae2ab501a3c11a37573c4998a37f079681b5d3474bfb81e038f6ae4c9c27a58ebbcfc34863368411bc068cf4c6b4825abc1c31c2f3ea9d1b2348a1c3d93b3a0320bad05eacbf78d649e9fc755c05cb1ea2bac7403e78c0c7745a79cbeab431fb73a73ddbec114571b5a9b3b20a0523abbd48a031610fd3d3b4cab1ea06efbde80d65169194db0932dab76cc8d97a19e304f40b2f9d6b5fa20b6927c9940ad950560bd408675ab65659a5682bec0edc1bbe04d6c5debdda8669e89b18cafce75ee2dc25f1673a78f46c81f9a33f075c00987de2482d312a152552a13ebc7111f1cadc19186c1abb5dbcf3978eed8e65346c83b79513b93ed5b82c0b5c98aa07748e52584f6bf6fc6e49f236673546df6fc57573f59ca0977f1723db74fac2e54fe9868af7bfc80fedbdc49022029e28fd0b54b81ccc498ec22e017146b8cf174102150375e455d5ea9cc1c646d3441bed286bcd36ad09c8717f9910f0ee88109fa8fd33cdbe120ae18e8920aa26194f0264ba909d57276f0d2d923d7c1e63843a800f30f8fe1146a457a32624856dedc1b5f170b65804d50288e761a4c0cfd3698ea4a8f7d9ce48dd8a548f5239bf5144ea9d4bda66d0e2bfc8ed56658b19ed761699492c7ef281262c984113c20295cb5988391b55f114ee590e6d77ea85d5f1e60773f7734ddc7524d8e0b432c62f1e662b82719f9346d6f312bfa7dfca219b42d8241523e6fcea1c63b16a9603d93d66ed351b6773ac7f44900a37d45465ac7e99b6b023a10f5c12adf66032d48b86437c1cc442085fce72bbc395ef164911ca43ad111846369135fff62162edb421c0d87726be29f31fd07113529159f4044a9584c80282be83103dba75df425b3297189673a2426d5425d900e2576bcb898a8834411a85eefa79a99a15575de789fc4917f23893c4e01b4eb0211f7d1f4bf88a6ed8175c7b126654eafdc1dd9000e6b80450b966031ad4b1ede86bc199e5e64a58a3adbedbeeec4e94cfc55154c80774599169de6a9f141f5e0b8a5a412f7e5c3ab7738422d1dfd7ae4ad226bdc927e5f99f2ba2f60a25cff348543a5a3f783c9ada7df0bcaaaa1a2b84055683e8864612c1d26cac83b8c14cf87a402300c7b98f4e8fd797003c9d9ba8a4dff7255dd02bb5b912119326f2be5acce1d3201fcbf59a2400c9da57fcfd5fb777aad45fb352dc548accf00cbed6a4544610f3ad001e2ad5b20e889e3d8d1785e51c060cf0fb05ccb991f87f237b426a280480784e62498eef439dcd2947fc709e5a11f66d641d61e4246b0f666ceea5a4aad0c63b4e152bf2bcfff6f875f9829d916e1c6bf8bc0090051a9049e8213cf99addacf54244ce50f7e7dd4f6a08f1c1f8bb7116b7ba60b9b3d7ccece5c9265847c02f18a53564c0ff611991e7267677cc1e405cb10b78d36c99bc1b9183d7ec149aeac22b89c9789b9f7ca7cd41b52d37f60aab67194a0a75bea3e10f2b50b0690c5b89c59e2af9088d9ad782b3db0b69ea53d954c840f4017c83d966a3d33e990f0f68f221f1e943ecae98c6a8fd8519ba59fa2ff3c0fcd74e6d1ebbfcc353a16ae6b6f5dfebe588af31fd24dafdb45a7e190a7b2d6381621abae6bad5260b7ed29bf0635aba4fe422395ce656736c175ad54b724d1aeef8f86797564580ccb9bada62984267935ef3d73bcb11cc60a428421a508652d74c39ff60531a5eca76400fabe7883055f65f7052cdddc94d41b752ec8133bcfe9d1880003e29ddcc1f96c89398e4dc147b698bac149ef0cf6927e12f5a8fd63d73e82f018b859a6df7a14ae89e60700cc72a1b07c570c1ff0afe476724569e4f4968639c0a8e27965379d8c014294eea388f37664ad8285740ca5d55dba9530245fb09ca9fbc0abbc18c74dbbfb2078025f5bfe8f6789f2a7c64e5578bb3c096ee33c0acae75913cd017f40dedf798e98fac5c0c629908a46441b6bd192b8a4ccad8f72268e848c734cdfefa40d03eb78c75dd413f9c4dfca05d34c6c1d44d53f57d975dfd4d8b58824915ba32658a1b1e111b9e96c35618d9ec6b712dba2395a01646faed9587e3c405151393b56a0f013d73e078b56c468b482d04f7431f555c2ee9f83f2aa5f2fe6d19af38731b3c53f6166f22182a8dac99e21231df2b7ffe081acde0215fd3847cdb85c74e379fcff251959d2ffe22752ed6b28f1540a08834eacf433bdfc10591de3fe7d896223360e26e4b64241c02287a5b46966d75b5b5c4f844b38057ce88d8bdfbcdc12ed5ea140ebabc70c1a2e418337479ae49de912c87a2d0b0fdcc0c08e06096b5653fa6915c6c80fca1366722e8cee17ad8a846aa906459a7e66c50cd5be8ea5c7030c843bf2c80f887e6882ab94f16fc545ffc1a6fa7833bf906929517a642f670b3c3c592da368a19da9afd20fa7cc11b4462b9f777f1acf2e5935d4181766394385e31affe2ac9e55a028a6b15067027ddd004d0dfd012bf42929dee90d110ac740745f98bbbfe3273a4cff85cf2ef5e3482d79e5860d7804c28a069449122e69953d533aab243d1973b3551f51da6f3b4b44655f9c28d95e0d312b72f6560b02e29a8b9827e2d0b8982ac4300318e8c43b2702a8e144649dcb2e6bb2091bcb88198960ced4d2862b98fc351007a24b549a2accaad6d1a6e0d9a451a476c456b14d222c69e41b4d37000bdc0715647709a062d860c443cd89d1ae89a0491429f6a7f44d46d1ec315bcd7e376799c280a48b3d164ec9a6c53c31971f0c574db0b95a07e5145dcb2a60445b6cf4751ae65cd3b40ecb23b02525c7e3e4cbb71428a9664a26bb98147adca9cc8aa493b59bd17febb8fd125b1a9c3fdf995a728a72e0e0c97f0d7e36d3b6880457300d167a3a8f831c2fb991d11754563ddd27618ca071ecb6e423177523ef48a31d8fe2d08f60f53d9b5857dcea28585908da0e5360658f87513ac996b792d0e3e87bd558f4ae5f559610f71189fadfde5bfbe16ac9a7572a6eeea59eb97bbe69a9425e245185a47bc2189834c674a63dc7c456fa250992e6446abf17011c20984b38504a58b0a8b32f29639af956b16ddb34bd369428ef5ca9a532d9cc14e5fd0b80625ad4968ede200bcf4fad8326d971af530f8a6b3284a4638e20d045cd7e6c9119fd00e0efcfa16938ac9e2a1a4635b0118db0183b30b59862736c3e40cb9c1e0f1083d80cf428a41d6231f956c9aa05b43b65de09cbb24bf5bd4c82139edee1cf0f50caefda670d755c43108f0da418846dc047cfe3cba0d0fa5f7fdaace94691c870c503c3a0fcb0f640981b8f9dff0ead4571d3d59c5e5f1a08fb3babc991f6cff284042973ff1f2f95eb9fc139efc4e3bfa56178ee753a4137bbf88c921ea400bc292b382ddfe3d8c9eb82a055e983f54f55b0cd6438824b3d14ad3be5401f9af0e334eaf0058f7a9ba93f85b0e56310913888becac2aaf889343e6070f0b90c0e8d8395a3b6b246278e1214048fd4f319a7adef1249f728dcf511dfe60b13cb747a1ba1aa20a49288f035c1054d553f7b98ec6d8ee15fbe0b14911b80fc5bb88e15d3760a83f519a698b675fc7e234a89b80e1eede24f1a339a82af9d1eb3db05900836e71360ee1f7b61313c400c319a2dd03cfb5e161d54fc4495dc05138823b1f2178ea47e01ebb5e86a5d50b6e56a3969c434db261d8e6f02de59cdad1b15fbf7e154a94588114fb61de86a57d6963761e7264809b513b199fde16ee8e8f5dc1c2a441f699a3068c02a008a3a8145c4864c80ff3730f6ab35e62ad8a50c9f0285f1ac0a211c9f25eb8a4097019cb4e1bb346943fb93947539fd24fbc343756a2003a3d1717ebb03594ed88aea2a78cc594e71b360db2d7abef13297678f9c328b7f39b16a6d96e4791f35ac99b2164ea1931836c35ef05c33d510ceee2c8156eb8e8c0aad9f36d3a12c6cc0ba9e12abc22cf14c3fa5ede8e5af28f8c51c867b2b61f3fe28971fd380528c3a56c09c63820aa419650b18a72183baec5403c579d618fbf7beea33de1641b91e5247fffd4b82a1ce181d439091a75bec239b57096a5b669b2fe37ab739580c6309fa92fccb622fefad59305af0ab9318c06b4341da21589b168a33f5b94abbb5af361cb9662e314d7c828491459afaf87e690f69d4f1e82b3aae7ece9331cf514878b7d4a730fed6701935789821648b304b830fe357fa407a44cad20e39d5976f642aa31e12a41cf3eca88376ea723a476dcb0f035c27f79b7cfd97b8f9f8289c451ca3def768ed39bec6e24f072e17376ea73c8a097acce9c7b0dd38556f737d5907dcb736eb51365bd53c3d1aa506dc63ba072f2848cfb13c37751b510131ce43f8d1b2eb928b8985553eaee9f8095df799d33236a7ca9405a3719ba7e4e291074367ebb2f891f7b3a00c58738449e0b5030393f3fbaab939f88982efeb1b6c7e0e01956699aa0eb2d1b8f8d4b095ebe53c3d2b27f773442289d5546b4317cdddcf76992fc1da2f209c1464f05ad14e69e88af69f130c0064c1bb5d908cce1b24d793fa23b02e4589671bbea6b27a7264ca3f9bd61fe05afb2424600f004aefc1dd4ee6264bf12f36d70cb3b42124b6eaa9ed82c4b68622317015f62d51fcc0f31ea3073fa0c5b84a94acc12919062b3c579afecd80ff247afb988d6b4e87d78a47b797476e094033e5ba4dc315eb6074e288bba18496908c42621836cbe1cf185f493099f27147b8e6d3f37d73e3d99f7926f813486013a4ce57dba3f10bdfd534e89927355bfa522ba167af8ddae337593c2d69ec7991abb1eb141bfe42564b21dacddd161f00d237cbc4c5842e11027eda3a3ab49a11a71a8df812623457a39b5fe9e81d9426c402d1dbac69d44f1e35e4dde4f769e86939ec226f3151841c407193bc49ff1c6305b5614da3b5f0c51f6e1defcfde256dc969989f1575820007007730ca3762f02c58162d1f2cc1b00fcd0e19799162c92c9f8da6900d7c9fc6e269ce518752b7173fac5e98e334eeabcc9889aa26aaafcdb51451703f141e6b2ba10821c7c1f5dc2043810beac6456e9a6a51d1d733efb702f8d06ba0213a056ab48e0ba466fd3971ac53c39e4f1d4a94380d6cfed1470cd4c0bb10c7b14ccfb16c944f81fb8540a9d96046a32d16febb0c64e18de84d987c859335de1893401953213a07ca7ac96dc173d3529a51267b0ecdbda32d9b95dc4a1265d191e56f969c85d44c241f5c0afd0fb97f1e2c6b8b28707496fe7b1601874c5a7ee1383b7860668eed45029d953d57833814d8b5f070d1a451fa2ab57cdb8ab71b3132bd8e25940c39e83a37bf29946722a295f4047ba8ed2de82d61ed7506f93fb0750f57a578c8b37e33962dcf6da405ac7b79fcd659e5a3bbd2e936ba528a1c1894eb9a104cec414cd3c07c4c8bc5dd4bf4608ddddc4bc2133fdb60d1c08f6b29696a3c5ca7e7975c529e1f381803bc8fbe610163dd12e43adb600416189df298f1c46769feb530f5d33c09188cf88fedac37754cfb2ef827241842d1287081f02962e356dce6d987b46cf24094807f4a6260cabd7ebee397c846982134bcb5b7a9657c05d6dabda4e208a99530a7da3ced75ae068610ba0b9293dad040377889fb1cc879eaeb23b9fb06c9ca12c1447b684144e0ed8ae4f7dadc0dfa3fbe7962a7997df1282aefeb2b89bfb29c44a48bb632f2fbfbd7d87eb0852be607fe59dbc71faa87ce30e022925f7980e9946e7989691fe64268bf3d6eb2ee10bb0b6441e5f9380b237ce716fff636a496eabdd51c77a93a403f808518023737684243f7e602de44cce1e59e3f0c42c2a06e6125ac500c23b5026375eea86da8ef516a30782866697ee511b697b32bccde3a0dbf5520f1c3519c45b80ee9f77503b16a2d391f71392dd801275c8448ee821569199475ff9cc4f7ba3919c396c521af0f792e88ba371e4b99c25cb9aa63a6ef3f281f7b07d039cba0a4c802228edc1f1666c1557d2dcd995005df1470ef7d2372676b377f9dd7c9132d75cb632602e8d0af9181491f9b35ffd2c52a25de4b1a3e096776fbe3422fd384feb961c0b142815709ed1961cf5373e74c620406b801b41e5fd3821f98505f1fbd090ae0387f2d29437235373359054773ccfbfe1ce541bc71a9776855c30c4fdc2ca1874ad76a06fd709e62ec6f8f6f230dd2eb8cf1222903a10311a24191adb70c5a04a5e6e9455f1270a4da768e9479f886339f063b8f2a221fb8cdeb01474b6877f5b03b3ea1d65b0b2fe0f4fc81fab67e40cafc417b28b7e1f00e96645f9d9d2fff9b5d0519782c7ee44e2c3fbfeb10f64dacfa0067b82dc4fea62cab508084723e7686767f9e6a1879d2db309289b63037728848edad9f488d591e240c37c9920133ea3d714da1dda602ea964550330a3cebdbd7c35caa48c36d51bb8e5bd893c65cf8f3c973610dcf81cca960502b81418d43b9b1b15bb959038fbbad9f7af3fd9b3c4c0c486b647e8ea9dbbb27c9da8bbb35c29ebb7bbb41d7d0c18e09ba6c9ba54fbdbb3045d4b316e1bf8f76abdda4c415630f0136414b4e689b9653dc82db3130b76d4a278ee649dcbcf6a2b1560f42382cb526ea3e9bd5ffb6775192a10b4cfdbd689439f59fe55465b1e3929815d4b95668f736c1cd0dbff3047ecccf6baf0f2aa75b3e3e4925c4f0ff16c4c7326e3b6dd2c82e46359036d22242130a07b917acd4ef96d8e36b7900338c9351726b54995f58bc549eaab15fa49714d84b716f1a0a097017566abf6213f3dfa402ef223fcb7aeab6ee9cec97d7ffcf71da48ae81e3a8ac184a291c5f7db3fd1cc569d4d7221494556fa71b0c8b31ddc2c4e135bdbdfb287c3d47f5cf56a22b33d0439ccf818c9d2305544a26450fda3f5b944475472c1e453a3a1318d187971220471b27a7e93c23155deb8d267035cd7dbb1ab344c91a13311a2f4fbed9bd81522811577e4b69ffab9c942fea4aed69e8b4ad58919f10b5c49a3a2b74f5b9c6a1b015ad7e06defb3a5f14738c679b23d1ee6bc777e11c8ed42bf29f88d866c2d44f5eca6c37fdd07a36211a4e6fbcc20344ca02d2a893112a02ef70ce05e2fe3616cb61ef0d882d04bf8b71ac1c6b5cb59fc966ef8b4044a8c9c0537fd7da5ad0f2b10961acbb304daf3157beccdfe71e4ec3e2b533ec98ed379e36ff4f6514317e03b495545732f39d4c3095acc852a55980fb0eca418c03bd63f166874aa89d1b32dba45a501f72f2e0704aef0d674dd3b2a380fd4a17e3d71aeb1f372b66bfc750b58f8816e0ced804b88a88c7b73ff2f54ebc2a1586df37628a38ac532bc5152199cd4f57a6627a470db07147ea9803862050c95197a8e7952041d672b67c111d09c4e0e749a5a904740e83fed9f0a54334db3026fc3a29d06395c39d14fe573d2b2b1efa38daf66f189989dc3581ed712fd0a00bf2c42b1e3ba692f2592077a0bf4d4afebbcb68acfa5bb963ca0bcca62290fcb1fdfceaa08ed79e0a9d44ef7a830d5706b0908066fbeb4fb8490743dcc24930751f1c74559e41f64b0e6d9abf5de6f878cca08d612e328c0947d8ab5d6d3068262a9fefc5414dd6f2876642e736b5e9d40ad2a2755a45957e1b072a909c4742a432bdaf61f221ff826db2c59e3931dc2aa3dd28d0ca0e2ec16566e5dc11ad4065b04ec8b77ddceff8c3ef80ccf073710102d1ed1f4e6f392b8ebdf6f11da366be43710e3b54a14dbe59d9c7e0de96166cd00b469e2f504faf4240027805e7b8c3632898b72dfc82bd374d532e3ceb98c56f8c8b03bc1fe832c42e34aa83556e2f4302c6740171116bfb504d2220aea95dd9096aea7f46aea00d329f69f1beb8988f958091946c0c725f55f06b1ccd5fe4a4e9c0689413578934dce7768c9b062d2619cf63b183740b968ae0d80e5fe47c17779d032726ea973804a1560dce3bff744be71d8c67f640d7e23a93e9211b324110aea24cbcb155f0a4a3c07d5ff5f6151eac5cded041b0ead96afa01355f35112ecbd660279ec2413efad808977723721b95bf6a15f59de1eb5b28ce4c89868bf798a3287e4e32beef29fe07c8bd4fc101c5fd85408c9bb3d5b14b53748e51ca86110217246c0086a8343020f9b6f021c6db7d1611836f068aba9c5af1d5f03fb790c3d198321e1867fed53e68059fc04ab8d7f83261b80e71048463d082412617acebd7db5991ea24c71675e382c0ff39e8c7de2885a9a87db0e6be68aa32c5abf05fcbbffcdacc04b96ddf4b323e55993b88da79962feeca417eade4d39eb45b657125982c4d2735bd719901fc3a7438dcc578a6b2ac13179b0b4ca48eb70ca1b71482962028df3f74995cecb1fa41a97eafb64c48d6e0870d0dddf785a20858231c9e124ee54a61267f162047047922c2ed76bf54a7328afcd086ba31ce207366b3b222ed85bccbba0513e2436ca4aad13acdac3cd423c4176a4e2c75cf358a1164563259c8a40f84e6b61c3944c02cfdfb9108a5258725fdfd14abb39726af2d9e021be7b2f1038e51eea8da245e280f5b71d9c54b165028ca997f31bd7142afd78210a4adc3d187690fe7b506a5e5b0af2da1278e15b5c97ba22486161613c023d14bc68d460ae271743a3f9c0605805e0c60764ec3bb94079a1d84e08d41caabe4413d6a07935cf2b2cecac4ca99b0ff54de7171dfa63013f4553f33732c20fad2106b16dc2afac7746640eaad9b30b386efdec2b50a746336663ea8901e046e9337ecf6f45380be7e343844121aab9d79f4bc0d95fec3f731afc98a5fc9369ef0b6dd9ca2c2ff1240810d05a091e2585b2cc352b41522b367cd22467c1bf8f405fdd582e0b9d0185275bf960f2626a0089cf63e815d22df4f12021ef6900b692144b8ee221d56d6cf577be1c5ef3d52c00b84a7111031485f8b79adea1f67f30c35054cd233334bab99089b3672ecd8d9fb6dfbeeb3adaa6f114f8ede9e5ce8ad8805d4b94a38719d59cd844b345928c2447d19400b31ed4be6e973f414326eba96d01fc0e985cab7cebedd0dccb5cb412f601ec25f0d05a843d63469bd1b3c9f78ffcd8a0aeb0f1cbfe9fa5126c7a59d2e4fc5a9b5495a943e6487bdad9e8f9e9643767f16e13aa3f0ab7d76190878f127906aca484095d84f6d8a272a2aaf14316609459135c05c961183ca8dc6bb5a1c8e756d69b1633220226f26f53fc441488c14ae44ff3a1b58163435a6699cf2974e903ef3b3d28b7dc3d3296beadd3f3d1a17ce84dd5a6ce65482223e5de6dacf8bb771dad40ea9ec6faed8b6dc61dcb0f51cb6e96cc5a5d8906a4dd1a8da993d6d03b9e9cfd4053247e51808ba18eb6d7fa2a883eb4b85faf5fe508237bdfcfdb8170d95b40a0ab1f9cb6f596b06e523e8a8b2affe06262c3572dacc5d1b7fec666a09edf8ac2df84633b47391ab35b47b406ee97fddaeec1b571c2cb4886f91785c82069f434b7d9ebf6fc69418f5b5c8f91a219dae5f4da33c43f827d7bd2977dcf6ae9fc857fcecc2a453088e1722a28a03e3dd51faad1b1bbab6597efe9c297a08376ebeae514851f491efd36c098cc4cb6e5ee42652d9ebc414bcb83474780b10c688b00c9c591d00c8aa735ab7eecda46b4f0ca3b295b96d0df46a7570758bf687c7760e7122f613de9d621e47e5dcd855b59c42d7b06d61c8ba6dede513d07564892078085107a93eb2a27dd5903d5e00674c445ba5c294ccf6ca600ad70e434ecc389f7006a61e9d3280fb98b4d7f3bc6f1c8cfcadadf466be5e606a55e4ed77157ed7f847e63f7f1b188efe897e1df046df941cedc95924438dd574c9003d4f039b4c015680214a92e4c125b10aea029326809c2220baab643d17dc63208dbbd8f6b01f6d1156351f7620dfc645240a09b513ac8b1490cd79ed8c491576e5e39e5ca542f997ec495cf4159a33289e3265872f0867b5ad58618144ee979de942c4c7fa82a75e52b7a536b17f9914dc11cb96c1db6320c50e003f088ce732e883c1c1ed91f76462f5db8e813f6a0324cde61b27cff87fbb56bb3d88b59909d6b51dcef1b7f6045661b712d4bcbdf9eff4851200b6aafdbff9822fa2cb643c8380a773bf765cbbf1cc012563421213b18799a1bdf9043a74b01413c70ffe0ab49f597bd27fef84e824a46f6c73ca38bdae18067ea37c3da786eca69af42fe4a8a12d17f9c466c967ad0857106f8dfc7e1d1ba4fccd168d04f474e0f15e49f4e007a9435b05c32802ee7c8e98f7251f896784880a0168cef01ac85779ae72daee0e03be1ff358d5e8f5ba17d7a3251f96eeedbe1bc143ab09d1e2f62dc472261d9b71a19ab3d24766d4b1bea5e0b80d3113c16ce7dc67f34c47ec758c25c5ef536580fc12fb3d4fcc3d4892ef9bcdbe69abd7d97705764bead2e51a5c8903efda054b8b7a172108085c48e86bf12686be355fbb673c11745015efded935251ea05311a6b2f897ce896dec4fe6f7cd3dec9be50b1c9e50c083d2cc3a731fe729a8e3ed33cc3a7720f0dc2bfe0daa4b8da7c42bac640e94c072384dfece45c74fc880f93d9e59b00da41e799d283649d62e184c73f704489014c85da623915465f681e09ba137d28dd89fe2a8c70a0dfd08bdb0739df0569ca5247761a55c352ba92a85916529a050fc2981521e6b28044d9b0ee70a0ca174712562630c4e11f4f45530472c05b7119bf152440914c5943ba022ec18c54d0df11ab55da140bf77</script>
+</div>
+<script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">]]></content>
       <categories>
         <category>研究生课程</category>
       </categories>
       <tags>
-        <tag>深度学习</tag>
-        <tag>分类器</tag>
+        <tag>研究生课程</tag>
+        <tag>matlab</tag>
+        <tag>水声通信</tag>
       </tags>
   </entry>
   <entry>
@@ -821,53 +807,6 @@ r = \frac{|w^Tx+b|}{||w||}</script><ol>
       <tags>
         <tag>深度学习</tag>
         <tag>CIFAR-10</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>百度谷歌搜索引擎索引</title>
-    <url>/2020/12/04/%E7%99%BE%E5%BA%A6%E8%B0%B7%E6%AD%8C%E6%90%9C%E7%8B%97%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E7%B4%A2%E5%BC%95/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="百度谷歌搜索引擎索引"><a href="#百度谷歌搜索引擎索引" class="headerlink" title="百度谷歌搜索引擎索引"></a><center>百度谷歌搜索引擎索引</center></h2><a id="more"></a>
-<h3 id="简单检索"><a href="#简单检索" class="headerlink" title="简单检索"></a>简单检索</h3><p>参考<a href="https://jingyan.baidu.com/article/6b97984dee19b81ca3b0bf4c.html" target="_blank" rel="noopener">如何让自己的网站快速被百度收录</a></p>
-<ol>
-<li>提交链接。</li>
-</ol>
-<ul>
-<li>Google: <a href="http://www.google.com/addurl/?hl=zh-CN" target="_blank" rel="noopener">Google 网站站长工具</a></li>
-<li>Baidu: <a href="https://ziyuan.baidu.com/linksubmit/url" target="_blank" rel="noopener">url提交_站长工具</a></li>
-</ul>
-<ol>
-<li>最有用的方法</li>
-</ol>
-<ul>
-<li>知乎</li>
-<li>CSDN</li>
-<li>豆瓣</li>
-<li>贴吧等平台<br>发帖，贴出自己的网址，搜索引擎就会进行索引。</li>
-</ul>
-<ol>
-<li>2020/12/4<br>目前本网站未被任何引擎索引。<center>
-<img src="https://www.codekp.cn/download/img/csdn/百度为索引.PNG" width = "400" height = "302" alt="图片名称" align=center / loading="lazy">
-</center>
-
-
-</li>
-</ol>
-<h2 id="比较麻烦的检索方式"><a href="#比较麻烦的检索方式" class="headerlink" title="比较麻烦的检索方式"></a>比较麻烦的检索方式</h2><p>  将检索文件放在网站根目录下。<br>  <a href="https://www.codekp.cn/baidu_verify_code-De28227qRL.html">测试连接</a></p>
-<p><center>
-<img src="https://www.codekp.cn/download/img/csdn/检索.PNG" width = "400" height = "302" alt="图片名称" align=center / loading="lazy">
-</center><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure><br>将备案号填入即可很快被检索。</p>
-<h2 id="提高搜索引擎权重"><a href="#提高搜索引擎权重" class="headerlink" title="提高搜索引擎权重"></a>提高搜索引擎权重</h2><ul>
-<li>最简单的方法就是在各种平台多放点网址进去。</li>
-</ul>
-<h2 id="结尾-2020-12-12"><a href="#结尾-2020-12-12" class="headerlink" title="结尾 2020/12/12"></a>结尾 2020/12/12</h2><p>目前网站被百度收录。<br><img src="https://img-blog.csdnimg.cn/20201212234708921.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></p>
-]]></content>
-      <categories>
-        <category>谷歌</category>
-        <category>百度</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-        <tag>搜索引擎</tag>
       </tags>
   </entry>
   <entry>
@@ -941,6 +880,57 @@ r = \frac{|w^Tx+b|}{||w||}</script><ol>
       <tags>
         <tag>研究生课程</tag>
         <tag>矩阵论</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>网站视频下载及按帧将视频转为jpg</title>
+    <url>/2020/10/15/%E7%BD%91%E7%AB%99%E8%A7%86%E9%A2%91%E4%B8%8B%E8%BD%BD%E5%8F%8A%E6%8C%89%E5%B8%A7%E8%BD%AC%E4%B8%BAjpg/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="网站视频下载及按帧转为jpg"><a href="#网站视频下载及按帧转为jpg" class="headerlink" title="网站视频下载及按帧转为jpg"></a>网站视频下载及按帧转为jpg</h1><h2 id="1、准备切割视频"><a href="#1、准备切割视频" class="headerlink" title="1、准备切割视频"></a>1、准备切割视频</h2><p>视频切割算法:<br><figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">clc;</span><br><span class="line">clear;</span><br><span class="line"><span class="comment">%读取视频</span></span><br><span class="line">video_file=<span class="string">'D:\1.mp4'</span>;</span><br><span class="line">obj=VideoReader(video_file);</span><br><span class="line">frame_num=obj.NumberOfFrames;<span class="comment">%一共有多少帧</span></span><br><span class="line"><span class="comment">% 分离图片</span></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:<span class="number">15</span><span class="comment">%读取前15帧</span></span><br><span class="line">    img=strcat(<span class="string">'D:\picture\',num2str(i));</span></span><br><span class="line"><span class="string">    img=strcat(img,'</span>.jpg');</span><br><span class="line">    I=read(obj,<span class="built_in">i</span>);<span class="comment">%读出第15帧图片</span></span><br><span class="line">    imwrite(I,strcat(<span class="string">'D:\picture\',num2str(i),'</span>.jpg'),<span class="string">'jpg'</span>);<span class="comment">% 保存帧</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="2、问题"><a href="#2、问题" class="headerlink" title="2、问题"></a>2、问题</h2><h4 id="考虑使用-you-get下载视频"><a href="#考虑使用-you-get下载视频" class="headerlink" title="考虑使用 you-get下载视频"></a>考虑使用 you-get下载视频</h4><ol>
+<li>首先安装<br><kbd>pip install you-get</kbd></li>
+<li>下载<br><kbd>you-get -i [URL]</kbd><br>-i:查看可以下载的详细信息<br><kbd>you-get —format=dash-flv  [URL]</kbd></li>
+</ol>
+<p>以此方法可以直接下载大部分网站上的视频。</p>
+<h4 id="例子：以小鲤鱼历险记为例bilibili"><a href="#例子：以小鲤鱼历险记为例bilibili" class="headerlink" title="例子：以小鲤鱼历险记为例bilibili"></a>例子：以小鲤鱼历险记为例<a href="https://www.bilibili.com/video/BV1Ns411r7cX?from=search&amp;seid=2589828094683508837" target="_blank" rel="noopener">bilibili</a></h4><ol>
+<li>直接通过you-get进行下载<br>下载到的文件一般是flv需要解码，不能直接读取。<br><kbd>you-get <a href="https://www.bilibili.com/video/BV1Ns411r7cX?from=search&amp;seid=2589828094683508837" target="_blank" rel="noopener">https://www.bilibili.com/video/BV1Ns411r7cX?from=search&amp;seid=2589828094683508837</a></kbd></li>
+</ol>
+<p><img src="https://img-blog.csdnimg.cn/20201120164038867.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></p>
+<ol>
+<li><p>通过you-get -i 获取视频信息<br>找到需求的部分，本例使用小鲤鱼历险记mp4、720p为例。<br><kbd>you-get -i <a href="https://www.bilibili.com/video/BV1Ns411r7cX?from=search&amp;seid=2589828094683508837" target="_blank" rel="noopener">https://www.bilibili.com/video/BV1Ns411r7cX?from=search&amp;seid=2589828094683508837</a></kbd><br><img src="https://img-blog.csdnimg.cn/20201120164038873.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></p>
+</li>
+<li><p>通过you-get —format=dash-flv  获取视频信息<br>找到需求的部分，本例使用小鲤鱼历险记mp4、720p为例。 </p>
+</li>
+</ol>
+<p><kbd>you-get —format=dash-720  <a href="https://www.bilibili.com/video/BV1Ns411r7cX?from=search&amp;seid=2589828094683508837" target="_blank" rel="noopener">https://www.bilibili.com/video/BV1Ns411r7cX?from=search&amp;seid=2589828094683508837</a></kbd></p>
+<p><img src="https://img-blog.csdnimg.cn/20201120164038865.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></p>
+<ol>
+<li>下载下来的文件地址为终端所在地址：<br>本文中为<kbd>E:\Users\root\【720p】小鲤鱼历险记【2006】【完结】【无水印高清】 (P1. 小鲤鱼历险记 01)[00].mp4</kbd></li>
+</ol>
+<p><img src="https://img-blog.csdnimg.cn/20201120164038861.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></p>
+<h4 id="hevc未安装"><a href="#hevc未安装" class="headerlink" title="hevc未安装"></a>hevc未安装</h4><p>导致matlab无法读取下载的软件</p>
+<h2 id="3、方法"><a href="#3、方法" class="headerlink" title="3、方法"></a>3、方法</h2><p>1、安装codec，网上有很多hevc但是目前免费办法中国区无法下载，于是参考很多文章后选择下载codec。</p>
+<p>参考：</p>
+<ul>
+<li><ol>
+<li><a href="http://www.codecguide.com/download_k-lite_codec_pack_basic.htm" target="_blank" rel="noopener">http://www.codecguide.com/download_k-lite_codec_pack_basic.htm</a></li>
+</ol>
+</li>
+<li><ol>
+<li><a href="https://www.jianshu.com/p/dd7f04c27a79" target="_blank" rel="noopener">https://www.jianshu.com/p/dd7f04c27a79</a></li>
+</ol>
+</li>
+<li><ol>
+<li><a href="https://mmrslwan1110.github.io" target="_blank" rel="noopener">https://mmrslwan1110.github.io</a></li>
+</ol>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>辅助技术</category>
+      </categories>
+      <tags>
+        <tag>matlab</tag>
+        <tag>视频</tag>
       </tags>
   </entry>
   <entry>
@@ -1093,6 +1083,20 @@ r = \frac{|w^Tx+b|}{||w||}</script><ol>
         <tag>matlab</tag>
         <tag>c</tag>
         <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>虚电路和数据报对比模型</title>
+    <url>/2021/03/31/%E8%99%9A%E7%94%B5%E8%B7%AF%E5%92%8C%E6%95%B0%E6%8D%AE%E6%8A%A5%E5%AF%B9%E6%AF%94%E6%A8%A1%E5%9E%8B/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>通过数学模型，我们可以比较虚电路和数据报的传输数率好坏。</p>
+<h1 id="虚电路和数据报对比模型"><a href="#虚电路和数据报对比模型" class="headerlink" title="虚电路和数据报对比模型"></a>虚电路和数据报对比模型</h1><p>python如下所示：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">from scipy.special import comb</span><br><span class="line">import math</span><br><span class="line">import numpy as np</span><br><span class="line">import matplotlib.pyplot as plt</span><br><span class="line"></span><br><span class="line">def print_hi(name):</span><br><span class="line">    print(f&#39;Sum,&#123;name&#125;&#39;)</span><br><span class="line">if __name__ &#x3D;&#x3D; &#39;__main__&#39;:</span><br><span class="line">    N&#x3D;100</span><br><span class="line">    p&#x3D;0.1</span><br><span class="line">    sum &#x3D; np.zeros(N)</span><br><span class="line">    for n in range(N):</span><br><span class="line">        for k in range(10):</span><br><span class="line">            sum[n]&#x3D;comb(n,k)*math.pow(1-p, n-k )*math.pow(p, k ) +sum[n]</span><br><span class="line">    print_hi(sum)</span><br><span class="line">    plt.plot(sum)</span><br><span class="line">    plt.show()</span><br></pre></td></tr></table></figure></p>
+<h2 id="输出结果图："><a href="#输出结果图：" class="headerlink" title="输出结果图："></a>输出结果图：</h2><p><img src="https://img-blog.csdnimg.cn/20210331172103905.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></p>
+]]></content>
+      <categories>
+        <category>研究生课程</category>
+      </categories>
+      <tags>
+        <tag>网路比较</tag>
       </tags>
   </entry>
   <entry>
@@ -1326,71 +1330,6 @@ r = \frac{|w^Tx+b|}{||w||}</script><ol>
       </tags>
   </entry>
   <entry>
-    <title>网站视频下载及按帧将视频转为jpg</title>
-    <url>/2020/10/15/%E7%BD%91%E7%AB%99%E8%A7%86%E9%A2%91%E4%B8%8B%E8%BD%BD%E5%8F%8A%E6%8C%89%E5%B8%A7%E8%BD%AC%E4%B8%BAjpg/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="网站视频下载及按帧转为jpg"><a href="#网站视频下载及按帧转为jpg" class="headerlink" title="网站视频下载及按帧转为jpg"></a>网站视频下载及按帧转为jpg</h1><h2 id="1、准备切割视频"><a href="#1、准备切割视频" class="headerlink" title="1、准备切割视频"></a>1、准备切割视频</h2><p>视频切割算法:<br><figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">clc;</span><br><span class="line">clear;</span><br><span class="line"><span class="comment">%读取视频</span></span><br><span class="line">video_file=<span class="string">'D:\1.mp4'</span>;</span><br><span class="line">obj=VideoReader(video_file);</span><br><span class="line">frame_num=obj.NumberOfFrames;<span class="comment">%一共有多少帧</span></span><br><span class="line"><span class="comment">% 分离图片</span></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:<span class="number">15</span><span class="comment">%读取前15帧</span></span><br><span class="line">    img=strcat(<span class="string">'D:\picture\',num2str(i));</span></span><br><span class="line"><span class="string">    img=strcat(img,'</span>.jpg');</span><br><span class="line">    I=read(obj,<span class="built_in">i</span>);<span class="comment">%读出第15帧图片</span></span><br><span class="line">    imwrite(I,strcat(<span class="string">'D:\picture\',num2str(i),'</span>.jpg'),<span class="string">'jpg'</span>);<span class="comment">% 保存帧</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="2、问题"><a href="#2、问题" class="headerlink" title="2、问题"></a>2、问题</h2><h4 id="考虑使用-you-get下载视频"><a href="#考虑使用-you-get下载视频" class="headerlink" title="考虑使用 you-get下载视频"></a>考虑使用 you-get下载视频</h4><ol>
-<li>首先安装<br><kbd>pip install you-get</kbd></li>
-<li>下载<br><kbd>you-get -i [URL]</kbd><br>-i:查看可以下载的详细信息<br><kbd>you-get —format=dash-flv  [URL]</kbd></li>
-</ol>
-<p>以此方法可以直接下载大部分网站上的视频。</p>
-<h4 id="例子：以小鲤鱼历险记为例bilibili"><a href="#例子：以小鲤鱼历险记为例bilibili" class="headerlink" title="例子：以小鲤鱼历险记为例bilibili"></a>例子：以小鲤鱼历险记为例<a href="https://www.bilibili.com/video/BV1Ns411r7cX?from=search&amp;seid=2589828094683508837" target="_blank" rel="noopener">bilibili</a></h4><ol>
-<li>直接通过you-get进行下载<br>下载到的文件一般是flv需要解码，不能直接读取。<br><kbd>you-get <a href="https://www.bilibili.com/video/BV1Ns411r7cX?from=search&amp;seid=2589828094683508837" target="_blank" rel="noopener">https://www.bilibili.com/video/BV1Ns411r7cX?from=search&amp;seid=2589828094683508837</a></kbd></li>
-</ol>
-<p><img src="https://img-blog.csdnimg.cn/20201120164038867.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></p>
-<ol>
-<li><p>通过you-get -i 获取视频信息<br>找到需求的部分，本例使用小鲤鱼历险记mp4、720p为例。<br><kbd>you-get -i <a href="https://www.bilibili.com/video/BV1Ns411r7cX?from=search&amp;seid=2589828094683508837" target="_blank" rel="noopener">https://www.bilibili.com/video/BV1Ns411r7cX?from=search&amp;seid=2589828094683508837</a></kbd><br><img src="https://img-blog.csdnimg.cn/20201120164038873.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></p>
-</li>
-<li><p>通过you-get —format=dash-flv  获取视频信息<br>找到需求的部分，本例使用小鲤鱼历险记mp4、720p为例。 </p>
-</li>
-</ol>
-<p><kbd>you-get —format=dash-720  <a href="https://www.bilibili.com/video/BV1Ns411r7cX?from=search&amp;seid=2589828094683508837" target="_blank" rel="noopener">https://www.bilibili.com/video/BV1Ns411r7cX?from=search&amp;seid=2589828094683508837</a></kbd></p>
-<p><img src="https://img-blog.csdnimg.cn/20201120164038865.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></p>
-<ol>
-<li>下载下来的文件地址为终端所在地址：<br>本文中为<kbd>E:\Users\root\【720p】小鲤鱼历险记【2006】【完结】【无水印高清】 (P1. 小鲤鱼历险记 01)[00].mp4</kbd></li>
-</ol>
-<p><img src="https://img-blog.csdnimg.cn/20201120164038861.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></p>
-<h4 id="hevc未安装"><a href="#hevc未安装" class="headerlink" title="hevc未安装"></a>hevc未安装</h4><p>导致matlab无法读取下载的软件</p>
-<h2 id="3、方法"><a href="#3、方法" class="headerlink" title="3、方法"></a>3、方法</h2><p>1、安装codec，网上有很多hevc但是目前免费办法中国区无法下载，于是参考很多文章后选择下载codec。</p>
-<p>参考：</p>
-<ul>
-<li><ol>
-<li><a href="http://www.codecguide.com/download_k-lite_codec_pack_basic.htm" target="_blank" rel="noopener">http://www.codecguide.com/download_k-lite_codec_pack_basic.htm</a></li>
-</ol>
-</li>
-<li><ol>
-<li><a href="https://www.jianshu.com/p/dd7f04c27a79" target="_blank" rel="noopener">https://www.jianshu.com/p/dd7f04c27a79</a></li>
-</ol>
-</li>
-<li><ol>
-<li><a href="https://mmrslwan1110.github.io" target="_blank" rel="noopener">https://mmrslwan1110.github.io</a></li>
-</ol>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>辅助技术</category>
-      </categories>
-      <tags>
-        <tag>matlab</tag>
-        <tag>视频</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>虚电路和数据报对比模型</title>
-    <url>/2021/03/31/%E8%99%9A%E7%94%B5%E8%B7%AF%E5%92%8C%E6%95%B0%E6%8D%AE%E6%8A%A5%E5%AF%B9%E6%AF%94%E6%A8%A1%E5%9E%8B/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>通过数学模型，我们可以比较虚电路和数据报的传输数率好坏。</p>
-<h1 id="虚电路和数据报对比模型"><a href="#虚电路和数据报对比模型" class="headerlink" title="虚电路和数据报对比模型"></a>虚电路和数据报对比模型</h1><p>python如下所示：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">from scipy.special import comb</span><br><span class="line">import math</span><br><span class="line">import numpy as np</span><br><span class="line">import matplotlib.pyplot as plt</span><br><span class="line"></span><br><span class="line">def print_hi(name):</span><br><span class="line">    print(f&#39;Sum,&#123;name&#125;&#39;)</span><br><span class="line">if __name__ &#x3D;&#x3D; &#39;__main__&#39;:</span><br><span class="line">    N&#x3D;100</span><br><span class="line">    p&#x3D;0.1</span><br><span class="line">    sum &#x3D; np.zeros(N)</span><br><span class="line">    for n in range(N):</span><br><span class="line">        for k in range(10):</span><br><span class="line">            sum[n]&#x3D;comb(n,k)*math.pow(1-p, n-k )*math.pow(p, k ) +sum[n]</span><br><span class="line">    print_hi(sum)</span><br><span class="line">    plt.plot(sum)</span><br><span class="line">    plt.show()</span><br></pre></td></tr></table></figure></p>
-<h2 id="输出结果图："><a href="#输出结果图：" class="headerlink" title="输出结果图："></a>输出结果图：</h2><p><img src="https://img-blog.csdnimg.cn/20210331172103905.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></p>
-]]></content>
-      <categories>
-        <category>研究生课程</category>
-      </categories>
-      <tags>
-        <tag>网路比较</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>如何优雅的制作表白网站和罗盘时钟</title>
     <url>/2020/12/12/%E8%A1%A8%E7%99%BD%E7%BD%91%E7%AB%99%E3%80%81%E7%BD%97%E7%9B%98%E6%97%B6%E9%92%9F%E6%95%99%E7%A8%8B/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="如何优雅的制作表白网站和罗盘时钟"><a href="#如何优雅的制作表白网站和罗盘时钟" class="headerlink" title=" 如何优雅的制作表白网站和罗盘时钟"></a><center> 如何优雅的制作表白网站和罗盘时钟</center></h2><a id="more"></a>
@@ -1435,6 +1374,67 @@ r = \frac{|w^Tx+b|}{||w||}</script><ol>
       <tags>
         <tag>表白网站</tag>
         <tag>罗盘时钟</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>百度谷歌搜索引擎索引</title>
+    <url>/2020/12/04/%E7%99%BE%E5%BA%A6%E8%B0%B7%E6%AD%8C%E6%90%9C%E7%8B%97%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E7%B4%A2%E5%BC%95/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="百度谷歌搜索引擎索引"><a href="#百度谷歌搜索引擎索引" class="headerlink" title="百度谷歌搜索引擎索引"></a><center>百度谷歌搜索引擎索引</center></h2><a id="more"></a>
+<h3 id="简单检索"><a href="#简单检索" class="headerlink" title="简单检索"></a>简单检索</h3><p>参考<a href="https://jingyan.baidu.com/article/6b97984dee19b81ca3b0bf4c.html" target="_blank" rel="noopener">如何让自己的网站快速被百度收录</a></p>
+<ol>
+<li>提交链接。</li>
+</ol>
+<ul>
+<li>Google: <a href="http://www.google.com/addurl/?hl=zh-CN" target="_blank" rel="noopener">Google 网站站长工具</a></li>
+<li>Baidu: <a href="https://ziyuan.baidu.com/linksubmit/url" target="_blank" rel="noopener">url提交_站长工具</a></li>
+</ul>
+<ol>
+<li>最有用的方法</li>
+</ol>
+<ul>
+<li>知乎</li>
+<li>CSDN</li>
+<li>豆瓣</li>
+<li>贴吧等平台<br>发帖，贴出自己的网址，搜索引擎就会进行索引。</li>
+</ul>
+<ol>
+<li>2020/12/4<br>目前本网站未被任何引擎索引。<center>
+<img src="https://www.codekp.cn/download/img/csdn/百度为索引.PNG" width = "400" height = "302" alt="图片名称" align=center / loading="lazy">
+</center>
+
+
+</li>
+</ol>
+<h2 id="比较麻烦的检索方式"><a href="#比较麻烦的检索方式" class="headerlink" title="比较麻烦的检索方式"></a>比较麻烦的检索方式</h2><p>  将检索文件放在网站根目录下。<br>  <a href="https://www.codekp.cn/baidu_verify_code-De28227qRL.html">测试连接</a></p>
+<p><center>
+<img src="https://www.codekp.cn/download/img/csdn/检索.PNG" width = "400" height = "302" alt="图片名称" align=center / loading="lazy">
+</center><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure><br>将备案号填入即可很快被检索。</p>
+<h2 id="提高搜索引擎权重"><a href="#提高搜索引擎权重" class="headerlink" title="提高搜索引擎权重"></a>提高搜索引擎权重</h2><ul>
+<li>最简单的方法就是在各种平台多放点网址进去。</li>
+</ul>
+<h2 id="结尾-2020-12-12"><a href="#结尾-2020-12-12" class="headerlink" title="结尾 2020/12/12"></a>结尾 2020/12/12</h2><p>目前网站被百度收录。<br><img src="https://img-blog.csdnimg.cn/20201212234708921.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></p>
+]]></content>
+      <categories>
+        <category>谷歌</category>
+        <category>百度</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+        <tag>搜索引擎</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>深度学习_花书</title>
+    <url>/2020/07/30/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E8%8A%B1%E4%B9%A6/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="深度学习"><a href="#深度学习" class="headerlink" title="深度学习"></a>深度学习</h1><a id="more"></a>
+<p>&nbsp;&nbsp; 深度学习(DL, Deep Learning)是机器学习(ML, Machine Learning)领域中一个新的研究方向，它被引入机器学习使其更接近于最初的目标——人工智能(AI, Artificial Intelligence)。<br>&nbsp;&nbsp; 深度学习是学习样本数据的内在规律和表示层次，这些学习过程中获得的信息对诸如文字，图像和声音等数据的解释有很大的帮助。它的最终目标是让机器能够像人一样具有分析学习能力，能够识别文字、图像和声音等数据。 深度学习是一个复杂的机器学习算法，在语音和图像识别方面取得的效果，远远超过先前相关技术。<br>&nbsp;&nbsp; 深度学习在搜索技术，数据挖掘，机器学习，机器翻译，自然语言处理，多媒体学习，语音，推荐和个性化技术，以及其他相关领域都取得了很多成果。深度学习使机器模仿视听和思考等人类的活动，解决了很多复杂的模式识别难题，使得人工智能相关技术取得了很大进步。  </p>
+]]></content>
+      <categories>
+        <category>研究生课程</category>
+      </categories>
+      <tags>
+        <tag>深度学习</tag>
+        <tag>分类器</tag>
       </tags>
   </entry>
   <entry>
