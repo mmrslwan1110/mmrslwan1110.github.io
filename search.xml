@@ -201,6 +201,30 @@
       </tags>
   </entry>
   <entry>
+    <title>deepin_ssh_远程控制</title>
+    <url>/2021/04/13/deepin-ssh-%E8%BF%9C%E7%A8%8B%E6%8E%A7%E5%88%B6/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="deepinssh远程控制"><a href="#deepinssh远程控制" class="headerlink" title="deepinssh远程控制"></a>deepin<em>ssh</em>远程控制</h1><h2 id="安装ssh："><a href="#安装ssh：" class="headerlink" title="安装ssh："></a>安装ssh：</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">apt-get install ssh</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo vi &#x2F;etc&#x2F;ssh&#x2F;sshd_config</span><br></pre></td></tr></table></figure>
+<p>找到下面内容</p>
+<p><img src="https://img2020.cnblogs.com/blog/1756476/202004/1756476-20200401231105458-1141980320.png" alt="" loading="lazy"></p>
+<p> 将红色框中的内容修改为下面的内容：</p>
+<p><img src="https://img2020.cnblogs.com/blog/1756476/202004/1756476-20200401231128868-2086048695.png" alt="" loading="lazy"></p>
+<p>修改成功以后，重启ssh服务：</p>
+<p>　　切换至ssh目录下<br>　　　　service ssh restart<br>　　然后我们那就能愉快的使用xshell连远程连接并且用root用户登陆deepin系统了。</p>
+<h2 id="远程桌面连接"><a href="#远程桌面连接" class="headerlink" title="远程桌面连接"></a>远程桌面连接</h2><ol>
+<li>在软件商店安装remmina<br>详情请参考<a href="https://jingyan.baidu.com/article/3aed632e2923d8701080911d.html" target="_blank" rel="noopener">远程桌面连接-百度经验</a></li>
+</ol>
+<p>2.安装<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># sudo apt-get install xrdp</span><br></pre></td></tr></table></figure><br>注意：安装完成后注销当前用户 或运行：</p>
+<p>详情请参考<a href="https://blog.csdn.net/yingftf/article/details/104581514" target="_blank" rel="noopener">CSDN</a></p>
+]]></content>
+      <categories>
+        <category>deepin</category>
+      </categories>
+      <tags>
+        <tag>deepin</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>hexo插入视频代码块及音频</title>
     <url>/2020/11/24/hexo-b%E7%AB%99%E8%A7%86%E9%A2%91%E5%88%86%E4%BA%AB%E6%95%99%E7%A8%8B/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="hexo插件安装插入视频代码块及音频"><a href="#hexo插件安装插入视频代码块及音频" class="headerlink" title="hexo插件安装插入视频代码块及音频"></a><center>hexo插件安装插入视频代码块及音频</center></h1><h2 id="1-hexo插件安装"><a href="#1-hexo插件安装" class="headerlink" title="1.hexo插件安装"></a>1.hexo插件安装</h2><p>使用 Hexo 插件插入音乐/视频<br>两个好用的hexo插件：</p>
@@ -304,36 +328,6 @@
       </tags>
   </entry>
   <entry>
-    <title>linux嵌入式开发_1</title>
-    <url>/2020/07/30/linux%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91-1/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="linux基础"><a href="#linux基础" class="headerlink" title="linux基础"></a><strong>linux基础</strong></h1><h2 id="linux是什么？"><a href="#linux是什么？" class="headerlink" title="linux是什么？"></a>linux是什么？</h2><a id="more"></a>
-<ul>
-<li>linux是一款开源操作系统，开放了整组的调用接口给程序猿进行开发和使用。linux操作系统包含内核和系统调用，并不包含应用程序。由于linux的架构继承了unix良好传统，因此越来越多的开发者选择使用linux并为之设计了许多应用级软件。</li>
-</ul>
-<h2 id="开发环境的搭建"><a href="#开发环境的搭建" class="headerlink" title="开发环境的搭建"></a>开发环境的搭建</h2><ul>
-<li>开发环境需要用到交叉开发模式，这一点书上有很详细的介绍，包括硬件环境和软件环境的构建都写的十分清楚，所以这篇文章主要是写一下我在中间遇到的一些问题以及解决方法。虚拟机的话我用的是Ubuntu18.04版本，安装虚拟机啥的网上资源很多，直接百度就行。</li>
-</ul>
-<h2 id="linux下的环境搭建"><a href="#linux下的环境搭建" class="headerlink" title="linux下的环境搭建"></a>linux下的环境搭建</h2><h3 id="1、修改Ubuntu的一些配置"><a href="#1、修改Ubuntu的一些配置" class="headerlink" title="1、修改Ubuntu的一些配置"></a>1、修改Ubuntu的一些配置</h3><ul>
-<li><p>切换国内镜像源</p>
-<p>&ensp;&ensp;&ensp;&ensp;&ensp; 在使用apt命令安装包时，因为系统自带下载源在国外服务器上，所以需要切换为国内镜像源才能提升下载速度。这里有一篇博客详细说明了如何直接根据终端命令修改其配置文件，从而达到修改下载源的目的.或者，，，，你也可以直接用Ubuntu的图形界面去修改，步骤如下： 显示应用程序-&gt;软件和更新-&gt;下载自主服务器改为其他，然后选择合适的镜像源就行了，这里我选择的是阿里的镜像源。</p>
-</li>
-<li><p>修改语言和设置汉语输入法</p>
-<p>&ensp;&ensp;&ensp;&ensp;&ensp; 懒得写，直接贴别人博客了</p>
-</li>
-</ul>
-<p>&ensp;&ensp;&ensp;&ensp;&ensp;<a href="https://blog.csdn.net/langshi_2011/article/details/78993781" target="_blank" rel="noopener">Linux Ubuntu系统设置成中文语言</a></p>
-<p>&ensp;&ensp;&ensp;&ensp;&ensp;<a href="https://blog.csdn.net/sparkstrike/article/details/81487271" target="_blank" rel="noopener">Linux.Ubuntu.中文输入法设置</a></p>
-]]></content>
-      <categories>
-        <category>程序设计</category>
-      </categories>
-      <tags>
-        <tag>linux</tag>
-        <tag>嵌入式开发</tag>
-        <tag>鸟哥的私房菜学习</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>linux学习笔记</title>
     <url>/2021/03/26/linux%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="linux操作系统学习笔记"><a href="#linux操作系统学习笔记" class="headerlink" title="linux操作系统学习笔记"></a><center>linux操作系统学习笔记</center></h1><h1 id="linux"><a href="#linux" class="headerlink" title="linux"></a>linux</h1><h2 id="linux常用命令"><a href="#linux常用命令" class="headerlink" title="linux常用命令"></a>linux常用命令</h2><h3 id="ls"><a href="#ls" class="headerlink" title="ls"></a>ls</h3><p><img src="https://www.runoob.com/wp-content/uploads/2014/06/d0c50-linux2bfile2bsystem2bhierarchy.jpg" alt="" loading="lazy"></p>
@@ -415,36 +409,33 @@
       </tags>
   </entry>
   <entry>
-    <title>python放大按图片中心剪切、缩小</title>
-    <url>/2021/03/31/python%E6%94%BE%E5%A4%A7%E6%8C%89%E5%9B%BE%E7%89%87%E4%B8%AD%E5%BF%83%E5%89%AA%E5%88%87%E3%80%81%E7%BC%A9%E5%B0%8F/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="python放大并按图片中心剪切、放大"><a href="#python放大并按图片中心剪切、放大" class="headerlink" title="python放大并按图片中心剪切、放大"></a>python放大并按图片中心剪切、放大</h1><div class="table-container">
-<table>
-<thead>
-<tr>
-<th>缩小</th>
-<th>原始大小</th>
-<th>放大并剪切后</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><img src="https://img-blog.csdnimg.cn/20210331104832232.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></td>
-<td><img src="https://img-blog.csdnimg.cn/20210331103805575.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></td>
-<td><img src="https://img-blog.csdnimg.cn/20210331103730206.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></td>
-</tr>
-</tbody>
-</table>
-</div>
-<h3 id="放大"><a href="#放大" class="headerlink" title="放大"></a>放大</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">img&#x3D;crop_image(cv2.resize(img, None, fx&#x3D;1, fy&#x3D;1, interpolation&#x3D;cv2.INTER_CUBIC),new_height,new_width)</span><br></pre></td></tr></table></figure>
-<h3 id="缩小"><a href="#缩小" class="headerlink" title="缩小"></a>缩小</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mini&#x3D; cv2.resize(cv2.copyMakeBorder(img, P_A, P_A, P_A, P_A, cv2.BORDER_REPLICATE), (150, 150))</span><br></pre></td></tr></table></figure>
-<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><p>其中有将矩阵转Image、Image转矩阵两个过程。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">def crop_image(re_img,new_height,new_width):</span><br><span class="line">    re_img&#x3D;Image.fromarray(np.uint8(re_img))</span><br><span class="line">    width, height &#x3D; re_img.size</span><br><span class="line">    left &#x3D; (width - new_width)&#x2F;2</span><br><span class="line">    top &#x3D; (height - new_height)&#x2F;2</span><br><span class="line">    right &#x3D; (width + new_width)&#x2F;2</span><br><span class="line">    bottom &#x3D; (height + new_height)&#x2F;2</span><br><span class="line">    crop_im &#x3D; re_img.crop((left, top, right, bottom)) #Cropping Image</span><br><span class="line">    crop_im &#x3D; np.asarray(crop_im)</span><br><span class="line">    return crop_im</span><br><span class="line"></span><br><span class="line">new_width &#x3D; 150     #Enter the crop image width</span><br><span class="line">new_height &#x3D; 150    #Enter the crop image height</span><br><span class="line"></span><br><span class="line">img &#x3D; cv2.imread(&quot;learn&#x2F;cats&#x2F;cat.3.jpg&quot;)</span><br><span class="line">img&#x3D;cv2.resize(img,(150,150))</span><br><span class="line">P_A&#x3D;50</span><br><span class="line">img&#x3D;crop_image(cv2.resize(img, None, fx&#x3D;1, fy&#x3D;1, interpolation&#x3D;cv2.INTER_CUBIC),new_height,new_width)</span><br><span class="line"></span><br><span class="line">plt.imshow(img)</span><br><span class="line">plt.title(&#39;cat&#39;)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+    <title>linux嵌入式开发_1</title>
+    <url>/2020/07/30/linux%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91-1/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="linux基础"><a href="#linux基础" class="headerlink" title="linux基础"></a><strong>linux基础</strong></h1><h2 id="linux是什么？"><a href="#linux是什么？" class="headerlink" title="linux是什么？"></a>linux是什么？</h2><a id="more"></a>
+<ul>
+<li>linux是一款开源操作系统，开放了整组的调用接口给程序猿进行开发和使用。linux操作系统包含内核和系统调用，并不包含应用程序。由于linux的架构继承了unix良好传统，因此越来越多的开发者选择使用linux并为之设计了许多应用级软件。</li>
+</ul>
+<h2 id="开发环境的搭建"><a href="#开发环境的搭建" class="headerlink" title="开发环境的搭建"></a>开发环境的搭建</h2><ul>
+<li>开发环境需要用到交叉开发模式，这一点书上有很详细的介绍，包括硬件环境和软件环境的构建都写的十分清楚，所以这篇文章主要是写一下我在中间遇到的一些问题以及解决方法。虚拟机的话我用的是Ubuntu18.04版本，安装虚拟机啥的网上资源很多，直接百度就行。</li>
+</ul>
+<h2 id="linux下的环境搭建"><a href="#linux下的环境搭建" class="headerlink" title="linux下的环境搭建"></a>linux下的环境搭建</h2><h3 id="1、修改Ubuntu的一些配置"><a href="#1、修改Ubuntu的一些配置" class="headerlink" title="1、修改Ubuntu的一些配置"></a>1、修改Ubuntu的一些配置</h3><ul>
+<li><p>切换国内镜像源</p>
+<p>&ensp;&ensp;&ensp;&ensp;&ensp; 在使用apt命令安装包时，因为系统自带下载源在国外服务器上，所以需要切换为国内镜像源才能提升下载速度。这里有一篇博客详细说明了如何直接根据终端命令修改其配置文件，从而达到修改下载源的目的.或者，，，，你也可以直接用Ubuntu的图形界面去修改，步骤如下： 显示应用程序-&gt;软件和更新-&gt;下载自主服务器改为其他，然后选择合适的镜像源就行了，这里我选择的是阿里的镜像源。</p>
+</li>
+<li><p>修改语言和设置汉语输入法</p>
+<p>&ensp;&ensp;&ensp;&ensp;&ensp; 懒得写，直接贴别人博客了</p>
+</li>
+</ul>
+<p>&ensp;&ensp;&ensp;&ensp;&ensp;<a href="https://blog.csdn.net/langshi_2011/article/details/78993781" target="_blank" rel="noopener">Linux Ubuntu系统设置成中文语言</a></p>
+<p>&ensp;&ensp;&ensp;&ensp;&ensp;<a href="https://blog.csdn.net/sparkstrike/article/details/81487271" target="_blank" rel="noopener">Linux.Ubuntu.中文输入法设置</a></p>
 ]]></content>
       <categories>
-        <category>python</category>
+        <category>程序设计</category>
       </categories>
       <tags>
-        <tag>python</tag>
+        <tag>linux</tag>
+        <tag>嵌入式开发</tag>
+        <tag>鸟哥的私房菜学习</tag>
       </tags>
   </entry>
   <entry>
@@ -484,6 +475,59 @@
       </categories>
       <tags>
         <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>python放大按图片中心剪切、缩小</title>
+    <url>/2021/03/31/python%E6%94%BE%E5%A4%A7%E6%8C%89%E5%9B%BE%E7%89%87%E4%B8%AD%E5%BF%83%E5%89%AA%E5%88%87%E3%80%81%E7%BC%A9%E5%B0%8F/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="python放大并按图片中心剪切、放大"><a href="#python放大并按图片中心剪切、放大" class="headerlink" title="python放大并按图片中心剪切、放大"></a>python放大并按图片中心剪切、放大</h1><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>缩小</th>
+<th>原始大小</th>
+<th>放大并剪切后</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="https://img-blog.csdnimg.cn/20210331104832232.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></td>
+<td><img src="https://img-blog.csdnimg.cn/20210331103805575.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></td>
+<td><img src="https://img-blog.csdnimg.cn/20210331103730206.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="放大"><a href="#放大" class="headerlink" title="放大"></a>放大</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">img&#x3D;crop_image(cv2.resize(img, None, fx&#x3D;1, fy&#x3D;1, interpolation&#x3D;cv2.INTER_CUBIC),new_height,new_width)</span><br></pre></td></tr></table></figure>
+<h3 id="缩小"><a href="#缩小" class="headerlink" title="缩小"></a>缩小</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mini&#x3D; cv2.resize(cv2.copyMakeBorder(img, P_A, P_A, P_A, P_A, cv2.BORDER_REPLICATE), (150, 150))</span><br></pre></td></tr></table></figure>
+<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><p>其中有将矩阵转Image、Image转矩阵两个过程。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">def crop_image(re_img,new_height,new_width):</span><br><span class="line">    re_img&#x3D;Image.fromarray(np.uint8(re_img))</span><br><span class="line">    width, height &#x3D; re_img.size</span><br><span class="line">    left &#x3D; (width - new_width)&#x2F;2</span><br><span class="line">    top &#x3D; (height - new_height)&#x2F;2</span><br><span class="line">    right &#x3D; (width + new_width)&#x2F;2</span><br><span class="line">    bottom &#x3D; (height + new_height)&#x2F;2</span><br><span class="line">    crop_im &#x3D; re_img.crop((left, top, right, bottom)) #Cropping Image</span><br><span class="line">    crop_im &#x3D; np.asarray(crop_im)</span><br><span class="line">    return crop_im</span><br><span class="line"></span><br><span class="line">new_width &#x3D; 150     #Enter the crop image width</span><br><span class="line">new_height &#x3D; 150    #Enter the crop image height</span><br><span class="line"></span><br><span class="line">img &#x3D; cv2.imread(&quot;learn&#x2F;cats&#x2F;cat.3.jpg&quot;)</span><br><span class="line">img&#x3D;cv2.resize(img,(150,150))</span><br><span class="line">P_A&#x3D;50</span><br><span class="line">img&#x3D;crop_image(cv2.resize(img, None, fx&#x3D;1, fy&#x3D;1, interpolation&#x3D;cv2.INTER_CUBIC),new_height,new_width)</span><br><span class="line"></span><br><span class="line">plt.imshow(img)</span><br><span class="line">plt.title(&#39;cat&#39;)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>保研经历</title>
+    <url>/2019/09/28/%E4%BF%9D%E7%A0%94%E7%BB%8F%E5%8E%86/</url>
+    <content><![CDATA[<div id="hexo-blog-encrypt" data-wpm="抱歉, 这个密码看着不太对, 请再试试." data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.">
+  <div class="hbe-input-container">
+  <input type="password" id="hbePass" placeholder="" />
+    <label for="hbePass">您好, 请输入密码查看更多.</label>
+    <div class="bottom-line"></div>
+  </div>
+  <script id="hbeData" type="hbeData" data-hmacdigest="4de33f9dcc296dd0e3ff6a9421bd8d692c374293831d1bbc4a4a2a9dd145dca4">a4739802019b5accf4e8257a859c221ddd0928ad877a1a7b073c046e9b67e8c3080ea12c91e9de54f0f9e6b442a02713295c1effed2ead0448067e035633f522db3b7ec5491589f2ed813d96dd6a664247207bcba8ce96661e8294f7de4e12dab9fc2ca9d4647bf35aa57f019bc20b3594b7ed903db4c41c7916d48f5aca1df71672afc591aeb8c762f147cfc2e781796a6d7aef44e2b8faf89706d1cc84d400cb005a6acb5d59ee4a6ebe2f0462b5819c9a64de0e947ff7bc9059a088e8af587ebe99ea19be1258b44366857b3b884e83a19b8d8380c0035c95b85ff1b21d2e589fbd623f2240edecbcbaeca620deeb0ba1ef0cd440ced2828666f50f918dcbbc7f533c12bc3bf92113498761373b8494b43fa80512d10dd07e7cebc6c98a85305de0b044febcbf0e8efff881ae107fef69f53e9cf84ef87f7e9398206a2ac2b0ac2aaa0c1677f3d8ad093498fb0428fca492b03a2866214318c957787eca75ff91c3af5b973894754221e15172ef82aa9ea30fb542e98172a3ff397efd2f9e0df44518718b8f8f3bb9d9bba9456c4ea7bf4efeecbafd4ce946f4c299e8cf9c51c8c2c7a6bafbaa20c44482aec4fae7c27be48de39f419c1c73c33c97f2dc6339d044dcb258e2e66ecb2497ea5cbe716f91f4f5bd6c3386e2333888341cd62ff6ef9c1fa147cba863ea4c1e5d2edfd511a526f682ddeb330320ff1c8699e24b4aac85bea7ee100ad8f99977256f7b9b48dc8aa938a250dd2739134dbbb1e200fd1c61b93a17ee412478172268ed32ff5a9fcd83e7668b889ec29e3a874b6f857d21658f2a0255773d52cea4d9bbb4a3ac66c976c73c07134d78ae1c10bdd98d53ec7d19d49d5c73b032ecd9693a8b5b981ad7d1710f7ece1b065967d80cddb9ab375c7351d6086731de764386e3440019dac30fb1abe34f95df8eb0154549c352172559466f3d8872c8da7c06f4721bf8b239082eda52ffdd245fea55c0ac41a7776fe7fc50209b464f4ed7282ec5aa907c793d558bc830e09320bd7ad1917a86c55b0978a375a5677e862fdf6957dbc00ae4e755b2a5dc744e8f6876e03a596ca3af643ae77292863a6652453155cfa302d215ad8cbc6022c7f45ce0720c4c469d9cad1470bebd9596a58d9975562b322d8ce1bb32dbf51ad8f571588b4d27715fe5ad98db0578ec37b770d053f18fe1f092e05dcd4227dd93ced644aa0d72d60274cba65bce184cb702fc5899935524cdca2629777226bcaf5e96edaacd94daa74e8b811cfd33471a1195ea276b3d1ee36934e801c3b34d3d2a3b3860fb9bff9592ab548c6831e6a09c97bf4e6fb9889e83a25bd3e0f6daeca0ba3a622efeb4bd20371d13f0979bc896fc717d72e29a3f77c53d1cbf855af79915e1a808357fed15eb981ad4010de7e36580dc51cdfb26fa387b61fe7263b0994fcdd0a9dda3bd4fa2934a5e2aa6e1a67bf8ce1bf46e2de816963c26f4437e236b4810a48db424d536f2ecb43dc55f3b12fa824b08f85af5cef8416d4af28b595eb8a60c35dfd5a5e32d27501dcc1440d87ccc1b55847564be006cc890329219a2d6e50a8f42c034065aeca800b72d0eec380f16f27ed6593cf801df88ec2d6ad4db35374ff3e4895a9d9b6fb2cdf14e8ceb8adf79ea68c560884df674ed45af2b551fa40bfe2abfa2230473b278bcff8a089564e270ac7384fb0e8e1f76a4427ff7c48cf67a36c90b2b98b3a7845be13537c020698edc64795f1bba12fc95a5e5af1f71f4d13c6834f2b640950798979abf70ca218f7c1611d46f0a9f3ea4498925c37dda80a86385a49295136791b5a493fb663ee13088dac7fe062e769b52641b15618edb49ca57d28343b65546c4306a267562ee4297d375dd33f9154ebad02315e79940cda16cbad505efc8bf83631819e04fc5631f9323969029a9b08827d44678a0975c279b211fdd2242843cd90ce3885ecf3817cdd78c90457d39e6864ffea7f5b4d44c488c7fe2f92c5c662c017fbe01af8c121c008aebd0045b81a33036472bd7692dc4d319483b5fa48b8950d71e08039a0471599e3b636d1afe34b180608d0c953b5aca9c460d8e06e0c5ab96121219d08bd282b222a1e84db02bc5b9d484fad3d518fe7b9d1ef34c24244cbcae950c96729a8ef32146d87c706f082e7eb507c9656408b8597b0855f92c2e12082dd90b1941f4c8202de8c3d5f66a4281f27aaa127d3268fefe1f5c964cc7919286c14bffabe2289c3af53be480e3c4706c23e390a3219c4523ea05db77d967ae62b9297b55111d832a5ce90db7b81d235c4d6ce2242dbaeb7d22ae9703cf596dfce746f4aee08f373abd3ff7b9d01fed0d434aae50b7f57e7191d1940e7e4916d070436f569a35509d3c8bdc702e048375c676fcdb77d16e16bc37d4c858477b44f64c97716175e64bec1505e49888baef5d2eee582210ca429c18941dbd5c1f7b17fc1d97e92f8af127027200b28bc0476e8509aca99366e9728d4a59e00381ced37a5a2aaf6281c31da94d67c055d39c2b34c9ec1613c6f374ce0143dd6145df0be021917f5139464986900524f96ddbfadfca246fffa5a12771e7fbde979a21cf51b95c483e07c491e92d1e93e9010ec18ac86f4ba6f36ecb06371d2dc67ad3fa88126f2338dfea9e5d083f9628bdc44a4534424a4af9feba61c6ec45b1bd090e6b90e644aad532a44afded668529ea7cc565b882c5ba6fb6b2503cc72a4e385eca942e8baf95a881b326c4fd4c0892db64c752d795e0e900c3138831f01853a414c2f2f70663ea15cfdf161fd7408d394f1ad540d850c4517d97570bcf37cb68278fa00f3514487d77914ff12eae5f563752cb5afebc38aa1eba634320f50c44ef2ef79d95c31580860effe36f890bf0b4a5a1020861aa928941b9401408c068bfb3b44e3213709780350ae04ea036f01cc9cd0ba334aa50667cdc882e27a3fca441d92334da4663232e935961ca5664641e395a53975dd9f6503dfd9bf8848579445d485ed906cf300e3b447e75f87b20ea1dcfbe6821d09b4943946eec02144a213ef5aaa21f17a4b757617fb63794b0556715f6fd034e3ccb73c4b7e9f5ed1bd386c5d7b2c31c663ca8140d0afd7ef7d355f678d48eb6aa2072e1a63dd498c480b5f1da7a1a4f4dfda8022e76ec136999f54cf26e0ffb0afb5b39c58645b15ba0d416e830456203ca70758255305edb163f0d660e23c71b156438cee653ec5b6608fc27aed0338d02ba55b251f3ef0974d7285741e12897cbcfb8a4a07ff166f0c01b560eb2b139bcf6e980b2f5505df3f9ec1dd135142e9a45b9bb50f0bf93180aebb94eb122404ab55d1211e7e05241cb6c8231e760a605bc3ed950e86df8fb6d2fddccbaef80d4504442788acc91a04f635a752643d121828c54d4884b011a78361a13b0f9717ba13df655c3a6dde883d82fe2e3cbb8703cf7da659df204eedaa98fcc653ff93cc45e182b0fba56f855c62380d34b693514d43514337c7d24ddaecaae530fbb43dabc2da9f0dc965930d97093b4c486d8466c41c8b782506d9fd006556f4121470308d7379669421c019149a2f304a0073b90bd24b912b9240392c2eab6731cef0a0663695a8b5625316646cbbcdf21a7254060e2a3888b33469fd0af4ce1300b8f32f05f674bf0171ee2643263f0410fbea2bd590bbb2bd8191fc96dabc5d3f1024e973e9ba5cccdd5c0b770a019ac467de70b42a9bbf7ba2895f6480214d704cfedb00f6e0cb91df1959e973a25e0e97ab015046c1e21308a668fb9c47302420da4f92d873a4f761318649cec8205e38d8740ffee0a4cecf599d08090d3bb7f8e079ed250dfb9f27d16270feeb6ddea089bbe8dd2ac516275e7881020d681c972309c1ce2dbf20f623d3b174e2a0cdca579b37784cd673639b7c92fe1a3820732da5e4ae790c8b071481c39441c8db89809f5afccf08b34f5ab7e27c5c33c420b223abb147017b3b710d6043809eb8c666aec9edd780b61e2f28cbe2228abe9d0a12765bae3074739481cd4eac21cc1b46d796dc18d05d29bd80736c925fc2f59bdbc6d82a75ed55a18d3c0b030d5081a48c4ad27a9d9f39b3c1c8b29f8354877b1e22656ef22170560332ec4c56a09a224f50c8cbd840d7d98f3116b300fb457428f5947f6f6700d0a2f54496b2680460405d197e72650d53e10b44903ae00f81a22c6de182c01f3f6b95dfedb68361032be4d0a9da6b87a35f21542c2a7fb2bd46fd7d835a676b0a74e2aafd7ce1370724b20a2bd9b3b44727f9490d109fcfd207101b4baf39a0fd730a8da8dd51eb24acf48cebbeae2618cff7798433a3f6baacc156304783d6bef88fb5a23dd7105d83886f90b88bb9575b1182b4ed1e57d400fc6667951fc48de613fb4ebc434eed6e2e4615cb986141acef0c1d32414c7888bb7c6a31366d86befa217a878262215155db66b602c7625de57907bceb9e08284782d79f4aa9b3b5d1424cd40156501ae3f5901ae8ecaade56737cd471f69b73182a383ceac1ac91395420fafbaf87e6cea5bf9a31d5f12d8362feae57c7c2f02b0f8c8ed4911319d35776eea0e881644327f9677b8079ee14ff6a38657a2bb322283c59c770b7104b7d64289102727068ca491c8a5ece4347f5b90ac347a619ebc5f756e2c357b6c85ed62dff7a94f9dce13386ac7364d05ed6a53e26c48be21223a2c2e846aa1ce35081975ae312238efdfaf4165da9c943b69f6219def6f258cc7d453d140ff615aefae9a9f686a077fc1e867e6694ef1c951e8eefb76068d75f6f454476ba868502420e7cc612bebf8138373eb81842375a0b249c697b6490b3cd0d8d3cff852c910f016cc17e98b5cf3b2e0b25f3aa3c9067972312c861169270d2cc8e0052ba1664d96da9bbb0652dff39cbaaa4fb281237ec04170d96b158cc0612f54053aa00f2ab0924478284f029f6f8d86b0d084af48f8aed4d0340ac0bfdf1b9c268010756987a01b8370c8a74eb4db19de76b3106b49ed85d4975ced0511983276d81f65f5f784295f559b5dfcd0968ecdf934f5f7eae99230af192782dfb24a99ff6363e26703c949b70f9c97b5b0f24197aba79b12ec0d11b6bf765423e55ff8d8d129f616e16e940a390d56e2fa52bfb5847a48d1acf9227b7b607308ad984a647c7c3daabf0b722b7d7c687747c1287988a2a4ca2b858a8b224d25e14e97b21baf777fa79fe6a6a6c5d82a156d748ea7546d64b4a2d151350784a91fd8c83d98422f90d07debb2cf757c975131650db41a77e91caeee733b1e1be58be2393339093979ad43c1f92dea1c3bb97d41b668c753bfa3b49acb721d5289752db82e25878bde3c1d19624377eabb45d249b71da0591ae981d47465a4bdd363b880ea2fa2394d87329abde17d850472abc9fdcd9aca2c8c75359db48d79d967a90d4e27ca4fc947a23860477fa8be606a9a68c08022a1941ee43e3006495aa99921ff838a4c6d6b4191affc4e1526cbb00eac4e8577149db6ae9f2d7e99c63e83c122f73dd5de4e5b624d4e1ac46100ae731b679576528edb6935fe0491b3dc2b05170691a3edc997f7fe42b2fb0637487e27beb5ebacc93b02c5d89a059fd4a6965d83222aee9ebac52998cdf2b4785236f8db103c9e0fe2fd94e8a29895eb42d7a64db4eb117c0ac900042a9bfc4caaa4732fb7cd3dc843271710e1eb9be0335acdfcc6e14726a374fb76a4b54c659e148a782ff61bf18193c161b365d0ec6bbe3bfb825b3c5182c8cc6455b830014ee13be5087ae75533d204339edf28c0f82ca4850db5ac8bcc965aa1d11e89eec1bcec84029a50feac06ed3fa5d4f863b84ecdbd3b099569ebb072171b5caabb4a0fe3d159f716b77d95bf05af818aeec9d7805bbedad829fa78f4790d71ad8eade3c41a4161aab6e679c8b937a1aee14886f716a13c2bbe5dc2c3a0985b3b74c2b5abe4b39b4eaa828beb892496131eb955f01d60e0975b90086cff5dda7b27d464f0256449da2cf2488b9fce7afc164615f973478c3988aa3ffff2dd9818a2e7f08274473edaef674da0baef40e48c7b2b72c821cfd8074d9da402b701bf00d2417ba7915dbb60099ff3fab7c3255aca3ed04c6c0cef9bd8f8756bae85e5f803bcf7f2c859b303157f0e865e2c79f84d3dabea28cd10cb56e65a5fcc1a08e008cd9c88e1dfe4cb9aa3677a30febf2102cfef2d1e43c5b223083f4bb3fc5ed75df69931883ca71ca3a6b44cdbabf3f0aad17447d0f80fa728477d5a19b63f5577ec5cead5a3e812d641d3e1fd06b24e008575e6fe7b19029ac430b792c8d5bf6eb3206fb139da8dc6b68ad9d4de42815ca85fee6d37874d603dbdf7767541a5638522506d8d1614bb9f89d7f7d116455f4dc6b5c3db4a31937b931c62d9acc7c098a2d2cb8e4245ff54c8bc4adba7489ef0b76f652bd3e42d1646b3f04cadec85d3a0ea62c034a765d86a91d3c54d3b5c170ca74f7ff96fee6f2c29c74c21489f41080933d9339012f5dd50506b2737a26ae5f3cb9ec421c121ece38c06fa5faa46d9c62381ff951538dd412f969fa5124821ab32ba09d2e552077dc8de81655ac4d1ee6007ee75a6c348616e8695019f1a98d70b8ee1ded7cf1a652e2ae91f93239ef5f91e661e509eabd6483ad7801e8923f466c8b12890a7775207e1733d1b7c7c23a8065754a430c1b2ced09b30492f8d44f2e50049435cfd4e40ef28c2c95384309ea2eeb37d299da16ea8604bf45b84290e374976a6754f250ed49f190de031af71eba75106f296a87fae8dc582334db92ff5fee47856754d10e51a2bf30082b25e36401532e032a915b27bd6225786ac32e38d7d16d6eef17c25d67e746f036bbd8e79b5c2dadb7f8da0964485728b8d08e8243921c49c1bdee1c1b893cca2751061d4eb68b61955dbc456fe12374d367b47c4da8228ec45cc71392d23c00eb1505f082bf13b88a73ced6ba60d6d3d2593d312e448abfedfdcc43d251acebbf87d8615084736b95f9e4d7a0d9fe43491abe78fbc7b88cd0f8525cdece99285b481279f6a36a0eec9d6cb61a2c4eb3f1ccd089c20d2c707818e20a4a579b74b8c826b358658e0f20950e227603c13beced385b013d03068c09f6db4624cacf86d9d6be828290fc0295ff45e039b74e70e9ad125ffcbb21be9cabcd53bf6bbe8bc0e82b8f35f7435a176d1a8d57bb36dd439c8eb9c8ca7173fa6afcba9ee21a1e374742bb242efc9d21234be6e6b177696d0a8a883ea693661834d74444ff1cc354b3c3f6d9687f6e18624908195ccd091b6f3d596da60055762bfb644aa0c298c5100924762d3a0e1996f58d9974f98eb0e11701db6599086257087759bcc78aaf3b564f1c2acee4072d23f958a0e0e1deffce54043819aeb79c8613b18885260717ddcacd87103ea4a0da64209968154584f761715dff195afb74d27de56acceb9a8d162ce05cd2799db48e97d6776d5fa366dac0502d4d3b1dfded3b8eb7bb68ed869a7dd36f7b7c7111ec86214b17af300b6fe35f907df9772b2e24e9601d844cb482436fa460e05e1c530c02dd218a3227100141226bc07551e19ac26ea3a3e8046987fd1e8c185a5ac79885ff8c9d722af341673ea40e2db4f17004733af109644bc32f2ba8be2fbca8b805af102ea84d51dab8c92b11a66d9e5fa81211e84b5fd27d5b0b2a7fb66fb6492cf9257b25f5ff2b4f62a7493e7d6652c222ff2eb9f7686e8b9cb7f4adeb3146b4220e7283766115c17ef2bdc896c5546147cf70efd6f94dea94be3c085e2ac1da3b4fad9433fe1d80c68e154cd5180355b0d804a38dc09e5523ed243e5ba19796bfd73590425208dc877d96ebe2cb06de8d34eb8530548086452b2b10e5b27dab4864b4ac3064c0f9c4fd24342cf1346e5cc8ee1ff7d495d105c8030520f124ace969d52bd4aba4d29832815b153de1fba3ae9caa1fd95eb96024c75e607d4878a4d23230dc26406de4c0b3a6cea6eab1eae703ebfdb60ad1fbe01d85cd6927ae224d4af016e8212a5651930e99a1b6b71a4fc0b6f992dcbfcfa26135562860c0a61992b755f15ea24969741670eb89a421e94fb27e0dd4d04b2ce8e30682776100654ecdc787f6fd15061fa0bb328b9679680d4c0a573f8c8d49e8d09692c926d2db2f1d3409ab59ac34109af8d13629b71476ff94cc70880117d6abe13ca80b440574d936ae3c4696027bd215ee434300a40545c2458ed5feefd3b025297956b21dcb3d7bf98deb008b926253b006138def1570d1088b20a674e0ad1d9ec08ae7c0ddc0aca6521e5af93ff808b327028530fb750c185365c28b3b2a57656eb4d3438a806d1706aa88759a1fc56e305d8a5db9c4281c92ea66db714333af696f1e20180fa880a3b3f409194b40a2520a541db2abafa24bc5f799ae44f9aecc55c201b02d2955b6506b7f02a6bc03a8eac67e7b9a80f251719503753d7f10cb53e2365c84cf69423d8f62ccf89826b6da08f2ac5e44c339b896b9273a03374c48422b431858cb08d048da49029829ed95dad1e4a247bd9f27c93e00f5c41ad7e05b749338c4b2bb43eab61839e6a6c56c21b6a2a7da2f5e0efad765d5b2cc6ad46d534dc539b578eb029508e9522346e9b5c484ee722bb3a1b6527da547bd1cf2d3f4a80cc729af94ecc46427721ff23cc984953a78940070c5ed9a11e05a8563466472e4bd096fd2e295c64a4ec23bfcf5e1ecfc603628b6fe19738408abef913aa2fb641efb8833c1eab9afa14722a5bc6d3a2442b42dc034d24c42c008bbc616f01d2cf5c7de40da1d34d07db24f430c0ce360403e214abb3a102f30bde07b8124ffe4edcfc40940961c37cbab748ec3117b533d1a64db88afb08317111ea12dd3b79932848ebff8bcd518d938678ffc16fe73f00f2dae21a7cbae9c984546c3722e3f8a7cc9cab739a145897ae5b8ea106597175b241411c470fd858176aee596fa8d98940d4665a0705fa8fdeb605de29bfc3a321430e5de516fdbbbdf315837fbf5ed41d32906cd9e1ac084acfd5bf29e5a43818c7a58d8928a3a8a8e7adea547dfc1486a5579a32a85df4530e655f29d5bde62f1524814e6cf6a25bf5c63d1f741ba3dae578fe2b281f2327bc97a113396f9d370d4ece2189bb01fae30e5d0a38c59ed3d41318a87cc0e15b00ad42512052db95781f712047b55e54b10b38c319aeab8c5b5f3c7f6590bf4a34cd095c0bc3b618a2a83034540d5b9e6ed3625bf3707f4b62ce0236936658d7d946bff3cd536e19892ee398437dde181b9d2c8b73cd1315ae0dc8d0ca2fff002521211e1534e794f22a8daaad823d7b811597bc90b8ff1a128229cdc8d729ea1f77cac6dc0ebfcdb140178838caf887625f1d6e7b8a226a1f8ccb35e82db1177c4e58b94a0f86c1e4b247136e65bf33d12b1bae28bdcbd523229cc4b791c127962639625b9dadf48ba37e9bdffba05ced8a2a3b4168b8677f58f46a43d0fc82c873564d8ed9522c085553c7db96e2402fb63c12d519d14770f95bfb53b8f33d98d6165d61547c5af77d56b7a534c898f07501a09cf8bc5913b79cd89ac12c408227c50a5f483d357a0090e7a7a1</script>
+</div>
+<script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">]]></content>
+      <categories>
+        <category>随笔</category>
+      </categories>
+      <tags>
+        <tag>推免</tag>
+        <tag>加密</tag>
       </tags>
   </entry>
   <entry>
@@ -536,26 +580,6 @@
       <tags>
         <tag>合成大西瓜</tag>
         <tag>厦门大学</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>保研经历</title>
-    <url>/2019/09/28/%E4%BF%9D%E7%A0%94%E7%BB%8F%E5%8E%86/</url>
-    <content><![CDATA[<div id="hexo-blog-encrypt" data-wpm="抱歉, 这个密码看着不太对, 请再试试." data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.">
-  <div class="hbe-input-container">
-  <input type="password" id="hbePass" placeholder="" />
-    <label for="hbePass">您好, 请输入密码查看更多.</label>
-    <div class="bottom-line"></div>
-  </div>
-  <script id="hbeData" type="hbeData" data-hmacdigest="4de33f9dcc296dd0e3ff6a9421bd8d692c374293831d1bbc4a4a2a9dd145dca4">a4739802019b5accf4e8257a859c221ddd0928ad877a1a7b073c046e9b67e8c3080ea12c91e9de54f0f9e6b442a02713295c1effed2ead0448067e035633f522db3b7ec5491589f2ed813d96dd6a664247207bcba8ce96661e8294f7de4e12dab9fc2ca9d4647bf35aa57f019bc20b3594b7ed903db4c41c7916d48f5aca1df71672afc591aeb8c762f147cfc2e781796a6d7aef44e2b8faf89706d1cc84d400cb005a6acb5d59ee4a6ebe2f0462b5819c9a64de0e947ff7bc9059a088e8af587ebe99ea19be1258b44366857b3b884e83a19b8d8380c0035c95b85ff1b21d2e589fbd623f2240edecbcbaeca620deeb0ba1ef0cd440ced2828666f50f918dcbbc7f533c12bc3bf92113498761373b8494b43fa80512d10dd07e7cebc6c98a85305de0b044febcbf0e8efff881ae107fef69f53e9cf84ef87f7e9398206a2ac2b0ac2aaa0c1677f3d8ad093498fb0428fca492b03a2866214318c957787eca75ff91c3af5b973894754221e15172ef82aa9ea30fb542e98172a3ff397efd2f9e0df44518718b8f8f3bb9d9bba9456c4ea7bf4efeecbafd4ce946f4c299e8cf9c51c8c2c7a6bafbaa20c44482aec4fae7c27be48de39f419c1c73c33c97f2dc6339d044dcb258e2e66ecb2497ea5cbe716f91f4f5bd6c3386e2333888341cd62ff6ef9c1fa147cba863ea4c1e5d2edfd511a526f682ddeb330320ff1c8699e24b4aac85bea7ee100ad8f99977256f7b9b48dc8aa938a250dd2739134dbbb1e200fd1c61b93a17ee412478172268ed32ff5a9fcd83e7668b889ec29e3a874b6f857d21658f2a0255773d52cea4d9bbb4a3ac66c976c73c07134d78ae1c10bdd98d53ec7d19d49d5c73b032ecd9693a8b5b981ad7d1710f7ece1b065967d80cddb9ab375c7351d6086731de764386e3440019dac30fb1abe34f95df8eb0154549c352172559466f3d8872c8da7c06f4721bf8b239082eda52ffdd245fea55c0ac41a7776fe7fc50209b464f4ed7282ec5aa907c793d558bc830e09320bd7ad1917a86c55b0978a375a5677e862fdf6957dbc00ae4e755b2a5dc744e8f6876e03a596ca3af643ae77292863a6652453155cfa302d215ad8cbc6022c7f45ce0720c4c469d9cad1470bebd9596a58d9975562b322d8ce1bb32dbf51ad8f571588b4d27715fe5ad98db0578ec37b770d053f18fe1f092e05dcd4227dd93ced644aa0d72d60274cba65bce184cb702fc5899935524cdca2629777226bcaf5e96edaacd94daa74e8b811cfd33471a1195ea276b3d1ee36934e801c3b34d3d2a3b3860fb9bff9592ab548c6831e6a09c97bf4e6fb9889e83a25bd3e0f6daeca0ba3a622efeb4bd20371d13f0979bc896fc717d72e29a3f77c53d1cbf855af79915e1a808357fed15eb981ad4010de7e36580dc51cdfb26fa387b61fe7263b0994fcdd0a9dda3bd4fa2934a5e2aa6e1a67bf8ce1bf46e2de816963c26f4437e236b4810a48db424d536f2ecb43dc55f3b12fa824b08f85af5cef8416d4af28b595eb8a60c35dfd5a5e32d27501dcc1440d87ccc1b55847564be006cc890329219a2d6e50a8f42c034065aeca800b72d0eec380f16f27ed6593cf801df88ec2d6ad4db35374ff3e4895a9d9b6fb2cdf14e8ceb8adf79ea68c560884df674ed45af2b551fa40bfe2abfa2230473b278bcff8a089564e270ac7384fb0e8e1f76a4427ff7c48cf67a36c90b2b98b3a7845be13537c020698edc64795f1bba12fc95a5e5af1f71f4d13c6834f2b640950798979abf70ca218f7c1611d46f0a9f3ea4498925c37dda80a86385a49295136791b5a493fb663ee13088dac7fe062e769b52641b15618edb49ca57d28343b65546c4306a267562ee4297d375dd33f9154ebad02315e79940cda16cbad505efc8bf83631819e04fc5631f9323969029a9b08827d44678a0975c279b211fdd2242843cd90ce3885ecf3817cdd78c90457d39e6864ffea7f5b4d44c488c7fe2f92c5c662c017fbe01af8c121c008aebd0045b81a33036472bd7692dc4d319483b5fa48b8950d71e08039a0471599e3b636d1afe34b180608d0c953b5aca9c460d8e06e0c5ab96121219d08bd282b222a1e84db02bc5b9d484fad3d518fe7b9d1ef34c24244cbcae950c96729a8ef32146d87c706f082e7eb507c9656408b8597b0855f92c2e12082dd90b1941f4c8202de8c3d5f66a4281f27aaa127d3268fefe1f5c964cc7919286c14bffabe2289c3af53be480e3c4706c23e390a3219c4523ea05db77d967ae62b9297b55111d832a5ce90db7b81d235c4d6ce2242dbaeb7d22ae9703cf596dfce746f4aee08f373abd3ff7b9d01fed0d434aae50b7f57e7191d1940e7e4916d070436f569a35509d3c8bdc702e048375c676fcdb77d16e16bc37d4c858477b44f64c97716175e64bec1505e49888baef5d2eee582210ca429c18941dbd5c1f7b17fc1d97e92f8af127027200b28bc0476e8509aca99366e9728d4a59e00381ced37a5a2aaf6281c31da94d67c055d39c2b34c9ec1613c6f374ce0143dd6145df0be021917f5139464986900524f96ddbfadfca246fffa5a12771e7fbde979a21cf51b95c483e07c491e92d1e93e9010ec18ac86f4ba6f36ecb06371d2dc67ad3fa88126f2338dfea9e5d083f9628bdc44a4534424a4af9feba61c6ec45b1bd090e6b90e644aad532a44afded668529ea7cc565b882c5ba6fb6b2503cc72a4e385eca942e8baf95a881b326c4fd4c0892db64c752d795e0e900c3138831f01853a414c2f2f70663ea15cfdf161fd7408d394f1ad540d850c4517d97570bcf37cb68278fa00f3514487d77914ff12eae5f563752cb5afebc38aa1eba634320f50c44ef2ef79d95c31580860effe36f890bf0b4a5a1020861aa928941b9401408c068bfb3b44e3213709780350ae04ea036f01cc9cd0ba334aa50667cdc882e27a3fca441d92334da4663232e935961ca5664641e395a53975dd9f6503dfd9bf8848579445d485ed906cf300e3b447e75f87b20ea1dcfbe6821d09b4943946eec02144a213ef5aaa21f17a4b757617fb63794b0556715f6fd034e3ccb73c4b7e9f5ed1bd386c5d7b2c31c663ca8140d0afd7ef7d355f678d48eb6aa2072e1a63dd498c480b5f1da7a1a4f4dfda8022e76ec136999f54cf26e0ffb0afb5b39c58645b15ba0d416e830456203ca70758255305edb163f0d660e23c71b156438cee653ec5b6608fc27aed0338d02ba55b251f3ef0974d7285741e12897cbcfb8a4a07ff166f0c01b560eb2b139bcf6e980b2f5505df3f9ec1dd135142e9a45b9bb50f0bf93180aebb94eb122404ab55d1211e7e05241cb6c8231e760a605bc3ed950e86df8fb6d2fddccbaef80d4504442788acc91a04f635a752643d121828c54d4884b011a78361a13b0f9717ba13df655c3a6dde883d82fe2e3cbb8703cf7da659df204eedaa98fcc653ff93cc45e182b0fba56f855c62380d34b693514d43514337c7d24ddaecaae530fbb43dabc2da9f0dc965930d97093b4c486d8466c41c8b782506d9fd006556f4121470308d7379669421c019149a2f304a0073b90bd24b912b9240392c2eab6731cef0a0663695a8b5625316646cbbcdf21a7254060e2a3888b33469fd0af4ce1300b8f32f05f674bf0171ee2643263f0410fbea2bd590bbb2bd8191fc96dabc5d3f1024e973e9ba5cccdd5c0b770a019ac467de70b42a9bbf7ba2895f6480214d704cfedb00f6e0cb91df1959e973a25e0e97ab015046c1e21308a668fb9c47302420da4f92d873a4f761318649cec8205e38d8740ffee0a4cecf599d08090d3bb7f8e079ed250dfb9f27d16270feeb6ddea089bbe8dd2ac516275e7881020d681c972309c1ce2dbf20f623d3b174e2a0cdca579b37784cd673639b7c92fe1a3820732da5e4ae790c8b071481c39441c8db89809f5afccf08b34f5ab7e27c5c33c420b223abb147017b3b710d6043809eb8c666aec9edd780b61e2f28cbe2228abe9d0a12765bae3074739481cd4eac21cc1b46d796dc18d05d29bd80736c925fc2f59bdbc6d82a75ed55a18d3c0b030d5081a48c4ad27a9d9f39b3c1c8b29f8354877b1e22656ef22170560332ec4c56a09a224f50c8cbd840d7d98f3116b300fb457428f5947f6f6700d0a2f54496b2680460405d197e72650d53e10b44903ae00f81a22c6de182c01f3f6b95dfedb68361032be4d0a9da6b87a35f21542c2a7fb2bd46fd7d835a676b0a74e2aafd7ce1370724b20a2bd9b3b44727f9490d109fcfd207101b4baf39a0fd730a8da8dd51eb24acf48cebbeae2618cff7798433a3f6baacc156304783d6bef88fb5a23dd7105d83886f90b88bb9575b1182b4ed1e57d400fc6667951fc48de613fb4ebc434eed6e2e4615cb986141acef0c1d32414c7888bb7c6a31366d86befa217a878262215155db66b602c7625de57907bceb9e08284782d79f4aa9b3b5d1424cd40156501ae3f5901ae8ecaade56737cd471f69b73182a383ceac1ac91395420fafbaf87e6cea5bf9a31d5f12d8362feae57c7c2f02b0f8c8ed4911319d35776eea0e881644327f9677b8079ee14ff6a38657a2bb322283c59c770b7104b7d64289102727068ca491c8a5ece4347f5b90ac347a619ebc5f756e2c357b6c85ed62dff7a94f9dce13386ac7364d05ed6a53e26c48be21223a2c2e846aa1ce35081975ae312238efdfaf4165da9c943b69f6219def6f258cc7d453d140ff615aefae9a9f686a077fc1e867e6694ef1c951e8eefb76068d75f6f454476ba868502420e7cc612bebf8138373eb81842375a0b249c697b6490b3cd0d8d3cff852c910f016cc17e98b5cf3b2e0b25f3aa3c9067972312c861169270d2cc8e0052ba1664d96da9bbb0652dff39cbaaa4fb281237ec04170d96b158cc0612f54053aa00f2ab0924478284f029f6f8d86b0d084af48f8aed4d0340ac0bfdf1b9c268010756987a01b8370c8a74eb4db19de76b3106b49ed85d4975ced0511983276d81f65f5f784295f559b5dfcd0968ecdf934f5f7eae99230af192782dfb24a99ff6363e26703c949b70f9c97b5b0f24197aba79b12ec0d11b6bf765423e55ff8d8d129f616e16e940a390d56e2fa52bfb5847a48d1acf9227b7b607308ad984a647c7c3daabf0b722b7d7c687747c1287988a2a4ca2b858a8b224d25e14e97b21baf777fa79fe6a6a6c5d82a156d748ea7546d64b4a2d151350784a91fd8c83d98422f90d07debb2cf757c975131650db41a77e91caeee733b1e1be58be2393339093979ad43c1f92dea1c3bb97d41b668c753bfa3b49acb721d5289752db82e25878bde3c1d19624377eabb45d249b71da0591ae981d47465a4bdd363b880ea2fa2394d87329abde17d850472abc9fdcd9aca2c8c75359db48d79d967a90d4e27ca4fc947a23860477fa8be606a9a68c08022a1941ee43e3006495aa99921ff838a4c6d6b4191affc4e1526cbb00eac4e8577149db6ae9f2d7e99c63e83c122f73dd5de4e5b624d4e1ac46100ae731b679576528edb6935fe0491b3dc2b05170691a3edc997f7fe42b2fb0637487e27beb5ebacc93b02c5d89a059fd4a6965d83222aee9ebac52998cdf2b4785236f8db103c9e0fe2fd94e8a29895eb42d7a64db4eb117c0ac900042a9bfc4caaa4732fb7cd3dc843271710e1eb9be0335acdfcc6e14726a374fb76a4b54c659e148a782ff61bf18193c161b365d0ec6bbe3bfb825b3c5182c8cc6455b830014ee13be5087ae75533d204339edf28c0f82ca4850db5ac8bcc965aa1d11e89eec1bcec84029a50feac06ed3fa5d4f863b84ecdbd3b099569ebb072171b5caabb4a0fe3d159f716b77d95bf05af818aeec9d7805bbedad829fa78f4790d71ad8eade3c41a4161aab6e679c8b937a1aee14886f716a13c2bbe5dc2c3a0985b3b74c2b5abe4b39b4eaa828beb892496131eb955f01d60e0975b90086cff5dda7b27d464f0256449da2cf2488b9fce7afc164615f973478c3988aa3ffff2dd9818a2e7f08274473edaef674da0baef40e48c7b2b72c821cfd8074d9da402b701bf00d2417ba7915dbb60099ff3fab7c3255aca3ed04c6c0cef9bd8f8756bae85e5f803bcf7f2c859b303157f0e865e2c79f84d3dabea28cd10cb56e65a5fcc1a08e008cd9c88e1dfe4cb9aa3677a30febf2102cfef2d1e43c5b223083f4bb3fc5ed75df69931883ca71ca3a6b44cdbabf3f0aad17447d0f80fa728477d5a19b63f5577ec5cead5a3e812d641d3e1fd06b24e008575e6fe7b19029ac430b792c8d5bf6eb3206fb139da8dc6b68ad9d4de42815ca85fee6d37874d603dbdf7767541a5638522506d8d1614bb9f89d7f7d116455f4dc6b5c3db4a31937b931c62d9acc7c098a2d2cb8e4245ff54c8bc4adba7489ef0b76f652bd3e42d1646b3f04cadec85d3a0ea62c034a765d86a91d3c54d3b5c170ca74f7ff96fee6f2c29c74c21489f41080933d9339012f5dd50506b2737a26ae5f3cb9ec421c121ece38c06fa5faa46d9c62381ff951538dd412f969fa5124821ab32ba09d2e552077dc8de81655ac4d1ee6007ee75a6c348616e8695019f1a98d70b8ee1ded7cf1a652e2ae91f93239ef5f91e661e509eabd6483ad7801e8923f466c8b12890a7775207e1733d1b7c7c23a8065754a430c1b2ced09b30492f8d44f2e50049435cfd4e40ef28c2c95384309ea2eeb37d299da16ea8604bf45b84290e374976a6754f250ed49f190de031af71eba75106f296a87fae8dc582334db92ff5fee47856754d10e51a2bf30082b25e36401532e032a915b27bd6225786ac32e38d7d16d6eef17c25d67e746f036bbd8e79b5c2dadb7f8da0964485728b8d08e8243921c49c1bdee1c1b893cca2751061d4eb68b61955dbc456fe12374d367b47c4da8228ec45cc71392d23c00eb1505f082bf13b88a73ced6ba60d6d3d2593d312e448abfedfdcc43d251acebbf87d8615084736b95f9e4d7a0d9fe43491abe78fbc7b88cd0f8525cdece99285b481279f6a36a0eec9d6cb61a2c4eb3f1ccd089c20d2c707818e20a4a579b74b8c826b358658e0f20950e227603c13beced385b013d03068c09f6db4624cacf86d9d6be828290fc0295ff45e039b74e70e9ad125ffcbb21be9cabcd53bf6bbe8bc0e82b8f35f7435a176d1a8d57bb36dd439c8eb9c8ca7173fa6afcba9ee21a1e374742bb242efc9d21234be6e6b177696d0a8a883ea693661834d74444ff1cc354b3c3f6d9687f6e18624908195ccd091b6f3d596da60055762bfb644aa0c298c5100924762d3a0e1996f58d9974f98eb0e11701db6599086257087759bcc78aaf3b564f1c2acee4072d23f958a0e0e1deffce54043819aeb79c8613b18885260717ddcacd87103ea4a0da64209968154584f761715dff195afb74d27de56acceb9a8d162ce05cd2799db48e97d6776d5fa366dac0502d4d3b1dfded3b8eb7bb68ed869a7dd36f7b7c7111ec86214b17af300b6fe35f907df9772b2e24e9601d844cb482436fa460e05e1c530c02dd218a3227100141226bc07551e19ac26ea3a3e8046987fd1e8c185a5ac79885ff8c9d722af341673ea40e2db4f17004733af109644bc32f2ba8be2fbca8b805af102ea84d51dab8c92b11a66d9e5fa81211e84b5fd27d5b0b2a7fb66fb6492cf9257b25f5ff2b4f62a7493e7d6652c222ff2eb9f7686e8b9cb7f4adeb3146b4220e7283766115c17ef2bdc896c5546147cf70efd6f94dea94be3c085e2ac1da3b4fad9433fe1d80c68e154cd5180355b0d804a38dc09e5523ed243e5ba19796bfd73590425208dc877d96ebe2cb06de8d34eb8530548086452b2b10e5b27dab4864b4ac3064c0f9c4fd24342cf1346e5cc8ee1ff7d495d105c8030520f124ace969d52bd4aba4d29832815b153de1fba3ae9caa1fd95eb96024c75e607d4878a4d23230dc26406de4c0b3a6cea6eab1eae703ebfdb60ad1fbe01d85cd6927ae224d4af016e8212a5651930e99a1b6b71a4fc0b6f992dcbfcfa26135562860c0a61992b755f15ea24969741670eb89a421e94fb27e0dd4d04b2ce8e30682776100654ecdc787f6fd15061fa0bb328b9679680d4c0a573f8c8d49e8d09692c926d2db2f1d3409ab59ac34109af8d13629b71476ff94cc70880117d6abe13ca80b440574d936ae3c4696027bd215ee434300a40545c2458ed5feefd3b025297956b21dcb3d7bf98deb008b926253b006138def1570d1088b20a674e0ad1d9ec08ae7c0ddc0aca6521e5af93ff808b327028530fb750c185365c28b3b2a57656eb4d3438a806d1706aa88759a1fc56e305d8a5db9c4281c92ea66db714333af696f1e20180fa880a3b3f409194b40a2520a541db2abafa24bc5f799ae44f9aecc55c201b02d2955b6506b7f02a6bc03a8eac67e7b9a80f251719503753d7f10cb53e2365c84cf69423d8f62ccf89826b6da08f2ac5e44c339b896b9273a03374c48422b431858cb08d048da49029829ed95dad1e4a247bd9f27c93e00f5c41ad7e05b749338c4b2bb43eab61839e6a6c56c21b6a2a7da2f5e0efad765d5b2cc6ad46d534dc539b578eb029508e9522346e9b5c484ee722bb3a1b6527da547bd1cf2d3f4a80cc729af94ecc46427721ff23cc984953a78940070c5ed9a11e05a8563466472e4bd096fd2e295c64a4ec23bfcf5e1ecfc603628b6fe19738408abef913aa2fb641efb8833c1eab9afa14722a5bc6d3a2442b42dc034d24c42c008bbc616f01d2cf5c7de40da1d34d07db24f430c0ce360403e214abb3a102f30bde07b8124ffe4edcfc40940961c37cbab748ec3117b533d1a64db88afb08317111ea12dd3b79932848ebff8bcd518d938678ffc16fe73f00f2dae21a7cbae9c984546c3722e3f8a7cc9cab739a145897ae5b8ea106597175b241411c470fd858176aee596fa8d98940d4665a0705fa8fdeb605de29bfc3a321430e5de516fdbbbdf315837fbf5ed41d32906cd9e1ac084acfd5bf29e5a43818c7a58d8928a3a8a8e7adea547dfc1486a5579a32a85df4530e655f29d5bde62f1524814e6cf6a25bf5c63d1f741ba3dae578fe2b281f2327bc97a113396f9d370d4ece2189bb01fae30e5d0a38c59ed3d41318a87cc0e15b00ad42512052db95781f712047b55e54b10b38c319aeab8c5b5f3c7f6590bf4a34cd095c0bc3b618a2a83034540d5b9e6ed3625bf3707f4b62ce0236936658d7d946bff3cd536e19892ee398437dde181b9d2c8b73cd1315ae0dc8d0ca2fff002521211e1534e794f22a8daaad823d7b811597bc90b8ff1a128229cdc8d729ea1f77cac6dc0ebfcdb140178838caf887625f1d6e7b8a226a1f8ccb35e82db1177c4e58b94a0f86c1e4b247136e65bf33d12b1bae28bdcbd523229cc4b791c127962639625b9dadf48ba37e9bdffba05ced8a2a3b4168b8677f58f46a43d0fc82c873564d8ed9522c085553c7db96e2402fb63c12d519d14770f95bfb53b8f33d98d6165d61547c5af77d56b7a534c898f07501a09cf8bc5913b79cd89ac12c408227c50a5f483d357a0090e7a7a1</script>
-</div>
-<script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">]]></content>
-      <categories>
-        <category>随笔</category>
-      </categories>
-      <tags>
-        <tag>推免</tag>
-        <tag>加密</tag>
       </tags>
   </entry>
   <entry>
@@ -989,30 +1013,6 @@ r = \frac{|w^Tx+b|}{||w||}</script><ol>
       </tags>
   </entry>
   <entry>
-    <title>南京大屠杀国家公祭日_网站变成灰色以表悼念</title>
-    <url>/2020/12/13/%E7%BD%91%E7%AB%99%E5%8F%98%E7%81%B0%E7%9A%84%E6%96%B9%E6%B3%95/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="南京大屠杀国家公祭日-网站变成灰色以表悼念"><a href="#南京大屠杀国家公祭日-网站变成灰色以表悼念" class="headerlink" title=" 南京大屠杀国家公祭日_网站变成灰色以表悼念 "></a><center> 南京大屠杀国家公祭日_网站变成灰色以表悼念 </center></h2><div style="position:relative; padding-bottom:75%; width:100%; height:0">
-    <iframe src="//player.bilibili.com/player.html?aid=78993619&bvid=BV1cJ411C7Dg&cid=135180758&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position:absolute; height: 100%; width: 100%;"> </iframe>
-</div>
-
-<a id="more"></a>
-<p>12月13日是第七个南京大屠杀死难者国家公祭日。公祭无辜死难之生命，告慰血与泪浸染之土地。这一天，举国上下以各种形式深切缅怀死难同胞，深切缅怀为中国人民抗日战争胜利献出生命的革命先烈和民族英雄，表达牢记历史、珍爱和平、矢志复兴，身为站长的我们都会让自己的网站的全部网页变成灰色（黑白色），以表示我们对逝者的悼念。</p>
-<h3 id="第一种：修改CSS文件"><a href="#第一种：修改CSS文件" class="headerlink" title="第一种：修改CSS文件"></a>第一种：修改CSS文件</h3><p>我们可以在网页的CSS文件中添加以下的CSS代码，来实现网页黑白色，也就是网站变灰</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">html &#123;</span><br><span class="line">    filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale&#x3D;1);</span><br><span class="line">    -webkit-filter: grayscale(100%);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="第二种：在网页的标签内加入以下代码"><a href="#第二种：在网页的标签内加入以下代码" class="headerlink" title="第二种：在网页的标签内加入以下代码"></a>第二种：在网页的<head>标签内加入以下代码</h3><p>如果你不想改动CSS文件，你可以通过在网页头部中的<head>标签内部加入内联CSS代码的形式实现网站网页变灰</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;style type&#x3D;&quot;text&#x2F;css&quot;&gt;</span><br><span class="line">html &#123;</span><br><span class="line">filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale&#x3D;1);</span><br><span class="line">-webkit-filter: grayscale(100%);&#125;</span><br><span class="line">&lt;&#x2F;style&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="第三种：修改标签加入内联样式"><a href="#第三种：修改标签加入内联样式" class="headerlink" title="第三种：修改标签加入内联样式"></a>第三种：修改<html>标签加入内联样式</h3><p>如里上面的两种方式都不喜欢，可以通过修改<html>标签，以加入内联样式的方法，达到网页变灰的效果</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;html style&#x3D;&quot;filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale&#x3D;1);</span><br><span class="line">-webkit-filter: grayscale(100%);&quot;&gt;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>CSS</category>
-      </categories>
-      <tags>
-        <tag>南京大屠杀国家公祭日</tag>
-        <tag>hexo网站</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>程序语法</title>
     <url>/2020/11/20/%E7%A8%8B%E5%BA%8F%E8%AF%AD%E6%B3%95/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="编程语言语法"><a href="#编程语言语法" class="headerlink" title="编程语言语法"></a><center>编程语言语法</center></h1><a id="more"></a>
@@ -1165,17 +1165,27 @@ r = \frac{|w^Tx+b|}{||w||}</script><ol>
       </tags>
   </entry>
   <entry>
-    <title>虚电路和数据报对比模型</title>
-    <url>/2021/03/31/%E8%99%9A%E7%94%B5%E8%B7%AF%E5%92%8C%E6%95%B0%E6%8D%AE%E6%8A%A5%E5%AF%B9%E6%AF%94%E6%A8%A1%E5%9E%8B/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>通过数学模型，我们可以比较虚电路和数据报的传输数率好坏。</p>
-<h1 id="虚电路和数据报对比模型"><a href="#虚电路和数据报对比模型" class="headerlink" title="虚电路和数据报对比模型"></a>虚电路和数据报对比模型</h1><p>python如下所示：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">from scipy.special import comb</span><br><span class="line">import math</span><br><span class="line">import numpy as np</span><br><span class="line">import matplotlib.pyplot as plt</span><br><span class="line"></span><br><span class="line">def print_hi(name):</span><br><span class="line">    print(f&#39;Sum,&#123;name&#125;&#39;)</span><br><span class="line">if __name__ &#x3D;&#x3D; &#39;__main__&#39;:</span><br><span class="line">    N&#x3D;100</span><br><span class="line">    p&#x3D;0.1</span><br><span class="line">    sum &#x3D; np.zeros(N)</span><br><span class="line">    for n in range(N):</span><br><span class="line">        for k in range(10):</span><br><span class="line">            sum[n]&#x3D;comb(n,k)*math.pow(1-p, n-k )*math.pow(p, k ) +sum[n]</span><br><span class="line">    print_hi(sum)</span><br><span class="line">    plt.plot(sum)</span><br><span class="line">    plt.show()</span><br></pre></td></tr></table></figure></p>
-<h2 id="输出结果图："><a href="#输出结果图：" class="headerlink" title="输出结果图："></a>输出结果图：</h2><p><img src="https://img-blog.csdnimg.cn/20210331172103905.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></p>
+    <title>南京大屠杀国家公祭日_网站变成灰色以表悼念</title>
+    <url>/2020/12/13/%E7%BD%91%E7%AB%99%E5%8F%98%E7%81%B0%E7%9A%84%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="南京大屠杀国家公祭日-网站变成灰色以表悼念"><a href="#南京大屠杀国家公祭日-网站变成灰色以表悼念" class="headerlink" title=" 南京大屠杀国家公祭日_网站变成灰色以表悼念 "></a><center> 南京大屠杀国家公祭日_网站变成灰色以表悼念 </center></h2><div style="position:relative; padding-bottom:75%; width:100%; height:0">
+    <iframe src="//player.bilibili.com/player.html?aid=78993619&bvid=BV1cJ411C7Dg&cid=135180758&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position:absolute; height: 100%; width: 100%;"> </iframe>
+</div>
+
+<a id="more"></a>
+<p>12月13日是第七个南京大屠杀死难者国家公祭日。公祭无辜死难之生命，告慰血与泪浸染之土地。这一天，举国上下以各种形式深切缅怀死难同胞，深切缅怀为中国人民抗日战争胜利献出生命的革命先烈和民族英雄，表达牢记历史、珍爱和平、矢志复兴，身为站长的我们都会让自己的网站的全部网页变成灰色（黑白色），以表示我们对逝者的悼念。</p>
+<h3 id="第一种：修改CSS文件"><a href="#第一种：修改CSS文件" class="headerlink" title="第一种：修改CSS文件"></a>第一种：修改CSS文件</h3><p>我们可以在网页的CSS文件中添加以下的CSS代码，来实现网页黑白色，也就是网站变灰</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">html &#123;</span><br><span class="line">    filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale&#x3D;1);</span><br><span class="line">    -webkit-filter: grayscale(100%);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="第二种：在网页的标签内加入以下代码"><a href="#第二种：在网页的标签内加入以下代码" class="headerlink" title="第二种：在网页的标签内加入以下代码"></a>第二种：在网页的<head>标签内加入以下代码</h3><p>如果你不想改动CSS文件，你可以通过在网页头部中的<head>标签内部加入内联CSS代码的形式实现网站网页变灰</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;style type&#x3D;&quot;text&#x2F;css&quot;&gt;</span><br><span class="line">html &#123;</span><br><span class="line">filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale&#x3D;1);</span><br><span class="line">-webkit-filter: grayscale(100%);&#125;</span><br><span class="line">&lt;&#x2F;style&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="第三种：修改标签加入内联样式"><a href="#第三种：修改标签加入内联样式" class="headerlink" title="第三种：修改标签加入内联样式"></a>第三种：修改<html>标签加入内联样式</h3><p>如里上面的两种方式都不喜欢，可以通过修改<html>标签，以加入内联样式的方法，达到网页变灰的效果</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;html style&#x3D;&quot;filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale&#x3D;1);</span><br><span class="line">-webkit-filter: grayscale(100%);&quot;&gt;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
-        <category>研究生课程</category>
+        <category>CSS</category>
       </categories>
       <tags>
-        <tag>网路比较</tag>
+        <tag>南京大屠杀国家公祭日</tag>
+        <tag>hexo网站</tag>
       </tags>
   </entry>
   <entry>
@@ -1227,6 +1237,67 @@ r = \frac{|w^Tx+b|}{||w||}</script><ol>
       <tags>
         <tag>matlab</tag>
         <tag>视频</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>虚电路和数据报对比模型</title>
+    <url>/2021/03/31/%E8%99%9A%E7%94%B5%E8%B7%AF%E5%92%8C%E6%95%B0%E6%8D%AE%E6%8A%A5%E5%AF%B9%E6%AF%94%E6%A8%A1%E5%9E%8B/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>通过数学模型，我们可以比较虚电路和数据报的传输数率好坏。</p>
+<h1 id="虚电路和数据报对比模型"><a href="#虚电路和数据报对比模型" class="headerlink" title="虚电路和数据报对比模型"></a>虚电路和数据报对比模型</h1><p>python如下所示：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">from scipy.special import comb</span><br><span class="line">import math</span><br><span class="line">import numpy as np</span><br><span class="line">import matplotlib.pyplot as plt</span><br><span class="line"></span><br><span class="line">def print_hi(name):</span><br><span class="line">    print(f&#39;Sum,&#123;name&#125;&#39;)</span><br><span class="line">if __name__ &#x3D;&#x3D; &#39;__main__&#39;:</span><br><span class="line">    N&#x3D;100</span><br><span class="line">    p&#x3D;0.1</span><br><span class="line">    sum &#x3D; np.zeros(N)</span><br><span class="line">    for n in range(N):</span><br><span class="line">        for k in range(10):</span><br><span class="line">            sum[n]&#x3D;comb(n,k)*math.pow(1-p, n-k )*math.pow(p, k ) +sum[n]</span><br><span class="line">    print_hi(sum)</span><br><span class="line">    plt.plot(sum)</span><br><span class="line">    plt.show()</span><br></pre></td></tr></table></figure></p>
+<h2 id="输出结果图："><a href="#输出结果图：" class="headerlink" title="输出结果图："></a>输出结果图：</h2><p><img src="https://img-blog.csdnimg.cn/20210331172103905.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></p>
+]]></content>
+      <categories>
+        <category>研究生课程</category>
+      </categories>
+      <tags>
+        <tag>网路比较</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>如何优雅的制作表白网站和罗盘时钟</title>
+    <url>/2020/12/12/%E8%A1%A8%E7%99%BD%E7%BD%91%E7%AB%99%E3%80%81%E7%BD%97%E7%9B%98%E6%97%B6%E9%92%9F%E6%95%99%E7%A8%8B/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="如何优雅的制作表白网站和罗盘时钟"><a href="#如何优雅的制作表白网站和罗盘时钟" class="headerlink" title=" 如何优雅的制作表白网站和罗盘时钟"></a><center> 如何优雅的制作表白网站和罗盘时钟</center></h2><a id="more"></a>
+<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>GitHub 是一个面向开源及私有软件项目的托管平台，因为只支持 Git 作为唯一的版本库格式进行托管，故名 GitHub。</p>
+<p>GitHub 于 2008 年 4 月 10 日正式上线，除了 Git 代码仓库托管及基本的 Web 管理界面以外，还提供了订阅、讨论组、文本渲染、在线文件编辑器、协作图谱（报表）、代码片段分享（Gist）等功能。目前，其注册用户已经超过 350 万，托管版本数量也是非常之多，其中不乏知名开源项目 Ruby on Rails、jQuery、python 等。</p>
+<p>本文需要先下载git <a href="https://git-scm.com/downloads" target="_blank" rel="noopener">下载地址</a></p>
+<p>git教程请参考<a href="https://www.liaoxuefeng.com/wiki/896043488029600" target="_blank" rel="noopener">廖雪峰Git</a></p>
+<h3 id="首先我们来学习一下，一些git的push方法"><a href="#首先我们来学习一下，一些git的push方法" class="headerlink" title="首先我们来学习一下，一些git的push方法"></a>首先我们来学习一下，一些git的push方法</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git init</span><br><span class="line">git add .</span><br><span class="line">git commit -m &quot;first commit&quot;</span><br><span class="line">git branch -M main</span><br><span class="line">git remote add origin https:&#x2F;&#x2F;github.com&#x2F;mmrslwan1110&#x2F;Clock.git</span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
+<p>本过程可以参考我为大家寻找的教程<a href="https://www.cnblogs.com/lijiayi/p/githubpages.html" target="_blank" rel="noopener">github创建账号、上传文件</a></p>
+<h3 id="表白网站源码和罗盘时钟源码"><a href="#表白网站源码和罗盘时钟源码" class="headerlink" title="表白网站源码和罗盘时钟源码"></a>表白网站源码和罗盘时钟源码</h3><h4 id="表白网站源码"><a href="#表白网站源码" class="headerlink" title="表白网站源码"></a>表白网站源码</h4><p><a href="https://github.com/mmrslwan1110/love" target="_blank" rel="noopener">表白网站源码_github</a><br><a href="https://codekp.cn/love" target="_blank" rel="noopener">表白网站效果_codekp.cn</a></p>
+<p>当然为大家也准备了一个更全的合集方便大家使用下载<a href="https://github.com/wanghaodi/LoveSourceCode" target="_blank" rel="noopener">13个表白网站源码</a></p>
+<blockquote>
+<p>申明没有女朋友所以这个网站是初始状态仅供学习参考</p>
+<h4 id="罗盘时钟源码"><a href="#罗盘时钟源码" class="headerlink" title="罗盘时钟源码"></a>罗盘时钟源码</h4><h5 id="下载源码"><a href="#下载源码" class="headerlink" title="下载源码"></a>下载源码</h5><p>建议采用命令行形式下载会更快，当然可以直接downloadzip文件。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone  https:&#x2F;&#x2F;github.com&#x2F;mmrslwan1110&#x2F;Clock.git</span><br></pre></td></tr></table></figure><br><img src="https://img-blog.csdnimg.cn/20201212231940305.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70#pic_center" alt="删除内部.git文件" loading="lazy">删除download下来的.git文件</p>
+<h5 id="上传源码到自己的web"><a href="#上传源码到自己的web" class="headerlink" title="上传源码到自己的web"></a>上传源码到自己的web</h5><ol>
+<li>创建自己的仓库 参考1中教程</li>
+<li>输入git init<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
+<img src="https://img-blog.csdnimg.cn/20201212232314167.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy">可以看到git创建了一个.git文件</li>
+<li>git add .<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git add .</span><br></pre></td></tr></table></figure>
+<img src="https://img-blog.csdnimg.cn/20201212232615556.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></li>
+</ol>
+</blockquote>
+<ol>
+<li>git commit -m “first commit”<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git commit -m &quot;first commit&quot;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><img src="https://img-blog.csdnimg.cn/20201212232746366.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></p>
+<ol>
+<li>git remote add origin <a href="https://github.com/mmrslwan1110/Clock.git" target="_blank" rel="noopener">https://github.com/mmrslwan1110/Clock.git</a><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">git remote add origin https:&#x2F;&#x2F;github.com&#x2F;mmrslwan1110&#x2F;Clock.git</span><br></pre></td></tr></table></figure>
+<img src="https://img-blog.csdnimg.cn/20201212233029800.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></li>
+</ol>
+<p>记得换成自己的链接哦</p>
+<ol>
+<li>git push -u origin master<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
+<img src="https://img-blog.csdnimg.cn/20201212233354499.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy">已经发布到自己的网站了可以访问看看自己的网站测一下效果哦。</li>
+</ol>
+<p><a href="https://github.com/mmrslwan1110/Clock" target="_blank" rel="noopener">罗盘时钟源码_github</a><br><a href="https://codekp.cn/Clock" target="_blank" rel="noopener">罗盘时钟效果_codekp.cn</a></p>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>表白网站</tag>
+        <tag>罗盘时钟</tag>
       </tags>
   </entry>
   <entry>
@@ -1436,50 +1507,50 @@ r = \frac{|w^Tx+b|}{||w||}</script><ol>
       </tags>
   </entry>
   <entry>
-    <title>如何优雅的制作表白网站和罗盘时钟</title>
-    <url>/2020/12/12/%E8%A1%A8%E7%99%BD%E7%BD%91%E7%AB%99%E3%80%81%E7%BD%97%E7%9B%98%E6%97%B6%E9%92%9F%E6%95%99%E7%A8%8B/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="如何优雅的制作表白网站和罗盘时钟"><a href="#如何优雅的制作表白网站和罗盘时钟" class="headerlink" title=" 如何优雅的制作表白网站和罗盘时钟"></a><center> 如何优雅的制作表白网站和罗盘时钟</center></h2><a id="more"></a>
-<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>GitHub 是一个面向开源及私有软件项目的托管平台，因为只支持 Git 作为唯一的版本库格式进行托管，故名 GitHub。</p>
-<p>GitHub 于 2008 年 4 月 10 日正式上线，除了 Git 代码仓库托管及基本的 Web 管理界面以外，还提供了订阅、讨论组、文本渲染、在线文件编辑器、协作图谱（报表）、代码片段分享（Gist）等功能。目前，其注册用户已经超过 350 万，托管版本数量也是非常之多，其中不乏知名开源项目 Ruby on Rails、jQuery、python 等。</p>
-<p>本文需要先下载git <a href="https://git-scm.com/downloads" target="_blank" rel="noopener">下载地址</a></p>
-<p>git教程请参考<a href="https://www.liaoxuefeng.com/wiki/896043488029600" target="_blank" rel="noopener">廖雪峰Git</a></p>
-<h3 id="首先我们来学习一下，一些git的push方法"><a href="#首先我们来学习一下，一些git的push方法" class="headerlink" title="首先我们来学习一下，一些git的push方法"></a>首先我们来学习一下，一些git的push方法</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git init</span><br><span class="line">git add .</span><br><span class="line">git commit -m &quot;first commit&quot;</span><br><span class="line">git branch -M main</span><br><span class="line">git remote add origin https:&#x2F;&#x2F;github.com&#x2F;mmrslwan1110&#x2F;Clock.git</span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
-<p>本过程可以参考我为大家寻找的教程<a href="https://www.cnblogs.com/lijiayi/p/githubpages.html" target="_blank" rel="noopener">github创建账号、上传文件</a></p>
-<h3 id="表白网站源码和罗盘时钟源码"><a href="#表白网站源码和罗盘时钟源码" class="headerlink" title="表白网站源码和罗盘时钟源码"></a>表白网站源码和罗盘时钟源码</h3><h4 id="表白网站源码"><a href="#表白网站源码" class="headerlink" title="表白网站源码"></a>表白网站源码</h4><p><a href="https://github.com/mmrslwan1110/love" target="_blank" rel="noopener">表白网站源码_github</a><br><a href="https://codekp.cn/love" target="_blank" rel="noopener">表白网站效果_codekp.cn</a></p>
-<p>当然为大家也准备了一个更全的合集方便大家使用下载<a href="https://github.com/wanghaodi/LoveSourceCode" target="_blank" rel="noopener">13个表白网站源码</a></p>
-<blockquote>
-<p>申明没有女朋友所以这个网站是初始状态仅供学习参考</p>
-<h4 id="罗盘时钟源码"><a href="#罗盘时钟源码" class="headerlink" title="罗盘时钟源码"></a>罗盘时钟源码</h4><h5 id="下载源码"><a href="#下载源码" class="headerlink" title="下载源码"></a>下载源码</h5><p>建议采用命令行形式下载会更快，当然可以直接downloadzip文件。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone  https:&#x2F;&#x2F;github.com&#x2F;mmrslwan1110&#x2F;Clock.git</span><br></pre></td></tr></table></figure><br><img src="https://img-blog.csdnimg.cn/20201212231940305.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70#pic_center" alt="删除内部.git文件" loading="lazy">删除download下来的.git文件</p>
-<h5 id="上传源码到自己的web"><a href="#上传源码到自己的web" class="headerlink" title="上传源码到自己的web"></a>上传源码到自己的web</h5><ol>
-<li>创建自己的仓库 参考1中教程</li>
-<li>输入git init<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
-<img src="https://img-blog.csdnimg.cn/20201212232314167.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy">可以看到git创建了一个.git文件</li>
-<li>git add .<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git add .</span><br></pre></td></tr></table></figure>
-<img src="https://img-blog.csdnimg.cn/20201212232615556.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></li>
-</ol>
-</blockquote>
-<ol>
-<li>git commit -m “first commit”<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git commit -m &quot;first commit&quot;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p><img src="https://img-blog.csdnimg.cn/20201212232746366.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></p>
-<ol>
-<li>git remote add origin <a href="https://github.com/mmrslwan1110/Clock.git" target="_blank" rel="noopener">https://github.com/mmrslwan1110/Clock.git</a><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">git remote add origin https:&#x2F;&#x2F;github.com&#x2F;mmrslwan1110&#x2F;Clock.git</span><br></pre></td></tr></table></figure>
-<img src="https://img-blog.csdnimg.cn/20201212233029800.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></li>
-</ol>
-<p>记得换成自己的链接哦</p>
-<ol>
-<li>git push -u origin master<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
-<img src="https://img-blog.csdnimg.cn/20201212233354499.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy">已经发布到自己的网站了可以访问看看自己的网站测一下效果哦。</li>
-</ol>
-<p><a href="https://github.com/mmrslwan1110/Clock" target="_blank" rel="noopener">罗盘时钟源码_github</a><br><a href="https://codekp.cn/Clock" target="_blank" rel="noopener">罗盘时钟效果_codekp.cn</a></p>
-]]></content>
+    <title>surface完美安装linux操作系统、hexo博客</title>
+    <url>/2021/03/19/Deepin%E7%B3%BB%E7%BB%9F%E4%B8%8Esurface%E5%AE%89%E8%A3%85/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="surface完美安装linux操作系统、hexo博客"><a href="#surface完美安装linux操作系统、hexo博客" class="headerlink" title="surface完美安装linux操作系统、hexo博客"></a><center>surface完美安装linux操作系统、hexo博客</center></h1><p>最近由于linux课程需要使用linux系统，于是在ubuntu、kali、Elementary OS、Chrome OS和deepin操作系统中选择一个比较靠谱的。<br><a id="more"></a></p>
+<h2 id="linux操作系统介绍"><a href="#linux操作系统介绍" class="headerlink" title="linux操作系统介绍"></a>linux操作系统介绍</h2><h3 id="ubuntu"><a href="#ubuntu" class="headerlink" title="ubuntu"></a>ubuntu</h3><p>作为全球最流行且最有影响力的Linux开源系统之一，Ubuntu自发布以来在应用体验方面：有较大幅度的提升，即使对比Windows、MacOS等操作系统，最新版本的Ubuntu也不逊色。<br><img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3931899733,1893021162&amp;fm=26&amp;gp=0.jpg" alt="" loading="lazy">  </p>
+<h3 id="kali"><a href="#kali" class="headerlink" title="kali"></a>kali</h3><p>Kali Linux是基于Debian的Linux发行版， 设计用于数字取证操作系统。每一季度更新一次。由Offensive Security Ltd维护和资助。最先由Offensive Security的Mati Aharoni和Devon Kearns通过重写BackTrack来完成，BackTrack是他们之前写的用于取证的Linux发行版 。</p>
+<p>主要是用来渗透网络—所以俗话说kali从入门到入狱。</p>
+<p><img src="https://bkimg.cdn.bcebos.com/pic/3b87e950352ac65c1038fd5662baa5119313b07e1cf7?x-bce-process=image/watermark,image_d2里奴性F0ZXIvYmFpa2UxNTA=,g_7,xp_5,yp_5/format,f_auto" alt="" loading="lazy"></p>
+<h3 id="Elementary-OS"><a href="#Elementary-OS" class="headerlink" title="Elementary OS"></a>Elementary OS</h3><p>Elementary OS是基于 Ubuntu 精心打磨美化的桌面 Linux 发行版的一款软件，号称 “最美的 Linux”， 最早是 Ubuntu 的一个美化主题项目，现在成了独立的发行版<br><img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fww2.sinaimg.cn%2Fmw1024%2F6595c7c6tw1e7nlcg38qoj211s0lcag0.jpg&amp;refer=http%3A%2F%2Fwww.sina.com&amp;app=2002&amp;size=f9999,10000&amp;q=a80&amp;n=0&amp;g=0n&amp;fmt=jpeg?sec=1618754413&amp;t=c4cc435286c020b6845bd352d5a1dd8c" alt="" loading="lazy"></p>
+<h3 id="Chrome-OS"><a href="#Chrome-OS" class="headerlink" title="Chrome OS"></a>Chrome OS</h3><p>Chrome OS是一款Google开发的基于PC的操作系统。 Google Chrome OS是一款基于Linux的开源操作系统。Google在自己的官方博客表示，初期，这一操作系统将定位于上网本、紧凑型以及低成本电脑。这款开源软件将被命名为Chrome OS，谷歌公司于2010年12里奴性月7日（北京时间12月8日2点30分）在美国举行Chrome相关产品发布会，发布会上正式发布Chrome Web store和Chrome OS。</p>
+<p><img src="https://gss0.baidu.com/70cFfyinKgQFm2e88IuM_a/baike/pic/item/8694a4c27d1ed21bae953dafa06eddc451da3f1f.jpg" alt="" loading="lazy"></p>
+<h3 id="deepin"><a href="#deepin" class="headerlink" title="deepin"></a>deepin</h3><p>Deepin（原名：Linux Deepin；中文通称：深度操作系统）是由武汉深之度科技有限公司在Debian基础上开发的Linux操作系统，其前身是Hiweed Linux操作系统，于2004年2月28日开始对外发行，可以安装在个人计算机和服务器中。</p>
+<p>Deepin 12.12 正式版本将搭载一个全新的桌面环境。该桌面环境由Deepin 团队开发，以轻型、美观、稳定等作为设计目标。新桌面环境使用 Compiz 作为默认的窗口管理器。<br><img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fzkres1.myzaker.com%2F201910%2F5dae5906b15ec02e1c28f7b1_1024.jpg&amp;refer=http%3A%2F%2Fzkres1.myzaker.com&amp;app=2002&amp;size=f9999,10000&amp;q=a80&amp;n=0&amp;g=0n&amp;fmt=jpeg?sec=1618754739&amp;t=be9f54a43670d51053a30eec7d91ac18" alt="" loading="lazy"></p>
+<h3 id="总结以上五种系统各有各的优点"><a href="#总结以上五种系统各有各的优点" class="headerlink" title="总结以上五种系统各有各的优点"></a>总结以上五种系统各有各的优点</h3><p>运行上deepin会更慢一些，因为deepin的界面做的最好看，其次deepin是国产linux系统，而且是武汉的公司，安装极其简单，所以我就装了deepin操作系统。</p>
+<h2 id="deepin启动盘制作"><a href="#deepin启动盘制作" class="headerlink" title="deepin启动盘制作"></a>deepin启动盘制作</h2><p>deepin v20下载地址<a href="https://www.deepin.org/zh/download/" target="_blank" rel="noopener">deep in</a><br>首先下载镜像，其次下载启动盘制作工具，制作启动盘。</p>
+<h2 id="windows分区"><a href="#windows分区" class="headerlink" title="windows分区"></a>windows分区</h2><p>删除一些windows上面不需要的软件和文件，腾出50G的空间，然后通过<a href="https://www.soft-down.net/detail/44/431115.shtml?type=jingzhun" target="_blank" rel="noopener">分区助手</a><br>对磁盘进行分区。</p>
+<h2 id="系统安装具体操作步骤"><a href="#系统安装具体操作步骤" class="headerlink" title="系统安装具体操作步骤"></a>系统安装具体操作步骤</h2><p>1.制作启动u盘deepin系统安装盘。就是把deepin.iso烧录到u盘上。<br>这里请一定要先记得在淘宝上买一个扩展坞，因为surface是一款pc平板而合一电脑，为了节约面积，采用了单usb端口。同时安装系统时蓝牙会失效，需要准备有线鼠标、有线键盘。</p>
+<p>2.关闭secureboot.关机后 音量下键+电源三秒，松开电源，见到surface图标后松开音量键进入bios界面。第二项 secureboot 回车 disable它。滑倒最后exit save setting。</p>
+<p>特别注意一点！就是分清楚surface的音量和电源在那不要按错。</p>
+<p>3.进入windows系统，点击setting，在setting 中搜索boot，看到第二项，create and format hard disk partitions. 进入后看到C盘，鼠标右键shrink volumn(分出给deepin 的空间）</p>
+<p>建议采用之前说的分区助手，这种方法分区很容易崩。</p>
+<p>4.从U盘启动。有两种方式：<br>第一种关机后，音量下键+电源3秒，松开电源。见到surface画面后松开音量键。<br>第二种从windows 向左滑，进入setting. 最底下change pc settings.进去后点击最底下的updates and recovery(更新和恢复）选择里面最底下选项。advanced startup. （高级启动）。进入U盘启动。</p>
+<p>5.从U盘启动后。选择第二项，安装deepin. 选择语言，然后选择something else(其他选项）。目的是不要覆盖windows系统。安装系统到我们分出的free space里。<br>点击 free space ，再点击左下角的“+”号。选择逻辑分区，ext4, 给/root.尽量大点。</p>
+<p>再点击 free space ，点击左下角的“+”号。逻辑或主分区随便（我给的逻辑分区），swap area(交换空间）.随便给个几G。英文教程中不给，我是分了，省得它提示我必须给。反正也不少这几个G。</p>
+<p>选择启动盘为windows 所在的那个，一般叫sda 4.</p>
+<p>然后开始安装。重启。</p>
+<h2 id="安装触摸屏驱动"><a href="#安装触摸屏驱动" class="headerlink" title="安装触摸屏驱动"></a>安装触摸屏驱动</h2><h3 id="deepin-1"><a href="#deepin-1" class="headerlink" title="deepin"></a>deepin</h3><p>这里很神奇如果你也装的是deepin操作系统，触摸屏是可以直接使用的，可能因为华为封锁，目前华为用的均为deepin操作系统，华为也有触控笔记本电脑。</p>
+<h3 id="其他linux系统"><a href="#其他linux系统" class="headerlink" title="其他linux系统"></a>其他linux系统</h3><p>请详见<a href="https://github.com/jakeday/linux-surface" target="_blank" rel="noopener">github大神</a>的surface驱动安装教程。</p>
+<p>进入系统以后使用Terminal安装了Peter Hunter整理的内核<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo add-apt-repository ppa:tigerite&#x2F;kernel</span><br><span class="line"></span><br><span class="line">sudo apt-get update</span><br><span class="line"></span><br><span class="line">sudo apt-get install linux-surface</span><br></pre></td></tr></table></figure><br>然后使用编辑器nano或者gedit编辑/<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">lib&#x2F;udev&#x2F;rules.d&#x2F;50-bluetooth-hci-auto-poweron.rules</span><br></pre></td></tr></table></figure><br>用#注释掉里面唯一的那一行，再打开/etc/bluetooth/main.conf<br>把#[Policy]<br>改成[Policy]<br>并把最后一排的<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#AutoEnable&#x3D;false改成AutoEnable&#x3D;true</span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;安装rEFIndsudo</span><br><span class="line"></span><br><span class="line">apt-add-repository ppa:rodsmith&#x2F;refind</span><br><span class="line"></span><br><span class="line">sudo apt-get update</span><br><span class="line"></span><br><span class="line">sudo apt-get install refind</span><br></pre></td></tr></table></figure><br>用Shim给rEFind增加Secure Boot的启动方式<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">refind-install --shim &#x2F;boot&#x2F;efi&#x2F;EFI&#x2F;ubuntu&#x2F;shimx64.efi --localkeys</span><br></pre></td></tr></table></figure><br>然后把rEFind设为第一启动项refind-mkdefault开启Secure Boot</p>
+<h2 id="蓝牙驱动安装"><a href="#蓝牙驱动安装" class="headerlink" title="蓝牙驱动安装"></a>蓝牙驱动安装</h2><p>蓝牙（Bluetooth），是一种无线个人局域网（Wireless PAN），最初由爱立信创制，后来由蓝牙技术联盟订定技术标准。这个词的来源是10世纪丹麦和挪威国王蓝牙哈拉尔（丹麦语：Harald Blåtand Gormsen），借国王的绰号“Blåtand”当名称，直接翻译成中文为“蓝牙”（blå＝蓝，tand＝牙）。蓝牙是一种通用的射频频率是2.45GHZ的无线电接口，它使带有电子端口的设备能够在小范围内进行无线通信。</p>
+<h3 id="安装应用"><a href="#安装应用" class="headerlink" title="安装应用"></a>安装应用</h3><p>Blueman旨在提供最为常见的蓝牙管理功能。</p>
+<p>命令安装，终端执行：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt-get install blueman</span><br><span class="line">&#96;</span><br></pre></td></tr></table></figure><br>命令卸载，终端执行：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt-get remove blueman</span><br></pre></td></tr></table></figure></p>
+<h2 id="Hexo安装"><a href="#Hexo安装" class="headerlink" title="Hexo安装"></a>Hexo安装</h2><h3 id="安装nodejs-生成静态页面"><a href="#安装nodejs-生成静态页面" class="headerlink" title="安装nodejs:生成静态页面"></a>安装nodejs:生成静态页面</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt-get install nodejs</span><br></pre></td></tr></table></figure>
+<h3 id="安装npm：一会用来安装hexo"><a href="#安装npm：一会用来安装hexo" class="headerlink" title="安装npm：一会用来安装hexo"></a>安装npm：一会用来安装hexo</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt-get insall npm</span><br></pre></td></tr></table></figure>
+<h3 id="正式安装hexo"><a href="#正式安装hexo" class="headerlink" title="正式安装hexo"></a>正式安装hexo</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo npm install -g hexo</span><br></pre></td></tr></table></figure>
+<h3 id="hexo部署"><a href="#hexo部署" class="headerlink" title="hexo部署"></a>hexo部署</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g-d</span><br></pre></td></tr></table></figure>
+<h2 id="git-SSH-Linux"><a href="#git-SSH-Linux" class="headerlink" title="git SSH Linux"></a>git SSH Linux</h2><p>打开终端依次输入一下命令<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Git Bash Here</span><br><span class="line"></span><br><span class="line">mkdir ~&#x2F;.ssh</span><br><span class="line"></span><br><span class="line">cd .ssh&#x2F;</span><br><span class="line"></span><br><span class="line">git config --global  user.name &quot;mmrsl&quot;</span><br><span class="line"></span><br><span class="line">git config --global  user.email &quot;xxx@codekp.cn&quot;</span><br></pre></td></tr></table></figure><br>打开id_rsa.pub，在github的账号中进行修改，增加SHH。</p>
+<h1 id="完成后上传，如本文所示，surface双系统完美linux。"><a href="#完成后上传，如本文所示，surface双系统完美linux。" class="headerlink" title="完成后上传，如本文所示，surface双系统完美linux。"></a>完成后上传，如本文所示，surface双系统完美linux。</h1>]]></content>
       <categories>
-        <category>JavaScript</category>
+        <category>linux</category>
+        <category>hexo</category>
       </categories>
       <tags>
-        <tag>表白网站</tag>
-        <tag>罗盘时钟</tag>
+        <tag>Deep in</tag>
+        <tag>surface</tag>
       </tags>
   </entry>
   <entry>
@@ -1596,53 +1667,6 @@ r = \frac{|w^Tx+b|}{||w||}</script><ol>
       </categories>
       <tags>
         <tag>linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>surface完美安装linux操作系统、hexo博客</title>
-    <url>/2021/03/19/Deepin%E7%B3%BB%E7%BB%9F%E4%B8%8Esurface%E5%AE%89%E8%A3%85/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="surface完美安装linux操作系统、hexo博客"><a href="#surface完美安装linux操作系统、hexo博客" class="headerlink" title="surface完美安装linux操作系统、hexo博客"></a><center>surface完美安装linux操作系统、hexo博客</center></h1><p>最近由于linux课程需要使用linux系统，于是在ubuntu、kali、Elementary OS、Chrome OS和deepin操作系统中选择一个比较靠谱的。<br><a id="more"></a></p>
-<h2 id="linux操作系统介绍"><a href="#linux操作系统介绍" class="headerlink" title="linux操作系统介绍"></a>linux操作系统介绍</h2><h3 id="ubuntu"><a href="#ubuntu" class="headerlink" title="ubuntu"></a>ubuntu</h3><p>作为全球最流行且最有影响力的Linux开源系统之一，Ubuntu自发布以来在应用体验方面：有较大幅度的提升，即使对比Windows、MacOS等操作系统，最新版本的Ubuntu也不逊色。<br><img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3931899733,1893021162&amp;fm=26&amp;gp=0.jpg" alt="" loading="lazy">  </p>
-<h3 id="kali"><a href="#kali" class="headerlink" title="kali"></a>kali</h3><p>Kali Linux是基于Debian的Linux发行版， 设计用于数字取证操作系统。每一季度更新一次。由Offensive Security Ltd维护和资助。最先由Offensive Security的Mati Aharoni和Devon Kearns通过重写BackTrack来完成，BackTrack是他们之前写的用于取证的Linux发行版 。</p>
-<p>主要是用来渗透网络—所以俗话说kali从入门到入狱。</p>
-<p><img src="https://bkimg.cdn.bcebos.com/pic/3b87e950352ac65c1038fd5662baa5119313b07e1cf7?x-bce-process=image/watermark,image_d2里奴性F0ZXIvYmFpa2UxNTA=,g_7,xp_5,yp_5/format,f_auto" alt="" loading="lazy"></p>
-<h3 id="Elementary-OS"><a href="#Elementary-OS" class="headerlink" title="Elementary OS"></a>Elementary OS</h3><p>Elementary OS是基于 Ubuntu 精心打磨美化的桌面 Linux 发行版的一款软件，号称 “最美的 Linux”， 最早是 Ubuntu 的一个美化主题项目，现在成了独立的发行版<br><img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fww2.sinaimg.cn%2Fmw1024%2F6595c7c6tw1e7nlcg38qoj211s0lcag0.jpg&amp;refer=http%3A%2F%2Fwww.sina.com&amp;app=2002&amp;size=f9999,10000&amp;q=a80&amp;n=0&amp;g=0n&amp;fmt=jpeg?sec=1618754413&amp;t=c4cc435286c020b6845bd352d5a1dd8c" alt="" loading="lazy"></p>
-<h3 id="Chrome-OS"><a href="#Chrome-OS" class="headerlink" title="Chrome OS"></a>Chrome OS</h3><p>Chrome OS是一款Google开发的基于PC的操作系统。 Google Chrome OS是一款基于Linux的开源操作系统。Google在自己的官方博客表示，初期，这一操作系统将定位于上网本、紧凑型以及低成本电脑。这款开源软件将被命名为Chrome OS，谷歌公司于2010年12里奴性月7日（北京时间12月8日2点30分）在美国举行Chrome相关产品发布会，发布会上正式发布Chrome Web store和Chrome OS。</p>
-<p><img src="https://gss0.baidu.com/70cFfyinKgQFm2e88IuM_a/baike/pic/item/8694a4c27d1ed21bae953dafa06eddc451da3f1f.jpg" alt="" loading="lazy"></p>
-<h3 id="deepin"><a href="#deepin" class="headerlink" title="deepin"></a>deepin</h3><p>Deepin（原名：Linux Deepin；中文通称：深度操作系统）是由武汉深之度科技有限公司在Debian基础上开发的Linux操作系统，其前身是Hiweed Linux操作系统，于2004年2月28日开始对外发行，可以安装在个人计算机和服务器中。</p>
-<p>Deepin 12.12 正式版本将搭载一个全新的桌面环境。该桌面环境由Deepin 团队开发，以轻型、美观、稳定等作为设计目标。新桌面环境使用 Compiz 作为默认的窗口管理器。<br><img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fzkres1.myzaker.com%2F201910%2F5dae5906b15ec02e1c28f7b1_1024.jpg&amp;refer=http%3A%2F%2Fzkres1.myzaker.com&amp;app=2002&amp;size=f9999,10000&amp;q=a80&amp;n=0&amp;g=0n&amp;fmt=jpeg?sec=1618754739&amp;t=be9f54a43670d51053a30eec7d91ac18" alt="" loading="lazy"></p>
-<h3 id="总结以上五种系统各有各的优点"><a href="#总结以上五种系统各有各的优点" class="headerlink" title="总结以上五种系统各有各的优点"></a>总结以上五种系统各有各的优点</h3><p>运行上deepin会更慢一些，因为deepin的界面做的最好看，其次deepin是国产linux系统，而且是武汉的公司，安装极其简单，所以我就装了deepin操作系统。</p>
-<h2 id="deepin启动盘制作"><a href="#deepin启动盘制作" class="headerlink" title="deepin启动盘制作"></a>deepin启动盘制作</h2><p>deepin v20下载地址<a href="https://www.deepin.org/zh/download/" target="_blank" rel="noopener">deep in</a><br>首先下载镜像，其次下载启动盘制作工具，制作启动盘。</p>
-<h2 id="windows分区"><a href="#windows分区" class="headerlink" title="windows分区"></a>windows分区</h2><p>删除一些windows上面不需要的软件和文件，腾出50G的空间，然后通过<a href="https://www.soft-down.net/detail/44/431115.shtml?type=jingzhun" target="_blank" rel="noopener">分区助手</a><br>对磁盘进行分区。</p>
-<h2 id="系统安装具体操作步骤"><a href="#系统安装具体操作步骤" class="headerlink" title="系统安装具体操作步骤"></a>系统安装具体操作步骤</h2><p>1.制作启动u盘deepin系统安装盘。就是把deepin.iso烧录到u盘上。<br>这里请一定要先记得在淘宝上买一个扩展坞，因为surface是一款pc平板而合一电脑，为了节约面积，采用了单usb端口。同时安装系统时蓝牙会失效，需要准备有线鼠标、有线键盘。</p>
-<p>2.关闭secureboot.关机后 音量下键+电源三秒，松开电源，见到surface图标后松开音量键进入bios界面。第二项 secureboot 回车 disable它。滑倒最后exit save setting。</p>
-<p>特别注意一点！就是分清楚surface的音量和电源在那不要按错。</p>
-<p>3.进入windows系统，点击setting，在setting 中搜索boot，看到第二项，create and format hard disk partitions. 进入后看到C盘，鼠标右键shrink volumn(分出给deepin 的空间）</p>
-<p>建议采用之前说的分区助手，这种方法分区很容易崩。</p>
-<p>4.从U盘启动。有两种方式：<br>第一种关机后，音量下键+电源3秒，松开电源。见到surface画面后松开音量键。<br>第二种从windows 向左滑，进入setting. 最底下change pc settings.进去后点击最底下的updates and recovery(更新和恢复）选择里面最底下选项。advanced startup. （高级启动）。进入U盘启动。</p>
-<p>5.从U盘启动后。选择第二项，安装deepin. 选择语言，然后选择something else(其他选项）。目的是不要覆盖windows系统。安装系统到我们分出的free space里。<br>点击 free space ，再点击左下角的“+”号。选择逻辑分区，ext4, 给/root.尽量大点。</p>
-<p>再点击 free space ，点击左下角的“+”号。逻辑或主分区随便（我给的逻辑分区），swap area(交换空间）.随便给个几G。英文教程中不给，我是分了，省得它提示我必须给。反正也不少这几个G。</p>
-<p>选择启动盘为windows 所在的那个，一般叫sda 4.</p>
-<p>然后开始安装。重启。</p>
-<h2 id="安装触摸屏驱动"><a href="#安装触摸屏驱动" class="headerlink" title="安装触摸屏驱动"></a>安装触摸屏驱动</h2><h3 id="deepin-1"><a href="#deepin-1" class="headerlink" title="deepin"></a>deepin</h3><p>这里很神奇如果你也装的是deepin操作系统，触摸屏是可以直接使用的，可能因为华为封锁，目前华为用的均为deepin操作系统，华为也有触控笔记本电脑。</p>
-<h3 id="其他linux系统"><a href="#其他linux系统" class="headerlink" title="其他linux系统"></a>其他linux系统</h3><p>请详见<a href="https://github.com/jakeday/linux-surface" target="_blank" rel="noopener">github大神</a>的surface驱动安装教程。</p>
-<p>进入系统以后使用Terminal安装了Peter Hunter整理的内核<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo add-apt-repository ppa:tigerite&#x2F;kernel</span><br><span class="line"></span><br><span class="line">sudo apt-get update</span><br><span class="line"></span><br><span class="line">sudo apt-get install linux-surface</span><br></pre></td></tr></table></figure><br>然后使用编辑器nano或者gedit编辑/<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">lib&#x2F;udev&#x2F;rules.d&#x2F;50-bluetooth-hci-auto-poweron.rules</span><br></pre></td></tr></table></figure><br>用#注释掉里面唯一的那一行，再打开/etc/bluetooth/main.conf<br>把#[Policy]<br>改成[Policy]<br>并把最后一排的<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#AutoEnable&#x3D;false改成AutoEnable&#x3D;true</span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;安装rEFIndsudo</span><br><span class="line"></span><br><span class="line">apt-add-repository ppa:rodsmith&#x2F;refind</span><br><span class="line"></span><br><span class="line">sudo apt-get update</span><br><span class="line"></span><br><span class="line">sudo apt-get install refind</span><br></pre></td></tr></table></figure><br>用Shim给rEFind增加Secure Boot的启动方式<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">refind-install --shim &#x2F;boot&#x2F;efi&#x2F;EFI&#x2F;ubuntu&#x2F;shimx64.efi --localkeys</span><br></pre></td></tr></table></figure><br>然后把rEFind设为第一启动项refind-mkdefault开启Secure Boot</p>
-<h2 id="蓝牙驱动安装"><a href="#蓝牙驱动安装" class="headerlink" title="蓝牙驱动安装"></a>蓝牙驱动安装</h2><p>蓝牙（Bluetooth），是一种无线个人局域网（Wireless PAN），最初由爱立信创制，后来由蓝牙技术联盟订定技术标准。这个词的来源是10世纪丹麦和挪威国王蓝牙哈拉尔（丹麦语：Harald Blåtand Gormsen），借国王的绰号“Blåtand”当名称，直接翻译成中文为“蓝牙”（blå＝蓝，tand＝牙）。蓝牙是一种通用的射频频率是2.45GHZ的无线电接口，它使带有电子端口的设备能够在小范围内进行无线通信。</p>
-<h3 id="安装应用"><a href="#安装应用" class="headerlink" title="安装应用"></a>安装应用</h3><p>Blueman旨在提供最为常见的蓝牙管理功能。</p>
-<p>命令安装，终端执行：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt-get install blueman</span><br><span class="line">&#96;</span><br></pre></td></tr></table></figure><br>命令卸载，终端执行：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt-get remove blueman</span><br></pre></td></tr></table></figure></p>
-<h2 id="Hexo安装"><a href="#Hexo安装" class="headerlink" title="Hexo安装"></a>Hexo安装</h2><h3 id="安装nodejs-生成静态页面"><a href="#安装nodejs-生成静态页面" class="headerlink" title="安装nodejs:生成静态页面"></a>安装nodejs:生成静态页面</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt-get install nodejs</span><br></pre></td></tr></table></figure>
-<h3 id="安装npm：一会用来安装hexo"><a href="#安装npm：一会用来安装hexo" class="headerlink" title="安装npm：一会用来安装hexo"></a>安装npm：一会用来安装hexo</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt-get insall npm</span><br></pre></td></tr></table></figure>
-<h3 id="正式安装hexo"><a href="#正式安装hexo" class="headerlink" title="正式安装hexo"></a>正式安装hexo</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo npm install -g hexo</span><br></pre></td></tr></table></figure>
-<h3 id="hexo部署"><a href="#hexo部署" class="headerlink" title="hexo部署"></a>hexo部署</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g-d</span><br></pre></td></tr></table></figure>
-<h2 id="git-SSH-Linux"><a href="#git-SSH-Linux" class="headerlink" title="git SSH Linux"></a>git SSH Linux</h2><p>打开终端依次输入一下命令<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Git Bash Here</span><br><span class="line"></span><br><span class="line">mkdir ~&#x2F;.ssh</span><br><span class="line"></span><br><span class="line">cd .ssh&#x2F;</span><br><span class="line"></span><br><span class="line">git config --global  user.name &quot;mmrsl&quot;</span><br><span class="line"></span><br><span class="line">git config --global  user.email &quot;xxx@codekp.cn&quot;</span><br></pre></td></tr></table></figure><br>打开id_rsa.pub，在github的账号中进行修改，增加SHH。</p>
-<h1 id="完成后上传，如本文所示，surface双系统完美linux。"><a href="#完成后上传，如本文所示，surface双系统完美linux。" class="headerlink" title="完成后上传，如本文所示，surface双系统完美linux。"></a>完成后上传，如本文所示，surface双系统完美linux。</h1>]]></content>
-      <categories>
-        <category>linux</category>
-        <category>hexo</category>
-      </categories>
-      <tags>
-        <tag>Deep in</tag>
-        <tag>surface</tag>
       </tags>
   </entry>
   <entry>
