@@ -1,6 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Quantum-Mini-Linux—配置</title>
+    <url>/2021/04/13/Quantum-Mini-Linux%E2%80%94%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><a id="more"></a>
+<h1 id="Quantum-Mini-Linux—网络配置"><a href="#Quantum-Mini-Linux—网络配置" class="headerlink" title="Quantum-Mini-Linux—网络配置"></a><center>Quantum-Mini-Linux—网络配置</center></h1><p><img src="https://files.seeedstudio.com/wiki/Quantum-Mini-Linux-Dev-Kit/Quantum-Mini-Linux-Dev-Kit.png" alt="" loading="lazy"></p>
+<h2 id="wifi账号密码设置"><a href="#wifi账号密码设置" class="headerlink" title="wifi账号密码设置"></a>wifi账号密码设置</h2><p><code>sudo vi /etc/wpa_supplicant/wpa_supplicant.conf</code></p>
+<p>修改如下的文件中的部分数据。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">network&#x3D;&#123;</span><br><span class="line"></span><br><span class="line">               ssid&#x3D;&quot;[你的网络名称]&quot;</span><br><span class="line"></span><br><span class="line">               psk&#x3D;&quot;[你的网络密码]&quot;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+<p>如图<img src="https://exp-picture.cdn.bcebos.com/a44e8afc508c9bcec61993c2d6dd884ce44afa75.jpg?x-bce-process=image%2Fresize%2Cm_lfit%2Cw_500%2Climit_1%2Fformat%2Cf_jpg%2Fquality%2Cq_80" alt="" loading="lazy"></p>
+<h2 id="对本地网络地址进行配置"><a href="#对本地网络地址进行配置" class="headerlink" title="对本地网络地址进行配置"></a>对本地网络地址进行配置</h2><p>由于在实验室，所用的路由器的端口号是10.xxx.xxx.xxx 然后直接ip连接到了该位置，这肯定有问题。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo nano &#x2F;etc&#x2F;network&#x2F;interfaces</span><br></pre></td></tr></table></figure>
+<p>修改以下内容设置默认网关，具体数值可以根据自身情况修改</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">auto lo</span><br><span class="line">iface lo inet loopback</span><br><span class="line">auto enxb827bb3ef8a  &#x2F;&#x2F;就是前面查看的名字</span><br><span class="line">iface enxb827bb3ef8a inet static</span><br><span class="line">address 192.168.1.2    &#x2F;&#x2F;IP地址</span><br><span class="line">netmask 255.255.255.0    &#x2F;&#x2F;掩码</span><br><span class="line">gateway 192.168.1.1     &#x2F;&#x2F;网关</span><br></pre></td></tr></table></figure>
+<h2 id="查看是否连接成功"><a href="#查看是否连接成功" class="headerlink" title="查看是否连接成功"></a>查看是否连接成功</h2><p>ping 192.168.1.2可以但是无法ping www.baidu.com</p>
+<p>报错，unknown host www.baidu.com</p>
+<h2 id="设置端口"><a href="#设置端口" class="headerlink" title="设置端口"></a>设置端口</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo vi &#x2F;etc&#x2F;resolv.conf</span><br></pre></td></tr></table></figure>
+<p>如果你们网络不行的话，那么一定是这个nameserver的问题。</p>
+<p>所以，修改</p>
+<p>直接在那里面修改。</p>
+<p>改成8.8.8.8</p>
+<p>:wq保存就可以了。</p>
+<p>但是尝试后发现不是因为dns域名解析的问题。</p>
+<h2 id="windows找到www-baidu-com的ip地址"><a href="#windows找到www-baidu-com的ip地址" class="headerlink" title="windows找到www.baidu.com的ip地址"></a>windows找到www.baidu.com的ip地址</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">win+R</span><br><span class="line"></span><br><span class="line">cmd</span><br><span class="line"></span><br><span class="line">ping www.baidu.com</span><br></pre></td></tr></table></figure>
+<p>百度的地址为14.215.177.39</p>
+<p>用linux ping该地址，发现还是无法连接，证明linux没有连接到外网。</p>
+<h2 id="linux增加路由"><a href="#linux增加路由" class="headerlink" title="linux增加路由"></a>linux增加路由</h2><p>由于linux无法ping通外网，搜索后发现</p>
+<p>route</p>
+<p>查看路由表，很神奇的是路由表是空的，于是在思考后。</p>
+<p>route add default gw 192.168.1.1</p>
+<p>route</p>
+<p>成功解决树莓派无法上网问题。</p>
+<p>shutdown -r now</p>
+<h2 id="通过putty可以从局域网ssh访问Quantum-linux"><a href="#通过putty可以从局域网ssh访问Quantum-linux" class="headerlink" title="通过putty可以从局域网ssh访问Quantum-linux"></a>通过putty可以从局域网ssh访问Quantum-linux</h2><ul>
+<li><a href="https://www.baidu.com/s?ie=utf-8&amp;f=8&amp;rsv_bp=1&amp;rsv_idx=1&amp;tn=02003390_2_hao_pg&amp;wd=putty&amp;fenlei=256&amp;oq=linux%2520nohup%25E5%2590%258E%25E6%2580%258E%25E4%25B9%2588%25E8%25BF%259B%25E5%2585%25A5&amp;rsv_pq=a035ea760005dcd7&amp;rsv_t=2798tx2%2BkxpcNpvxPWiiy5OmKO49HU24tj7gyYA9ux%2FeHi83slME5HXfMhUJ6bBi6f1MApmcD6w&amp;rqlang=cn&amp;rsv_enter=1&amp;rsv_dl=tb&amp;rsv_btype=t&amp;inputT=1242&amp;rsv_sug3=66&amp;rsv_sug1=62&amp;rsv_sug7=100&amp;rsv_sug2=0&amp;rsv_sug4=2217" target="_blank" rel="noopener">putty</a></li>
+<li><a href="https://www.baidu.com/s?ie=utf-8&amp;f=8&amp;rsv_bp=1&amp;rsv_idx=1&amp;tn=02003390_2_hao_pg&amp;wd=Xshell&amp;fenlei=256&amp;oq=putty&amp;rsv_pq=b0799f87000715fa&amp;rsv_t=f14bcCxih9eDCmSbfD4GsjdA4Ze6qJeGljF5NTRMBryZiLfHD1G7o8s694yHumKPIvB8FLKiS6U&amp;rqlang=cn&amp;rsv_enter=1&amp;rsv_dl=tb&amp;rsv_btype=t&amp;inputT=1642&amp;rsv_sug3=74&amp;rsv_sug1=72&amp;rsv_sug7=100&amp;rsv_sug2=0&amp;rsv_sug4=2664" target="_blank" rel="noopener">Xshell</a><h3 id="设置putty字体和全屏显示连接linux"><a href="#设置putty字体和全屏显示连接linux" class="headerlink" title="设置putty字体和全屏显示连接linux"></a>设置putty字体和全屏显示连接linux</h3><img src="https://img-blog.csdnimg.cn/20210331101315844.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><br><img src="https://img-blog.csdnimg.cn/20210331101324638.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><br><img src="https://img-blog.csdnimg.cn/20210331101359368.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><br>设置成功后就可以进入远程linux系统了。</li>
+</ul>
+<h3 id="进入全屏"><a href="#进入全屏" class="headerlink" title="进入全屏"></a>进入全屏</h3><p>全屏：<kbd>Alt</kbd> + <kbd>Enter</kbd><br><img src="https://img-blog.csdnimg.cn/20210331101530527.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></p>
+]]></content>
+      <categories>
+        <category>微型计算机</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Linux进程断连重新进入该进程方法</title>
     <url>/2021/03/31/Linux%E8%BF%9B%E7%A8%8B%E6%96%AD%E8%BF%9E%E9%87%8D%E6%96%B0%E8%BF%9B%E5%85%A5%E8%AF%A5%E8%BF%9B%E7%A8%8B%E6%96%B9%E6%B3%95/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Linux进程断连后重新进入该进程"><a href="#Linux进程断连后重新进入该进程" class="headerlink" title="Linux进程断连后重新进入该进程"></a>Linux进程断连后重新进入该进程</h1><h2 id="Putty-or-Xshell"><a href="#Putty-or-Xshell" class="headerlink" title="Putty or Xshell"></a>Putty or Xshell</h2><p>首先推荐这两款软件附下载地址</p>
@@ -70,51 +115,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Quantum-Mini-Linux—配置</title>
-    <url>/2021/04/13/Quantum-Mini-Linux%E2%80%94%E9%85%8D%E7%BD%AE/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><a id="more"></a>
-<h1 id="Quantum-Mini-Linux—网络配置"><a href="#Quantum-Mini-Linux—网络配置" class="headerlink" title="Quantum-Mini-Linux—网络配置"></a><center>Quantum-Mini-Linux—网络配置</center></h1><p><img src="https://files.seeedstudio.com/wiki/Quantum-Mini-Linux-Dev-Kit/Quantum-Mini-Linux-Dev-Kit.png" alt="" loading="lazy"></p>
-<h2 id="wifi账号密码设置"><a href="#wifi账号密码设置" class="headerlink" title="wifi账号密码设置"></a>wifi账号密码设置</h2><p><code>sudo vi /etc/wpa_supplicant/wpa_supplicant.conf</code></p>
-<p>修改如下的文件中的部分数据。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">network&#x3D;&#123;</span><br><span class="line"></span><br><span class="line">               ssid&#x3D;&quot;[你的网络名称]&quot;</span><br><span class="line"></span><br><span class="line">               psk&#x3D;&quot;[你的网络密码]&quot;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
-<p>如图<img src="https://exp-picture.cdn.bcebos.com/a44e8afc508c9bcec61993c2d6dd884ce44afa75.jpg?x-bce-process=image%2Fresize%2Cm_lfit%2Cw_500%2Climit_1%2Fformat%2Cf_jpg%2Fquality%2Cq_80" alt="" loading="lazy"></p>
-<h2 id="对本地网络地址进行配置"><a href="#对本地网络地址进行配置" class="headerlink" title="对本地网络地址进行配置"></a>对本地网络地址进行配置</h2><p>由于在实验室，所用的路由器的端口号是10.xxx.xxx.xxx 然后直接ip连接到了该位置，这肯定有问题。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo nano &#x2F;etc&#x2F;network&#x2F;interfaces</span><br></pre></td></tr></table></figure>
-<p>修改以下内容设置默认网关，具体数值可以根据自身情况修改</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">auto lo</span><br><span class="line">iface lo inet loopback</span><br><span class="line">auto enxb827bb3ef8a  &#x2F;&#x2F;就是前面查看的名字</span><br><span class="line">iface enxb827bb3ef8a inet static</span><br><span class="line">address 192.168.1.2    &#x2F;&#x2F;IP地址</span><br><span class="line">netmask 255.255.255.0    &#x2F;&#x2F;掩码</span><br><span class="line">gateway 192.168.1.1     &#x2F;&#x2F;网关</span><br></pre></td></tr></table></figure>
-<h2 id="查看是否连接成功"><a href="#查看是否连接成功" class="headerlink" title="查看是否连接成功"></a>查看是否连接成功</h2><p>ping 192.168.1.2可以但是无法ping www.baidu.com</p>
-<p>报错，unknown host www.baidu.com</p>
-<h2 id="设置端口"><a href="#设置端口" class="headerlink" title="设置端口"></a>设置端口</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo vi &#x2F;etc&#x2F;resolv.conf</span><br></pre></td></tr></table></figure>
-<p>如果你们网络不行的话，那么一定是这个nameserver的问题。</p>
-<p>所以，修改</p>
-<p>直接在那里面修改。</p>
-<p>改成8.8.8.8</p>
-<p>:wq保存就可以了。</p>
-<p>但是尝试后发现不是因为dns域名解析的问题。</p>
-<h2 id="windows找到www-baidu-com的ip地址"><a href="#windows找到www-baidu-com的ip地址" class="headerlink" title="windows找到www.baidu.com的ip地址"></a>windows找到www.baidu.com的ip地址</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">win+R</span><br><span class="line"></span><br><span class="line">cmd</span><br><span class="line"></span><br><span class="line">ping www.baidu.com</span><br></pre></td></tr></table></figure>
-<p>百度的地址为14.215.177.39</p>
-<p>用linux ping该地址，发现还是无法连接，证明linux没有连接到外网。</p>
-<h2 id="linux增加路由"><a href="#linux增加路由" class="headerlink" title="linux增加路由"></a>linux增加路由</h2><p>由于linux无法ping通外网，搜索后发现</p>
-<p>route</p>
-<p>查看路由表，很神奇的是路由表是空的，于是在思考后。</p>
-<p>route add default gw 192.168.1.1</p>
-<p>route</p>
-<p>成功解决树莓派无法上网问题。</p>
-<p>shutdown -r now</p>
-<h2 id="通过putty可以从局域网ssh访问Quantum-linux"><a href="#通过putty可以从局域网ssh访问Quantum-linux" class="headerlink" title="通过putty可以从局域网ssh访问Quantum-linux"></a>通过putty可以从局域网ssh访问Quantum-linux</h2><ul>
-<li><a href="https://www.baidu.com/s?ie=utf-8&amp;f=8&amp;rsv_bp=1&amp;rsv_idx=1&amp;tn=02003390_2_hao_pg&amp;wd=putty&amp;fenlei=256&amp;oq=linux%2520nohup%25E5%2590%258E%25E6%2580%258E%25E4%25B9%2588%25E8%25BF%259B%25E5%2585%25A5&amp;rsv_pq=a035ea760005dcd7&amp;rsv_t=2798tx2%2BkxpcNpvxPWiiy5OmKO49HU24tj7gyYA9ux%2FeHi83slME5HXfMhUJ6bBi6f1MApmcD6w&amp;rqlang=cn&amp;rsv_enter=1&amp;rsv_dl=tb&amp;rsv_btype=t&amp;inputT=1242&amp;rsv_sug3=66&amp;rsv_sug1=62&amp;rsv_sug7=100&amp;rsv_sug2=0&amp;rsv_sug4=2217" target="_blank" rel="noopener">putty</a></li>
-<li><a href="https://www.baidu.com/s?ie=utf-8&amp;f=8&amp;rsv_bp=1&amp;rsv_idx=1&amp;tn=02003390_2_hao_pg&amp;wd=Xshell&amp;fenlei=256&amp;oq=putty&amp;rsv_pq=b0799f87000715fa&amp;rsv_t=f14bcCxih9eDCmSbfD4GsjdA4Ze6qJeGljF5NTRMBryZiLfHD1G7o8s694yHumKPIvB8FLKiS6U&amp;rqlang=cn&amp;rsv_enter=1&amp;rsv_dl=tb&amp;rsv_btype=t&amp;inputT=1642&amp;rsv_sug3=74&amp;rsv_sug1=72&amp;rsv_sug7=100&amp;rsv_sug2=0&amp;rsv_sug4=2664" target="_blank" rel="noopener">Xshell</a><h3 id="设置putty字体和全屏显示连接linux"><a href="#设置putty字体和全屏显示连接linux" class="headerlink" title="设置putty字体和全屏显示连接linux"></a>设置putty字体和全屏显示连接linux</h3><img src="https://img-blog.csdnimg.cn/20210331101315844.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><br><img src="https://img-blog.csdnimg.cn/20210331101324638.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><br><img src="https://img-blog.csdnimg.cn/20210331101359368.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><br>设置成功后就可以进入远程linux系统了。</li>
-</ul>
-<h3 id="进入全屏"><a href="#进入全屏" class="headerlink" title="进入全屏"></a>进入全屏</h3><p>全屏：<kbd>Alt</kbd> + <kbd>Enter</kbd><br><img src="https://img-blog.csdnimg.cn/20210331101530527.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></p>
-]]></content>
-      <categories>
-        <category>微型计算机</category>
-      </categories>
-      <tags>
-        <tag>linux</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>b站视频分享</title>
     <url>/2017/11/17/b%E7%AB%99%E8%A7%86%E9%A2%91%E5%88%86%E4%BA%AB/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><div style="position:relative; padding-bottom:75%; width:100%; height:0">
@@ -127,6 +127,30 @@
       <tags>
         <tag>b站视频</tag>
         <tag>分享</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>deepin_ssh_远程控制</title>
+    <url>/2021/04/13/deepin-ssh-%E8%BF%9C%E7%A8%8B%E6%8E%A7%E5%88%B6/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="deepinssh远程控制"><a href="#deepinssh远程控制" class="headerlink" title="deepinssh远程控制"></a>deepin<em>ssh</em>远程控制</h1><h2 id="安装ssh："><a href="#安装ssh：" class="headerlink" title="安装ssh："></a>安装ssh：</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">apt-get install ssh</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo vi &#x2F;etc&#x2F;ssh&#x2F;sshd_config</span><br></pre></td></tr></table></figure>
+<p>找到下面内容</p>
+<p><img src="https://img2020.cnblogs.com/blog/1756476/202004/1756476-20200401231105458-1141980320.png" alt="" loading="lazy"></p>
+<p> 将红色框中的内容修改为下面的内容：</p>
+<p><img src="https://img2020.cnblogs.com/blog/1756476/202004/1756476-20200401231128868-2086048695.png" alt="" loading="lazy"></p>
+<p>修改成功以后，重启ssh服务：</p>
+<p>　　切换至ssh目录下<br>　　　　service ssh restart<br>　　然后我们那就能愉快的使用xshell连远程连接并且用root用户登陆deepin系统了。</p>
+<h2 id="远程桌面连接"><a href="#远程桌面连接" class="headerlink" title="远程桌面连接"></a>远程桌面连接</h2><ol>
+<li>在软件商店安装remmina<br>详情请参考<a href="https://jingyan.baidu.com/article/3aed632e2923d8701080911d.html" target="_blank" rel="noopener">远程桌面连接-百度经验</a></li>
+</ol>
+<p>2.安装<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># sudo apt-get install xrdp</span><br></pre></td></tr></table></figure><br>注意：安装完成后注销当前用户 或运行：</p>
+<p>详情请参考<a href="https://blog.csdn.net/yingftf/article/details/104581514" target="_blank" rel="noopener">CSDN</a></p>
+]]></content>
+      <categories>
+        <category>deepin</category>
+      </categories>
+      <tags>
+        <tag>deepin</tag>
       </tags>
   </entry>
   <entry>
@@ -198,30 +222,6 @@
       <tags>
         <tag>C++</tag>
         <tag>程序设计</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>deepin_ssh_远程控制</title>
-    <url>/2021/04/13/deepin-ssh-%E8%BF%9C%E7%A8%8B%E6%8E%A7%E5%88%B6/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="deepinssh远程控制"><a href="#deepinssh远程控制" class="headerlink" title="deepinssh远程控制"></a>deepin<em>ssh</em>远程控制</h1><h2 id="安装ssh："><a href="#安装ssh：" class="headerlink" title="安装ssh："></a>安装ssh：</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">apt-get install ssh</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo vi &#x2F;etc&#x2F;ssh&#x2F;sshd_config</span><br></pre></td></tr></table></figure>
-<p>找到下面内容</p>
-<p><img src="https://img2020.cnblogs.com/blog/1756476/202004/1756476-20200401231105458-1141980320.png" alt="" loading="lazy"></p>
-<p> 将红色框中的内容修改为下面的内容：</p>
-<p><img src="https://img2020.cnblogs.com/blog/1756476/202004/1756476-20200401231128868-2086048695.png" alt="" loading="lazy"></p>
-<p>修改成功以后，重启ssh服务：</p>
-<p>　　切换至ssh目录下<br>　　　　service ssh restart<br>　　然后我们那就能愉快的使用xshell连远程连接并且用root用户登陆deepin系统了。</p>
-<h2 id="远程桌面连接"><a href="#远程桌面连接" class="headerlink" title="远程桌面连接"></a>远程桌面连接</h2><ol>
-<li>在软件商店安装remmina<br>详情请参考<a href="https://jingyan.baidu.com/article/3aed632e2923d8701080911d.html" target="_blank" rel="noopener">远程桌面连接-百度经验</a></li>
-</ol>
-<p>2.安装<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># sudo apt-get install xrdp</span><br></pre></td></tr></table></figure><br>注意：安装完成后注销当前用户 或运行：</p>
-<p>详情请参考<a href="https://blog.csdn.net/yingftf/article/details/104581514" target="_blank" rel="noopener">CSDN</a></p>
-]]></content>
-      <categories>
-        <category>deepin</category>
-      </categories>
-      <tags>
-        <tag>deepin</tag>
       </tags>
   </entry>
   <entry>
@@ -328,6 +328,19 @@
       </tags>
   </entry>
   <entry>
+    <title>nmap</title>
+    <url>/2021/04/14/nmap/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><ol>
+<li>安装nmap</li>
+</ol>
+<p><code>sudo apt-get install nmap -y</code></p>
+<ol>
+<li>基本操作指令</li>
+</ol>
+<p><a href="http://linux.51yip.com/search/nmap" target="_blank" rel="noopener">nmap指令</a></p>
+]]></content>
+  </entry>
+  <entry>
     <title>linux学习笔记</title>
     <url>/2021/03/26/linux%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="linux操作系统学习笔记"><a href="#linux操作系统学习笔记" class="headerlink" title="linux操作系统学习笔记"></a><center>linux操作系统学习笔记</center></h1><h1 id="linux"><a href="#linux" class="headerlink" title="linux"></a>linux</h1><h2 id="linux常用命令"><a href="#linux常用命令" class="headerlink" title="linux常用命令"></a>linux常用命令</h2><h3 id="ls"><a href="#ls" class="headerlink" title="ls"></a>ls</h3><p><img src="https://www.runoob.com/wp-content/uploads/2014/06/d0c50-linux2bfile2bsystem2bhierarchy.jpg" alt="" loading="lazy"></p>
@@ -409,36 +422,6 @@
       </tags>
   </entry>
   <entry>
-    <title>linux嵌入式开发_1</title>
-    <url>/2020/07/30/linux%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91-1/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="linux基础"><a href="#linux基础" class="headerlink" title="linux基础"></a><strong>linux基础</strong></h1><h2 id="linux是什么？"><a href="#linux是什么？" class="headerlink" title="linux是什么？"></a>linux是什么？</h2><a id="more"></a>
-<ul>
-<li>linux是一款开源操作系统，开放了整组的调用接口给程序猿进行开发和使用。linux操作系统包含内核和系统调用，并不包含应用程序。由于linux的架构继承了unix良好传统，因此越来越多的开发者选择使用linux并为之设计了许多应用级软件。</li>
-</ul>
-<h2 id="开发环境的搭建"><a href="#开发环境的搭建" class="headerlink" title="开发环境的搭建"></a>开发环境的搭建</h2><ul>
-<li>开发环境需要用到交叉开发模式，这一点书上有很详细的介绍，包括硬件环境和软件环境的构建都写的十分清楚，所以这篇文章主要是写一下我在中间遇到的一些问题以及解决方法。虚拟机的话我用的是Ubuntu18.04版本，安装虚拟机啥的网上资源很多，直接百度就行。</li>
-</ul>
-<h2 id="linux下的环境搭建"><a href="#linux下的环境搭建" class="headerlink" title="linux下的环境搭建"></a>linux下的环境搭建</h2><h3 id="1、修改Ubuntu的一些配置"><a href="#1、修改Ubuntu的一些配置" class="headerlink" title="1、修改Ubuntu的一些配置"></a>1、修改Ubuntu的一些配置</h3><ul>
-<li><p>切换国内镜像源</p>
-<p>&ensp;&ensp;&ensp;&ensp;&ensp; 在使用apt命令安装包时，因为系统自带下载源在国外服务器上，所以需要切换为国内镜像源才能提升下载速度。这里有一篇博客详细说明了如何直接根据终端命令修改其配置文件，从而达到修改下载源的目的.或者，，，，你也可以直接用Ubuntu的图形界面去修改，步骤如下： 显示应用程序-&gt;软件和更新-&gt;下载自主服务器改为其他，然后选择合适的镜像源就行了，这里我选择的是阿里的镜像源。</p>
-</li>
-<li><p>修改语言和设置汉语输入法</p>
-<p>&ensp;&ensp;&ensp;&ensp;&ensp; 懒得写，直接贴别人博客了</p>
-</li>
-</ul>
-<p>&ensp;&ensp;&ensp;&ensp;&ensp;<a href="https://blog.csdn.net/langshi_2011/article/details/78993781" target="_blank" rel="noopener">Linux Ubuntu系统设置成中文语言</a></p>
-<p>&ensp;&ensp;&ensp;&ensp;&ensp;<a href="https://blog.csdn.net/sparkstrike/article/details/81487271" target="_blank" rel="noopener">Linux.Ubuntu.中文输入法设置</a></p>
-]]></content>
-      <categories>
-        <category>程序设计</category>
-      </categories>
-      <tags>
-        <tag>linux</tag>
-        <tag>嵌入式开发</tag>
-        <tag>鸟哥的私房菜学习</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Merry Christmas</title>
     <url>/2020/12/24/merry_christmas/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Merry-Christmas"><a href="#Merry-Christmas" class="headerlink" title="Merry Christmas"></a><center>Merry Christmas</center></h1><center>
@@ -475,6 +458,36 @@
       </categories>
       <tags>
         <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>linux嵌入式开发_1</title>
+    <url>/2020/07/30/linux%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91-1/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="linux基础"><a href="#linux基础" class="headerlink" title="linux基础"></a><strong>linux基础</strong></h1><h2 id="linux是什么？"><a href="#linux是什么？" class="headerlink" title="linux是什么？"></a>linux是什么？</h2><a id="more"></a>
+<ul>
+<li>linux是一款开源操作系统，开放了整组的调用接口给程序猿进行开发和使用。linux操作系统包含内核和系统调用，并不包含应用程序。由于linux的架构继承了unix良好传统，因此越来越多的开发者选择使用linux并为之设计了许多应用级软件。</li>
+</ul>
+<h2 id="开发环境的搭建"><a href="#开发环境的搭建" class="headerlink" title="开发环境的搭建"></a>开发环境的搭建</h2><ul>
+<li>开发环境需要用到交叉开发模式，这一点书上有很详细的介绍，包括硬件环境和软件环境的构建都写的十分清楚，所以这篇文章主要是写一下我在中间遇到的一些问题以及解决方法。虚拟机的话我用的是Ubuntu18.04版本，安装虚拟机啥的网上资源很多，直接百度就行。</li>
+</ul>
+<h2 id="linux下的环境搭建"><a href="#linux下的环境搭建" class="headerlink" title="linux下的环境搭建"></a>linux下的环境搭建</h2><h3 id="1、修改Ubuntu的一些配置"><a href="#1、修改Ubuntu的一些配置" class="headerlink" title="1、修改Ubuntu的一些配置"></a>1、修改Ubuntu的一些配置</h3><ul>
+<li><p>切换国内镜像源</p>
+<p>&ensp;&ensp;&ensp;&ensp;&ensp; 在使用apt命令安装包时，因为系统自带下载源在国外服务器上，所以需要切换为国内镜像源才能提升下载速度。这里有一篇博客详细说明了如何直接根据终端命令修改其配置文件，从而达到修改下载源的目的.或者，，，，你也可以直接用Ubuntu的图形界面去修改，步骤如下： 显示应用程序-&gt;软件和更新-&gt;下载自主服务器改为其他，然后选择合适的镜像源就行了，这里我选择的是阿里的镜像源。</p>
+</li>
+<li><p>修改语言和设置汉语输入法</p>
+<p>&ensp;&ensp;&ensp;&ensp;&ensp; 懒得写，直接贴别人博客了</p>
+</li>
+</ul>
+<p>&ensp;&ensp;&ensp;&ensp;&ensp;<a href="https://blog.csdn.net/langshi_2011/article/details/78993781" target="_blank" rel="noopener">Linux Ubuntu系统设置成中文语言</a></p>
+<p>&ensp;&ensp;&ensp;&ensp;&ensp;<a href="https://blog.csdn.net/sparkstrike/article/details/81487271" target="_blank" rel="noopener">Linux.Ubuntu.中文输入法设置</a></p>
+]]></content>
+      <categories>
+        <category>程序设计</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+        <tag>嵌入式开发</tag>
+        <tag>鸟哥的私房菜学习</tag>
       </tags>
   </entry>
   <entry>
@@ -1013,6 +1026,81 @@ r = \frac{|w^Tx+b|}{||w||}</script><ol>
       </tags>
   </entry>
   <entry>
+    <title>南京大屠杀国家公祭日_网站变成灰色以表悼念</title>
+    <url>/2020/12/13/%E7%BD%91%E7%AB%99%E5%8F%98%E7%81%B0%E7%9A%84%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="南京大屠杀国家公祭日-网站变成灰色以表悼念"><a href="#南京大屠杀国家公祭日-网站变成灰色以表悼念" class="headerlink" title=" 南京大屠杀国家公祭日_网站变成灰色以表悼念 "></a><center> 南京大屠杀国家公祭日_网站变成灰色以表悼念 </center></h2><div style="position:relative; padding-bottom:75%; width:100%; height:0">
+    <iframe src="//player.bilibili.com/player.html?aid=78993619&bvid=BV1cJ411C7Dg&cid=135180758&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position:absolute; height: 100%; width: 100%;"> </iframe>
+</div>
+
+<a id="more"></a>
+<p>12月13日是第七个南京大屠杀死难者国家公祭日。公祭无辜死难之生命，告慰血与泪浸染之土地。这一天，举国上下以各种形式深切缅怀死难同胞，深切缅怀为中国人民抗日战争胜利献出生命的革命先烈和民族英雄，表达牢记历史、珍爱和平、矢志复兴，身为站长的我们都会让自己的网站的全部网页变成灰色（黑白色），以表示我们对逝者的悼念。</p>
+<h3 id="第一种：修改CSS文件"><a href="#第一种：修改CSS文件" class="headerlink" title="第一种：修改CSS文件"></a>第一种：修改CSS文件</h3><p>我们可以在网页的CSS文件中添加以下的CSS代码，来实现网页黑白色，也就是网站变灰</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">html &#123;</span><br><span class="line">    filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale&#x3D;1);</span><br><span class="line">    -webkit-filter: grayscale(100%);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="第二种：在网页的标签内加入以下代码"><a href="#第二种：在网页的标签内加入以下代码" class="headerlink" title="第二种：在网页的标签内加入以下代码"></a>第二种：在网页的<head>标签内加入以下代码</h3><p>如果你不想改动CSS文件，你可以通过在网页头部中的<head>标签内部加入内联CSS代码的形式实现网站网页变灰</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;style type&#x3D;&quot;text&#x2F;css&quot;&gt;</span><br><span class="line">html &#123;</span><br><span class="line">filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale&#x3D;1);</span><br><span class="line">-webkit-filter: grayscale(100%);&#125;</span><br><span class="line">&lt;&#x2F;style&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="第三种：修改标签加入内联样式"><a href="#第三种：修改标签加入内联样式" class="headerlink" title="第三种：修改标签加入内联样式"></a>第三种：修改<html>标签加入内联样式</h3><p>如里上面的两种方式都不喜欢，可以通过修改<html>标签，以加入内联样式的方法，达到网页变灰的效果</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;html style&#x3D;&quot;filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale&#x3D;1);</span><br><span class="line">-webkit-filter: grayscale(100%);&quot;&gt;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>CSS</category>
+      </categories>
+      <tags>
+        <tag>南京大屠杀国家公祭日</tag>
+        <tag>hexo网站</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>网站视频下载及按帧将视频转为jpg</title>
+    <url>/2020/10/15/%E7%BD%91%E7%AB%99%E8%A7%86%E9%A2%91%E4%B8%8B%E8%BD%BD%E5%8F%8A%E6%8C%89%E5%B8%A7%E8%BD%AC%E4%B8%BAjpg/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="网站视频下载及按帧转为jpg"><a href="#网站视频下载及按帧转为jpg" class="headerlink" title="网站视频下载及按帧转为jpg"></a>网站视频下载及按帧转为jpg</h1><h2 id="1、准备切割视频"><a href="#1、准备切割视频" class="headerlink" title="1、准备切割视频"></a>1、准备切割视频</h2><p>视频切割算法:<br><figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">clc;</span><br><span class="line">clear;</span><br><span class="line"><span class="comment">%读取视频</span></span><br><span class="line">video_file=<span class="string">'D:\1.mp4'</span>;</span><br><span class="line">obj=VideoReader(video_file);</span><br><span class="line">frame_num=obj.NumberOfFrames;<span class="comment">%一共有多少帧</span></span><br><span class="line"><span class="comment">% 分离图片</span></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:<span class="number">15</span><span class="comment">%读取前15帧</span></span><br><span class="line">    img=strcat(<span class="string">'D:\picture\',num2str(i));</span></span><br><span class="line"><span class="string">    img=strcat(img,'</span>.jpg');</span><br><span class="line">    I=read(obj,<span class="built_in">i</span>);<span class="comment">%读出第15帧图片</span></span><br><span class="line">    imwrite(I,strcat(<span class="string">'D:\picture\',num2str(i),'</span>.jpg'),<span class="string">'jpg'</span>);<span class="comment">% 保存帧</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="2、问题"><a href="#2、问题" class="headerlink" title="2、问题"></a>2、问题</h2><h4 id="考虑使用-you-get下载视频"><a href="#考虑使用-you-get下载视频" class="headerlink" title="考虑使用 you-get下载视频"></a>考虑使用 you-get下载视频</h4><ol>
+<li>首先安装<br><kbd>pip install you-get</kbd></li>
+<li>下载<br><kbd>you-get -i [URL]</kbd><br>-i:查看可以下载的详细信息<br><kbd>you-get —format=dash-flv  [URL]</kbd></li>
+</ol>
+<p>以此方法可以直接下载大部分网站上的视频。</p>
+<h4 id="例子：以小鲤鱼历险记为例bilibili"><a href="#例子：以小鲤鱼历险记为例bilibili" class="headerlink" title="例子：以小鲤鱼历险记为例bilibili"></a>例子：以小鲤鱼历险记为例<a href="https://www.bilibili.com/video/BV1Ns411r7cX?from=search&amp;seid=2589828094683508837" target="_blank" rel="noopener">bilibili</a></h4><ol>
+<li>直接通过you-get进行下载<br>下载到的文件一般是flv需要解码，不能直接读取。<br><kbd>you-get <a href="https://www.bilibili.com/video/BV1Ns411r7cX?from=search&amp;seid=2589828094683508837" target="_blank" rel="noopener">https://www.bilibili.com/video/BV1Ns411r7cX?from=search&amp;seid=2589828094683508837</a></kbd></li>
+</ol>
+<p><img src="https://img-blog.csdnimg.cn/20201120164038867.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></p>
+<ol>
+<li><p>通过you-get -i 获取视频信息<br>找到需求的部分，本例使用小鲤鱼历险记mp4、720p为例。<br><kbd>you-get -i <a href="https://www.bilibili.com/video/BV1Ns411r7cX?from=search&amp;seid=2589828094683508837" target="_blank" rel="noopener">https://www.bilibili.com/video/BV1Ns411r7cX?from=search&amp;seid=2589828094683508837</a></kbd><br><img src="https://img-blog.csdnimg.cn/20201120164038873.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></p>
+</li>
+<li><p>通过you-get —format=dash-flv  获取视频信息<br>找到需求的部分，本例使用小鲤鱼历险记mp4、720p为例。 </p>
+</li>
+</ol>
+<p><kbd>you-get —format=dash-720  <a href="https://www.bilibili.com/video/BV1Ns411r7cX?from=search&amp;seid=2589828094683508837" target="_blank" rel="noopener">https://www.bilibili.com/video/BV1Ns411r7cX?from=search&amp;seid=2589828094683508837</a></kbd></p>
+<p><img src="https://img-blog.csdnimg.cn/20201120164038865.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></p>
+<ol>
+<li>下载下来的文件地址为终端所在地址：<br>本文中为<kbd>E:\Users\root\【720p】小鲤鱼历险记【2006】【完结】【无水印高清】 (P1. 小鲤鱼历险记 01)[00].mp4</kbd></li>
+</ol>
+<p><img src="https://img-blog.csdnimg.cn/20201120164038861.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></p>
+<h4 id="hevc未安装"><a href="#hevc未安装" class="headerlink" title="hevc未安装"></a>hevc未安装</h4><p>导致matlab无法读取下载的软件</p>
+<h2 id="3、方法"><a href="#3、方法" class="headerlink" title="3、方法"></a>3、方法</h2><p>1、安装codec，网上有很多hevc但是目前免费办法中国区无法下载，于是参考很多文章后选择下载codec。</p>
+<p>参考：</p>
+<ul>
+<li><ol>
+<li><a href="http://www.codecguide.com/download_k-lite_codec_pack_basic.htm" target="_blank" rel="noopener">http://www.codecguide.com/download_k-lite_codec_pack_basic.htm</a></li>
+</ol>
+</li>
+<li><ol>
+<li><a href="https://www.jianshu.com/p/dd7f04c27a79" target="_blank" rel="noopener">https://www.jianshu.com/p/dd7f04c27a79</a></li>
+</ol>
+</li>
+<li><ol>
+<li><a href="https://mmrslwan1110.github.io" target="_blank" rel="noopener">https://mmrslwan1110.github.io</a></li>
+</ol>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>辅助技术</category>
+      </categories>
+      <tags>
+        <tag>matlab</tag>
+        <tag>视频</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>程序语法</title>
     <url>/2020/11/20/%E7%A8%8B%E5%BA%8F%E8%AF%AD%E6%B3%95/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="编程语言语法"><a href="#编程语言语法" class="headerlink" title="编程语言语法"></a><center>编程语言语法</center></h1><a id="more"></a>
@@ -1162,81 +1250,6 @@ r = \frac{|w^Tx+b|}{||w||}</script><ol>
         <tag>matlab</tag>
         <tag>c</tag>
         <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>南京大屠杀国家公祭日_网站变成灰色以表悼念</title>
-    <url>/2020/12/13/%E7%BD%91%E7%AB%99%E5%8F%98%E7%81%B0%E7%9A%84%E6%96%B9%E6%B3%95/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="南京大屠杀国家公祭日-网站变成灰色以表悼念"><a href="#南京大屠杀国家公祭日-网站变成灰色以表悼念" class="headerlink" title=" 南京大屠杀国家公祭日_网站变成灰色以表悼念 "></a><center> 南京大屠杀国家公祭日_网站变成灰色以表悼念 </center></h2><div style="position:relative; padding-bottom:75%; width:100%; height:0">
-    <iframe src="//player.bilibili.com/player.html?aid=78993619&bvid=BV1cJ411C7Dg&cid=135180758&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position:absolute; height: 100%; width: 100%;"> </iframe>
-</div>
-
-<a id="more"></a>
-<p>12月13日是第七个南京大屠杀死难者国家公祭日。公祭无辜死难之生命，告慰血与泪浸染之土地。这一天，举国上下以各种形式深切缅怀死难同胞，深切缅怀为中国人民抗日战争胜利献出生命的革命先烈和民族英雄，表达牢记历史、珍爱和平、矢志复兴，身为站长的我们都会让自己的网站的全部网页变成灰色（黑白色），以表示我们对逝者的悼念。</p>
-<h3 id="第一种：修改CSS文件"><a href="#第一种：修改CSS文件" class="headerlink" title="第一种：修改CSS文件"></a>第一种：修改CSS文件</h3><p>我们可以在网页的CSS文件中添加以下的CSS代码，来实现网页黑白色，也就是网站变灰</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">html &#123;</span><br><span class="line">    filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale&#x3D;1);</span><br><span class="line">    -webkit-filter: grayscale(100%);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="第二种：在网页的标签内加入以下代码"><a href="#第二种：在网页的标签内加入以下代码" class="headerlink" title="第二种：在网页的标签内加入以下代码"></a>第二种：在网页的<head>标签内加入以下代码</h3><p>如果你不想改动CSS文件，你可以通过在网页头部中的<head>标签内部加入内联CSS代码的形式实现网站网页变灰</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;style type&#x3D;&quot;text&#x2F;css&quot;&gt;</span><br><span class="line">html &#123;</span><br><span class="line">filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale&#x3D;1);</span><br><span class="line">-webkit-filter: grayscale(100%);&#125;</span><br><span class="line">&lt;&#x2F;style&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="第三种：修改标签加入内联样式"><a href="#第三种：修改标签加入内联样式" class="headerlink" title="第三种：修改标签加入内联样式"></a>第三种：修改<html>标签加入内联样式</h3><p>如里上面的两种方式都不喜欢，可以通过修改<html>标签，以加入内联样式的方法，达到网页变灰的效果</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;html style&#x3D;&quot;filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale&#x3D;1);</span><br><span class="line">-webkit-filter: grayscale(100%);&quot;&gt;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>CSS</category>
-      </categories>
-      <tags>
-        <tag>南京大屠杀国家公祭日</tag>
-        <tag>hexo网站</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>网站视频下载及按帧将视频转为jpg</title>
-    <url>/2020/10/15/%E7%BD%91%E7%AB%99%E8%A7%86%E9%A2%91%E4%B8%8B%E8%BD%BD%E5%8F%8A%E6%8C%89%E5%B8%A7%E8%BD%AC%E4%B8%BAjpg/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="网站视频下载及按帧转为jpg"><a href="#网站视频下载及按帧转为jpg" class="headerlink" title="网站视频下载及按帧转为jpg"></a>网站视频下载及按帧转为jpg</h1><h2 id="1、准备切割视频"><a href="#1、准备切割视频" class="headerlink" title="1、准备切割视频"></a>1、准备切割视频</h2><p>视频切割算法:<br><figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">clc;</span><br><span class="line">clear;</span><br><span class="line"><span class="comment">%读取视频</span></span><br><span class="line">video_file=<span class="string">'D:\1.mp4'</span>;</span><br><span class="line">obj=VideoReader(video_file);</span><br><span class="line">frame_num=obj.NumberOfFrames;<span class="comment">%一共有多少帧</span></span><br><span class="line"><span class="comment">% 分离图片</span></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:<span class="number">15</span><span class="comment">%读取前15帧</span></span><br><span class="line">    img=strcat(<span class="string">'D:\picture\',num2str(i));</span></span><br><span class="line"><span class="string">    img=strcat(img,'</span>.jpg');</span><br><span class="line">    I=read(obj,<span class="built_in">i</span>);<span class="comment">%读出第15帧图片</span></span><br><span class="line">    imwrite(I,strcat(<span class="string">'D:\picture\',num2str(i),'</span>.jpg'),<span class="string">'jpg'</span>);<span class="comment">% 保存帧</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="2、问题"><a href="#2、问题" class="headerlink" title="2、问题"></a>2、问题</h2><h4 id="考虑使用-you-get下载视频"><a href="#考虑使用-you-get下载视频" class="headerlink" title="考虑使用 you-get下载视频"></a>考虑使用 you-get下载视频</h4><ol>
-<li>首先安装<br><kbd>pip install you-get</kbd></li>
-<li>下载<br><kbd>you-get -i [URL]</kbd><br>-i:查看可以下载的详细信息<br><kbd>you-get —format=dash-flv  [URL]</kbd></li>
-</ol>
-<p>以此方法可以直接下载大部分网站上的视频。</p>
-<h4 id="例子：以小鲤鱼历险记为例bilibili"><a href="#例子：以小鲤鱼历险记为例bilibili" class="headerlink" title="例子：以小鲤鱼历险记为例bilibili"></a>例子：以小鲤鱼历险记为例<a href="https://www.bilibili.com/video/BV1Ns411r7cX?from=search&amp;seid=2589828094683508837" target="_blank" rel="noopener">bilibili</a></h4><ol>
-<li>直接通过you-get进行下载<br>下载到的文件一般是flv需要解码，不能直接读取。<br><kbd>you-get <a href="https://www.bilibili.com/video/BV1Ns411r7cX?from=search&amp;seid=2589828094683508837" target="_blank" rel="noopener">https://www.bilibili.com/video/BV1Ns411r7cX?from=search&amp;seid=2589828094683508837</a></kbd></li>
-</ol>
-<p><img src="https://img-blog.csdnimg.cn/20201120164038867.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></p>
-<ol>
-<li><p>通过you-get -i 获取视频信息<br>找到需求的部分，本例使用小鲤鱼历险记mp4、720p为例。<br><kbd>you-get -i <a href="https://www.bilibili.com/video/BV1Ns411r7cX?from=search&amp;seid=2589828094683508837" target="_blank" rel="noopener">https://www.bilibili.com/video/BV1Ns411r7cX?from=search&amp;seid=2589828094683508837</a></kbd><br><img src="https://img-blog.csdnimg.cn/20201120164038873.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></p>
-</li>
-<li><p>通过you-get —format=dash-flv  获取视频信息<br>找到需求的部分，本例使用小鲤鱼历险记mp4、720p为例。 </p>
-</li>
-</ol>
-<p><kbd>you-get —format=dash-720  <a href="https://www.bilibili.com/video/BV1Ns411r7cX?from=search&amp;seid=2589828094683508837" target="_blank" rel="noopener">https://www.bilibili.com/video/BV1Ns411r7cX?from=search&amp;seid=2589828094683508837</a></kbd></p>
-<p><img src="https://img-blog.csdnimg.cn/20201120164038865.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></p>
-<ol>
-<li>下载下来的文件地址为终端所在地址：<br>本文中为<kbd>E:\Users\root\【720p】小鲤鱼历险记【2006】【完结】【无水印高清】 (P1. 小鲤鱼历险记 01)[00].mp4</kbd></li>
-</ol>
-<p><img src="https://img-blog.csdnimg.cn/20201120164038861.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" loading="lazy"></p>
-<h4 id="hevc未安装"><a href="#hevc未安装" class="headerlink" title="hevc未安装"></a>hevc未安装</h4><p>导致matlab无法读取下载的软件</p>
-<h2 id="3、方法"><a href="#3、方法" class="headerlink" title="3、方法"></a>3、方法</h2><p>1、安装codec，网上有很多hevc但是目前免费办法中国区无法下载，于是参考很多文章后选择下载codec。</p>
-<p>参考：</p>
-<ul>
-<li><ol>
-<li><a href="http://www.codecguide.com/download_k-lite_codec_pack_basic.htm" target="_blank" rel="noopener">http://www.codecguide.com/download_k-lite_codec_pack_basic.htm</a></li>
-</ol>
-</li>
-<li><ol>
-<li><a href="https://www.jianshu.com/p/dd7f04c27a79" target="_blank" rel="noopener">https://www.jianshu.com/p/dd7f04c27a79</a></li>
-</ol>
-</li>
-<li><ol>
-<li><a href="https://mmrslwan1110.github.io" target="_blank" rel="noopener">https://mmrslwan1110.github.io</a></li>
-</ol>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>辅助技术</category>
-      </categories>
-      <tags>
-        <tag>matlab</tag>
-        <tag>视频</tag>
       </tags>
   </entry>
   <entry>
@@ -1507,53 +1520,6 @@ r = \frac{|w^Tx+b|}{||w||}</script><ol>
       </tags>
   </entry>
   <entry>
-    <title>surface完美安装linux操作系统、hexo博客</title>
-    <url>/2021/03/19/Deepin%E7%B3%BB%E7%BB%9F%E4%B8%8Esurface%E5%AE%89%E8%A3%85/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="surface完美安装linux操作系统、hexo博客"><a href="#surface完美安装linux操作系统、hexo博客" class="headerlink" title="surface完美安装linux操作系统、hexo博客"></a><center>surface完美安装linux操作系统、hexo博客</center></h1><p>最近由于linux课程需要使用linux系统，于是在ubuntu、kali、Elementary OS、Chrome OS和deepin操作系统中选择一个比较靠谱的。<br><a id="more"></a></p>
-<h2 id="linux操作系统介绍"><a href="#linux操作系统介绍" class="headerlink" title="linux操作系统介绍"></a>linux操作系统介绍</h2><h3 id="ubuntu"><a href="#ubuntu" class="headerlink" title="ubuntu"></a>ubuntu</h3><p>作为全球最流行且最有影响力的Linux开源系统之一，Ubuntu自发布以来在应用体验方面：有较大幅度的提升，即使对比Windows、MacOS等操作系统，最新版本的Ubuntu也不逊色。<br><img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3931899733,1893021162&amp;fm=26&amp;gp=0.jpg" alt="" loading="lazy">  </p>
-<h3 id="kali"><a href="#kali" class="headerlink" title="kali"></a>kali</h3><p>Kali Linux是基于Debian的Linux发行版， 设计用于数字取证操作系统。每一季度更新一次。由Offensive Security Ltd维护和资助。最先由Offensive Security的Mati Aharoni和Devon Kearns通过重写BackTrack来完成，BackTrack是他们之前写的用于取证的Linux发行版 。</p>
-<p>主要是用来渗透网络—所以俗话说kali从入门到入狱。</p>
-<p><img src="https://bkimg.cdn.bcebos.com/pic/3b87e950352ac65c1038fd5662baa5119313b07e1cf7?x-bce-process=image/watermark,image_d2里奴性F0ZXIvYmFpa2UxNTA=,g_7,xp_5,yp_5/format,f_auto" alt="" loading="lazy"></p>
-<h3 id="Elementary-OS"><a href="#Elementary-OS" class="headerlink" title="Elementary OS"></a>Elementary OS</h3><p>Elementary OS是基于 Ubuntu 精心打磨美化的桌面 Linux 发行版的一款软件，号称 “最美的 Linux”， 最早是 Ubuntu 的一个美化主题项目，现在成了独立的发行版<br><img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fww2.sinaimg.cn%2Fmw1024%2F6595c7c6tw1e7nlcg38qoj211s0lcag0.jpg&amp;refer=http%3A%2F%2Fwww.sina.com&amp;app=2002&amp;size=f9999,10000&amp;q=a80&amp;n=0&amp;g=0n&amp;fmt=jpeg?sec=1618754413&amp;t=c4cc435286c020b6845bd352d5a1dd8c" alt="" loading="lazy"></p>
-<h3 id="Chrome-OS"><a href="#Chrome-OS" class="headerlink" title="Chrome OS"></a>Chrome OS</h3><p>Chrome OS是一款Google开发的基于PC的操作系统。 Google Chrome OS是一款基于Linux的开源操作系统。Google在自己的官方博客表示，初期，这一操作系统将定位于上网本、紧凑型以及低成本电脑。这款开源软件将被命名为Chrome OS，谷歌公司于2010年12里奴性月7日（北京时间12月8日2点30分）在美国举行Chrome相关产品发布会，发布会上正式发布Chrome Web store和Chrome OS。</p>
-<p><img src="https://gss0.baidu.com/70cFfyinKgQFm2e88IuM_a/baike/pic/item/8694a4c27d1ed21bae953dafa06eddc451da3f1f.jpg" alt="" loading="lazy"></p>
-<h3 id="deepin"><a href="#deepin" class="headerlink" title="deepin"></a>deepin</h3><p>Deepin（原名：Linux Deepin；中文通称：深度操作系统）是由武汉深之度科技有限公司在Debian基础上开发的Linux操作系统，其前身是Hiweed Linux操作系统，于2004年2月28日开始对外发行，可以安装在个人计算机和服务器中。</p>
-<p>Deepin 12.12 正式版本将搭载一个全新的桌面环境。该桌面环境由Deepin 团队开发，以轻型、美观、稳定等作为设计目标。新桌面环境使用 Compiz 作为默认的窗口管理器。<br><img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fzkres1.myzaker.com%2F201910%2F5dae5906b15ec02e1c28f7b1_1024.jpg&amp;refer=http%3A%2F%2Fzkres1.myzaker.com&amp;app=2002&amp;size=f9999,10000&amp;q=a80&amp;n=0&amp;g=0n&amp;fmt=jpeg?sec=1618754739&amp;t=be9f54a43670d51053a30eec7d91ac18" alt="" loading="lazy"></p>
-<h3 id="总结以上五种系统各有各的优点"><a href="#总结以上五种系统各有各的优点" class="headerlink" title="总结以上五种系统各有各的优点"></a>总结以上五种系统各有各的优点</h3><p>运行上deepin会更慢一些，因为deepin的界面做的最好看，其次deepin是国产linux系统，而且是武汉的公司，安装极其简单，所以我就装了deepin操作系统。</p>
-<h2 id="deepin启动盘制作"><a href="#deepin启动盘制作" class="headerlink" title="deepin启动盘制作"></a>deepin启动盘制作</h2><p>deepin v20下载地址<a href="https://www.deepin.org/zh/download/" target="_blank" rel="noopener">deep in</a><br>首先下载镜像，其次下载启动盘制作工具，制作启动盘。</p>
-<h2 id="windows分区"><a href="#windows分区" class="headerlink" title="windows分区"></a>windows分区</h2><p>删除一些windows上面不需要的软件和文件，腾出50G的空间，然后通过<a href="https://www.soft-down.net/detail/44/431115.shtml?type=jingzhun" target="_blank" rel="noopener">分区助手</a><br>对磁盘进行分区。</p>
-<h2 id="系统安装具体操作步骤"><a href="#系统安装具体操作步骤" class="headerlink" title="系统安装具体操作步骤"></a>系统安装具体操作步骤</h2><p>1.制作启动u盘deepin系统安装盘。就是把deepin.iso烧录到u盘上。<br>这里请一定要先记得在淘宝上买一个扩展坞，因为surface是一款pc平板而合一电脑，为了节约面积，采用了单usb端口。同时安装系统时蓝牙会失效，需要准备有线鼠标、有线键盘。</p>
-<p>2.关闭secureboot.关机后 音量下键+电源三秒，松开电源，见到surface图标后松开音量键进入bios界面。第二项 secureboot 回车 disable它。滑倒最后exit save setting。</p>
-<p>特别注意一点！就是分清楚surface的音量和电源在那不要按错。</p>
-<p>3.进入windows系统，点击setting，在setting 中搜索boot，看到第二项，create and format hard disk partitions. 进入后看到C盘，鼠标右键shrink volumn(分出给deepin 的空间）</p>
-<p>建议采用之前说的分区助手，这种方法分区很容易崩。</p>
-<p>4.从U盘启动。有两种方式：<br>第一种关机后，音量下键+电源3秒，松开电源。见到surface画面后松开音量键。<br>第二种从windows 向左滑，进入setting. 最底下change pc settings.进去后点击最底下的updates and recovery(更新和恢复）选择里面最底下选项。advanced startup. （高级启动）。进入U盘启动。</p>
-<p>5.从U盘启动后。选择第二项，安装deepin. 选择语言，然后选择something else(其他选项）。目的是不要覆盖windows系统。安装系统到我们分出的free space里。<br>点击 free space ，再点击左下角的“+”号。选择逻辑分区，ext4, 给/root.尽量大点。</p>
-<p>再点击 free space ，点击左下角的“+”号。逻辑或主分区随便（我给的逻辑分区），swap area(交换空间）.随便给个几G。英文教程中不给，我是分了，省得它提示我必须给。反正也不少这几个G。</p>
-<p>选择启动盘为windows 所在的那个，一般叫sda 4.</p>
-<p>然后开始安装。重启。</p>
-<h2 id="安装触摸屏驱动"><a href="#安装触摸屏驱动" class="headerlink" title="安装触摸屏驱动"></a>安装触摸屏驱动</h2><h3 id="deepin-1"><a href="#deepin-1" class="headerlink" title="deepin"></a>deepin</h3><p>这里很神奇如果你也装的是deepin操作系统，触摸屏是可以直接使用的，可能因为华为封锁，目前华为用的均为deepin操作系统，华为也有触控笔记本电脑。</p>
-<h3 id="其他linux系统"><a href="#其他linux系统" class="headerlink" title="其他linux系统"></a>其他linux系统</h3><p>请详见<a href="https://github.com/jakeday/linux-surface" target="_blank" rel="noopener">github大神</a>的surface驱动安装教程。</p>
-<p>进入系统以后使用Terminal安装了Peter Hunter整理的内核<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo add-apt-repository ppa:tigerite&#x2F;kernel</span><br><span class="line"></span><br><span class="line">sudo apt-get update</span><br><span class="line"></span><br><span class="line">sudo apt-get install linux-surface</span><br></pre></td></tr></table></figure><br>然后使用编辑器nano或者gedit编辑/<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">lib&#x2F;udev&#x2F;rules.d&#x2F;50-bluetooth-hci-auto-poweron.rules</span><br></pre></td></tr></table></figure><br>用#注释掉里面唯一的那一行，再打开/etc/bluetooth/main.conf<br>把#[Policy]<br>改成[Policy]<br>并把最后一排的<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#AutoEnable&#x3D;false改成AutoEnable&#x3D;true</span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;安装rEFIndsudo</span><br><span class="line"></span><br><span class="line">apt-add-repository ppa:rodsmith&#x2F;refind</span><br><span class="line"></span><br><span class="line">sudo apt-get update</span><br><span class="line"></span><br><span class="line">sudo apt-get install refind</span><br></pre></td></tr></table></figure><br>用Shim给rEFind增加Secure Boot的启动方式<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">refind-install --shim &#x2F;boot&#x2F;efi&#x2F;EFI&#x2F;ubuntu&#x2F;shimx64.efi --localkeys</span><br></pre></td></tr></table></figure><br>然后把rEFind设为第一启动项refind-mkdefault开启Secure Boot</p>
-<h2 id="蓝牙驱动安装"><a href="#蓝牙驱动安装" class="headerlink" title="蓝牙驱动安装"></a>蓝牙驱动安装</h2><p>蓝牙（Bluetooth），是一种无线个人局域网（Wireless PAN），最初由爱立信创制，后来由蓝牙技术联盟订定技术标准。这个词的来源是10世纪丹麦和挪威国王蓝牙哈拉尔（丹麦语：Harald Blåtand Gormsen），借国王的绰号“Blåtand”当名称，直接翻译成中文为“蓝牙”（blå＝蓝，tand＝牙）。蓝牙是一种通用的射频频率是2.45GHZ的无线电接口，它使带有电子端口的设备能够在小范围内进行无线通信。</p>
-<h3 id="安装应用"><a href="#安装应用" class="headerlink" title="安装应用"></a>安装应用</h3><p>Blueman旨在提供最为常见的蓝牙管理功能。</p>
-<p>命令安装，终端执行：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt-get install blueman</span><br><span class="line">&#96;</span><br></pre></td></tr></table></figure><br>命令卸载，终端执行：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt-get remove blueman</span><br></pre></td></tr></table></figure></p>
-<h2 id="Hexo安装"><a href="#Hexo安装" class="headerlink" title="Hexo安装"></a>Hexo安装</h2><h3 id="安装nodejs-生成静态页面"><a href="#安装nodejs-生成静态页面" class="headerlink" title="安装nodejs:生成静态页面"></a>安装nodejs:生成静态页面</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt-get install nodejs</span><br></pre></td></tr></table></figure>
-<h3 id="安装npm：一会用来安装hexo"><a href="#安装npm：一会用来安装hexo" class="headerlink" title="安装npm：一会用来安装hexo"></a>安装npm：一会用来安装hexo</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt-get insall npm</span><br></pre></td></tr></table></figure>
-<h3 id="正式安装hexo"><a href="#正式安装hexo" class="headerlink" title="正式安装hexo"></a>正式安装hexo</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo npm install -g hexo</span><br></pre></td></tr></table></figure>
-<h3 id="hexo部署"><a href="#hexo部署" class="headerlink" title="hexo部署"></a>hexo部署</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g-d</span><br></pre></td></tr></table></figure>
-<h2 id="git-SSH-Linux"><a href="#git-SSH-Linux" class="headerlink" title="git SSH Linux"></a>git SSH Linux</h2><p>打开终端依次输入一下命令<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Git Bash Here</span><br><span class="line"></span><br><span class="line">mkdir ~&#x2F;.ssh</span><br><span class="line"></span><br><span class="line">cd .ssh&#x2F;</span><br><span class="line"></span><br><span class="line">git config --global  user.name &quot;mmrsl&quot;</span><br><span class="line"></span><br><span class="line">git config --global  user.email &quot;xxx@codekp.cn&quot;</span><br></pre></td></tr></table></figure><br>打开id_rsa.pub，在github的账号中进行修改，增加SHH。</p>
-<h1 id="完成后上传，如本文所示，surface双系统完美linux。"><a href="#完成后上传，如本文所示，surface双系统完美linux。" class="headerlink" title="完成后上传，如本文所示，surface双系统完美linux。"></a>完成后上传，如本文所示，surface双系统完美linux。</h1>]]></content>
-      <categories>
-        <category>linux</category>
-        <category>hexo</category>
-      </categories>
-      <tags>
-        <tag>Deep in</tag>
-        <tag>surface</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Quantum_linux_服务器_内网穿透_v*n</title>
     <url>/2021/04/13/Quantum-linux-%E6%9C%8D%E5%8A%A1%E5%99%A8-%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F-v-n/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="树莓派服务器-内网穿透-v-n"><a href="#树莓派服务器-内网穿透-v-n" class="headerlink" title="树莓派服务器_内网穿透_v*n"></a>树莓派服务器_内网穿透_v*n</h1><h2 id="安装Nginx"><a href="#安装Nginx" class="headerlink" title="安装Nginx"></a>安装Nginx</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt-get install nginx</span><br></pre></td></tr></table></figure>
@@ -1667,6 +1633,53 @@ r = \frac{|w^Tx+b|}{||w||}</script><ol>
       </categories>
       <tags>
         <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>surface完美安装linux操作系统、hexo博客</title>
+    <url>/2021/03/19/Deepin%E7%B3%BB%E7%BB%9F%E4%B8%8Esurface%E5%AE%89%E8%A3%85/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="surface完美安装linux操作系统、hexo博客"><a href="#surface完美安装linux操作系统、hexo博客" class="headerlink" title="surface完美安装linux操作系统、hexo博客"></a><center>surface完美安装linux操作系统、hexo博客</center></h1><p>最近由于linux课程需要使用linux系统，于是在ubuntu、kali、Elementary OS、Chrome OS和deepin操作系统中选择一个比较靠谱的。<br><a id="more"></a></p>
+<h2 id="linux操作系统介绍"><a href="#linux操作系统介绍" class="headerlink" title="linux操作系统介绍"></a>linux操作系统介绍</h2><h3 id="ubuntu"><a href="#ubuntu" class="headerlink" title="ubuntu"></a>ubuntu</h3><p>作为全球最流行且最有影响力的Linux开源系统之一，Ubuntu自发布以来在应用体验方面：有较大幅度的提升，即使对比Windows、MacOS等操作系统，最新版本的Ubuntu也不逊色。<br><img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3931899733,1893021162&amp;fm=26&amp;gp=0.jpg" alt="" loading="lazy">  </p>
+<h3 id="kali"><a href="#kali" class="headerlink" title="kali"></a>kali</h3><p>Kali Linux是基于Debian的Linux发行版， 设计用于数字取证操作系统。每一季度更新一次。由Offensive Security Ltd维护和资助。最先由Offensive Security的Mati Aharoni和Devon Kearns通过重写BackTrack来完成，BackTrack是他们之前写的用于取证的Linux发行版 。</p>
+<p>主要是用来渗透网络—所以俗话说kali从入门到入狱。</p>
+<p><img src="https://bkimg.cdn.bcebos.com/pic/3b87e950352ac65c1038fd5662baa5119313b07e1cf7?x-bce-process=image/watermark,image_d2里奴性F0ZXIvYmFpa2UxNTA=,g_7,xp_5,yp_5/format,f_auto" alt="" loading="lazy"></p>
+<h3 id="Elementary-OS"><a href="#Elementary-OS" class="headerlink" title="Elementary OS"></a>Elementary OS</h3><p>Elementary OS是基于 Ubuntu 精心打磨美化的桌面 Linux 发行版的一款软件，号称 “最美的 Linux”， 最早是 Ubuntu 的一个美化主题项目，现在成了独立的发行版<br><img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fww2.sinaimg.cn%2Fmw1024%2F6595c7c6tw1e7nlcg38qoj211s0lcag0.jpg&amp;refer=http%3A%2F%2Fwww.sina.com&amp;app=2002&amp;size=f9999,10000&amp;q=a80&amp;n=0&amp;g=0n&amp;fmt=jpeg?sec=1618754413&amp;t=c4cc435286c020b6845bd352d5a1dd8c" alt="" loading="lazy"></p>
+<h3 id="Chrome-OS"><a href="#Chrome-OS" class="headerlink" title="Chrome OS"></a>Chrome OS</h3><p>Chrome OS是一款Google开发的基于PC的操作系统。 Google Chrome OS是一款基于Linux的开源操作系统。Google在自己的官方博客表示，初期，这一操作系统将定位于上网本、紧凑型以及低成本电脑。这款开源软件将被命名为Chrome OS，谷歌公司于2010年12里奴性月7日（北京时间12月8日2点30分）在美国举行Chrome相关产品发布会，发布会上正式发布Chrome Web store和Chrome OS。</p>
+<p><img src="https://gss0.baidu.com/70cFfyinKgQFm2e88IuM_a/baike/pic/item/8694a4c27d1ed21bae953dafa06eddc451da3f1f.jpg" alt="" loading="lazy"></p>
+<h3 id="deepin"><a href="#deepin" class="headerlink" title="deepin"></a>deepin</h3><p>Deepin（原名：Linux Deepin；中文通称：深度操作系统）是由武汉深之度科技有限公司在Debian基础上开发的Linux操作系统，其前身是Hiweed Linux操作系统，于2004年2月28日开始对外发行，可以安装在个人计算机和服务器中。</p>
+<p>Deepin 12.12 正式版本将搭载一个全新的桌面环境。该桌面环境由Deepin 团队开发，以轻型、美观、稳定等作为设计目标。新桌面环境使用 Compiz 作为默认的窗口管理器。<br><img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fzkres1.myzaker.com%2F201910%2F5dae5906b15ec02e1c28f7b1_1024.jpg&amp;refer=http%3A%2F%2Fzkres1.myzaker.com&amp;app=2002&amp;size=f9999,10000&amp;q=a80&amp;n=0&amp;g=0n&amp;fmt=jpeg?sec=1618754739&amp;t=be9f54a43670d51053a30eec7d91ac18" alt="" loading="lazy"></p>
+<h3 id="总结以上五种系统各有各的优点"><a href="#总结以上五种系统各有各的优点" class="headerlink" title="总结以上五种系统各有各的优点"></a>总结以上五种系统各有各的优点</h3><p>运行上deepin会更慢一些，因为deepin的界面做的最好看，其次deepin是国产linux系统，而且是武汉的公司，安装极其简单，所以我就装了deepin操作系统。</p>
+<h2 id="deepin启动盘制作"><a href="#deepin启动盘制作" class="headerlink" title="deepin启动盘制作"></a>deepin启动盘制作</h2><p>deepin v20下载地址<a href="https://www.deepin.org/zh/download/" target="_blank" rel="noopener">deep in</a><br>首先下载镜像，其次下载启动盘制作工具，制作启动盘。</p>
+<h2 id="windows分区"><a href="#windows分区" class="headerlink" title="windows分区"></a>windows分区</h2><p>删除一些windows上面不需要的软件和文件，腾出50G的空间，然后通过<a href="https://www.soft-down.net/detail/44/431115.shtml?type=jingzhun" target="_blank" rel="noopener">分区助手</a><br>对磁盘进行分区。</p>
+<h2 id="系统安装具体操作步骤"><a href="#系统安装具体操作步骤" class="headerlink" title="系统安装具体操作步骤"></a>系统安装具体操作步骤</h2><p>1.制作启动u盘deepin系统安装盘。就是把deepin.iso烧录到u盘上。<br>这里请一定要先记得在淘宝上买一个扩展坞，因为surface是一款pc平板而合一电脑，为了节约面积，采用了单usb端口。同时安装系统时蓝牙会失效，需要准备有线鼠标、有线键盘。</p>
+<p>2.关闭secureboot.关机后 音量下键+电源三秒，松开电源，见到surface图标后松开音量键进入bios界面。第二项 secureboot 回车 disable它。滑倒最后exit save setting。</p>
+<p>特别注意一点！就是分清楚surface的音量和电源在那不要按错。</p>
+<p>3.进入windows系统，点击setting，在setting 中搜索boot，看到第二项，create and format hard disk partitions. 进入后看到C盘，鼠标右键shrink volumn(分出给deepin 的空间）</p>
+<p>建议采用之前说的分区助手，这种方法分区很容易崩。</p>
+<p>4.从U盘启动。有两种方式：<br>第一种关机后，音量下键+电源3秒，松开电源。见到surface画面后松开音量键。<br>第二种从windows 向左滑，进入setting. 最底下change pc settings.进去后点击最底下的updates and recovery(更新和恢复）选择里面最底下选项。advanced startup. （高级启动）。进入U盘启动。</p>
+<p>5.从U盘启动后。选择第二项，安装deepin. 选择语言，然后选择something else(其他选项）。目的是不要覆盖windows系统。安装系统到我们分出的free space里。<br>点击 free space ，再点击左下角的“+”号。选择逻辑分区，ext4, 给/root.尽量大点。</p>
+<p>再点击 free space ，点击左下角的“+”号。逻辑或主分区随便（我给的逻辑分区），swap area(交换空间）.随便给个几G。英文教程中不给，我是分了，省得它提示我必须给。反正也不少这几个G。</p>
+<p>选择启动盘为windows 所在的那个，一般叫sda 4.</p>
+<p>然后开始安装。重启。</p>
+<h2 id="安装触摸屏驱动"><a href="#安装触摸屏驱动" class="headerlink" title="安装触摸屏驱动"></a>安装触摸屏驱动</h2><h3 id="deepin-1"><a href="#deepin-1" class="headerlink" title="deepin"></a>deepin</h3><p>这里很神奇如果你也装的是deepin操作系统，触摸屏是可以直接使用的，可能因为华为封锁，目前华为用的均为deepin操作系统，华为也有触控笔记本电脑。</p>
+<h3 id="其他linux系统"><a href="#其他linux系统" class="headerlink" title="其他linux系统"></a>其他linux系统</h3><p>请详见<a href="https://github.com/jakeday/linux-surface" target="_blank" rel="noopener">github大神</a>的surface驱动安装教程。</p>
+<p>进入系统以后使用Terminal安装了Peter Hunter整理的内核<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo add-apt-repository ppa:tigerite&#x2F;kernel</span><br><span class="line"></span><br><span class="line">sudo apt-get update</span><br><span class="line"></span><br><span class="line">sudo apt-get install linux-surface</span><br></pre></td></tr></table></figure><br>然后使用编辑器nano或者gedit编辑/<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">lib&#x2F;udev&#x2F;rules.d&#x2F;50-bluetooth-hci-auto-poweron.rules</span><br></pre></td></tr></table></figure><br>用#注释掉里面唯一的那一行，再打开/etc/bluetooth/main.conf<br>把#[Policy]<br>改成[Policy]<br>并把最后一排的<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#AutoEnable&#x3D;false改成AutoEnable&#x3D;true</span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;安装rEFIndsudo</span><br><span class="line"></span><br><span class="line">apt-add-repository ppa:rodsmith&#x2F;refind</span><br><span class="line"></span><br><span class="line">sudo apt-get update</span><br><span class="line"></span><br><span class="line">sudo apt-get install refind</span><br></pre></td></tr></table></figure><br>用Shim给rEFind增加Secure Boot的启动方式<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">refind-install --shim &#x2F;boot&#x2F;efi&#x2F;EFI&#x2F;ubuntu&#x2F;shimx64.efi --localkeys</span><br></pre></td></tr></table></figure><br>然后把rEFind设为第一启动项refind-mkdefault开启Secure Boot</p>
+<h2 id="蓝牙驱动安装"><a href="#蓝牙驱动安装" class="headerlink" title="蓝牙驱动安装"></a>蓝牙驱动安装</h2><p>蓝牙（Bluetooth），是一种无线个人局域网（Wireless PAN），最初由爱立信创制，后来由蓝牙技术联盟订定技术标准。这个词的来源是10世纪丹麦和挪威国王蓝牙哈拉尔（丹麦语：Harald Blåtand Gormsen），借国王的绰号“Blåtand”当名称，直接翻译成中文为“蓝牙”（blå＝蓝，tand＝牙）。蓝牙是一种通用的射频频率是2.45GHZ的无线电接口，它使带有电子端口的设备能够在小范围内进行无线通信。</p>
+<h3 id="安装应用"><a href="#安装应用" class="headerlink" title="安装应用"></a>安装应用</h3><p>Blueman旨在提供最为常见的蓝牙管理功能。</p>
+<p>命令安装，终端执行：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt-get install blueman</span><br><span class="line">&#96;</span><br></pre></td></tr></table></figure><br>命令卸载，终端执行：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt-get remove blueman</span><br></pre></td></tr></table></figure></p>
+<h2 id="Hexo安装"><a href="#Hexo安装" class="headerlink" title="Hexo安装"></a>Hexo安装</h2><h3 id="安装nodejs-生成静态页面"><a href="#安装nodejs-生成静态页面" class="headerlink" title="安装nodejs:生成静态页面"></a>安装nodejs:生成静态页面</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt-get install nodejs</span><br></pre></td></tr></table></figure>
+<h3 id="安装npm：一会用来安装hexo"><a href="#安装npm：一会用来安装hexo" class="headerlink" title="安装npm：一会用来安装hexo"></a>安装npm：一会用来安装hexo</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt-get insall npm</span><br></pre></td></tr></table></figure>
+<h3 id="正式安装hexo"><a href="#正式安装hexo" class="headerlink" title="正式安装hexo"></a>正式安装hexo</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo npm install -g hexo</span><br></pre></td></tr></table></figure>
+<h3 id="hexo部署"><a href="#hexo部署" class="headerlink" title="hexo部署"></a>hexo部署</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g-d</span><br></pre></td></tr></table></figure>
+<h2 id="git-SSH-Linux"><a href="#git-SSH-Linux" class="headerlink" title="git SSH Linux"></a>git SSH Linux</h2><p>打开终端依次输入一下命令<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Git Bash Here</span><br><span class="line"></span><br><span class="line">mkdir ~&#x2F;.ssh</span><br><span class="line"></span><br><span class="line">cd .ssh&#x2F;</span><br><span class="line"></span><br><span class="line">git config --global  user.name &quot;mmrsl&quot;</span><br><span class="line"></span><br><span class="line">git config --global  user.email &quot;xxx@codekp.cn&quot;</span><br></pre></td></tr></table></figure><br>打开id_rsa.pub，在github的账号中进行修改，增加SHH。</p>
+<h1 id="完成后上传，如本文所示，surface双系统完美linux。"><a href="#完成后上传，如本文所示，surface双系统完美linux。" class="headerlink" title="完成后上传，如本文所示，surface双系统完美linux。"></a>完成后上传，如本文所示，surface双系统完美linux。</h1>]]></content>
+      <categories>
+        <category>linux</category>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>Deep in</tag>
+        <tag>surface</tag>
       </tags>
   </entry>
   <entry>
