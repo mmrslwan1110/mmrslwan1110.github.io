@@ -349,6 +349,37 @@
       </tags>
   </entry>
   <entry>
+    <title>deepin_wordpress</title>
+    <url>/2021/04/15/deepin-wordpress/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="deepin-wordpress"><a href="#deepin-wordpress" class="headerlink" title="deepin_wordpress"></a>deepin_wordpress</h1><h2 id="安装基础软件"><a href="#安装基础软件" class="headerlink" title="安装基础软件"></a>安装基础软件</h2><h3 id="安装apache2"><a href="#安装apache2" class="headerlink" title="安装apache2"></a>安装apache2</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt-get install apache2 -y</span><br></pre></td></tr></table></figure>
+<h3 id="安装PHP"><a href="#安装PHP" class="headerlink" title="安装PHP"></a>安装PHP</h3><p><code>sudo apt-get install php7.0 -y</code></p>
+<h3 id="安装PHP的相关组件"><a href="#安装PHP的相关组件" class="headerlink" title="安装PHP的相关组件"></a>安装PHP的相关组件</h3><p><code>sudo pip install libapache2-mod-php7.0</code></p>
+<h3 id="安装PHP的相关组件-1"><a href="#安装PHP的相关组件-1" class="headerlink" title="安装PHP的相关组件"></a>安装PHP的相关组件</h3><p>sudo apt-get install libapache2-mod-php7.0</p>
+<h3 id="安装mysql的服务，安装过程中需要设置mysql的密码"><a href="#安装mysql的服务，安装过程中需要设置mysql的密码" class="headerlink" title="安装mysql的服务，安装过程中需要设置mysql的密码"></a>安装mysql的服务，安装过程中需要设置mysql的密码</h3><p>sudo apt-get install mysql-server -y</p>
+<h3 id="安装php-mysql组件"><a href="#安装php-mysql组件" class="headerlink" title="安装php mysql组件"></a>安装php mysql组件</h3><p>sudo apt-get install php7.0-mysql -y</p>
+<h3 id="安装phpmyadmin"><a href="#安装phpmyadmin" class="headerlink" title="安装phpmyadmin"></a>安装phpmyadmin</h3><p>sudo apt-get install phpmyadmin -y</p>
+<h3 id="重启mysql和apache"><a href="#重启mysql和apache" class="headerlink" title="重启mysql和apache"></a>重启mysql和apache</h3><p>service apache2 restart<br>service mysql restart</p>
+<h3 id="进入mysql"><a href="#进入mysql" class="headerlink" title="进入mysql"></a>进入mysql</h3><p>mysql -u root -p</p>
+<p>创建一个叫wordpress（你也可以叫其他名字）的数据库</p>
+<p>CREATE DATABASE wordpress;<br>退出mysql</p>
+<p>exit;</p>
+<h3 id="下载wordpress，这里面的下载会很慢，建议去官网下载"><a href="#下载wordpress，这里面的下载会很慢，建议去官网下载" class="headerlink" title="下载wordpress，这里面的下载会很慢，建议去官网下载"></a>下载wordpress，这里面的下载会很慢，建议去官网下载</h3><p>sudo wget <a href="https://wordpress.org/latest.zip" target="_blank" rel="noopener">https://wordpress.org/latest.zip</a></p>
+<p>10，解压WordPress</p>
+<p>sudo unzip latest.zip</p>
+<h3 id="将wordpress的文件移动到-var-www-html-目录-要加个自己的项目目录名，例如wp"><a href="#将wordpress的文件移动到-var-www-html-目录-要加个自己的项目目录名，例如wp" class="headerlink" title="将wordpress的文件移动到/var/www/html/目录(要加个自己的项目目录名，例如wp)"></a>将wordpress的文件移动到/var/www/html/目录(要加个自己的项目目录名，例如wp)</h3><p>sudo mv wordpress/* /var/www/html/wp</p>
+<h3 id="修改目录权限，不修改目录权限的话，会无法下载主题插件等"><a href="#修改目录权限，不修改目录权限的话，会无法下载主题插件等" class="headerlink" title="修改目录权限，不修改目录权限的话，会无法下载主题插件等"></a>修改目录权限，不修改目录权限的话，会无法下载主题插件等</h3><p>sudo chmod -R 777 /var/www/html/</p>
+<h3 id="重启Apache"><a href="#重启Apache" class="headerlink" title="重启Apache"></a>重启Apache</h3><p>sudo service apache2 restart</p>
+<h3 id="接下来在浏览器输入ip-wordpress就可以访问wordpress项目了"><a href="#接下来在浏览器输入ip-wordpress就可以访问wordpress项目了" class="headerlink" title="接下来在浏览器输入ip/wordpress就可以访问wordpress项目了"></a>接下来在浏览器输入ip/wordpress就可以访问wordpress项目了</h3><p>尝试各种修改<br><code>sudo vim sources.list</code><br>注释后增加<br><code>deb [by-hash=force] https://mirrors.tuna.tsinghua.edu.cn/deepin panda main contrib non-free</code><br>sudo apt-get update  和  sudo apt-get upgrade   命令，更新源，需要的时间有点长<br>但是发现无法进行更新，好像deepin不信任该源<br>修改为：<br><code>deb [trusted=yes] https://mirrors.tuna.tsinghua.edu.cn/deepin panda main contrib non-free</code><br>更新一般就崩了</p>
+<p>第三次尝试在华为镜像里面的评论找到：</p>
+<p>sudo sed -i “s@<a href="https://community-packages.deepin.com/deepin@https://repo.huaweicloud.com/deepin@g" target="_blank" rel="noopener">https://community-packages.deepin.com/deepin@https://repo.huaweicloud.com/deepin@g</a>“ /etc/apt/sources.list</p>
+<p>sudo apt-get update  和  sudo apt-get upgrade   命令 还是不行，华为也没有mysql-server</p>
+<p>参考以上的我把华为修改到清华源试试：<br>sudo sed -i “s@<a href="https://community-packages.deepin.com/deepin@https://mirrors.tuna.tsinghua.edu.cn/deepin@g" target="_blank" rel="noopener">https://community-packages.deepin.com/deepin@https://mirrors.tuna.tsinghua.edu.cn/deepin@g</a>“ /etc/apt/sources.list</p>
+<p>更新完还是一样的，抑郁…可能是被废弃了，但是又想装。</p>
+<p>换阿里源：</p>
+<p>sudo sed -i “s@<a href="http://pub.mirrors.aliyun.com/deepin@https://community-packages.deepin.com/deepin@g" target="_blank" rel="noopener">http://pub.mirrors.aliyun.com/deepin@https://community-packages.deepin.com/deepin@g</a>“ /etc/apt/sources.list</p>
+]]></content>
+  </entry>
+  <entry>
     <title>hexo插入视频代码块及音频</title>
     <url>/2020/11/24/hexo-b%E7%AB%99%E8%A7%86%E9%A2%91%E5%88%86%E4%BA%AB%E6%95%99%E7%A8%8B/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="hexo插件安装插入视频代码块及音频"><a href="#hexo插件安装插入视频代码块及音频" class="headerlink" title="hexo插件安装插入视频代码块及音频"></a><center>hexo插件安装插入视频代码块及音频</center></h1><h2 id="1-hexo插件安装"><a href="#1-hexo插件安装" class="headerlink" title="1.hexo插件安装"></a>1.hexo插件安装</h2><p>使用 Hexo 插件插入音乐/视频<br>两个好用的hexo插件：</p>
