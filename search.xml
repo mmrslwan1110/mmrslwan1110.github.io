@@ -123,6 +123,53 @@
       </tags>
   </entry>
   <entry>
+    <title>LabelImg_使用</title>
+    <url>/2021/07/21/LabelImg-%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="LabelImg-使用"><a href="#LabelImg-使用" class="headerlink" title="LabelImg_使用"></a>LabelImg_使用</h1><p>LabelImg 是一个图形图像注释工具。</p>
+<p>它是用 Python 编写的，并使用 Qt 作为其图形界面。</p>
+<p>注释以 PASCAL VOC 格式保存为 XML 文件，ImageNet使用的格式。此外，它还支持 YOLO 和 CreateML 格式。</p>
+<p><img src="https://www.codekp.cn/download/img/labelImg/labelimg.jpg" alt="" loading="lazy"></p>
+<p>参考地址 ： <a href="https://github.com/tzutalin/labelImg" target="_blank" rel="noopener">https://github.com/tzutalin/labelImg</a></p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda install pyqt&#x3D;5</span><br><span class="line">conda install -c anaconda lxml</span><br><span class="line">pyrcc5 -o libs&#x2F;resources.py resources.qrc</span><br><span class="line">python labelImg.py</span><br><span class="line">python labelImg.py [IMAGE_PATH] [PRE-DEFINED CLASS FILE]</span><br></pre></td></tr></table></figure>
+<p>有基础的同学可以直接<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pip install labelimg</span><br></pre></td></tr></table></figure></p>
+<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><ul>
+<li><code>JPEGImage 目录</code>：存储的是图片的名字</li>
+<li><code>Annotation 目录</code>：用于存放标注图片的标签文件</li>
+<li><code>class.txt 文件</code>：定义自己要标注的所有类别</li>
+</ul>
+<p>例如：我的<code>class.txt</code>中定义的类别如下：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">one</span><br><span class="line">two</span><br><span class="line">ct5</span><br><span class="line">other</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><code>Open Dir</code>：待标注图片数据的路径文件夹，即选择JPEGImage文件夹</li>
+<li><code>Change Save Dir</code>：保存类别标签的路径文件夹，即选择Annotation文件夹</li>
+<li><code>PascalVOC</code>：标注的标签保存成VOC格式，在鼠标点一下就变成YOLO，即此时就会把标注的标签变成YOLO格式</li>
+</ul>
+<h3 id="view-快捷指令"><a href="#view-快捷指令" class="headerlink" title="view 快捷指令"></a>view 快捷指令</h3><ul>
+<li><code>Auto Save mode</code>：当你切换到下一张图片时，就会自动把上一张标注的图片标签自动保存下来，这样就不用每标注一样图片都按Ctrl+S保存一下了</li>
+<li><code>Display Labels</code>：标注好图片之后，会把框和标签都显示出来</li>
+<li><code>Advanced Mode</code>：这样标注的十字架就会一直悬浮在窗口，不用每次标完一个目标，再按一次W快捷键，调出标注的十字架。</li>
+</ul>
+<h3 id="标注常用的快捷键"><a href="#标注常用的快捷键" class="headerlink" title="标注常用的快捷键"></a>标注常用的快捷键</h3><ul>
+<li><code>W</code>：调出标注的十字架，开始标注</li>
+<li><code>A</code>：切换到上一张图片</li>
+<li><code>D</code>：切换到下一张图片</li>
+<li><code>Ctrl+S</code>：保存标注好的标签</li>
+<li><code>del</code>：删除标注的矩形框</li>
+<li><code>Ctrl+鼠标滚轮</code>：按住Ctrl，然后滚动鼠标滚轮，可以调整标注图片的显示大小</li>
+<li><code>Ctrl+u</code>：选择要标注图片的文件夹</li>
+<li><code>Ctrl+r</code>：选择标注好的label标签存放的文件夹</li>
+<li><code>↑→↓←</code>：移动标注的矩形框的位置</li>
+</ul>
+<p>标注的时候，会把classe.txt预定义的标加载出来，然后我们只要选择对应的标签即可<br>右上角会显示已经标注目标的标签</p>
+<h2 id="具体使用"><a href="#具体使用" class="headerlink" title="具体使用"></a>具体使用</h2><p>以yolo格式进行保存使用。</p>
+]]></content>
+      <categories>
+        <category>目标检测</category>
+      </categories>
+      <tags>
+        <tag>目标检测</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>EasyOCR光学字符识别</title>
     <url>/2021/10/25/EasyOCR%E5%85%89%E5%AD%A6%E5%AD%97%E7%AC%A6%E8%AF%86%E5%88%AB/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="EasyOCR光学字符识别"><a href="#EasyOCR光学字符识别" class="headerlink" title="EasyOCR光学字符识别"></a>EasyOCR光学字符识别</h1><pre><code>OCR光学字符识别，将不同类型的文档，图像中的字符保存为可编辑和可搜索的数据。
@@ -285,53 +332,6 @@ If you are talking to a group of managers, you may refer to the disorganized met
         <tag>英语</tag>
         <tag>英语阅读</tag>
         <tag>markdown</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>LabelImg_使用</title>
-    <url>/2021/07/21/LabelImg-%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="LabelImg-使用"><a href="#LabelImg-使用" class="headerlink" title="LabelImg_使用"></a>LabelImg_使用</h1><p>LabelImg 是一个图形图像注释工具。</p>
-<p>它是用 Python 编写的，并使用 Qt 作为其图形界面。</p>
-<p>注释以 PASCAL VOC 格式保存为 XML 文件，ImageNet使用的格式。此外，它还支持 YOLO 和 CreateML 格式。</p>
-<p><img src="https://www.codekp.cn/download/img/labelImg/labelimg.jpg" alt="" loading="lazy"></p>
-<p>参考地址 ： <a href="https://github.com/tzutalin/labelImg" target="_blank" rel="noopener">https://github.com/tzutalin/labelImg</a></p>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda install pyqt&#x3D;5</span><br><span class="line">conda install -c anaconda lxml</span><br><span class="line">pyrcc5 -o libs&#x2F;resources.py resources.qrc</span><br><span class="line">python labelImg.py</span><br><span class="line">python labelImg.py [IMAGE_PATH] [PRE-DEFINED CLASS FILE]</span><br></pre></td></tr></table></figure>
-<p>有基础的同学可以直接<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pip install labelimg</span><br></pre></td></tr></table></figure></p>
-<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><ul>
-<li><code>JPEGImage 目录</code>：存储的是图片的名字</li>
-<li><code>Annotation 目录</code>：用于存放标注图片的标签文件</li>
-<li><code>class.txt 文件</code>：定义自己要标注的所有类别</li>
-</ul>
-<p>例如：我的<code>class.txt</code>中定义的类别如下：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">one</span><br><span class="line">two</span><br><span class="line">ct5</span><br><span class="line">other</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li><code>Open Dir</code>：待标注图片数据的路径文件夹，即选择JPEGImage文件夹</li>
-<li><code>Change Save Dir</code>：保存类别标签的路径文件夹，即选择Annotation文件夹</li>
-<li><code>PascalVOC</code>：标注的标签保存成VOC格式，在鼠标点一下就变成YOLO，即此时就会把标注的标签变成YOLO格式</li>
-</ul>
-<h3 id="view-快捷指令"><a href="#view-快捷指令" class="headerlink" title="view 快捷指令"></a>view 快捷指令</h3><ul>
-<li><code>Auto Save mode</code>：当你切换到下一张图片时，就会自动把上一张标注的图片标签自动保存下来，这样就不用每标注一样图片都按Ctrl+S保存一下了</li>
-<li><code>Display Labels</code>：标注好图片之后，会把框和标签都显示出来</li>
-<li><code>Advanced Mode</code>：这样标注的十字架就会一直悬浮在窗口，不用每次标完一个目标，再按一次W快捷键，调出标注的十字架。</li>
-</ul>
-<h3 id="标注常用的快捷键"><a href="#标注常用的快捷键" class="headerlink" title="标注常用的快捷键"></a>标注常用的快捷键</h3><ul>
-<li><code>W</code>：调出标注的十字架，开始标注</li>
-<li><code>A</code>：切换到上一张图片</li>
-<li><code>D</code>：切换到下一张图片</li>
-<li><code>Ctrl+S</code>：保存标注好的标签</li>
-<li><code>del</code>：删除标注的矩形框</li>
-<li><code>Ctrl+鼠标滚轮</code>：按住Ctrl，然后滚动鼠标滚轮，可以调整标注图片的显示大小</li>
-<li><code>Ctrl+u</code>：选择要标注图片的文件夹</li>
-<li><code>Ctrl+r</code>：选择标注好的label标签存放的文件夹</li>
-<li><code>↑→↓←</code>：移动标注的矩形框的位置</li>
-</ul>
-<p>标注的时候，会把classe.txt预定义的标加载出来，然后我们只要选择对应的标签即可<br>右上角会显示已经标注目标的标签</p>
-<h2 id="具体使用"><a href="#具体使用" class="headerlink" title="具体使用"></a>具体使用</h2><p>以yolo格式进行保存使用。</p>
-]]></content>
-      <categories>
-        <category>目标检测</category>
-      </categories>
-      <tags>
-        <tag>目标检测</tag>
       </tags>
   </entry>
   <entry>
@@ -1917,8 +1917,9 @@ If you are talking to a group of managers, you may refer to the disorganized met
 <p>保存csv格式<code>df.to_csv(&#39;output.csv&#39;, encoding=&#39;gbk&#39;, index=False)</code></p>
 <h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">from requests_html import HTMLSession</span><br><span class="line">session &#x3D; HTMLSession()</span><br><span class="line">url &#x3D; &#39;https:&#x2F;&#x2F;www.codekp.cn&#39;</span><br><span class="line">r &#x3D; session.get(url)</span><br><span class="line">def get_text_link_from_sel(sel):</span><br><span class="line">    mylist &#x3D; []</span><br><span class="line">    try:</span><br><span class="line">        results &#x3D; r.html.find(sel)</span><br><span class="line">        for result in results:</span><br><span class="line">            mytext &#x3D; result.text</span><br><span class="line">            mylink &#x3D; list(result.absolute_links)[0]</span><br><span class="line">            mylist.append((mytext, mylink))</span><br><span class="line">        return mylist</span><br><span class="line">    except:</span><br><span class="line">        return None</span><br><span class="line"># print(r.html.text)</span><br><span class="line"># print(r.html.links)</span><br><span class="line"># print(r.html.absolute_links)</span><br><span class="line">sel &#x3D; &#39;head &gt; link:nth-child(22)&#39;</span><br><span class="line">results &#x3D; r.html.find(sel)</span><br><span class="line">print(results)</span><br><span class="line"># sel &#x3D; &#39;body &gt; div.note &gt; div.post &gt; div.article &gt; div.show-content &gt; div &gt; p &gt; a&#39;</span><br><span class="line">print(get_text_link_from_sel(sel))</span><br><span class="line"></span><br><span class="line">import pandas as pd</span><br><span class="line">df &#x3D; pd.DataFrame(get_text_link_from_sel(sel))</span><br><span class="line">df.to_csv(&#39;output.csv&#39;, encoding&#x3D;&#39;gbk&#39;, index&#x3D;False)</span><br><span class="line">print(df)</span><br></pre></td></tr></table></figure>
 <h2 id="urllib-使用"><a href="#urllib-使用" class="headerlink" title="urllib 使用"></a>urllib 使用</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">urllib.request.urlopen() 模拟浏览器向服务器发送请求</span><br><span class="line">response 服务器返回的数据</span><br><span class="line">response的数据类型是HttpResponse</span><br><span class="line">字节‐‐&gt;字符串</span><br><span class="line">解码decode</span><br><span class="line">字符串‐‐&gt;字节</span><br><span class="line">编码encode</span><br><span class="line">read() 字节形式读取二进制 扩展：rede(5)返回前几个字节</span><br><span class="line">readline() 读取一行</span><br><span class="line">readlines() 一行一行读取 直至结束</span><br><span class="line">getcode() 获取状态码</span><br><span class="line">geturl() 获取url</span><br><span class="line">getheaders() 获取headers</span><br><span class="line">urllib.request.urlretrieve()</span><br></pre></td></tr></table></figure>
-<h3 id="通过urllib下载"><a href="#通过urllib下载" class="headerlink" title="通过urllib下载"></a>通过urllib下载</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import urllib.request</span><br><span class="line"></span><br><span class="line"># 下载网页</span><br><span class="line"># url_page &#x3D; &#39;http:&#x2F;&#x2F;www.baidu.com&#39;</span><br><span class="line"></span><br><span class="line"># url代表的是下载的路径  filename文件的名字</span><br><span class="line"># 在python中 可以变量的名字  也可以直接写值</span><br><span class="line"># urllib.request.urlretrieve(url_page,&#39;baidu.html&#39;)</span><br><span class="line"></span><br><span class="line"># 下载图片</span><br><span class="line"># url_img &#x3D; &#39;https:&#x2F;&#x2F;img1.baidu.com&#x2F;it&#x2F;u&#x3D;3004965690,4089234593&amp;fm&#x3D;26&amp;fmt&#x3D;auto&amp;gp&#x3D;0.jpg&#39;</span><br><span class="line">#</span><br><span class="line"># urllib.request.urlretrieve(url&#x3D; url_img,filename&#x3D;&#39;lisa.jpg&#39;)</span><br><span class="line"></span><br><span class="line"># 下载视频</span><br><span class="line">url_video &#x3D; &#39;https:&#x2F;&#x2F;vd3.bdstatic.com&#x2F;mda-mhkku4ndaka5etk3&#x2F;1080p&#x2F;cae_h264&#x2F;1629557146541497769&#x2F;mda-mhkku4ndaka5etk3.mp4?v_from_s&#x3D;hkapp-haokan-tucheng&amp;auth_key&#x3D;1629687514-0-0-7ed57ed7d1168bb1f06d18a4ea214300&amp;bcevod_channel&#x3D;searchbox_feed&amp;pd&#x3D;1&amp;pt&#x3D;3&amp;abtest&#x3D;&#39;</span><br><span class="line"></span><br><span class="line">urllib.request.urlretrieve(url_video,&#39;hxekyyds.mp4&#39;)</span><br></pre></td></tr></table></figure>
-<h2 id="BeautifulSoup爬取辛巴克菜单"><a href="#BeautifulSoup爬取辛巴克菜单" class="headerlink" title="BeautifulSoup爬取辛巴克菜单"></a>BeautifulSoup爬取辛巴克菜单</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import urllib.request</span><br><span class="line">from bs4 import BeautifulSoup</span><br><span class="line">url &#x3D; &#39;https:&#x2F;&#x2F;www.starbucks.com.cn&#x2F;menu&#x2F;&#39;</span><br><span class="line">response &#x3D; urllib.request.urlopen(url)</span><br><span class="line">content &#x3D; response.read().decode(&#39;utf-8&#39;)</span><br><span class="line">soup &#x3D; BeautifulSoup(content,&#39;lxml&#39;)</span><br><span class="line"># &#x2F;&#x2F;ul[@class&#x3D;&quot;grid padded-3 product&quot;]&#x2F;&#x2F;strong&#x2F;text()</span><br><span class="line">name_list &#x3D; soup.select(&#39;ul[class&#x3D;&quot;grid padded-3 product&quot;] strong&#39;)</span><br><span class="line">for name in name_list:</span><br><span class="line">    print(name.get_text())</span><br></pre></td></tr></table></figure>]]></content>
+<h3 id="通过urllib下载"><a href="#通过urllib下载" class="headerlink" title="通过urllib下载"></a>通过urllib下载</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import urllib.request</span><br><span class="line"># 下载网页</span><br><span class="line"># url_page &#x3D; &#39;http:&#x2F;&#x2F;www.baidu.com&#39;</span><br><span class="line"># url代表的是下载的路径  filename文件的名字</span><br><span class="line"># 在python中 可以变量的名字  也可以直接写值</span><br><span class="line"># urllib.request.urlretrieve(url_page,&#39;baidu.html&#39;)</span><br><span class="line"># 下载图片</span><br><span class="line"># url_img &#x3D; &#39;https:&#x2F;&#x2F;img1.baidu.com&#x2F;it&#x2F;u&#x3D;3004965690,4089234593&amp;fm&#x3D;26&amp;fmt&#x3D;auto&amp;gp&#x3D;0.jpg&#39;</span><br><span class="line"># urllib.request.urlretrieve(url&#x3D; url_img,filename&#x3D;&#39;lisa.jpg&#39;)</span><br><span class="line"># 下载视频</span><br><span class="line">url_video &#x3D; &#39;https:&#x2F;&#x2F;vd3.bdstatic.com&#x2F;mda-mhkku4ndaka5etk3&#x2F;1080p&#x2F;cae_h264&#x2F;1629557146541497769&#x2F;mda-mhkku4ndaka5etk3.mp4?v_from_s&#x3D;hkapp-haokan-tucheng&amp;auth_key&#x3D;1629687514-0-0-7ed57ed7d1168bb1f06d18a4ea214300&amp;bcevod_channel&#x3D;searchbox_feed&amp;pd&#x3D;1&amp;pt&#x3D;3&amp;abtest&#x3D;&#39;</span><br><span class="line">urllib.request.urlretrieve(url_video,&#39;hxekyyds.mp4&#39;)</span><br></pre></td></tr></table></figure>
+<h2 id="BeautifulSoup爬取辛巴克菜单"><a href="#BeautifulSoup爬取辛巴克菜单" class="headerlink" title="BeautifulSoup爬取辛巴克菜单"></a>BeautifulSoup爬取辛巴克菜单</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import urllib.request</span><br><span class="line">from bs4 import BeautifulSoup</span><br><span class="line">url &#x3D; &#39;https:&#x2F;&#x2F;www.starbucks.com.cn&#x2F;menu&#x2F;&#39;</span><br><span class="line">response &#x3D; urllib.request.urlopen(url)</span><br><span class="line">content &#x3D; response.read().decode(&#39;utf-8&#39;)</span><br><span class="line">soup &#x3D; BeautifulSoup(content,&#39;lxml&#39;)</span><br><span class="line"># &#x2F;&#x2F;ul[@class&#x3D;&quot;grid padded-3 product&quot;]&#x2F;&#x2F;strong&#x2F;text()</span><br><span class="line">name_list &#x3D; soup.select(&#39;ul[class&#x3D;&quot;grid padded-3 product&quot;] strong&#39;)</span><br><span class="line">for name in name_list:</span><br><span class="line">    print(name.get_text())</span><br></pre></td></tr></table></figure>
+<h2 id="lxml获取百度一下"><a href="#lxml获取百度一下" class="headerlink" title="lxml获取百度一下"></a>lxml获取百度一下</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import urllib.request</span><br><span class="line">url &#x3D; &#39;https:&#x2F;&#x2F;www.baidu.com&#x2F;&#39;</span><br><span class="line">headers &#x3D; &#123;</span><br><span class="line">    &#39;User-Agent&#39;: &#39;Mozilla&#x2F;5.0 (Windows NT 10.0; Win64; x64) AppleWebKit&#x2F;537.36 (KHTML, like Gecko) Chrome&#x2F;92.0.4515.159 Safari&#x2F;537.36&#39;</span><br><span class="line">&#125;</span><br><span class="line"># 请求对象的定制</span><br><span class="line">request &#x3D; urllib.request.Request(url &#x3D; url,headers &#x3D; headers)</span><br><span class="line"># 模拟浏览器访问服务器</span><br><span class="line">response &#x3D; urllib.request.urlopen(request)</span><br><span class="line"># 获取网页源码</span><br><span class="line">content &#x3D; response.read().decode(&#39;utf-8&#39;)</span><br><span class="line"># 解析网页源码 来获取我们想要的数据</span><br><span class="line">from lxml import etree</span><br><span class="line"># 解析服务器响应的文件</span><br><span class="line">tree &#x3D; etree.HTML(content)</span><br><span class="line"># 获取想要的数据  xpath的返回值是一个列表类型的数据</span><br><span class="line">result &#x3D; tree.xpath(&#39;&#x2F;&#x2F;input[@id&#x3D;&quot;su&quot;]&#x2F;@value&#39;)[0]</span><br><span class="line">print(result)</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>python</category>
       </categories>
