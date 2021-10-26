@@ -123,6 +123,58 @@
       </tags>
   </entry>
   <entry>
+    <title>EasyOCR光学字符识别</title>
+    <url>/2021/10/25/EasyOCR%E5%85%89%E5%AD%A6%E5%AD%97%E7%AC%A6%E8%AF%86%E5%88%AB/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="EasyOCR光学字符识别"><a href="#EasyOCR光学字符识别" class="headerlink" title="EasyOCR光学字符识别"></a>EasyOCR光学字符识别</h1><pre><code>OCR光学字符识别，将不同类型的文档，图像中的字符保存为可编辑和可搜索的数据。
+</code></pre><h2 id="EasyOCR"><a href="#EasyOCR" class="headerlink" title="EasyOCR"></a>EasyOCR</h2><p>EasyOCR是python的一个包，将pytorch作为后端处理程序，EasyOCR 像任何其他 OCR（Google 的 tesseract 或任何其他）一样检测图像中的文本，但我在使用它时，我发现它是从图像中检测文本的最直接的方法，而且它将 PyTorch 作为后端处理程序，准确性更可靠。<br>EasyOCR 支持 42 多种语言进行检测。EasyOCR 是由 Jaided AI 公司创建的。</p>
+<ul>
+<li>预安装 pytorch，安装过程<a href="https://www.codekp.cn/2021/10/22/ubuntu-NVIDIA30xx%E6%98%BE%E5%8D%A1%E5%AE%89%E8%A3%85/">参考ubuntu_NVIDIA30xx，开发环境显卡安装</a></li>
+</ul>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>在经历上述过程后，很容易安装EasyOCR，运行以下命令：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pip3 install easyocr</span><br></pre></td></tr></table></figure><br>输出结果：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Collecting easyocr</span><br><span class="line">  Using cached easyocr-1.4.1-py3-none-any.whl (63.6 MB)</span><br><span class="line">Collecting python-bidi</span><br><span class="line">  Using cached python_bidi-0.4.2-py2.py3-none-any.whl (30 kB)</span><br><span class="line">Collecting scikit-image</span><br><span class="line">  Downloading scikit_image-0.17.2-cp36-cp36m-win_amd64.whl (11.5 MB)</span><br><span class="line">     |████████████████████████████████| 11.5 MB 211 kB&#x2F;s</span><br><span class="line">Requirement already satisfied: PyYAML in d:\users\vadmin\anaconda3\envs\pytorch\lib\site-packages (from easyocr) (5.4.1)</span><br><span class="line">Requirement already satisfied: numpy in d:\users\vadmin\anaconda3\envs\pytorch\lib\site-packages (from easyocr) (1.19.5)</span><br><span class="line">Requirement already satisfied: torch in d:\users\vadmin\anaconda3\envs\pytorch\lib\site-packages (from easyocr) (1.9.0)</span><br><span class="line">Requirement already satisfied: scipy in d:\users\vadmin\anaconda3\envs\pytorch\lib\site-packages (from easyocr) (1.5.4)</span><br><span class="line">Collecting opencv-python-headless</span><br><span class="line">  Downloading opencv_python_headless-4.5.4.58-cp36-cp36m-win_amd64.whl (35.0 MB)</span><br><span class="line">     |████████████████████████████████| 35.0 MB 338 kB&#x2F;s</span><br><span class="line">Requirement already satisfied: torchvision&gt;&#x3D;0.5 in d:\users\vadmin\anaconda3\envs\pytorch\lib\site-packages (from easyocr) (0.10.0)</span><br><span class="line">Requirement already satisfied: Pillow&lt;8.3.0 in d:\users\vadmin\anaconda3\envs\pytorch\lib\site-packages (from easyocr) (8.2.0)</span><br><span class="line">Requirement already satisfied: typing_extensions in d:\users\vadmin\anaconda3\envs\pytorch\lib\site-packages (from torch-&gt;easyocr) (3.7.4.3)</span><br><span class="line">Requirement already satisfied: dataclasses in d:\users\vadmin\anaconda3\envs\pytorch\lib\site-packages (from torch-&gt;easyocr) (0.8)</span><br><span class="line">Requirement already satisfied: six in d:\users\vadmin\anaconda3\envs\pytorch\lib\site-packages (from python-bidi-&gt;easyocr) (1.16.0)</span><br><span class="line">Requirement already satisfied: imageio&gt;&#x3D;2.3.0 in d:\users\vadmin\anaconda3\envs\pytorch\lib\site-packages (from scikit-image-&gt;easyocr) (2.9.0)</span><br><span class="line">Requirement already satisfied: matplotlib!&#x3D;3.0.0,&gt;&#x3D;2.0.0 in d:\users\vadmin\anaconda3\envs\pytorch\lib\site-packages (from scikit-image-&gt;easyocr) (3.3.4)</span><br><span class="line">Collecting tifffile&gt;&#x3D;2019.7.26</span><br><span class="line">  Downloading tifffile-2020.9.3-py3-none-any.whl (148 kB)</span><br><span class="line">     |████████████████████████████████| 148 kB ...</span><br><span class="line">Collecting networkx&gt;&#x3D;2.0</span><br><span class="line">  Downloading networkx-2.5.1-py3-none-any.whl (1.6 MB)</span><br><span class="line">     |████████████████████████████████| 1.6 MB 6.4 MB&#x2F;s</span><br><span class="line">Requirement already satisfied: PyWavelets&gt;&#x3D;1.1.1 in d:\users\vadmin\anaconda3\envs\pytorch\lib\site-packages (from scikit-image-&gt;easyocr) (1.1.1)</span><br><span class="line">Requirement already satisfied: kiwisolver&gt;&#x3D;1.0.1 in d:\users\vadmin\anaconda3\envs\pytorch\lib\site-packages (from matplotlib!&#x3D;3.0.0,&gt;&#x3D;2.0.0-&gt;scikit-image-&gt;easyocr) (1.3.1)</span><br><span class="line">Requirement already satisfied: pyparsing!&#x3D;2.0.4,!&#x3D;2.1.2,!&#x3D;2.1.6,&gt;&#x3D;2.0.3 in d:\users\vadmin\anaconda3\envs\pytorch\lib\site-packages (from matplotlib!&#x3D;3.0.0,&gt;&#x3D;2.0.0-&gt;scikit-image-&gt;easyocr) (2.4.7)</span><br><span class="line">Requirement already satisfied: cycler&gt;&#x3D;0.10 in d:\users\vadmin\anaconda3\envs\pytorch\lib\site-packages (from matplotlib!&#x3D;3.0.0,&gt;&#x3D;2.0.0-&gt;scikit-image-&gt;easyocr) (0.10.0)</span><br><span class="line">Requirement already satisfied: python-dateutil&gt;&#x3D;2.1 in d:\users\vadmin\anaconda3\envs\pytorch\lib\site-packages (from matplotlib!&#x3D;3.0.0,&gt;&#x3D;2.0.0-&gt;scikit-image-&gt;easyocr) (2.8.1)</span><br><span class="line">Collecting decorator&lt;5,&gt;&#x3D;4.3</span><br><span class="line">  Downloading decorator-4.4.2-py2.py3-none-any.whl (9.2 kB)</span><br><span class="line">Installing collected packages: decorator, tifffile, networkx, scikit-image, python-bidi, opencv-python-headless, easyocr</span><br><span class="line">Successfully installed decorator-4.4.2 easyocr-1.4.1 networkx-2.5.1 opencv-python-headless-4.5.4.58 python-bidi-0.4.2 scikit-image-0.17.2 tifffile-2020.9.3</span><br></pre></td></tr></table></figure></p>
+<h2 id="使用easyocr"><a href="#使用easyocr" class="headerlink" title="使用easyocr"></a>使用easyocr</h2><p>简单示例：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import easyocr</span><br><span class="line"></span><br><span class="line">reader &#x3D; easyocr.Reader([&#39;ch_sim&#39;, &#39;en&#39;], gpu&#x3D;True)  </span><br><span class="line">result &#x3D; reader.readtext(r&quot;labelimg.jpg&quot;, detail&#x3D;0)</span><br><span class="line">print(result)</span><br><span class="line"># detail&#x3D;0 不输出位置信息</span><br></pre></td></tr></table></figure></p>
+<h3 id="导入库"><a href="#导入库" class="headerlink" title="导入库"></a>导入库</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import os</span><br><span class="line">import easyocr</span><br><span class="line">import cv2</span><br><span class="line">from matplotlib import pyplot as plt</span><br><span class="line">import numpy as np</span><br></pre></td></tr></table></figure>
+<h3 id="读取图像"><a href="#读取图像" class="headerlink" title="读取图像"></a>读取图像</h3><p><img src="https://www.codekp.cn/download/img/ubuntu/NVIDIA1.png" alt="" loading="lazy"></p>
+<ul>
+<li>URL图片<br><code>Image=&#39;https://www.codekp.cn/download/img/ubuntu/NVIDIA1.png&#39;</code></li>
+<li>本地图片<br><code>Image=&#39;labelimg.jpg&#39;</code><br><code>result = reader.readtext(Image, detail=0,paragraph=&quot;False&quot;)</code><h4 id="图片如果是https，请附上"><a href="#图片如果是https，请附上" class="headerlink" title="图片如果是https，请附上"></a>图片如果是https，请附上</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 全局取消证书验证</span><br><span class="line">import ssl</span><br><span class="line">ssl._create_default_https_context &#x3D; ssl._create_unverified_context</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="识别结果"><a href="#识别结果" class="headerlink" title="识别结果"></a>识别结果</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[&#39;手动搜索驱动程序 提供您的系统信息以搜索全部 GeForce 驱动程序。&#39;, &#39;产品类型: GeFOrE&#39;, &#39;产品系列: GeFOrcE RTX 30 Series [Notebooks]&#39;, &#39;产品: GeForce RTX 3060 Laptoo GPU&#39;, &#39;操怍系统: LinUx 04-Oit&#39;, &#39;语言&#39;, &#39;Chinese (Simolified]&#39;, &#39;下载类型&#39;, &#39;全部&#39;, &#39;Q开始搜索&#39;]</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>准确度极高</p>
+<ul>
+<li>其中调用时使用[‘ch_sim’, ‘en’]可以识别简体中文和英文</li>
+<li>“paragraph”，这里它被设置为False**，这意味着现在easyOCR不会合并结果，即如果EasyOCR会遇到多个文本，它不会合并它们，而是将它们分开显示。</li>
+</ul>
+</blockquote>
+<h2 id="单行文本结果绘制"><a href="#单行文本结果绘制" class="headerlink" title="单行文本结果绘制"></a>单行文本结果绘制</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">top_left &#x3D; tuple(result[0][0][0])</span><br><span class="line">bottom_right &#x3D; tuple(result[0][0][2])</span><br><span class="line">text &#x3D; result[0][1]</span><br></pre></td></tr></table></figure>
+<ol>
+<li>我们正在尝试获取坐标以在我们必须执行检测的图像上绘制边界框和文本。</li>
+<li>在top_left变量中，我们以元组访问的形式从结果中获取左上角的坐标。同样，我们可以获取右下角的坐标。</li>
+<li>从二维数组格式获取文本的坐标<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">img &#x3D; cv2.imread(Image2)</span><br><span class="line">img &#x3D; cv2.rectangle(img,top_left,bottom_right,(0,255,0),3)</span><br><span class="line">img &#x3D; cv2ImgAddText(img, text, bottom_right[0], bottom_right[1], (0, 255, 0), 10)</span><br><span class="line">plt.figure(figsize&#x3D;(10,10))</span><br><span class="line">plt.imshow(img)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure></li>
+<li>读取图片</li>
+<li>画矩形框</li>
+<li>图片输入中文英文字符</li>
+<li>图片显示</li>
+</ol>
+<p>结果<br><img src="https://www.codekp.cn/download/img/ubuntu/NVIDIA3.png" alt="" loading="lazy"></p>
+<h2 id="处理多行文本的结果"><a href="#处理多行文本的结果" class="headerlink" title="处理多行文本的结果"></a>处理多行文本的结果</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">img &#x3D; cv2.imread(Image2)</span><br><span class="line">spacer &#x3D; 100</span><br><span class="line">for detection in result:</span><br><span class="line">    top_left &#x3D; tuple(detection[0][0])</span><br><span class="line">    bottom_right &#x3D; tuple(detection[0][2])</span><br><span class="line">    text &#x3D; detection[1]</span><br><span class="line">    img &#x3D; cv2.rectangle(img,top_left,bottom_right,(0,255,0),3)</span><br><span class="line">    img &#x3D; cv2ImgAddText(img, text, bottom_right[0], bottom_right[1], (0, 255, 0), 18)</span><br><span class="line">    spacer+&#x3D;15</span><br><span class="line"></span><br><span class="line">plt.figure(figsize&#x3D;(10,10))</span><br><span class="line">plt.imshow(img)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<ul>
+<li>遍历所有检测，绘制多行文本</li>
+</ul>
+<p>结果：<br><img src="https://www.codekp.cn/download/img/ubuntu/NVIDIA4.png" alt="" loading="lazy"></p>
+<h3 id="中文绘制函数"><a href="#中文绘制函数" class="headerlink" title="中文绘制函数"></a>中文绘制函数</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">def cv2ImgAddText(img, text, left, top, textColor&#x3D;(0, 255, 0), textSize&#x3D;20):</span><br><span class="line">    if (isinstance(img, np.ndarray)):  # 判断是否OpenCV图片类型</span><br><span class="line">        img &#x3D; Image.fromarray(cv2.cvtColor(img, cv2.COLOR_BGR2RGB))</span><br><span class="line">    draw &#x3D; ImageDraw.Draw(img)</span><br><span class="line">    fontStyle &#x3D; ImageFont.truetype(</span><br><span class="line">        &quot;simsun.ttc&quot;, textSize, encoding&#x3D;&quot;utf-8&quot;)</span><br><span class="line">    draw.text((left, top), text, textColor, font&#x3D;fontStyle)</span><br><span class="line">    return cv2.cvtColor(np.asarray(img), cv2.COLOR_RGB2BGR)</span><br></pre></td></tr></table></figure>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p> 识别准确度较高，识别时延极低在10-20ms，适合进行应用。</p>
+]]></content>
+      <categories>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>OCR</tag>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>English_learning</title>
     <url>/2020/07/31/English-learning/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><blockquote>
@@ -233,58 +285,6 @@ If you are talking to a group of managers, you may refer to the disorganized met
         <tag>英语</tag>
         <tag>英语阅读</tag>
         <tag>markdown</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>EasyOCR光学字符识别</title>
-    <url>/2021/10/25/EasyOCR%E5%85%89%E5%AD%A6%E5%AD%97%E7%AC%A6%E8%AF%86%E5%88%AB/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="EasyOCR光学字符识别"><a href="#EasyOCR光学字符识别" class="headerlink" title="EasyOCR光学字符识别"></a>EasyOCR光学字符识别</h1><pre><code>OCR光学字符识别，将不同类型的文档，图像中的字符保存为可编辑和可搜索的数据。
-</code></pre><h2 id="EasyOCR"><a href="#EasyOCR" class="headerlink" title="EasyOCR"></a>EasyOCR</h2><p>EasyOCR是python的一个包，将pytorch作为后端处理程序，EasyOCR 像任何其他 OCR（Google 的 tesseract 或任何其他）一样检测图像中的文本，但我在使用它时，我发现它是从图像中检测文本的最直接的方法，而且它将 PyTorch 作为后端处理程序，准确性更可靠。<br>EasyOCR 支持 42 多种语言进行检测。EasyOCR 是由 Jaided AI 公司创建的。</p>
-<ul>
-<li>预安装 pytorch，安装过程<a href="https://www.codekp.cn/2021/10/22/ubuntu-NVIDIA30xx%E6%98%BE%E5%8D%A1%E5%AE%89%E8%A3%85/">参考ubuntu_NVIDIA30xx，开发环境显卡安装</a></li>
-</ul>
-<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>在经历上述过程后，很容易安装EasyOCR，运行以下命令：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pip3 install easyocr</span><br></pre></td></tr></table></figure><br>输出结果：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Collecting easyocr</span><br><span class="line">  Using cached easyocr-1.4.1-py3-none-any.whl (63.6 MB)</span><br><span class="line">Collecting python-bidi</span><br><span class="line">  Using cached python_bidi-0.4.2-py2.py3-none-any.whl (30 kB)</span><br><span class="line">Collecting scikit-image</span><br><span class="line">  Downloading scikit_image-0.17.2-cp36-cp36m-win_amd64.whl (11.5 MB)</span><br><span class="line">     |████████████████████████████████| 11.5 MB 211 kB&#x2F;s</span><br><span class="line">Requirement already satisfied: PyYAML in d:\users\vadmin\anaconda3\envs\pytorch\lib\site-packages (from easyocr) (5.4.1)</span><br><span class="line">Requirement already satisfied: numpy in d:\users\vadmin\anaconda3\envs\pytorch\lib\site-packages (from easyocr) (1.19.5)</span><br><span class="line">Requirement already satisfied: torch in d:\users\vadmin\anaconda3\envs\pytorch\lib\site-packages (from easyocr) (1.9.0)</span><br><span class="line">Requirement already satisfied: scipy in d:\users\vadmin\anaconda3\envs\pytorch\lib\site-packages (from easyocr) (1.5.4)</span><br><span class="line">Collecting opencv-python-headless</span><br><span class="line">  Downloading opencv_python_headless-4.5.4.58-cp36-cp36m-win_amd64.whl (35.0 MB)</span><br><span class="line">     |████████████████████████████████| 35.0 MB 338 kB&#x2F;s</span><br><span class="line">Requirement already satisfied: torchvision&gt;&#x3D;0.5 in d:\users\vadmin\anaconda3\envs\pytorch\lib\site-packages (from easyocr) (0.10.0)</span><br><span class="line">Requirement already satisfied: Pillow&lt;8.3.0 in d:\users\vadmin\anaconda3\envs\pytorch\lib\site-packages (from easyocr) (8.2.0)</span><br><span class="line">Requirement already satisfied: typing_extensions in d:\users\vadmin\anaconda3\envs\pytorch\lib\site-packages (from torch-&gt;easyocr) (3.7.4.3)</span><br><span class="line">Requirement already satisfied: dataclasses in d:\users\vadmin\anaconda3\envs\pytorch\lib\site-packages (from torch-&gt;easyocr) (0.8)</span><br><span class="line">Requirement already satisfied: six in d:\users\vadmin\anaconda3\envs\pytorch\lib\site-packages (from python-bidi-&gt;easyocr) (1.16.0)</span><br><span class="line">Requirement already satisfied: imageio&gt;&#x3D;2.3.0 in d:\users\vadmin\anaconda3\envs\pytorch\lib\site-packages (from scikit-image-&gt;easyocr) (2.9.0)</span><br><span class="line">Requirement already satisfied: matplotlib!&#x3D;3.0.0,&gt;&#x3D;2.0.0 in d:\users\vadmin\anaconda3\envs\pytorch\lib\site-packages (from scikit-image-&gt;easyocr) (3.3.4)</span><br><span class="line">Collecting tifffile&gt;&#x3D;2019.7.26</span><br><span class="line">  Downloading tifffile-2020.9.3-py3-none-any.whl (148 kB)</span><br><span class="line">     |████████████████████████████████| 148 kB ...</span><br><span class="line">Collecting networkx&gt;&#x3D;2.0</span><br><span class="line">  Downloading networkx-2.5.1-py3-none-any.whl (1.6 MB)</span><br><span class="line">     |████████████████████████████████| 1.6 MB 6.4 MB&#x2F;s</span><br><span class="line">Requirement already satisfied: PyWavelets&gt;&#x3D;1.1.1 in d:\users\vadmin\anaconda3\envs\pytorch\lib\site-packages (from scikit-image-&gt;easyocr) (1.1.1)</span><br><span class="line">Requirement already satisfied: kiwisolver&gt;&#x3D;1.0.1 in d:\users\vadmin\anaconda3\envs\pytorch\lib\site-packages (from matplotlib!&#x3D;3.0.0,&gt;&#x3D;2.0.0-&gt;scikit-image-&gt;easyocr) (1.3.1)</span><br><span class="line">Requirement already satisfied: pyparsing!&#x3D;2.0.4,!&#x3D;2.1.2,!&#x3D;2.1.6,&gt;&#x3D;2.0.3 in d:\users\vadmin\anaconda3\envs\pytorch\lib\site-packages (from matplotlib!&#x3D;3.0.0,&gt;&#x3D;2.0.0-&gt;scikit-image-&gt;easyocr) (2.4.7)</span><br><span class="line">Requirement already satisfied: cycler&gt;&#x3D;0.10 in d:\users\vadmin\anaconda3\envs\pytorch\lib\site-packages (from matplotlib!&#x3D;3.0.0,&gt;&#x3D;2.0.0-&gt;scikit-image-&gt;easyocr) (0.10.0)</span><br><span class="line">Requirement already satisfied: python-dateutil&gt;&#x3D;2.1 in d:\users\vadmin\anaconda3\envs\pytorch\lib\site-packages (from matplotlib!&#x3D;3.0.0,&gt;&#x3D;2.0.0-&gt;scikit-image-&gt;easyocr) (2.8.1)</span><br><span class="line">Collecting decorator&lt;5,&gt;&#x3D;4.3</span><br><span class="line">  Downloading decorator-4.4.2-py2.py3-none-any.whl (9.2 kB)</span><br><span class="line">Installing collected packages: decorator, tifffile, networkx, scikit-image, python-bidi, opencv-python-headless, easyocr</span><br><span class="line">Successfully installed decorator-4.4.2 easyocr-1.4.1 networkx-2.5.1 opencv-python-headless-4.5.4.58 python-bidi-0.4.2 scikit-image-0.17.2 tifffile-2020.9.3</span><br></pre></td></tr></table></figure></p>
-<h2 id="使用easyocr"><a href="#使用easyocr" class="headerlink" title="使用easyocr"></a>使用easyocr</h2><p>简单示例：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import easyocr</span><br><span class="line"></span><br><span class="line">reader &#x3D; easyocr.Reader([&#39;ch_sim&#39;, &#39;en&#39;], gpu&#x3D;True)  </span><br><span class="line">result &#x3D; reader.readtext(r&quot;labelimg.jpg&quot;, detail&#x3D;0)</span><br><span class="line">print(result)</span><br><span class="line"># detail&#x3D;0 不输出位置信息</span><br></pre></td></tr></table></figure></p>
-<h3 id="导入库"><a href="#导入库" class="headerlink" title="导入库"></a>导入库</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import os</span><br><span class="line">import easyocr</span><br><span class="line">import cv2</span><br><span class="line">from matplotlib import pyplot as plt</span><br><span class="line">import numpy as np</span><br></pre></td></tr></table></figure>
-<h3 id="读取图像"><a href="#读取图像" class="headerlink" title="读取图像"></a>读取图像</h3><p><img src="https://www.codekp.cn/download/img/ubuntu/NVIDIA1.png" alt="" loading="lazy"></p>
-<ul>
-<li>URL图片<br><code>Image=&#39;https://www.codekp.cn/download/img/ubuntu/NVIDIA1.png&#39;</code></li>
-<li>本地图片<br><code>Image=&#39;labelimg.jpg&#39;</code><br><code>result = reader.readtext(Image, detail=0,paragraph=&quot;False&quot;)</code><h4 id="图片如果是https，请附上"><a href="#图片如果是https，请附上" class="headerlink" title="图片如果是https，请附上"></a>图片如果是https，请附上</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 全局取消证书验证</span><br><span class="line">import ssl</span><br><span class="line">ssl._create_default_https_context &#x3D; ssl._create_unverified_context</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h4 id="识别结果"><a href="#识别结果" class="headerlink" title="识别结果"></a>识别结果</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[&#39;手动搜索驱动程序 提供您的系统信息以搜索全部 GeForce 驱动程序。&#39;, &#39;产品类型: GeFOrE&#39;, &#39;产品系列: GeFOrcE RTX 30 Series [Notebooks]&#39;, &#39;产品: GeForce RTX 3060 Laptoo GPU&#39;, &#39;操怍系统: LinUx 04-Oit&#39;, &#39;语言&#39;, &#39;Chinese (Simolified]&#39;, &#39;下载类型&#39;, &#39;全部&#39;, &#39;Q开始搜索&#39;]</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>准确度极高</p>
-<ul>
-<li>其中调用时使用[‘ch_sim’, ‘en’]可以识别简体中文和英文</li>
-<li>“paragraph”，这里它被设置为False**，这意味着现在easyOCR不会合并结果，即如果EasyOCR会遇到多个文本，它不会合并它们，而是将它们分开显示。</li>
-</ul>
-</blockquote>
-<h2 id="单行文本结果绘制"><a href="#单行文本结果绘制" class="headerlink" title="单行文本结果绘制"></a>单行文本结果绘制</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">top_left &#x3D; tuple(result[0][0][0])</span><br><span class="line">bottom_right &#x3D; tuple(result[0][0][2])</span><br><span class="line">text &#x3D; result[0][1]</span><br></pre></td></tr></table></figure>
-<ol>
-<li>我们正在尝试获取坐标以在我们必须执行检测的图像上绘制边界框和文本。</li>
-<li>在top_left变量中，我们以元组访问的形式从结果中获取左上角的坐标。同样，我们可以获取右下角的坐标。</li>
-<li>从二维数组格式获取文本的坐标<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">img &#x3D; cv2.imread(Image2)</span><br><span class="line">img &#x3D; cv2.rectangle(img,top_left,bottom_right,(0,255,0),3)</span><br><span class="line">img &#x3D; cv2ImgAddText(img, text, bottom_right[0], bottom_right[1], (0, 255, 0), 10)</span><br><span class="line">plt.figure(figsize&#x3D;(10,10))</span><br><span class="line">plt.imshow(img)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure></li>
-<li>读取图片</li>
-<li>画矩形框</li>
-<li>图片输入中文英文字符</li>
-<li>图片显示</li>
-</ol>
-<p>结果<br><img src="https://www.codekp.cn/download/img/ubuntu/NVIDIA3.png" alt="" loading="lazy"></p>
-<h2 id="处理多行文本的结果"><a href="#处理多行文本的结果" class="headerlink" title="处理多行文本的结果"></a>处理多行文本的结果</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">img &#x3D; cv2.imread(Image2)</span><br><span class="line">spacer &#x3D; 100</span><br><span class="line">for detection in result:</span><br><span class="line">    top_left &#x3D; tuple(detection[0][0])</span><br><span class="line">    bottom_right &#x3D; tuple(detection[0][2])</span><br><span class="line">    text &#x3D; detection[1]</span><br><span class="line">    img &#x3D; cv2.rectangle(img,top_left,bottom_right,(0,255,0),3)</span><br><span class="line">    img &#x3D; cv2ImgAddText(img, text, bottom_right[0], bottom_right[1], (0, 255, 0), 18)</span><br><span class="line">    spacer+&#x3D;15</span><br><span class="line"></span><br><span class="line">plt.figure(figsize&#x3D;(10,10))</span><br><span class="line">plt.imshow(img)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-<ul>
-<li>遍历所有检测，绘制多行文本</li>
-</ul>
-<p>结果：<br><img src="https://www.codekp.cn/download/img/ubuntu/NVIDIA4.png" alt="" loading="lazy"></p>
-<h3 id="中文绘制函数"><a href="#中文绘制函数" class="headerlink" title="中文绘制函数"></a>中文绘制函数</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">def cv2ImgAddText(img, text, left, top, textColor&#x3D;(0, 255, 0), textSize&#x3D;20):</span><br><span class="line">    if (isinstance(img, np.ndarray)):  # 判断是否OpenCV图片类型</span><br><span class="line">        img &#x3D; Image.fromarray(cv2.cvtColor(img, cv2.COLOR_BGR2RGB))</span><br><span class="line">    draw &#x3D; ImageDraw.Draw(img)</span><br><span class="line">    fontStyle &#x3D; ImageFont.truetype(</span><br><span class="line">        &quot;simsun.ttc&quot;, textSize, encoding&#x3D;&quot;utf-8&quot;)</span><br><span class="line">    draw.text((left, top), text, textColor, font&#x3D;fontStyle)</span><br><span class="line">    return cv2.cvtColor(np.asarray(img), cv2.COLOR_RGB2BGR)</span><br></pre></td></tr></table></figure>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p> 识别准确度较高，识别时延极低在10-20ms，适合进行应用。</p>
-]]></content>
-      <categories>
-        <category>python</category>
-      </categories>
-      <tags>
-        <tag>OCR</tag>
-        <tag>python</tag>
       </tags>
   </entry>
   <entry>
@@ -1530,25 +1530,6 @@ If you are talking to a group of managers, you may refer to the disorganized met
       </tags>
   </entry>
   <entry>
-    <title>network map</title>
-    <url>/2021/04/14/nmap/</url>
-    <content><![CDATA[<div id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
-  <div class="hbe-input-container">
-  <input type="password" id="hbePass" placeholder="" />
-    <label for="hbePass">Hey, password is required here.</label>
-    <div class="bottom-line"></div>
-  </div>
-  <script id="hbeData" type="hbeData" data-hmacdigest="42536728308c99d417161ad5e51c8ff32266a239d0ede5b17f0a1378ddda1bee">a4739802019b5accf4e8257a859c221ddd0928ad877a1a7b073c046e9b67e8c3080ea12c91e9de54f0f9e6b442a02713295c1effed2ead0448067e035633f52210048df9769fd9e4f89640f9a12b6f81e84f0c13b61bb88ccffb71226b7610b346a803efc324dd5507ebac49649a04cb6cfdf290a863946c651b489f8d92aeb1ea6ca599a5e6816426b65eccc3ecbc944418e88a44be080879caaf8c3ed013a6c70bde30ecd5d8e4077818e970a2936653c902e516524cd0f1b62f29c6408753ef448b4320525e94330d1558cd26905a8d1c6f7626ec7d4c4f4e79319c804b592fc4e89d3e2d14c47c35a50bb510384fdf6b2aa61f80c554c836e73cfcff70a13cd002ed117ad9b64589a8c5e6d3c2803ebf1ae8a220d4a85470410e9139796ff1efe0f54a30da34d4c6260d42e4c9c35bd87123731d1a6ced558a220fc7dbb66edd504aeb15a433c2d2ff7e2d884ae4073709e0664d373da035313a3f64506f831f3ec0a01c61e13e8700a316ed3ecb94726df02e8a77cd1e834fe19dd1f1c62ef193ffaa226a154b774df2a1ab503865b37e1cc427e0cc5762ce8c6c21f6b8da93e9f09ebd847633317b814891284bf95a7a699972b1ae371ac1473af7e15ed276b2fb766192c807ad779ef0530bf31ba5d4bd13c4978ba56ce34dbef08e8aab2ed5fdace9b654b7686488175a8bca39a87ad303683c7166f6dc26a3eed991c36458c569a98f9cf0c3557580ac309272ed3391f251636d0817f8dddf5b780ce72e442240db16df0ea13899f9a05d6829c89491a8dac6439900bcbf26e6e6c73b4b4b049881fa1b08871d4dd627494628d5c1b2581ffcc02e5ffc3488fb0dfb84f278b360ba89ea412d1924d9545254bca3ebe0af3171785b99d56ac78573c8dc3c6c0e22157454b2d7281fe0f17ae62e58332d8bdfeb7e2d9a46a5c6aab430ffab43aff86b1b763f4aad8f7069cda780576dee34e4e6cdad540f4805a5556b72e25ab2db24a73fefb72d7450eba1fa3c40d8cd29e6dbcda2fb25e50387aebad9b5211c1e66dbbb7c8d8eb01afdb1f6c2318d852cbcfaa555b75a7af5ebf4bcb135cdb5a072d423e1d937fb99cb4f37132d16997631733fc07cfe9f151724c775107abbceebcb6cca0366c1b20cc8dfa1805953e376c3c149127c6d5fda2bc134d1d68c4a707569eec72356b3f57d144063f9ed8ec96849044c1a02ed112326f22c55eabae0ef0cf10f912c67251185f2528eb8f9197de8452de3d46b7f8faeb06ab24fd9b9a87f9f56d62292b2c236176e6914087fbb88bd28038bc9486ea499447305e379e2ed7a39b118c1ac1a2b7732c9d137e005d0ad6e6e7bcdbfb19143edba70c985f15c446107d2c8cbbe88742bbc525bd54477476d5a3417a6aee1873651301f274b56d7e503bd93efb88ef6089c88f5a058a6e6c087bf501cae350ed8b6540a10ea653a3f2ce0f249c127f370b6cdf5b1ae1e473dd1b4a1017670eb89b31ead43a6ef3af9546324761683b0050f24be5d698ebf82a92e73aea15bdf37cfca5e2daa400966c3cd44d4c42e5cbc567a6617d70fbd49d04d1b5b0340096e0ff2af35cbae8adbc30e07ba9fe8e62cfc845c8c9525ed85dcde82b2299e83be42eeffd6867607dfc464cd1ce5f6ebe3d18ec0126647137a1cc8a8a118787e3d3f547f101438b3a499045737141d46821beea9208260163d3a562e3602af8761a65f8a61fcbe1704cb5c99896ac07fb7732725803de552fb6f8848d950dd94829f47c8cd783e01660fe316ecd8a53665620079c495f0ac8f7dc2d98ffe145ae86872a92f292850550858181429b5c6d88b02a87d02b1a277e6e18c68f5b89ba5d665b07184859dd0ff3790f72fd6941829e11f3b60d2b9b496afcb65ae0ee9b8be6dfde10cdea8be1b84ad266f76b0ab622a05befb4a9ebd35ccac3bd538be5c0ca4da3ca4b174362e95676517b74157e00dd165b408ff1f0dd88345d2d5a77b4cfdd5caff569d3202f79bdd348ffd34f3eef5e8e123c905ea0f5d0c7852236685ae045805c4baa80fd4238e283711e8d479760bd801b1c859933977852890f73400734d747af3508fb6e89e9f96dd28198171d72d623d33b61bf753c3788c8e9c7fd4204221f2568c91989ed6606140be8874241db061964259ac622c270e878ad2a5538640319a4caf1e242df5ea8aff7007e2b5e6dbd7693a393af8b7adf57578d70680ba2c53d5435285f3726b61d937ca8a5f4c33fb60e4ea1e4c6496c65b24d616af3e5dca1534600f4af3c4d4aa447b2b5f07cda50e64e9d18bac1246a8473cda89367d5164d437e59130b6fb29817a42be0d0311b6a4732440a48440f6b5c87cbde40136ea986a863c48624f8cbc31fa2c1d9a4506900d73f2f5dcc4431820830325cbbdcf9661a3c26b6536e4e9dd89ec4728593c031b7e5fe3d948214092e5684db957d71b4ca3a15110ccca7b2203aa5dfbf98817e6e588432d9c3233af0baf35e63117fdc6103e4ca6cca3e1e1fa082c9cda935cda0c921be18f7d3a374c5d036c283babd50c2489e7e1cabeb910910a8e57587dcec614f1848a48138e4ffffeec8a4f3c921ef448c96f21729a69de97609f8cf9a736e790cb0a75ddbc85ed7f6137689235c806d33a7e59dbe150ab69e15e66d2dd248b26c524b19b2328b8f1a1b38b197f254f70a8f72cf9704895c3ae62c9c78171ac40232f8a56c0f3176929553959255513766eeeaadebc6ad844230a84b1205379c0b70234eb98d19e330fabd66e4f80547029571aa1ed7c321da7d59d0e16351ebfc7b9148e6a18950ae68b72a8dfcf5ffd96c2f5c788be0800291aea6aef00247158a7549e73c9240dc6a70b1d97940d0f1ecfc6d43a5697b33a443ba909baaf3eda3b00ec95e96a84e969d8ae913e9dbe737f1c4ba6e78d353a3a46cae675ed458d62bba244c713678e19d4892e85517c6c6fbcec2c8626e40bd022a8816b006aee3b26c09ee10142ee20bf9895aa1f66ccd4ee14200832ddde06537d5644ee8efde601be34ee4f5805b7c28e9a127c67c6a033cec36f81b8e79d4ad2d60784caa381f57fc2f66edfbb26d633d6813e618039eed4b726d6fcf7ef0d288574fe908f3e63b1e112f57bd42e82a3cf0ee6a47cd2d3f1c76d3dbcc0d0288ae4daa31177aacbb1f64de32c2b74a0546b31b58cff12c99b703ccddc84208d4e77948a84e736a487ac1a553ed91ed99f8b7897c3a8ad36539d53b35165f4804b6fac14e66c62b5d3cdbc411f37fc7a8614df3a208f6f2482d460ef7e1f7c951ff240d6ff002b2e9b79d672f4ad6b804792ad9b585c5ffad20691001116e89aaaf7fa9711cba4a5b513a9dc92adbc56c8bcd8d576c7aeb62ec6209f4aa4cb36a619c1305c4ad12b75ed0d3e00bc0ac915ff2b9027398438d99d9b41f7f3160a99e7e909d20fabc1f54bc20e3af3096d253bd01f99c5fe074e18cd27a909d0d014629ed74549bcd684d2491948c675dc6c21ab6e5c27405d880d852b8a93620e4117f436cc4072591bd574c1ae594097b445b65a952ca38769cc4e2d99e527a08761c7508845b1242de734bb3ea80fb427efe051cf4822c2b60e6e02bd910645154f75b214b2267c9d345e6aed05e45ee848956411a728814f15d62b3b37fdfb73eb6c73419daf875eaa90957e74feeb2acde6979169417072258a31f0f2148d6a4bcf3c3f0504cd68e6271d6a72c6cc13c29661515bcf3a6c4851c10fcd4a17cc352d77b799f1d267a0476883101e3c2c609dbc069a6757659f4ffc0f1958afff007608b13c64a66d374e0782294ff750931ba7b74d91caad18e7b3fae30439898a444f1c89b7dfc49cb2ee0c083b323d8b7385866e7bad470ef67f7f66c3152febdadf3e0a4646f89c97ca460cc67ef7c09bf91244191de2bffa83e8867c4e1ad3802f1b41625ff2b60e323aaf2a03d2c1d77590dc6d5fcad50638a07df35511c6220513db2331d8cdf174e61e0be1fae42e049cfc4f4f9176e0c439d4c2883a51ab57d0f5bab3ce9244c78e5f2ffc509d579c0d819b2745d48ec8b86afac9d4b9f48fedf122840d10817b0271c553d30952391a3449f25fe42f5fd6237f361e57093b98d35825cc29bd444da9f002f37c2ec06ca2fbfad8033bb41e26f4df79ffd0c8e09a7f733df9c7ebbcc75b004b685673536c2215433ec68040c7190251bca8233f142d22b6c4f296d995c7d61c2058a9a506117d493acada97ebe361602e17de37a58d2a6d4bf44c9bf832fa4f0a31e0be67c5cc4ae1c40fde53ed956fbf8b316ef114f9e001263d19d88b28c5d3ce05b6628b384dd94e68e12074506e8c6650f1338011b9fd90309d55f040360bc303da65ebefaed322ec0f9a9eb6a85a4f2d3a5ea91eecc2e9683c7f1745ae6f4abf75b1f5aa7f051dbfc2262accae4c11733b20fed593666c663d9c5622b53cf7887d2d7343b405c37e89d00e4221566c826f7913fd5ce9d2f4da0d974bf78f830e8ab3979ac29a8142fd229039007e3f856057ceac59ab8481d216267ae2cdd16dfd5512f9dcbe982d098542c9c77401a38514fd1b35adba4c33f25ae6a3e8e9a11efe20d0a35ff6fe51a60fa90a94fe5138ad57c1468117c91ec31e0f3a4f1129dfd7126dc13d5f97d0b6e20ae5fc859fbcdb562bc52444a8887c593eb6e3167fb58de1b1aff8afe8ec4c7b72c8bd0cff78f6eafca2552238aa929699bf5905b8f1c301f49f191bf8d197a79451165ba88ce810cbc34d78091b2b64535b693f973c6e5b1a55fedcf856e649173f25585362191b24eacbfaf51f5bab28969fd68e4cd8274dfc775eff2089c7a4a4349550c19a6dc4899e86a54845b218f974bac89b8d30f7b3c7afde38737ec1166aecf022359b1665471d358edafea5c9c8cfa759add6968998c6ded8899bf9d101b9fb3b9d73720575cd3b93287b9d3ee905f7b4fcbe5ea7b8cb268c1ce6af4abdf7e917421565836811c07687c2c9c4ce6d4078feedcf32930df7784a06038693825ad37d2262e15e1f2166a04758ef9b1a0204c25eabf9541100f83f7ecd0472e5e6c53ca3b9acdd2e093caf4def950237f5584e11260d73dadebdcce1e979b8681d16f85d5e8a78caa9a1ec8238a5f42bc7513eb50ebee7be598e542b5a6363729ad29fba817f88c13833e9d69559721e2685d7f6323007aef5b96f5339bdb70590f0fca341a2e98f4150a38a3147b8afe8636ab51f9e6bb0c4f9400aaffc17a7033c7aa994c638e18a7c3eb8c9439bc74e766fc90882e91e078c57380339de62fe6a3a159d4267fd3ba2562dcbdc5ce3077ef7e069bfe5297fda1718db6ca9af29a317a707ba396154b61f51342f8320177d6fae51f6af37d07fe6a8b396d6e71cf5fde7545c58ac67aca49bf449f17f43fe228967c9f95fcade557063b89aafc12fc4885b153bf8a65b80dea1f4baea4e59a44d33389aa113bcc03536fa0c8f580311ab33fa76d58fc3a1c50b1ba1492219b240c89e3d1723542b121d1b1e0c33f2b721751e151da5c571a4393396182a7694e7c2cd1afffa6f61b6a6b052af2c7b3c9a52f4cdb715eac1c554ab39aa86124c70e6bd87a87adadd4304788f3af29aa9bf087c6889e8a8e3619c1f401b6150744be677e2d61ccc73f15241c5e12407b4f50b8bcba1bb65057307c704f673d2fcc5573c0c89529e50c05be6e4fc29bff3171f5482ea632ce802c333ef7a0ae2f73d09fb7902001865f742392cba5bd6ce82b502b82b858fc3758cd1fe95ea99481ffd501b3bf53e2d3ccee8ef08f581e812d013911f204c5564a0cff6ca4d6e5983cc65d238fe57d7ccf3332b4f62f160118ff6b939b6ae697c6bd3269fd1d6d3bb31f308dc92267ff674fa6ea61a48bc485717176da9154895dd6766f96d8a444b452ed84cdeeb927dad3313a644582aba60d78b0b306509b39f2edf27dbe0ee1fc3400a93f0c451f463ba5c9580bdb9797d4eeb1aa080d41eea72419bea16ab1ee702ae6c5eb0aca9cd2847c372a4ce463e2637c1040098e74d00e4366736646b7eb3b14a0ab024a274c68f2000f37ff6d50e4c32daa265a43456a9fca8f513d88cd90d7e6d687b653b6d130d09669798bf7ac3a9e303fbfa37b83ffbd0f4d2a848872255b6f97cf4dd60f153180eba4d68d0b72230b752a63c18c884ed269095f19b2e1991d22eaf8a8f5a6082b9991240b37727a11282db13e2eff8c0f67b21d13a6623fec335fb1913e4177ffbba55764c6629079970a319ba7e03f82be803a5a58711f4acf885abc5f11d1bf68253b6b653cdbcff61b3cd10e58fe30beca2aa4d58a53a1fc57830270491fc15399d6852555718dd89c3718695b07bd5bd4d29e04819d72f12cd6c802a648eda9a06a83036495971a2452c07a14a3f2f45002fec7c5b726738d997b351a35731db2ab5b5fcb30efda8c1db640243fe0c48a7c65ce4cc7bfd3cb3efd912639c71d2d9da8e5e9a09bf0adca4bfa957e467ad7184f88de6001535f01f799cc65af96f9ddccffd987d651e27d4a6aaf057a552a12c563c15ac7e96f27ce0b792569449f60d82d6a7ca2c8ea7d1b414b9ce7badd0254ff0b3c56c1e2a49d8cfa41d2dc48609423578f98fe670d3305150a926419c8638483f2e6ae45b7a712dc4ab1e4e6696c93ade5864da1304f19b2c12537dbec9fa74256130597b9e1cd9ad5784352727fb38f7786320d7a5dacf2a200c9dfe6b1b52953cb1a6c864745e17f5582325637fc674d75119a578e6043eddb06ab04166e000181dba1f168e6c9556f27fb8faf03669d4d0e8976eb0eaf3c8d5231d5d250bfe8c5ada0a4bb885eecae82ec946f0ce0aa6099275ff7ba82302c88cf357f2ed8389ed3107bdc738fddc5d1185b1b5522c437e391b34340deaeb601b33e329109a2e4d5bbd33389ec64d85abf626702eb9fd1073831e4f008939306507434c40997cba11390509e5d4555cb32e8c1fedbc8196dda726a95cf1eaaf6fc74688e382435c8474c5f02c93724d0f07404cc9be0ec098ea9b50d61adb6df9559326518f2f99f933d1a19ffe9cd2f778a32d856c16c9e820225240c50357b5396d31b00bdac8c3f42ac21523a686798b2a0c0dd853ac7646d2d6a7ef218027ae74b2a4b9053da5333bce52c74eb91920ceb634e060ebc30ce125cb0d000cb6efe8ae8b2b140c84795adc54dea2cc3b2342b03097cf915ceedac4086547dbc39edd96a7ffa64a6de79cb31488f5593d12bb8991c9006469939a5d193bddccd079b7ed133e7269c1d35fb458b5d4b392509b45aa4082976577419f85e45b0ae8ea10ec283cf0f7d0c8f098a0dc10aa8d40ebfdc01ccbf840666e0fbf912377eb0179cc8ed2440f16757bdbce78ea6853755481f59fe60c154f655d7052a5e022f74aaab57c1e4ff382b4b27e67836261e2a6aca64e18027e5d4772de3401750ce686bb88c6647b5d95ab31a90d0f62b033eff073541c5057a5957002794b76c045284f0ab7d21c7b4912c006f94b2208a057f23b58917c0dd28377ef767a7611e024ece98aee3595bfab796c3bc3f0548d495af4421fd493725d488c8eec20e80fd590c6a9f7a70aa9feb1ce197d2dca4da91443543e0e619ef5dbaaea609745c94989e6fc0a431ade352119c41dea5663859045dbeef6466351ded983a2814d448b6dbad38bb0c344455543ed926288a2474b36d032dc3b31c9293cf03548c2944f1a1c725a56f9ea6b19aef3c38f28bfef9bc3e6c372e4809b8c102cbe698e4c97e119d7f3596bbd7da3f25199bfaecda4d87c60724ef7ca77c97a806edd90705b12d3d4693c46c90e3f7dc15215dbe2b593dbdb3b6648229a4300062be020e7e8c100f70df2bc06e43053524a3901bf41819b485b0f2806a0cf09cff91f7965fd8d3c4d8bbd1f4124e7f2c231fca02418de1e90a4992c9a9500c75643d1ca07d7e5895eb986570454027a85eef1252bddcfc8a28087912183351339004279fddc6f78fb2d25622a6fa835212130bf57b6bd3fff92291ee702da174939f48eb44ea3442059cf3fc29f2d0f20130b4912cf25250452de62e50d2755504e0f22eb16339e625530a49ac7cef5eb22e7afbd45490f5c5eb614dc93f73a443ce6da46fdeb163661ec891aad706ce1b1cde774b039592935dcc00f7fb11cae12bed2aa2752c8cda5f251a64cc2e4599414426e6e8cc4f600af1befa167462ad23d0c851e2ac463254b0c58587fa1c13d43404c0d918ae6149969a0ef72a2935d93b6327e5088a56a05fb5ae562450249bf451626419d30170231beef8cfb521584</script>
-</div>
-<script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">]]></content>
-      <categories>
-        <category>network map</category>
-      </categories>
-      <tags>
-        <tag>nmap</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>linux系统通信功率信道修改方法</title>
     <url>/2021/04/22/linux%E7%B3%BB%E7%BB%9F%E9%80%9A%E4%BF%A1%E5%8A%9F%E7%8E%87%E4%BF%A1%E9%81%93%E4%BF%AE%E6%94%B9%E6%96%B9%E6%B3%95/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="linux系统通信功率信道修改方法"><a href="#linux系统通信功率信道修改方法" class="headerlink" title="linux系统通信功率信道修改方法"></a>linux系统通信功率信道修改方法</h1><h2 id="配置频段"><a href="#配置频段" class="headerlink" title="配置频段"></a>配置频段</h2><h3 id="可以先查看有哪些频段："><a href="#可以先查看有哪些频段：" class="headerlink" title="可以先查看有哪些频段："></a>可以先查看有哪些频段：</h3><p><code>iwlist channel</code> </p>
@@ -1759,6 +1740,25 @@ If you are talking to a group of managers, you may refer to the disorganized met
       </tags>
   </entry>
   <entry>
+    <title>network map</title>
+    <url>/2021/04/14/nmap/</url>
+    <content><![CDATA[<div id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <div class="hbe-input-container">
+  <input type="password" id="hbePass" placeholder="" />
+    <label for="hbePass">Hey, password is required here.</label>
+    <div class="bottom-line"></div>
+  </div>
+  <script id="hbeData" type="hbeData" data-hmacdigest="42536728308c99d417161ad5e51c8ff32266a239d0ede5b17f0a1378ddda1bee">a4739802019b5accf4e8257a859c221ddd0928ad877a1a7b073c046e9b67e8c3080ea12c91e9de54f0f9e6b442a02713295c1effed2ead0448067e035633f52210048df9769fd9e4f89640f9a12b6f81e84f0c13b61bb88ccffb71226b7610b346a803efc324dd5507ebac49649a04cb6cfdf290a863946c651b489f8d92aeb1ea6ca599a5e6816426b65eccc3ecbc944418e88a44be080879caaf8c3ed013a6c70bde30ecd5d8e4077818e970a2936653c902e516524cd0f1b62f29c6408753ef448b4320525e94330d1558cd26905a8d1c6f7626ec7d4c4f4e79319c804b592fc4e89d3e2d14c47c35a50bb510384fdf6b2aa61f80c554c836e73cfcff70a13cd002ed117ad9b64589a8c5e6d3c2803ebf1ae8a220d4a85470410e9139796ff1efe0f54a30da34d4c6260d42e4c9c35bd87123731d1a6ced558a220fc7dbb66edd504aeb15a433c2d2ff7e2d884ae4073709e0664d373da035313a3f64506f831f3ec0a01c61e13e8700a316ed3ecb94726df02e8a77cd1e834fe19dd1f1c62ef193ffaa226a154b774df2a1ab503865b37e1cc427e0cc5762ce8c6c21f6b8da93e9f09ebd847633317b814891284bf95a7a699972b1ae371ac1473af7e15ed276b2fb766192c807ad779ef0530bf31ba5d4bd13c4978ba56ce34dbef08e8aab2ed5fdace9b654b7686488175a8bca39a87ad303683c7166f6dc26a3eed991c36458c569a98f9cf0c3557580ac309272ed3391f251636d0817f8dddf5b780ce72e442240db16df0ea13899f9a05d6829c89491a8dac6439900bcbf26e6e6c73b4b4b049881fa1b08871d4dd627494628d5c1b2581ffcc02e5ffc3488fb0dfb84f278b360ba89ea412d1924d9545254bca3ebe0af3171785b99d56ac78573c8dc3c6c0e22157454b2d7281fe0f17ae62e58332d8bdfeb7e2d9a46a5c6aab430ffab43aff86b1b763f4aad8f7069cda780576dee34e4e6cdad540f4805a5556b72e25ab2db24a73fefb72d7450eba1fa3c40d8cd29e6dbcda2fb25e50387aebad9b5211c1e66dbbb7c8d8eb01afdb1f6c2318d852cbcfaa555b75a7af5ebf4bcb135cdb5a072d423e1d937fb99cb4f37132d16997631733fc07cfe9f151724c775107abbceebcb6cca0366c1b20cc8dfa1805953e376c3c149127c6d5fda2bc134d1d68c4a707569eec72356b3f57d144063f9ed8ec96849044c1a02ed112326f22c55eabae0ef0cf10f912c67251185f2528eb8f9197de8452de3d46b7f8faeb06ab24fd9b9a87f9f56d62292b2c236176e6914087fbb88bd28038bc9486ea499447305e379e2ed7a39b118c1ac1a2b7732c9d137e005d0ad6e6e7bcdbfb19143edba70c985f15c446107d2c8cbbe88742bbc525bd54477476d5a3417a6aee1873651301f274b56d7e503bd93efb88ef6089c88f5a058a6e6c087bf501cae350ed8b6540a10ea653a3f2ce0f249c127f370b6cdf5b1ae1e473dd1b4a1017670eb89b31ead43a6ef3af9546324761683b0050f24be5d698ebf82a92e73aea15bdf37cfca5e2daa400966c3cd44d4c42e5cbc567a6617d70fbd49d04d1b5b0340096e0ff2af35cbae8adbc30e07ba9fe8e62cfc845c8c9525ed85dcde82b2299e83be42eeffd6867607dfc464cd1ce5f6ebe3d18ec0126647137a1cc8a8a118787e3d3f547f101438b3a499045737141d46821beea9208260163d3a562e3602af8761a65f8a61fcbe1704cb5c99896ac07fb7732725803de552fb6f8848d950dd94829f47c8cd783e01660fe316ecd8a53665620079c495f0ac8f7dc2d98ffe145ae86872a92f292850550858181429b5c6d88b02a87d02b1a277e6e18c68f5b89ba5d665b07184859dd0ff3790f72fd6941829e11f3b60d2b9b496afcb65ae0ee9b8be6dfde10cdea8be1b84ad266f76b0ab622a05befb4a9ebd35ccac3bd538be5c0ca4da3ca4b174362e95676517b74157e00dd165b408ff1f0dd88345d2d5a77b4cfdd5caff569d3202f79bdd348ffd34f3eef5e8e123c905ea0f5d0c7852236685ae045805c4baa80fd4238e283711e8d479760bd801b1c859933977852890f73400734d747af3508fb6e89e9f96dd28198171d72d623d33b61bf753c3788c8e9c7fd4204221f2568c91989ed6606140be8874241db061964259ac622c270e878ad2a5538640319a4caf1e242df5ea8aff7007e2b5e6dbd7693a393af8b7adf57578d70680ba2c53d5435285f3726b61d937ca8a5f4c33fb60e4ea1e4c6496c65b24d616af3e5dca1534600f4af3c4d4aa447b2b5f07cda50e64e9d18bac1246a8473cda89367d5164d437e59130b6fb29817a42be0d0311b6a4732440a48440f6b5c87cbde40136ea986a863c48624f8cbc31fa2c1d9a4506900d73f2f5dcc4431820830325cbbdcf9661a3c26b6536e4e9dd89ec4728593c031b7e5fe3d948214092e5684db957d71b4ca3a15110ccca7b2203aa5dfbf98817e6e588432d9c3233af0baf35e63117fdc6103e4ca6cca3e1e1fa082c9cda935cda0c921be18f7d3a374c5d036c283babd50c2489e7e1cabeb910910a8e57587dcec614f1848a48138e4ffffeec8a4f3c921ef448c96f21729a69de97609f8cf9a736e790cb0a75ddbc85ed7f6137689235c806d33a7e59dbe150ab69e15e66d2dd248b26c524b19b2328b8f1a1b38b197f254f70a8f72cf9704895c3ae62c9c78171ac40232f8a56c0f3176929553959255513766eeeaadebc6ad844230a84b1205379c0b70234eb98d19e330fabd66e4f80547029571aa1ed7c321da7d59d0e16351ebfc7b9148e6a18950ae68b72a8dfcf5ffd96c2f5c788be0800291aea6aef00247158a7549e73c9240dc6a70b1d97940d0f1ecfc6d43a5697b33a443ba909baaf3eda3b00ec95e96a84e969d8ae913e9dbe737f1c4ba6e78d353a3a46cae675ed458d62bba244c713678e19d4892e85517c6c6fbcec2c8626e40bd022a8816b006aee3b26c09ee10142ee20bf9895aa1f66ccd4ee14200832ddde06537d5644ee8efde601be34ee4f5805b7c28e9a127c67c6a033cec36f81b8e79d4ad2d60784caa381f57fc2f66edfbb26d633d6813e618039eed4b726d6fcf7ef0d288574fe908f3e63b1e112f57bd42e82a3cf0ee6a47cd2d3f1c76d3dbcc0d0288ae4daa31177aacbb1f64de32c2b74a0546b31b58cff12c99b703ccddc84208d4e77948a84e736a487ac1a553ed91ed99f8b7897c3a8ad36539d53b35165f4804b6fac14e66c62b5d3cdbc411f37fc7a8614df3a208f6f2482d460ef7e1f7c951ff240d6ff002b2e9b79d672f4ad6b804792ad9b585c5ffad20691001116e89aaaf7fa9711cba4a5b513a9dc92adbc56c8bcd8d576c7aeb62ec6209f4aa4cb36a619c1305c4ad12b75ed0d3e00bc0ac915ff2b9027398438d99d9b41f7f3160a99e7e909d20fabc1f54bc20e3af3096d253bd01f99c5fe074e18cd27a909d0d014629ed74549bcd684d2491948c675dc6c21ab6e5c27405d880d852b8a93620e4117f436cc4072591bd574c1ae594097b445b65a952ca38769cc4e2d99e527a08761c7508845b1242de734bb3ea80fb427efe051cf4822c2b60e6e02bd910645154f75b214b2267c9d345e6aed05e45ee848956411a728814f15d62b3b37fdfb73eb6c73419daf875eaa90957e74feeb2acde6979169417072258a31f0f2148d6a4bcf3c3f0504cd68e6271d6a72c6cc13c29661515bcf3a6c4851c10fcd4a17cc352d77b799f1d267a0476883101e3c2c609dbc069a6757659f4ffc0f1958afff007608b13c64a66d374e0782294ff750931ba7b74d91caad18e7b3fae30439898a444f1c89b7dfc49cb2ee0c083b323d8b7385866e7bad470ef67f7f66c3152febdadf3e0a4646f89c97ca460cc67ef7c09bf91244191de2bffa83e8867c4e1ad3802f1b41625ff2b60e323aaf2a03d2c1d77590dc6d5fcad50638a07df35511c6220513db2331d8cdf174e61e0be1fae42e049cfc4f4f9176e0c439d4c2883a51ab57d0f5bab3ce9244c78e5f2ffc509d579c0d819b2745d48ec8b86afac9d4b9f48fedf122840d10817b0271c553d30952391a3449f25fe42f5fd6237f361e57093b98d35825cc29bd444da9f002f37c2ec06ca2fbfad8033bb41e26f4df79ffd0c8e09a7f733df9c7ebbcc75b004b685673536c2215433ec68040c7190251bca8233f142d22b6c4f296d995c7d61c2058a9a506117d493acada97ebe361602e17de37a58d2a6d4bf44c9bf832fa4f0a31e0be67c5cc4ae1c40fde53ed956fbf8b316ef114f9e001263d19d88b28c5d3ce05b6628b384dd94e68e12074506e8c6650f1338011b9fd90309d55f040360bc303da65ebefaed322ec0f9a9eb6a85a4f2d3a5ea91eecc2e9683c7f1745ae6f4abf75b1f5aa7f051dbfc2262accae4c11733b20fed593666c663d9c5622b53cf7887d2d7343b405c37e89d00e4221566c826f7913fd5ce9d2f4da0d974bf78f830e8ab3979ac29a8142fd229039007e3f856057ceac59ab8481d216267ae2cdd16dfd5512f9dcbe982d098542c9c77401a38514fd1b35adba4c33f25ae6a3e8e9a11efe20d0a35ff6fe51a60fa90a94fe5138ad57c1468117c91ec31e0f3a4f1129dfd7126dc13d5f97d0b6e20ae5fc859fbcdb562bc52444a8887c593eb6e3167fb58de1b1aff8afe8ec4c7b72c8bd0cff78f6eafca2552238aa929699bf5905b8f1c301f49f191bf8d197a79451165ba88ce810cbc34d78091b2b64535b693f973c6e5b1a55fedcf856e649173f25585362191b24eacbfaf51f5bab28969fd68e4cd8274dfc775eff2089c7a4a4349550c19a6dc4899e86a54845b218f974bac89b8d30f7b3c7afde38737ec1166aecf022359b1665471d358edafea5c9c8cfa759add6968998c6ded8899bf9d101b9fb3b9d73720575cd3b93287b9d3ee905f7b4fcbe5ea7b8cb268c1ce6af4abdf7e917421565836811c07687c2c9c4ce6d4078feedcf32930df7784a06038693825ad37d2262e15e1f2166a04758ef9b1a0204c25eabf9541100f83f7ecd0472e5e6c53ca3b9acdd2e093caf4def950237f5584e11260d73dadebdcce1e979b8681d16f85d5e8a78caa9a1ec8238a5f42bc7513eb50ebee7be598e542b5a6363729ad29fba817f88c13833e9d69559721e2685d7f6323007aef5b96f5339bdb70590f0fca341a2e98f4150a38a3147b8afe8636ab51f9e6bb0c4f9400aaffc17a7033c7aa994c638e18a7c3eb8c9439bc74e766fc90882e91e078c57380339de62fe6a3a159d4267fd3ba2562dcbdc5ce3077ef7e069bfe5297fda1718db6ca9af29a317a707ba396154b61f51342f8320177d6fae51f6af37d07fe6a8b396d6e71cf5fde7545c58ac67aca49bf449f17f43fe228967c9f95fcade557063b89aafc12fc4885b153bf8a65b80dea1f4baea4e59a44d33389aa113bcc03536fa0c8f580311ab33fa76d58fc3a1c50b1ba1492219b240c89e3d1723542b121d1b1e0c33f2b721751e151da5c571a4393396182a7694e7c2cd1afffa6f61b6a6b052af2c7b3c9a52f4cdb715eac1c554ab39aa86124c70e6bd87a87adadd4304788f3af29aa9bf087c6889e8a8e3619c1f401b6150744be677e2d61ccc73f15241c5e12407b4f50b8bcba1bb65057307c704f673d2fcc5573c0c89529e50c05be6e4fc29bff3171f5482ea632ce802c333ef7a0ae2f73d09fb7902001865f742392cba5bd6ce82b502b82b858fc3758cd1fe95ea99481ffd501b3bf53e2d3ccee8ef08f581e812d013911f204c5564a0cff6ca4d6e5983cc65d238fe57d7ccf3332b4f62f160118ff6b939b6ae697c6bd3269fd1d6d3bb31f308dc92267ff674fa6ea61a48bc485717176da9154895dd6766f96d8a444b452ed84cdeeb927dad3313a644582aba60d78b0b306509b39f2edf27dbe0ee1fc3400a93f0c451f463ba5c9580bdb9797d4eeb1aa080d41eea72419bea16ab1ee702ae6c5eb0aca9cd2847c372a4ce463e2637c1040098e74d00e4366736646b7eb3b14a0ab024a274c68f2000f37ff6d50e4c32daa265a43456a9fca8f513d88cd90d7e6d687b653b6d130d09669798bf7ac3a9e303fbfa37b83ffbd0f4d2a848872255b6f97cf4dd60f153180eba4d68d0b72230b752a63c18c884ed269095f19b2e1991d22eaf8a8f5a6082b9991240b37727a11282db13e2eff8c0f67b21d13a6623fec335fb1913e4177ffbba55764c6629079970a319ba7e03f82be803a5a58711f4acf885abc5f11d1bf68253b6b653cdbcff61b3cd10e58fe30beca2aa4d58a53a1fc57830270491fc15399d6852555718dd89c3718695b07bd5bd4d29e04819d72f12cd6c802a648eda9a06a83036495971a2452c07a14a3f2f45002fec7c5b726738d997b351a35731db2ab5b5fcb30efda8c1db640243fe0c48a7c65ce4cc7bfd3cb3efd912639c71d2d9da8e5e9a09bf0adca4bfa957e467ad7184f88de6001535f01f799cc65af96f9ddccffd987d651e27d4a6aaf057a552a12c563c15ac7e96f27ce0b792569449f60d82d6a7ca2c8ea7d1b414b9ce7badd0254ff0b3c56c1e2a49d8cfa41d2dc48609423578f98fe670d3305150a926419c8638483f2e6ae45b7a712dc4ab1e4e6696c93ade5864da1304f19b2c12537dbec9fa74256130597b9e1cd9ad5784352727fb38f7786320d7a5dacf2a200c9dfe6b1b52953cb1a6c864745e17f5582325637fc674d75119a578e6043eddb06ab04166e000181dba1f168e6c9556f27fb8faf03669d4d0e8976eb0eaf3c8d5231d5d250bfe8c5ada0a4bb885eecae82ec946f0ce0aa6099275ff7ba82302c88cf357f2ed8389ed3107bdc738fddc5d1185b1b5522c437e391b34340deaeb601b33e329109a2e4d5bbd33389ec64d85abf626702eb9fd1073831e4f008939306507434c40997cba11390509e5d4555cb32e8c1fedbc8196dda726a95cf1eaaf6fc74688e382435c8474c5f02c93724d0f07404cc9be0ec098ea9b50d61adb6df9559326518f2f99f933d1a19ffe9cd2f778a32d856c16c9e820225240c50357b5396d31b00bdac8c3f42ac21523a686798b2a0c0dd853ac7646d2d6a7ef218027ae74b2a4b9053da5333bce52c74eb91920ceb634e060ebc30ce125cb0d000cb6efe8ae8b2b140c84795adc54dea2cc3b2342b03097cf915ceedac4086547dbc39edd96a7ffa64a6de79cb31488f5593d12bb8991c9006469939a5d193bddccd079b7ed133e7269c1d35fb458b5d4b392509b45aa4082976577419f85e45b0ae8ea10ec283cf0f7d0c8f098a0dc10aa8d40ebfdc01ccbf840666e0fbf912377eb0179cc8ed2440f16757bdbce78ea6853755481f59fe60c154f655d7052a5e022f74aaab57c1e4ff382b4b27e67836261e2a6aca64e18027e5d4772de3401750ce686bb88c6647b5d95ab31a90d0f62b033eff073541c5057a5957002794b76c045284f0ab7d21c7b4912c006f94b2208a057f23b58917c0dd28377ef767a7611e024ece98aee3595bfab796c3bc3f0548d495af4421fd493725d488c8eec20e80fd590c6a9f7a70aa9feb1ce197d2dca4da91443543e0e619ef5dbaaea609745c94989e6fc0a431ade352119c41dea5663859045dbeef6466351ded983a2814d448b6dbad38bb0c344455543ed926288a2474b36d032dc3b31c9293cf03548c2944f1a1c725a56f9ea6b19aef3c38f28bfef9bc3e6c372e4809b8c102cbe698e4c97e119d7f3596bbd7da3f25199bfaecda4d87c60724ef7ca77c97a806edd90705b12d3d4693c46c90e3f7dc15215dbe2b593dbdb3b6648229a4300062be020e7e8c100f70df2bc06e43053524a3901bf41819b485b0f2806a0cf09cff91f7965fd8d3c4d8bbd1f4124e7f2c231fca02418de1e90a4992c9a9500c75643d1ca07d7e5895eb986570454027a85eef1252bddcfc8a28087912183351339004279fddc6f78fb2d25622a6fa835212130bf57b6bd3fff92291ee702da174939f48eb44ea3442059cf3fc29f2d0f20130b4912cf25250452de62e50d2755504e0f22eb16339e625530a49ac7cef5eb22e7afbd45490f5c5eb614dc93f73a443ce6da46fdeb163661ec891aad706ce1b1cde774b039592935dcc00f7fb11cae12bed2aa2752c8cda5f251a64cc2e4599414426e6e8cc4f600af1befa167462ad23d0c851e2ac463254b0c58587fa1c13d43404c0d918ae6149969a0ef72a2935d93b6327e5088a56a05fb5ae562450249bf451626419d30170231beef8cfb521584</script>
+</div>
+<script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">]]></content>
+      <categories>
+        <category>network map</category>
+      </categories>
+      <tags>
+        <tag>nmap</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>PaddleOCR光学字符识别</title>
     <url>/2021/10/25/paddleocr/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="PaddleOCR光学字符识别"><a href="#PaddleOCR光学字符识别" class="headerlink" title="PaddleOCR光学字符识别"></a>PaddleOCR光学字符识别</h1><pre><code>OCR光学字符识别，将不同类型的文档，图像中的字符保存为可编辑和可搜索的数据。
@@ -1855,6 +1855,76 @@ If you are talking to a group of managers, you may refer to the disorganized met
       </categories>
       <tags>
         <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>python抓取网页数据</title>
+    <url>/2021/10/26/python%E6%8A%93%E5%8F%96%E7%BD%91%E9%A1%B5%E6%95%B0%E6%8D%AE/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="python抓取网页数据"><a href="#python抓取网页数据" class="headerlink" title="python抓取网页数据"></a>python抓取网页数据</h1><blockquote>
+<p>解析效率：正则表达式&gt;lxml&gt;beautifulsoup</p>
+</blockquote>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>爬取方式</th>
+<th>正则表达式</th>
+<th>lxml</th>
+<th>beautifulsoup</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>解析效率</td>
+<td>高</td>
+<td>中</td>
+<td>低</td>
+</tr>
+<tr>
+<td>复杂度</td>
+<td>低</td>
+<td>中</td>
+<td>高</td>
+</tr>
+<tr>
+<td>代码</td>
+<td><code>urllib2.urlopen(urllist).read()</code></td>
+<td><code>BeautifulSoup(html,&#39;html.parser&#39;)</code></td>
+<td><code>lxml.html.fromstring(html)</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<blockquote>
+<p>lxml库功能和使用类似BeautifulSoup库，不过lxml解析速度比beautifulsoup快。</p>
+</blockquote>
+<h2 id="爬取网页基础"><a href="#爬取网页基础" class="headerlink" title="爬取网页基础"></a>爬取网页基础</h2><h3 id="requests-html下载"><a href="#requests-html下载" class="headerlink" title="requests_html下载"></a>requests_html下载</h3><ol>
+<li>安装anaconda</li>
+<li><code>pip install pipenv</code></li>
+<li>运行完后运行： <code>pipenv install</code></li>
+<li><code>pip install requests_html</code><h3 id="爬取网站"><a href="#爬取网站" class="headerlink" title="爬取网站"></a>爬取网站</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">from requests_html import HTMLSession</span><br><span class="line">session &#x3D; HTMLSession()</span><br><span class="line">url &#x3D; &#39;https:&#x2F;&#x2F;www.codekp.cn&#x2F;&#39;</span><br><span class="line">r &#x3D; session.get(url)</span><br><span class="line">print(r.html.text)</span><br><span class="line">print(r.html.links)</span><br><span class="line">print(r.html.absolute_links)</span><br></pre></td></tr></table></figure></li>
+</ol>
+<ul>
+<li><code>r.html.text</code>为网页文本内容</li>
+<li><code>r.html.links</code>网页中包含的全部链接</li>
+<li><code>r.html.absolute_links</code>为网页中包含的绝对路径<blockquote>
+<p>输出结果为网站链接，和我们想要的内容并不完全相符，因此为了达到获取关键信息的目的，我们还需要进一步研究。跟Python说清楚我们要找的东西。这是网页抓取的关键。</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="数据可视化pandas"><a href="#数据可视化pandas" class="headerlink" title="数据可视化pandas"></a>数据可视化pandas</h3><p>只需要这一行命令，我们就能把刚才的列表变成数据框：<br>df = pd.DataFrame(get_text_link_from_sel(sel))</p>
+<p>表头设置<code>df.columns = [&#39;text&#39;, &#39;link&#39;]</code></p>
+<p>保存csv格式<code>df.to_csv(&#39;output.csv&#39;, encoding=&#39;gbk&#39;, index=False)</code></p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">from requests_html import HTMLSession</span><br><span class="line">session &#x3D; HTMLSession()</span><br><span class="line">url &#x3D; &#39;https:&#x2F;&#x2F;www.codekp.cn&#39;</span><br><span class="line">r &#x3D; session.get(url)</span><br><span class="line">def get_text_link_from_sel(sel):</span><br><span class="line">    mylist &#x3D; []</span><br><span class="line">    try:</span><br><span class="line">        results &#x3D; r.html.find(sel)</span><br><span class="line">        for result in results:</span><br><span class="line">            mytext &#x3D; result.text</span><br><span class="line">            mylink &#x3D; list(result.absolute_links)[0]</span><br><span class="line">            mylist.append((mytext, mylink))</span><br><span class="line">        return mylist</span><br><span class="line">    except:</span><br><span class="line">        return None</span><br><span class="line"># print(r.html.text)</span><br><span class="line"># print(r.html.links)</span><br><span class="line"># print(r.html.absolute_links)</span><br><span class="line">sel &#x3D; &#39;head &gt; link:nth-child(22)&#39;</span><br><span class="line">results &#x3D; r.html.find(sel)</span><br><span class="line">print(results)</span><br><span class="line"># sel &#x3D; &#39;body &gt; div.note &gt; div.post &gt; div.article &gt; div.show-content &gt; div &gt; p &gt; a&#39;</span><br><span class="line">print(get_text_link_from_sel(sel))</span><br><span class="line"></span><br><span class="line">import pandas as pd</span><br><span class="line">df &#x3D; pd.DataFrame(get_text_link_from_sel(sel))</span><br><span class="line">df.to_csv(&#39;output.csv&#39;, encoding&#x3D;&#39;gbk&#39;, index&#x3D;False)</span><br><span class="line">print(df)</span><br></pre></td></tr></table></figure>
+<h2 id="urllib-使用"><a href="#urllib-使用" class="headerlink" title="urllib 使用"></a>urllib 使用</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">urllib.request.urlopen() 模拟浏览器向服务器发送请求</span><br><span class="line">response 服务器返回的数据</span><br><span class="line">response的数据类型是HttpResponse</span><br><span class="line">字节‐‐&gt;字符串</span><br><span class="line">解码decode</span><br><span class="line">字符串‐‐&gt;字节</span><br><span class="line">编码encode</span><br><span class="line">read() 字节形式读取二进制 扩展：rede(5)返回前几个字节</span><br><span class="line">readline() 读取一行</span><br><span class="line">readlines() 一行一行读取 直至结束</span><br><span class="line">getcode() 获取状态码</span><br><span class="line">geturl() 获取url</span><br><span class="line">getheaders() 获取headers</span><br><span class="line">urllib.request.urlretrieve()</span><br></pre></td></tr></table></figure>
+<h3 id="通过urllib下载"><a href="#通过urllib下载" class="headerlink" title="通过urllib下载"></a>通过urllib下载</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import urllib.request</span><br><span class="line"></span><br><span class="line"># 下载网页</span><br><span class="line"># url_page &#x3D; &#39;http:&#x2F;&#x2F;www.baidu.com&#39;</span><br><span class="line"></span><br><span class="line"># url代表的是下载的路径  filename文件的名字</span><br><span class="line"># 在python中 可以变量的名字  也可以直接写值</span><br><span class="line"># urllib.request.urlretrieve(url_page,&#39;baidu.html&#39;)</span><br><span class="line"></span><br><span class="line"># 下载图片</span><br><span class="line"># url_img &#x3D; &#39;https:&#x2F;&#x2F;img1.baidu.com&#x2F;it&#x2F;u&#x3D;3004965690,4089234593&amp;fm&#x3D;26&amp;fmt&#x3D;auto&amp;gp&#x3D;0.jpg&#39;</span><br><span class="line">#</span><br><span class="line"># urllib.request.urlretrieve(url&#x3D; url_img,filename&#x3D;&#39;lisa.jpg&#39;)</span><br><span class="line"></span><br><span class="line"># 下载视频</span><br><span class="line">url_video &#x3D; &#39;https:&#x2F;&#x2F;vd3.bdstatic.com&#x2F;mda-mhkku4ndaka5etk3&#x2F;1080p&#x2F;cae_h264&#x2F;1629557146541497769&#x2F;mda-mhkku4ndaka5etk3.mp4?v_from_s&#x3D;hkapp-haokan-tucheng&amp;auth_key&#x3D;1629687514-0-0-7ed57ed7d1168bb1f06d18a4ea214300&amp;bcevod_channel&#x3D;searchbox_feed&amp;pd&#x3D;1&amp;pt&#x3D;3&amp;abtest&#x3D;&#39;</span><br><span class="line"></span><br><span class="line">urllib.request.urlretrieve(url_video,&#39;hxekyyds.mp4&#39;)</span><br></pre></td></tr></table></figure>
+<h2 id="BeautifulSoup爬取辛巴克菜单"><a href="#BeautifulSoup爬取辛巴克菜单" class="headerlink" title="BeautifulSoup爬取辛巴克菜单"></a>BeautifulSoup爬取辛巴克菜单</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import urllib.request</span><br><span class="line">from bs4 import BeautifulSoup</span><br><span class="line">url &#x3D; &#39;https:&#x2F;&#x2F;www.starbucks.com.cn&#x2F;menu&#x2F;&#39;</span><br><span class="line">response &#x3D; urllib.request.urlopen(url)</span><br><span class="line">content &#x3D; response.read().decode(&#39;utf-8&#39;)</span><br><span class="line">soup &#x3D; BeautifulSoup(content,&#39;lxml&#39;)</span><br><span class="line"># &#x2F;&#x2F;ul[@class&#x3D;&quot;grid padded-3 product&quot;]&#x2F;&#x2F;strong&#x2F;text()</span><br><span class="line">name_list &#x3D; soup.select(&#39;ul[class&#x3D;&quot;grid padded-3 product&quot;] strong&#39;)</span><br><span class="line">for name in name_list:</span><br><span class="line">    print(name.get_text())</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>爬虫</tag>
       </tags>
   </entry>
   <entry>
@@ -2253,55 +2323,6 @@ H(x) =\sum_{i=1}^np_i(x)log_2(\frac 1 {p_i(x)})</script><p>b=2的时候单位是
       </tags>
   </entry>
   <entry>
-    <title>xmu健康打卡ios快捷指令</title>
-    <url>/2020/12/06/%E5%A4%A7%E5%AD%A6ios%E7%B3%BB%E7%BB%9F%E6%89%93%E5%8D%A1%E6%8D%B7%E5%BE%84/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="XMU健康打卡ios快捷指令"><a href="#XMU健康打卡ios快捷指令" class="headerlink" title="XMU健康打卡ios快捷指令"></a><center>XMU健康打卡ios快捷指令</center></h1><h2 id="XMU-Health-Report-Base-On-Iphone"><a href="#XMU-Health-Report-Base-On-Iphone" class="headerlink" title=" XMU Health Report Base On Iphone "></a><center> XMU Health Report Base On Iphone </center></h2><a id="more"></a>
-<h2 id="1-工具"><a href="#1-工具" class="headerlink" title="1.工具"></a>1.工具</h2><ul>
-<li>浏览器</li>
-<li>由于各个网页不同，可能会有不一样的结果，因此这个过程仅供参考。</li>
-<li>下面说一下大概的思路，先用浏览器打开我们打卡的链接，接着打开浏览器，按F12进入开发者模式。</li>
-<li>接着，选择network<center>
-<img src="https://www.codekp.cn/download/img/xmu_r/F12.PNG" width = "400" height = "302" alt="图片名称" align=center / loading="lazy">
-</center></li>
-<li><p>找到POST，不要寻找GET</p>
-<center>
-<img src="https://www.codekp.cn/download/img/xmu_r/get.PNG" width = "400" height = "302" alt="图片名称" align=center / loading="lazy">
-</center>
-</li>
-<li><p>如下：<br><center>
-<img src="https://www.codekp.cn/download/img/xmu_r/post.PNG" width = "400" height = "302" alt="图片名称" align=center / loading="lazy">
-</center><br>将里面的连接保存下来<br><a href="https://ids.xmu.edu.cn/authserver/login?service=https://xmuxg.xmu.edu.cn/login/cas/xmu" target="_blank" rel="noopener">https://ids.xmu.edu.cn/authserver/login?service=https://xmuxg.xmu.edu.cn/login/cas/xmu</a></p>
-</li>
-</ul>
-<p>即找到了我们需要的登录网址。</p>
-<p>接下来记录 username和userpassword，依次填入ios。</p>
-<center>
-<img src="https://www.codekp.cn/download/img/xmu_r/report.PNG" width = "400" height = "302" alt="图片名称" align=center / loading="lazy">
-</center>
-
-
-
-<ul>
-<li>将得到的数据填入一下列表<center>
-<img src="https://www.codekp.cn/download/img/xmu_r/report_ios.jpg" width = "400" height = "302" alt="图片名称" align=center / loading="lazy">
-</center>
-
-
-</li>
-</ul>
-<blockquote>
-<p>仅只写到这里有兴趣的自己继续探索。</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>厦门大学</category>
-      </categories>
-      <tags>
-        <tag>厦门大学</tag>
-        <tag>健康打卡</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>基于深度强化学习的超级马里奥和飞机大战自动控制</title>
     <url>/2021/03/15/%E5%9F%BA%E4%BA%8E%E6%B7%B1%E5%BA%A6%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E7%9A%84%E8%B6%85%E7%BA%A7%E9%A9%AC%E9%87%8C%E5%A5%A5%E5%92%8C%E9%A3%9E%E6%9C%BA%E5%A4%A7%E6%88%98%E8%87%AA%E5%8A%A8%E6%8E%A7%E5%88%B6/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="基于深度强化学习的超级马里奥和飞机大战自动控制"><a href="#基于深度强化学习的超级马里奥和飞机大战自动控制" class="headerlink" title="基于深度强化学习的超级马里奥和飞机大战自动控制"></a><center>基于深度强化学习的超级马里奥和飞机大战自动控制</center></h1><a id="more"></a>
@@ -2422,6 +2443,55 @@ H(x) =\sum_{i=1}^np_i(x)log_2(\frac 1 {p_i(x)})</script><p>b=2的时候单位是
       <tags>
         <tag>强化学习</tag>
         <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>xmu健康打卡ios快捷指令</title>
+    <url>/2020/12/06/%E5%A4%A7%E5%AD%A6ios%E7%B3%BB%E7%BB%9F%E6%89%93%E5%8D%A1%E6%8D%B7%E5%BE%84/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="XMU健康打卡ios快捷指令"><a href="#XMU健康打卡ios快捷指令" class="headerlink" title="XMU健康打卡ios快捷指令"></a><center>XMU健康打卡ios快捷指令</center></h1><h2 id="XMU-Health-Report-Base-On-Iphone"><a href="#XMU-Health-Report-Base-On-Iphone" class="headerlink" title=" XMU Health Report Base On Iphone "></a><center> XMU Health Report Base On Iphone </center></h2><a id="more"></a>
+<h2 id="1-工具"><a href="#1-工具" class="headerlink" title="1.工具"></a>1.工具</h2><ul>
+<li>浏览器</li>
+<li>由于各个网页不同，可能会有不一样的结果，因此这个过程仅供参考。</li>
+<li>下面说一下大概的思路，先用浏览器打开我们打卡的链接，接着打开浏览器，按F12进入开发者模式。</li>
+<li>接着，选择network<center>
+<img src="https://www.codekp.cn/download/img/xmu_r/F12.PNG" width = "400" height = "302" alt="图片名称" align=center / loading="lazy">
+</center></li>
+<li><p>找到POST，不要寻找GET</p>
+<center>
+<img src="https://www.codekp.cn/download/img/xmu_r/get.PNG" width = "400" height = "302" alt="图片名称" align=center / loading="lazy">
+</center>
+</li>
+<li><p>如下：<br><center>
+<img src="https://www.codekp.cn/download/img/xmu_r/post.PNG" width = "400" height = "302" alt="图片名称" align=center / loading="lazy">
+</center><br>将里面的连接保存下来<br><a href="https://ids.xmu.edu.cn/authserver/login?service=https://xmuxg.xmu.edu.cn/login/cas/xmu" target="_blank" rel="noopener">https://ids.xmu.edu.cn/authserver/login?service=https://xmuxg.xmu.edu.cn/login/cas/xmu</a></p>
+</li>
+</ul>
+<p>即找到了我们需要的登录网址。</p>
+<p>接下来记录 username和userpassword，依次填入ios。</p>
+<center>
+<img src="https://www.codekp.cn/download/img/xmu_r/report.PNG" width = "400" height = "302" alt="图片名称" align=center / loading="lazy">
+</center>
+
+
+
+<ul>
+<li>将得到的数据填入一下列表<center>
+<img src="https://www.codekp.cn/download/img/xmu_r/report_ios.jpg" width = "400" height = "302" alt="图片名称" align=center / loading="lazy">
+</center>
+
+
+</li>
+</ul>
+<blockquote>
+<p>仅只写到这里有兴趣的自己继续探索。</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>厦门大学</category>
+      </categories>
+      <tags>
+        <tag>厦门大学</tag>
+        <tag>健康打卡</tag>
       </tags>
   </entry>
   <entry>
