@@ -1,78 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Detection_树莓派</title>
-    <url>/2021/06/07/Detection-%E6%A0%91%E8%8E%93%E6%B4%BE/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Raspberry-Pi-上运行-TensorFlow-Lite-目标检测"><a href="#Raspberry-Pi-上运行-TensorFlow-Lite-目标检测" class="headerlink" title="Raspberry Pi 上运行 TensorFlow Lite 目标检测"></a>Raspberry Pi 上运行 TensorFlow Lite 目标检测</h1> <div style="position:relative; padding-bottom:75%; width:100%; height:0">
-    <iframe src="//player.bilibili.com/player.html?aid=845957427&bvid=BV1B54y137xE&cid=350441154&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position:absolute; height: 100%; width: 100%;"> </iframe>
-</div>
-
-<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>本指南提供了有关如何在 Raspberry Pi 上设置 TensorFlow Lite 并使用它运行对象检测模型的分步说明。它还展示了如何在 Pi 上设置 Coral USB 加速器并运行 Edge TPU 检测模型。它适用于运行 Rasbpian Buster 或 Rasbpian Stretch 的 Raspberry Pi 3 和 Raspberry Pi 4。</p>
-<p>本指南是我更大的 TensorFlow Lite 教程系列的第二部分：</p>
-<ol>
-<li><a href="https://github.com/EdjeElectronics/TensorFlow-Lite-Object-Detection-on-Android-and-Raspberry-Pi#part-1---how-to-train-convert-and-run-custom-tensorflow-lite-object-detection-models-on-windows-10" target="_blank" rel="noopener">如何在 Windows 10 上训练、转换和运行自定义 TensorFlow Lite 对象检测模型</a></li>
-<li>如何在 Raspberry Pi 上运行 TensorFlow Lite 对象检测模型&lt;—- 你在这里！</li>
-</ol>
-<p>本指南的这一部分分为三个部分：</p>
-<ul>
-<li><a href="https://github.com/EdjeElectronics/TensorFlow-Lite-Object-Detection-on-Android-and-Raspberry-Pi/blob/master/Raspberry_Pi_Guide.md#part-1---how-to-set-up-and-run-tensorflow-lite-object-detection-models-on-the-raspberry-pi" target="_blank" rel="noopener">第 1 节 在 Raspberry Pi 上运行 TensorFlow Lite 对象检测模型</a></li>
-<li><a href="https://github.com/EdjeElectronics/TensorFlow-Lite-Object-Detection-on-Android-and-Raspberry-Pi/blob/master/Raspberry_Pi_Guide.md#section-2---run-edge-tpu-object-detection-models-on-the-raspberry-pi-using-the-coral-usb-accelerator" target="_blank" rel="noopener">第 2 节。使用 Coral USB 加速器在 Raspberry Pi 上运行 Edge TPU 对象检测模型</a></li>
-</ul>
-<p>此存储库还包括用于在图像、视频或网络摄像头/Picamera 源上运行 TFLite 和 Edge TPU 模型的脚本。</p>
-<h2 id="如何在-Raspberry-Pi-上设置和运行-TensorFlow-Lite-对象检测模型"><a href="#如何在-Raspberry-Pi-上设置和运行-TensorFlow-Lite-对象检测模型" class="headerlink" title="如何在 Raspberry Pi 上设置和运行 TensorFlow Lite 对象检测模型"></a>如何在 Raspberry Pi 上设置和运行 TensorFlow Lite 对象检测模型</h2><p>在 Raspberry Pi 上设置 TensorFlow Lite 比常规 TensorFlow 容易得多！这些是设置 TensorFlow Lite 所需的步骤：</p>
-<ul>
-<li>1a. 更新树莓派</li>
-<li>1b. 下载此存储库并创建虚拟环境</li>
-<li>1c。安装 TensorFlow 和 OpenCV</li>
-<li>1天。设置 TensorFlow Lite 检测模型</li>
-<li>1e。运行 TensorFlow Lite 模型！</li>
-<li>我还制作了一个介绍本指南的 YouTube 视频：</li>
-</ul>
-<p><a href="https://www.youtube.com/watch?v=aimSGOAUI8Y" target="_blank" rel="noopener"><img src="https://raw.githubusercontent.com/EdjeElectronics/TensorFlow-Lite-Object-Detection-on-Android-and-Raspberry-Pi/master/doc/YouTube_video1.JPG" alt="Link to my YouTube video!" loading="lazy"></a></p>
-<h3 id="更新树莓派"><a href="#更新树莓派" class="headerlink" title="更新树莓派"></a>更新树莓派</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get dist-upgrade</span><br></pre></td></tr></table></figure>
-<p>根据您更新 Pi 的时间，更新可能需要一分钟到一小时之间的任何时间。</p>
-<p>在此过程中，让我们确保在 Raspberry Pi 配置菜单中启用了相机界面。单击屏幕左上角的 Pi 图标，选择 Preferences -&gt; Raspberry Pi Configuration，然后转到 Interfaces 选项卡并确认 Camera 设置为 Enabled。如果不是，请立即启用它，然后重新启动 Raspberry Pi。</p>
-<h3 id="下载虚拟环境"><a href="#下载虚拟环境" class="headerlink" title="下载虚拟环境"></a>下载虚拟环境</h3><p>接下来，通过发出以下命令克隆此 GitHub 存储库。该存储库包含我们将用于运行 TensorFlow Lite 的脚本，以及一个使安装一切变得更容易的 shell 脚本。问题：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;EdjeElectronics&#x2F;TensorFlow-Lite-Object-Detection-on-Android-and-Raspberry-Pi.git</span><br></pre></td></tr></table></figure>
-<p>这会将所有内容下载到名为 TensorFlow-Lite-Object-Detection-on-Android-and-Raspberry-Pi 的文件夹中。这有点长，所以将文件夹重命名为“tflite1”，然后 cd 进入它：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mv TensorFlow-Lite-Object-Detection-on-Android-and-Raspberry-Pi tflite1</span><br><span class="line">cd tflite1</span><br></pre></td></tr></table></figure>
-<p>我们将在此 /home/pi/tflite1 目录中处理本指南的其余部分。接下来是创建一个名为“tflite1-env”的虚拟环境。</p>
-<p>我在本指南中使用了虚拟环境，因为它可以防止可能已安装在您的 Pi 上的软件包库版本之间发生任何冲突。将 TensorFlow 安装在自己的环境中可以避免版本冲突。例如，如果您已经使用我的其他指南在 Pi 上安装了 TensorFlow v1.8，则可以保持该安装不变，而不必担心覆盖它。</p>
-<p>通过发出以下命令安装 virtualenv：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo pip3 install virtualenv</span><br></pre></td></tr></table></figure>
-<p>然后，通过发出以下命令创建“tflite1-env”虚拟环境：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">python3 -m venv tflite1-env</span><br></pre></td></tr></table></figure>
-<p>这将在 tflite1 目录中创建一个名为 tflite1-env 的文件夹。tflite1-env 文件夹将保存此环境的所有包库。接下来，通过发出以下命令激活环境：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">source tflite1-env&#x2F;bin&#x2F;activate</span><br></pre></td></tr></table></figure>
-<p><strong>source tflite1-env/bin/activate每次打开新的终端窗口时，您都需要从 /home/pi/tflite1 目录中发出命令以重新激活环境。您可以通过检查 (tflite1-env) 是否出现在命令提示符中的路径之前来判断环境何时处于活动状态，如下面的屏幕截图所示。</strong></p>
-<p>此时，如果您发出 .tflite1 目录，那么您的 tflite1 目录应该是这样的<code>ls</code>。</p>
-<h3 id="安装TensorFlow和opencv"><a href="#安装TensorFlow和opencv" class="headerlink" title="安装TensorFlow和opencv"></a>安装TensorFlow和opencv</h3><p>接下来，我们将安装 TensorFlow、OpenCV 以及这两个包所需的所有依赖项。运行 TensorFlow Lite 不需要 OpenCV，但此存储库中的对象检测脚本使用它来抓取图像并在其上绘制检测结果。</p>
-<p>为了让事情更简单，我编写了一个 shell 脚本，它会自动下载并安装所有的包和依赖项。通过发出以下命令运行它：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">bash get_pi_requirements.sh</span><br></pre></td></tr></table></figure>
-<p>这将下载大约 400MB 的安装文件，因此需要一段时间。在它工作的时候去喝杯咖啡吧！如果您想查看已安装的所有内容，只需打开 get_pi_dependencies.sh 即可查看软件包列表。</p>
-<p><strong>注意：如果您在运行bash get_pi_requirements.sh命令时遇到错误，可能是因为您的 Internet 连接超时，或者因为下载的包数据已损坏。如果出现错误，请尝试重新运行该命令几次。</strong></p>
-<p><strong>另一个注意事项：shell 脚本会自动安装最新版本的 TensorFlow。如果您想安装特定版本，pip3 install tensorflow==X.XX请在运行脚本后发出（其中 X.XX 替换为您要安装的版本）。这将使用指定版本覆盖现有安装。</strong></p>
-<p>那很简单！进入下一步。</p>
-<h3 id="步骤-1d。设置-TensorFlow-Lite-检测模型"><a href="#步骤-1d。设置-TensorFlow-Lite-检测模型" class="headerlink" title="步骤 1d。设置 TensorFlow Lite 检测模型"></a>步骤 1d。设置 TensorFlow Lite 检测模型</h3><p>接下来，我们将设置将与 TensorFlow Lite 一起使用的检测模型。本指南展示了如何下载由 Google 提供的示例 TFLite 模型，或如何使用您按照我的 TensorFlow Lite 教程系列<a href="https://github.com/EdjeElectronics/TensorFlow-Lite-Object-Detection-on-Android-and-Raspberry-Pi#part-1---how-to-train-convert-and-run-custom-tensorflow-lite-object-detection-models-on-windows-10" target="_blank" rel="noopener">第 1 部分自行训练的模型</a>。</p>
-<p>检测模型有两个与之关联的文件：detect.tflite 文件（模型本身）和 labelmap.txt 文件（为模型提供标签图）。我组织模型文件的首选方法是创建一个文件夹（例如“BirdSquirrelRaccoon_TFLite_model”）并将detect.tflite 和labelmap.txt 都保存在该文件夹中。这也是 Google 的可下载示例 TFLite 模型的组织方式。</p>
-<h3 id="选项-1-使用-Google-的示例-TFLite-模型"><a href="#选项-1-使用-Google-的示例-TFLite-模型" class="headerlink" title="选项 1. 使用 Google 的示例 TFLite 模型"></a>选项 1. 使用 Google 的示例 TFLite 模型</h3><p>Google 提供了一个示例量化 SSDLite-MobileNet-v2 对象检测模型，该模型在 MSCOCO 数据集上训练并转换为在 TensorFlow Lite 上运行。它可以检测和识别 80 种不同的常见物体，例如人、汽车、杯子等。</p>
-<p>通过发出以下命令下载示例模型（<a href="https://www.tensorflow.org/lite/models/object_detection/overview" target="_blank" rel="noopener">可以在TensorFlow 官方网站的对象检测页面上找到</a>）：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">wget https:&#x2F;&#x2F;storage.googleapis.com&#x2F;download.tensorflow.org&#x2F;models&#x2F;tflite&#x2F;coco_ssd_mobilenet_v1_1.0_quant_2018_06_29.zip</span><br></pre></td></tr></table></figure><br>通过发出（此命令自动创建文件夹）将其解压缩到名为“Sample_TFLite_model”的文件夹中：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">unzip coco_ssd_mobilenet_v1_1.0_quant_2018_06_29.zip -d Sample_TFLite_model</span><br></pre></td></tr></table></figure><br>好的，示例模型已准备就绪！</p>
-<h3 id="选项-2：使用您自己的自定义训练模型"><a href="#选项-2：使用您自己的自定义训练模型" class="headerlink" title="选项 2：使用您自己的自定义训练模型"></a>选项 2：使用您自己的自定义训练模型</h3><p>您还可以通过将模型文件夹移动到 /home/pi/tflite 目录来使用自定义对象检测模型。如果您按照我的 <a href="https://github.com/EdjeElectronics/TensorFlow-Lite-Object-Detection-on-Android-and-Raspberry-Pi#part-1---how-to-train-convert-and-run-custom-tensorflow-lite-object-detection-models-on-windows-10" target="_blank" rel="noopener">TensorFlow Lite 指南的第 1 部分</a>在您的 PC 上训练和转换 TFLite 模型，您应该有一个名为“TFLite_model”的文件夹，其中包含一个 detect.tflite 和 labelmap.txt 文件。（它还会有一个 tflite_graph.pb 和 tflite_graph.pbtxt 文件，TensorFlow Lite 不需要这些文件，但可以留在文件夹中。）</p>
-<p>您可以简单地将该文件夹复制到 USB 驱动器，将 USB 驱动器插入您的 Raspberry Pi，然后将该文件夹移动到 /home/pi/tflite1 目录中。（或者，您可以通过电子邮件将其发送给自己，或将其放在 Google 云端硬盘上，或者使用您喜欢的任何文件传输方法。）这是我的 /home/pi/tflite1 目录中的“BirdSquirrelRaccoon_TFLite_model”文件夹的示例：</p>
-<p>现在您的自定义模型已准备就绪！</p>
-<h3 id="步骤-1e。运行-TensorFlow-Lite-模型！"><a href="#步骤-1e。运行-TensorFlow-Lite-模型！" class="headerlink" title="步骤 1e。运行 TensorFlow Lite 模型！"></a>步骤 1e。运行 TensorFlow Lite 模型！</h3><p>是时候看看 TFLite 对象检测模型的实际效果了！首先，通过关闭您不使用的任何应用程序来释放内存和处理能力。另外，请确保您已插入网络摄像头或 Picamera。</p>
-<p>通过从 /home/pi/tflite1 目录中发出以下命令来运行实时网络摄像头检测脚本。（在运行该命令之前，通过检查 (tflite1-env) 出现在命令提示符前面来确保 tflite1-env 环境处于活动状态。）<strong>TFLite_detection_webcam.py 脚本将与 Picamera 或 USB 网络摄像头一起使用。</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">python3 TFLite_detection_webcam.py --modeldir&#x3D;Sample_TFLite_model</span><br></pre></td></tr></table></figure>
-<p>如果您的模型文件夹的名称与“Sample_TFLite_model”不同，请改用该名称。例如，我会<code>--modeldir=BirdSquirrelRaccoon_TFLite_model</code>用来运行我的自定义鸟类、松鼠和浣熊检测模型。</p>
-<p>初始化片刻后，将出现一个窗口，显示网络摄像头源。检测到的对象将实时显示边界框和标签。</p>
-<p>我TensorFlow精简版培训指导的第3部分给出的<a href="https://github.com/EdjeElectronics/TensorFlow-Lite-Object-Detection-on-Android-and-Raspberry-Pi#video" target="_blank" rel="noopener">指令</a>使用TFLite_detection_image.py和TFLite_detection_video.py脚本。确保在运行脚本时使用<code>python3</code>而不是<code>python</code>。</p>
-]]></content>
+    <title>surface完美安装linux操作系统、hexo博客</title>
+    <url>/2021/03/19/Deepin%E7%B3%BB%E7%BB%9F%E4%B8%8Esurface%E5%AE%89%E8%A3%85/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="surface完美安装linux操作系统、hexo博客"><a href="#surface完美安装linux操作系统、hexo博客" class="headerlink" title="surface完美安装linux操作系统、hexo博客"></a><center>surface完美安装linux操作系统、hexo博客</center></h1><p>最近由于linux课程需要使用linux系统，于是在ubuntu、kali、Elementary OS、Chrome OS和deepin操作系统中选择一个比较靠谱的。<br><a id="more"></a></p>
+<h2 id="linux操作系统介绍"><a href="#linux操作系统介绍" class="headerlink" title="linux操作系统介绍"></a>linux操作系统介绍</h2><h3 id="ubuntu"><a href="#ubuntu" class="headerlink" title="ubuntu"></a>ubuntu</h3><p>作为全球最流行且最有影响力的Linux开源系统之一，Ubuntu自发布以来在应用体验方面：有较大幅度的提升，即使对比Windows、MacOS等操作系统，最新版本的Ubuntu也不逊色。<br><img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3931899733,1893021162&amp;fm=26&amp;gp=0.jpg" alt="" loading="lazy">  </p>
+<h3 id="kali"><a href="#kali" class="headerlink" title="kali"></a>kali</h3><p>Kali Linux是基于Debian的Linux发行版， 设计用于数字取证操作系统。每一季度更新一次。由Offensive Security Ltd维护和资助。最先由Offensive Security的Mati Aharoni和Devon Kearns通过重写BackTrack来完成，BackTrack是他们之前写的用于取证的Linux发行版 。</p>
+<p>主要是用来渗透网络—所以俗话说kali从入门到入狱。</p>
+<p><img src="https://bkimg.cdn.bcebos.com/pic/3b87e950352ac65c1038fd5662baa5119313b07e1cf7?x-bce-process=image/watermark,image_d2里奴性F0ZXIvYmFpa2UxNTA=,g_7,xp_5,yp_5/format,f_auto" alt="" loading="lazy"></p>
+<h3 id="Elementary-OS"><a href="#Elementary-OS" class="headerlink" title="Elementary OS"></a>Elementary OS</h3><p>Elementary OS是基于 Ubuntu 精心打磨美化的桌面 Linux 发行版的一款软件，号称 “最美的 Linux”， 最早是 Ubuntu 的一个美化主题项目，现在成了独立的发行版<br><img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fww2.sinaimg.cn%2Fmw1024%2F6595c7c6tw1e7nlcg38qoj211s0lcag0.jpg&amp;refer=http%3A%2F%2Fwww.sina.com&amp;app=2002&amp;size=f9999,10000&amp;q=a80&amp;n=0&amp;g=0n&amp;fmt=jpeg?sec=1618754413&amp;t=c4cc435286c020b6845bd352d5a1dd8c" alt="" loading="lazy"></p>
+<h3 id="Chrome-OS"><a href="#Chrome-OS" class="headerlink" title="Chrome OS"></a>Chrome OS</h3><p>Chrome OS是一款Google开发的基于PC的操作系统。 Google Chrome OS是一款基于Linux的开源操作系统。Google在自己的官方博客表示，初期，这一操作系统将定位于上网本、紧凑型以及低成本电脑。这款开源软件将被命名为Chrome OS，谷歌公司于2010年12里奴性月7日（北京时间12月8日2点30分）在美国举行Chrome相关产品发布会，发布会上正式发布Chrome Web store和Chrome OS。</p>
+<p><img src="https://gss0.baidu.com/70cFfyinKgQFm2e88IuM_a/baike/pic/item/8694a4c27d1ed21bae953dafa06eddc451da3f1f.jpg" alt="" loading="lazy"></p>
+<h3 id="deepin"><a href="#deepin" class="headerlink" title="deepin"></a>deepin</h3><p>Deepin（原名：Linux Deepin；中文通称：深度操作系统）是由武汉深之度科技有限公司在Debian基础上开发的Linux操作系统，其前身是Hiweed Linux操作系统，于2004年2月28日开始对外发行，可以安装在个人计算机和服务器中。</p>
+<p>Deepin 12.12 正式版本将搭载一个全新的桌面环境。该桌面环境由Deepin 团队开发，以轻型、美观、稳定等作为设计目标。新桌面环境使用 Compiz 作为默认的窗口管理器。<br><img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fzkres1.myzaker.com%2F201910%2F5dae5906b15ec02e1c28f7b1_1024.jpg&amp;refer=http%3A%2F%2Fzkres1.myzaker.com&amp;app=2002&amp;size=f9999,10000&amp;q=a80&amp;n=0&amp;g=0n&amp;fmt=jpeg?sec=1618754739&amp;t=be9f54a43670d51053a30eec7d91ac18" alt="" loading="lazy"></p>
+<h3 id="总结以上五种系统各有各的优点"><a href="#总结以上五种系统各有各的优点" class="headerlink" title="总结以上五种系统各有各的优点"></a>总结以上五种系统各有各的优点</h3><p>运行上deepin会更慢一些，因为deepin的界面做的最好看，其次deepin是国产linux系统，而且是武汉的公司，安装极其简单，所以我就装了deepin操作系统。</p>
+<h2 id="deepin启动盘制作"><a href="#deepin启动盘制作" class="headerlink" title="deepin启动盘制作"></a>deepin启动盘制作</h2><p>deepin v20下载地址<a href="https://www.deepin.org/zh/download/" target="_blank" rel="noopener">deep in</a><br>首先下载镜像，其次下载启动盘制作工具，制作启动盘。</p>
+<h2 id="windows分区"><a href="#windows分区" class="headerlink" title="windows分区"></a>windows分区</h2><p>删除一些windows上面不需要的软件和文件，腾出50G的空间，然后通过<a href="https://www.soft-down.net/detail/44/431115.shtml?type=jingzhun" target="_blank" rel="noopener">分区助手</a><br>对磁盘进行分区。</p>
+<h2 id="系统安装具体操作步骤"><a href="#系统安装具体操作步骤" class="headerlink" title="系统安装具体操作步骤"></a>系统安装具体操作步骤</h2><p>1.制作启动u盘deepin系统安装盘。就是把deepin.iso烧录到u盘上。<br>这里请一定要先记得在淘宝上买一个扩展坞，因为surface是一款pc平板而合一电脑，为了节约面积，采用了单usb端口。同时安装系统时蓝牙会失效，需要准备有线鼠标、有线键盘。</p>
+<p>2.关闭secureboot.关机后 音量下键+电源三秒，松开电源，见到surface图标后松开音量键进入bios界面。第二项 secureboot 回车 disable它。滑倒最后exit save setting。</p>
+<p>特别注意一点！就是分清楚surface的音量和电源在那不要按错。</p>
+<p>3.进入windows系统，点击setting，在setting 中搜索boot，看到第二项，create and format hard disk partitions. 进入后看到C盘，鼠标右键shrink volumn(分出给deepin 的空间）</p>
+<p>建议采用之前说的分区助手，这种方法分区很容易崩。</p>
+<p>4.从U盘启动。有两种方式：<br>第一种关机后，音量下键+电源3秒，松开电源。见到surface画面后松开音量键。<br>第二种从windows 向左滑，进入setting. 最底下change pc settings.进去后点击最底下的updates and recovery(更新和恢复）选择里面最底下选项。advanced startup. （高级启动）。进入U盘启动。</p>
+<p>5.从U盘启动后。选择第二项，安装deepin. 选择语言，然后选择something else(其他选项）。目的是不要覆盖windows系统。安装系统到我们分出的free space里。<br>点击 free space ，再点击左下角的“+”号。选择逻辑分区，ext4, 给/root.尽量大点。</p>
+<p>再点击 free space ，点击左下角的“+”号。逻辑或主分区随便（我给的逻辑分区），swap area(交换空间）.随便给个几G。英文教程中不给，我是分了，省得它提示我必须给。反正也不少这几个G。</p>
+<p>选择启动盘为windows 所在的那个，一般叫sda 4.</p>
+<p>然后开始安装。重启。</p>
+<h2 id="安装触摸屏驱动"><a href="#安装触摸屏驱动" class="headerlink" title="安装触摸屏驱动"></a>安装触摸屏驱动</h2><h3 id="deepin-1"><a href="#deepin-1" class="headerlink" title="deepin"></a>deepin</h3><p>这里很神奇如果你也装的是deepin操作系统，触摸屏是可以直接使用的，可能因为华为封锁，目前华为用的均为deepin操作系统，华为也有触控笔记本电脑。</p>
+<h3 id="其他linux系统"><a href="#其他linux系统" class="headerlink" title="其他linux系统"></a>其他linux系统</h3><p>请详见<a href="https://github.com/jakeday/linux-surface" target="_blank" rel="noopener">github大神</a>的surface驱动安装教程。</p>
+<p>进入系统以后使用Terminal安装了Peter Hunter整理的内核<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo add-apt-repository ppa:tigerite&#x2F;kernel</span><br><span class="line"></span><br><span class="line">sudo apt-get update</span><br><span class="line"></span><br><span class="line">sudo apt-get install linux-surface</span><br></pre></td></tr></table></figure><br>然后使用编辑器nano或者gedit编辑/<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">lib&#x2F;udev&#x2F;rules.d&#x2F;50-bluetooth-hci-auto-poweron.rules</span><br></pre></td></tr></table></figure><br>用#注释掉里面唯一的那一行，再打开/etc/bluetooth/main.conf<br>把#[Policy]<br>改成[Policy]<br>并把最后一排的<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#AutoEnable&#x3D;false改成AutoEnable&#x3D;true</span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;安装rEFIndsudo</span><br><span class="line"></span><br><span class="line">apt-add-repository ppa:rodsmith&#x2F;refind</span><br><span class="line"></span><br><span class="line">sudo apt-get update</span><br><span class="line"></span><br><span class="line">sudo apt-get install refind</span><br></pre></td></tr></table></figure><br>用Shim给rEFind增加Secure Boot的启动方式<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">refind-install --shim &#x2F;boot&#x2F;efi&#x2F;EFI&#x2F;ubuntu&#x2F;shimx64.efi --localkeys</span><br></pre></td></tr></table></figure><br>然后把rEFind设为第一启动项refind-mkdefault开启Secure Boot</p>
+<h2 id="蓝牙驱动安装"><a href="#蓝牙驱动安装" class="headerlink" title="蓝牙驱动安装"></a>蓝牙驱动安装</h2><p>蓝牙（Bluetooth），是一种无线个人局域网（Wireless PAN），最初由爱立信创制，后来由蓝牙技术联盟订定技术标准。这个词的来源是10世纪丹麦和挪威国王蓝牙哈拉尔（丹麦语：Harald Blåtand Gormsen），借国王的绰号“Blåtand”当名称，直接翻译成中文为“蓝牙”（blå＝蓝，tand＝牙）。蓝牙是一种通用的射频频率是2.45GHZ的无线电接口，它使带有电子端口的设备能够在小范围内进行无线通信。</p>
+<h3 id="安装应用"><a href="#安装应用" class="headerlink" title="安装应用"></a>安装应用</h3><p>Blueman旨在提供最为常见的蓝牙管理功能。</p>
+<p>命令安装，终端执行：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt-get install blueman</span><br><span class="line">&#96;</span><br></pre></td></tr></table></figure><br>命令卸载，终端执行：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt-get remove blueman</span><br></pre></td></tr></table></figure></p>
+<h2 id="Hexo安装"><a href="#Hexo安装" class="headerlink" title="Hexo安装"></a>Hexo安装</h2><h3 id="安装nodejs-生成静态页面"><a href="#安装nodejs-生成静态页面" class="headerlink" title="安装nodejs:生成静态页面"></a>安装nodejs:生成静态页面</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt-get install nodejs</span><br></pre></td></tr></table></figure>
+<h3 id="安装npm：一会用来安装hexo"><a href="#安装npm：一会用来安装hexo" class="headerlink" title="安装npm：一会用来安装hexo"></a>安装npm：一会用来安装hexo</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt-get insall npm</span><br></pre></td></tr></table></figure>
+<h3 id="正式安装hexo"><a href="#正式安装hexo" class="headerlink" title="正式安装hexo"></a>正式安装hexo</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo npm install -g hexo</span><br></pre></td></tr></table></figure>
+<h3 id="hexo部署"><a href="#hexo部署" class="headerlink" title="hexo部署"></a>hexo部署</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g-d</span><br></pre></td></tr></table></figure>
+<h2 id="git-SSH-Linux"><a href="#git-SSH-Linux" class="headerlink" title="git SSH Linux"></a>git SSH Linux</h2><p>打开终端依次输入一下命令<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Git Bash Here</span><br><span class="line"></span><br><span class="line">mkdir ~&#x2F;.ssh</span><br><span class="line"></span><br><span class="line">cd .ssh&#x2F;</span><br><span class="line"></span><br><span class="line">git config --global  user.name &quot;mmrsl&quot;</span><br><span class="line"></span><br><span class="line">git config --global  user.email &quot;xxx@codekp.cn&quot;</span><br></pre></td></tr></table></figure><br>打开id_rsa.pub，在github的账号中进行修改，增加SHH。</p>
+<h1 id="完成后上传，如本文所示，surface双系统完美linux。"><a href="#完成后上传，如本文所示，surface双系统完美linux。" class="headerlink" title="完成后上传，如本文所示，surface双系统完美linux。"></a>完成后上传，如本文所示，surface双系统完美linux。</h1>]]></content>
       <categories>
-        <category>研究生课程</category>
+        <category>linux</category>
+        <category>hexo</category>
       </categories>
       <tags>
-        <tag>树莓派</tag>
-        <tag>深度学习</tag>
+        <tag>Deep in</tag>
+        <tag>surface</tag>
       </tags>
   </entry>
   <entry>
@@ -128,50 +100,50 @@
       </tags>
   </entry>
   <entry>
-    <title>surface完美安装linux操作系统、hexo博客</title>
-    <url>/2021/03/19/Deepin%E7%B3%BB%E7%BB%9F%E4%B8%8Esurface%E5%AE%89%E8%A3%85/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="surface完美安装linux操作系统、hexo博客"><a href="#surface完美安装linux操作系统、hexo博客" class="headerlink" title="surface完美安装linux操作系统、hexo博客"></a><center>surface完美安装linux操作系统、hexo博客</center></h1><p>最近由于linux课程需要使用linux系统，于是在ubuntu、kali、Elementary OS、Chrome OS和deepin操作系统中选择一个比较靠谱的。<br><a id="more"></a></p>
-<h2 id="linux操作系统介绍"><a href="#linux操作系统介绍" class="headerlink" title="linux操作系统介绍"></a>linux操作系统介绍</h2><h3 id="ubuntu"><a href="#ubuntu" class="headerlink" title="ubuntu"></a>ubuntu</h3><p>作为全球最流行且最有影响力的Linux开源系统之一，Ubuntu自发布以来在应用体验方面：有较大幅度的提升，即使对比Windows、MacOS等操作系统，最新版本的Ubuntu也不逊色。<br><img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3931899733,1893021162&amp;fm=26&amp;gp=0.jpg" alt="" loading="lazy">  </p>
-<h3 id="kali"><a href="#kali" class="headerlink" title="kali"></a>kali</h3><p>Kali Linux是基于Debian的Linux发行版， 设计用于数字取证操作系统。每一季度更新一次。由Offensive Security Ltd维护和资助。最先由Offensive Security的Mati Aharoni和Devon Kearns通过重写BackTrack来完成，BackTrack是他们之前写的用于取证的Linux发行版 。</p>
-<p>主要是用来渗透网络—所以俗话说kali从入门到入狱。</p>
-<p><img src="https://bkimg.cdn.bcebos.com/pic/3b87e950352ac65c1038fd5662baa5119313b07e1cf7?x-bce-process=image/watermark,image_d2里奴性F0ZXIvYmFpa2UxNTA=,g_7,xp_5,yp_5/format,f_auto" alt="" loading="lazy"></p>
-<h3 id="Elementary-OS"><a href="#Elementary-OS" class="headerlink" title="Elementary OS"></a>Elementary OS</h3><p>Elementary OS是基于 Ubuntu 精心打磨美化的桌面 Linux 发行版的一款软件，号称 “最美的 Linux”， 最早是 Ubuntu 的一个美化主题项目，现在成了独立的发行版<br><img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fww2.sinaimg.cn%2Fmw1024%2F6595c7c6tw1e7nlcg38qoj211s0lcag0.jpg&amp;refer=http%3A%2F%2Fwww.sina.com&amp;app=2002&amp;size=f9999,10000&amp;q=a80&amp;n=0&amp;g=0n&amp;fmt=jpeg?sec=1618754413&amp;t=c4cc435286c020b6845bd352d5a1dd8c" alt="" loading="lazy"></p>
-<h3 id="Chrome-OS"><a href="#Chrome-OS" class="headerlink" title="Chrome OS"></a>Chrome OS</h3><p>Chrome OS是一款Google开发的基于PC的操作系统。 Google Chrome OS是一款基于Linux的开源操作系统。Google在自己的官方博客表示，初期，这一操作系统将定位于上网本、紧凑型以及低成本电脑。这款开源软件将被命名为Chrome OS，谷歌公司于2010年12里奴性月7日（北京时间12月8日2点30分）在美国举行Chrome相关产品发布会，发布会上正式发布Chrome Web store和Chrome OS。</p>
-<p><img src="https://gss0.baidu.com/70cFfyinKgQFm2e88IuM_a/baike/pic/item/8694a4c27d1ed21bae953dafa06eddc451da3f1f.jpg" alt="" loading="lazy"></p>
-<h3 id="deepin"><a href="#deepin" class="headerlink" title="deepin"></a>deepin</h3><p>Deepin（原名：Linux Deepin；中文通称：深度操作系统）是由武汉深之度科技有限公司在Debian基础上开发的Linux操作系统，其前身是Hiweed Linux操作系统，于2004年2月28日开始对外发行，可以安装在个人计算机和服务器中。</p>
-<p>Deepin 12.12 正式版本将搭载一个全新的桌面环境。该桌面环境由Deepin 团队开发，以轻型、美观、稳定等作为设计目标。新桌面环境使用 Compiz 作为默认的窗口管理器。<br><img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fzkres1.myzaker.com%2F201910%2F5dae5906b15ec02e1c28f7b1_1024.jpg&amp;refer=http%3A%2F%2Fzkres1.myzaker.com&amp;app=2002&amp;size=f9999,10000&amp;q=a80&amp;n=0&amp;g=0n&amp;fmt=jpeg?sec=1618754739&amp;t=be9f54a43670d51053a30eec7d91ac18" alt="" loading="lazy"></p>
-<h3 id="总结以上五种系统各有各的优点"><a href="#总结以上五种系统各有各的优点" class="headerlink" title="总结以上五种系统各有各的优点"></a>总结以上五种系统各有各的优点</h3><p>运行上deepin会更慢一些，因为deepin的界面做的最好看，其次deepin是国产linux系统，而且是武汉的公司，安装极其简单，所以我就装了deepin操作系统。</p>
-<h2 id="deepin启动盘制作"><a href="#deepin启动盘制作" class="headerlink" title="deepin启动盘制作"></a>deepin启动盘制作</h2><p>deepin v20下载地址<a href="https://www.deepin.org/zh/download/" target="_blank" rel="noopener">deep in</a><br>首先下载镜像，其次下载启动盘制作工具，制作启动盘。</p>
-<h2 id="windows分区"><a href="#windows分区" class="headerlink" title="windows分区"></a>windows分区</h2><p>删除一些windows上面不需要的软件和文件，腾出50G的空间，然后通过<a href="https://www.soft-down.net/detail/44/431115.shtml?type=jingzhun" target="_blank" rel="noopener">分区助手</a><br>对磁盘进行分区。</p>
-<h2 id="系统安装具体操作步骤"><a href="#系统安装具体操作步骤" class="headerlink" title="系统安装具体操作步骤"></a>系统安装具体操作步骤</h2><p>1.制作启动u盘deepin系统安装盘。就是把deepin.iso烧录到u盘上。<br>这里请一定要先记得在淘宝上买一个扩展坞，因为surface是一款pc平板而合一电脑，为了节约面积，采用了单usb端口。同时安装系统时蓝牙会失效，需要准备有线鼠标、有线键盘。</p>
-<p>2.关闭secureboot.关机后 音量下键+电源三秒，松开电源，见到surface图标后松开音量键进入bios界面。第二项 secureboot 回车 disable它。滑倒最后exit save setting。</p>
-<p>特别注意一点！就是分清楚surface的音量和电源在那不要按错。</p>
-<p>3.进入windows系统，点击setting，在setting 中搜索boot，看到第二项，create and format hard disk partitions. 进入后看到C盘，鼠标右键shrink volumn(分出给deepin 的空间）</p>
-<p>建议采用之前说的分区助手，这种方法分区很容易崩。</p>
-<p>4.从U盘启动。有两种方式：<br>第一种关机后，音量下键+电源3秒，松开电源。见到surface画面后松开音量键。<br>第二种从windows 向左滑，进入setting. 最底下change pc settings.进去后点击最底下的updates and recovery(更新和恢复）选择里面最底下选项。advanced startup. （高级启动）。进入U盘启动。</p>
-<p>5.从U盘启动后。选择第二项，安装deepin. 选择语言，然后选择something else(其他选项）。目的是不要覆盖windows系统。安装系统到我们分出的free space里。<br>点击 free space ，再点击左下角的“+”号。选择逻辑分区，ext4, 给/root.尽量大点。</p>
-<p>再点击 free space ，点击左下角的“+”号。逻辑或主分区随便（我给的逻辑分区），swap area(交换空间）.随便给个几G。英文教程中不给，我是分了，省得它提示我必须给。反正也不少这几个G。</p>
-<p>选择启动盘为windows 所在的那个，一般叫sda 4.</p>
-<p>然后开始安装。重启。</p>
-<h2 id="安装触摸屏驱动"><a href="#安装触摸屏驱动" class="headerlink" title="安装触摸屏驱动"></a>安装触摸屏驱动</h2><h3 id="deepin-1"><a href="#deepin-1" class="headerlink" title="deepin"></a>deepin</h3><p>这里很神奇如果你也装的是deepin操作系统，触摸屏是可以直接使用的，可能因为华为封锁，目前华为用的均为deepin操作系统，华为也有触控笔记本电脑。</p>
-<h3 id="其他linux系统"><a href="#其他linux系统" class="headerlink" title="其他linux系统"></a>其他linux系统</h3><p>请详见<a href="https://github.com/jakeday/linux-surface" target="_blank" rel="noopener">github大神</a>的surface驱动安装教程。</p>
-<p>进入系统以后使用Terminal安装了Peter Hunter整理的内核<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo add-apt-repository ppa:tigerite&#x2F;kernel</span><br><span class="line"></span><br><span class="line">sudo apt-get update</span><br><span class="line"></span><br><span class="line">sudo apt-get install linux-surface</span><br></pre></td></tr></table></figure><br>然后使用编辑器nano或者gedit编辑/<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">lib&#x2F;udev&#x2F;rules.d&#x2F;50-bluetooth-hci-auto-poweron.rules</span><br></pre></td></tr></table></figure><br>用#注释掉里面唯一的那一行，再打开/etc/bluetooth/main.conf<br>把#[Policy]<br>改成[Policy]<br>并把最后一排的<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#AutoEnable&#x3D;false改成AutoEnable&#x3D;true</span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;安装rEFIndsudo</span><br><span class="line"></span><br><span class="line">apt-add-repository ppa:rodsmith&#x2F;refind</span><br><span class="line"></span><br><span class="line">sudo apt-get update</span><br><span class="line"></span><br><span class="line">sudo apt-get install refind</span><br></pre></td></tr></table></figure><br>用Shim给rEFind增加Secure Boot的启动方式<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">refind-install --shim &#x2F;boot&#x2F;efi&#x2F;EFI&#x2F;ubuntu&#x2F;shimx64.efi --localkeys</span><br></pre></td></tr></table></figure><br>然后把rEFind设为第一启动项refind-mkdefault开启Secure Boot</p>
-<h2 id="蓝牙驱动安装"><a href="#蓝牙驱动安装" class="headerlink" title="蓝牙驱动安装"></a>蓝牙驱动安装</h2><p>蓝牙（Bluetooth），是一种无线个人局域网（Wireless PAN），最初由爱立信创制，后来由蓝牙技术联盟订定技术标准。这个词的来源是10世纪丹麦和挪威国王蓝牙哈拉尔（丹麦语：Harald Blåtand Gormsen），借国王的绰号“Blåtand”当名称，直接翻译成中文为“蓝牙”（blå＝蓝，tand＝牙）。蓝牙是一种通用的射频频率是2.45GHZ的无线电接口，它使带有电子端口的设备能够在小范围内进行无线通信。</p>
-<h3 id="安装应用"><a href="#安装应用" class="headerlink" title="安装应用"></a>安装应用</h3><p>Blueman旨在提供最为常见的蓝牙管理功能。</p>
-<p>命令安装，终端执行：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt-get install blueman</span><br><span class="line">&#96;</span><br></pre></td></tr></table></figure><br>命令卸载，终端执行：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt-get remove blueman</span><br></pre></td></tr></table></figure></p>
-<h2 id="Hexo安装"><a href="#Hexo安装" class="headerlink" title="Hexo安装"></a>Hexo安装</h2><h3 id="安装nodejs-生成静态页面"><a href="#安装nodejs-生成静态页面" class="headerlink" title="安装nodejs:生成静态页面"></a>安装nodejs:生成静态页面</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt-get install nodejs</span><br></pre></td></tr></table></figure>
-<h3 id="安装npm：一会用来安装hexo"><a href="#安装npm：一会用来安装hexo" class="headerlink" title="安装npm：一会用来安装hexo"></a>安装npm：一会用来安装hexo</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt-get insall npm</span><br></pre></td></tr></table></figure>
-<h3 id="正式安装hexo"><a href="#正式安装hexo" class="headerlink" title="正式安装hexo"></a>正式安装hexo</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo npm install -g hexo</span><br></pre></td></tr></table></figure>
-<h3 id="hexo部署"><a href="#hexo部署" class="headerlink" title="hexo部署"></a>hexo部署</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g-d</span><br></pre></td></tr></table></figure>
-<h2 id="git-SSH-Linux"><a href="#git-SSH-Linux" class="headerlink" title="git SSH Linux"></a>git SSH Linux</h2><p>打开终端依次输入一下命令<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Git Bash Here</span><br><span class="line"></span><br><span class="line">mkdir ~&#x2F;.ssh</span><br><span class="line"></span><br><span class="line">cd .ssh&#x2F;</span><br><span class="line"></span><br><span class="line">git config --global  user.name &quot;mmrsl&quot;</span><br><span class="line"></span><br><span class="line">git config --global  user.email &quot;xxx@codekp.cn&quot;</span><br></pre></td></tr></table></figure><br>打开id_rsa.pub，在github的账号中进行修改，增加SHH。</p>
-<h1 id="完成后上传，如本文所示，surface双系统完美linux。"><a href="#完成后上传，如本文所示，surface双系统完美linux。" class="headerlink" title="完成后上传，如本文所示，surface双系统完美linux。"></a>完成后上传，如本文所示，surface双系统完美linux。</h1>]]></content>
+    <title>LabelImg_使用</title>
+    <url>/2021/07/21/LabelImg-%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="LabelImg-使用"><a href="#LabelImg-使用" class="headerlink" title="LabelImg_使用"></a>LabelImg_使用</h1><p>LabelImg 是一个图形图像注释工具。</p>
+<p>它是用 Python 编写的，并使用 Qt 作为其图形界面。</p>
+<p>注释以 PASCAL VOC 格式保存为 XML 文件，ImageNet使用的格式。此外，它还支持 YOLO 和 CreateML 格式。</p>
+<p><img src="https://www.codekp.cn/download/img/labelImg/labelimg.jpg" alt="" loading="lazy"></p>
+<p>参考地址 ： <a href="https://github.com/tzutalin/labelImg" target="_blank" rel="noopener">https://github.com/tzutalin/labelImg</a></p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda install pyqt&#x3D;5</span><br><span class="line">conda install -c anaconda lxml</span><br><span class="line">pyrcc5 -o libs&#x2F;resources.py resources.qrc</span><br><span class="line">python labelImg.py</span><br><span class="line">python labelImg.py [IMAGE_PATH] [PRE-DEFINED CLASS FILE]</span><br></pre></td></tr></table></figure>
+<p>有基础的同学可以直接<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pip install labelimg</span><br></pre></td></tr></table></figure></p>
+<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><ul>
+<li><code>JPEGImage 目录</code>：存储的是图片的名字</li>
+<li><code>Annotation 目录</code>：用于存放标注图片的标签文件</li>
+<li><code>class.txt 文件</code>：定义自己要标注的所有类别</li>
+</ul>
+<p>例如：我的<code>class.txt</code>中定义的类别如下：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">one</span><br><span class="line">two</span><br><span class="line">ct5</span><br><span class="line">other</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><code>Open Dir</code>：待标注图片数据的路径文件夹，即选择JPEGImage文件夹</li>
+<li><code>Change Save Dir</code>：保存类别标签的路径文件夹，即选择Annotation文件夹</li>
+<li><code>PascalVOC</code>：标注的标签保存成VOC格式，在鼠标点一下就变成YOLO，即此时就会把标注的标签变成YOLO格式</li>
+</ul>
+<h3 id="view-快捷指令"><a href="#view-快捷指令" class="headerlink" title="view 快捷指令"></a>view 快捷指令</h3><ul>
+<li><code>Auto Save mode</code>：当你切换到下一张图片时，就会自动把上一张标注的图片标签自动保存下来，这样就不用每标注一样图片都按Ctrl+S保存一下了</li>
+<li><code>Display Labels</code>：标注好图片之后，会把框和标签都显示出来</li>
+<li><code>Advanced Mode</code>：这样标注的十字架就会一直悬浮在窗口，不用每次标完一个目标，再按一次W快捷键，调出标注的十字架。</li>
+</ul>
+<h3 id="标注常用的快捷键"><a href="#标注常用的快捷键" class="headerlink" title="标注常用的快捷键"></a>标注常用的快捷键</h3><ul>
+<li><code>W</code>：调出标注的十字架，开始标注</li>
+<li><code>A</code>：切换到上一张图片</li>
+<li><code>D</code>：切换到下一张图片</li>
+<li><code>Ctrl+S</code>：保存标注好的标签</li>
+<li><code>del</code>：删除标注的矩形框</li>
+<li><code>Ctrl+鼠标滚轮</code>：按住Ctrl，然后滚动鼠标滚轮，可以调整标注图片的显示大小</li>
+<li><code>Ctrl+u</code>：选择要标注图片的文件夹</li>
+<li><code>Ctrl+r</code>：选择标注好的label标签存放的文件夹</li>
+<li><code>↑→↓←</code>：移动标注的矩形框的位置</li>
+</ul>
+<p>标注的时候，会把classe.txt预定义的标加载出来，然后我们只要选择对应的标签即可<br>右上角会显示已经标注目标的标签</p>
+<h2 id="具体使用"><a href="#具体使用" class="headerlink" title="具体使用"></a>具体使用</h2><p>以yolo格式进行保存使用。</p>
+]]></content>
       <categories>
-        <category>linux</category>
-        <category>hexo</category>
+        <category>目标检测</category>
       </categories>
       <tags>
-        <tag>Deep in</tag>
-        <tag>surface</tag>
+        <tag>目标检测</tag>
       </tags>
   </entry>
   <entry>
@@ -288,6 +260,81 @@ If you are talking to a group of managers, you may refer to the disorganized met
       </tags>
   </entry>
   <entry>
+    <title>Detection_树莓派</title>
+    <url>/2021/06/07/Detection-%E6%A0%91%E8%8E%93%E6%B4%BE/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Raspberry-Pi-上运行-TensorFlow-Lite-目标检测"><a href="#Raspberry-Pi-上运行-TensorFlow-Lite-目标检测" class="headerlink" title="Raspberry Pi 上运行 TensorFlow Lite 目标检测"></a>Raspberry Pi 上运行 TensorFlow Lite 目标检测</h1> <div style="position:relative; padding-bottom:75%; width:100%; height:0">
+    <iframe src="//player.bilibili.com/player.html?aid=845957427&bvid=BV1B54y137xE&cid=350441154&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position:absolute; height: 100%; width: 100%;"> </iframe>
+</div>
+
+<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>本指南提供了有关如何在 Raspberry Pi 上设置 TensorFlow Lite 并使用它运行对象检测模型的分步说明。它还展示了如何在 Pi 上设置 Coral USB 加速器并运行 Edge TPU 检测模型。它适用于运行 Rasbpian Buster 或 Rasbpian Stretch 的 Raspberry Pi 3 和 Raspberry Pi 4。</p>
+<p>本指南是我更大的 TensorFlow Lite 教程系列的第二部分：</p>
+<ol>
+<li><a href="https://github.com/EdjeElectronics/TensorFlow-Lite-Object-Detection-on-Android-and-Raspberry-Pi#part-1---how-to-train-convert-and-run-custom-tensorflow-lite-object-detection-models-on-windows-10" target="_blank" rel="noopener">如何在 Windows 10 上训练、转换和运行自定义 TensorFlow Lite 对象检测模型</a></li>
+<li>如何在 Raspberry Pi 上运行 TensorFlow Lite 对象检测模型&lt;—- 你在这里！</li>
+</ol>
+<p>本指南的这一部分分为三个部分：</p>
+<ul>
+<li><a href="https://github.com/EdjeElectronics/TensorFlow-Lite-Object-Detection-on-Android-and-Raspberry-Pi/blob/master/Raspberry_Pi_Guide.md#part-1---how-to-set-up-and-run-tensorflow-lite-object-detection-models-on-the-raspberry-pi" target="_blank" rel="noopener">第 1 节 在 Raspberry Pi 上运行 TensorFlow Lite 对象检测模型</a></li>
+<li><a href="https://github.com/EdjeElectronics/TensorFlow-Lite-Object-Detection-on-Android-and-Raspberry-Pi/blob/master/Raspberry_Pi_Guide.md#section-2---run-edge-tpu-object-detection-models-on-the-raspberry-pi-using-the-coral-usb-accelerator" target="_blank" rel="noopener">第 2 节。使用 Coral USB 加速器在 Raspberry Pi 上运行 Edge TPU 对象检测模型</a></li>
+</ul>
+<p>此存储库还包括用于在图像、视频或网络摄像头/Picamera 源上运行 TFLite 和 Edge TPU 模型的脚本。</p>
+<h2 id="如何在-Raspberry-Pi-上设置和运行-TensorFlow-Lite-对象检测模型"><a href="#如何在-Raspberry-Pi-上设置和运行-TensorFlow-Lite-对象检测模型" class="headerlink" title="如何在 Raspberry Pi 上设置和运行 TensorFlow Lite 对象检测模型"></a>如何在 Raspberry Pi 上设置和运行 TensorFlow Lite 对象检测模型</h2><p>在 Raspberry Pi 上设置 TensorFlow Lite 比常规 TensorFlow 容易得多！这些是设置 TensorFlow Lite 所需的步骤：</p>
+<ul>
+<li>1a. 更新树莓派</li>
+<li>1b. 下载此存储库并创建虚拟环境</li>
+<li>1c。安装 TensorFlow 和 OpenCV</li>
+<li>1天。设置 TensorFlow Lite 检测模型</li>
+<li>1e。运行 TensorFlow Lite 模型！</li>
+<li>我还制作了一个介绍本指南的 YouTube 视频：</li>
+</ul>
+<p><a href="https://www.youtube.com/watch?v=aimSGOAUI8Y" target="_blank" rel="noopener"><img src="https://raw.githubusercontent.com/EdjeElectronics/TensorFlow-Lite-Object-Detection-on-Android-and-Raspberry-Pi/master/doc/YouTube_video1.JPG" alt="Link to my YouTube video!" loading="lazy"></a></p>
+<h3 id="更新树莓派"><a href="#更新树莓派" class="headerlink" title="更新树莓派"></a>更新树莓派</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get dist-upgrade</span><br></pre></td></tr></table></figure>
+<p>根据您更新 Pi 的时间，更新可能需要一分钟到一小时之间的任何时间。</p>
+<p>在此过程中，让我们确保在 Raspberry Pi 配置菜单中启用了相机界面。单击屏幕左上角的 Pi 图标，选择 Preferences -&gt; Raspberry Pi Configuration，然后转到 Interfaces 选项卡并确认 Camera 设置为 Enabled。如果不是，请立即启用它，然后重新启动 Raspberry Pi。</p>
+<h3 id="下载虚拟环境"><a href="#下载虚拟环境" class="headerlink" title="下载虚拟环境"></a>下载虚拟环境</h3><p>接下来，通过发出以下命令克隆此 GitHub 存储库。该存储库包含我们将用于运行 TensorFlow Lite 的脚本，以及一个使安装一切变得更容易的 shell 脚本。问题：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;EdjeElectronics&#x2F;TensorFlow-Lite-Object-Detection-on-Android-and-Raspberry-Pi.git</span><br></pre></td></tr></table></figure>
+<p>这会将所有内容下载到名为 TensorFlow-Lite-Object-Detection-on-Android-and-Raspberry-Pi 的文件夹中。这有点长，所以将文件夹重命名为“tflite1”，然后 cd 进入它：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mv TensorFlow-Lite-Object-Detection-on-Android-and-Raspberry-Pi tflite1</span><br><span class="line">cd tflite1</span><br></pre></td></tr></table></figure>
+<p>我们将在此 /home/pi/tflite1 目录中处理本指南的其余部分。接下来是创建一个名为“tflite1-env”的虚拟环境。</p>
+<p>我在本指南中使用了虚拟环境，因为它可以防止可能已安装在您的 Pi 上的软件包库版本之间发生任何冲突。将 TensorFlow 安装在自己的环境中可以避免版本冲突。例如，如果您已经使用我的其他指南在 Pi 上安装了 TensorFlow v1.8，则可以保持该安装不变，而不必担心覆盖它。</p>
+<p>通过发出以下命令安装 virtualenv：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo pip3 install virtualenv</span><br></pre></td></tr></table></figure>
+<p>然后，通过发出以下命令创建“tflite1-env”虚拟环境：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">python3 -m venv tflite1-env</span><br></pre></td></tr></table></figure>
+<p>这将在 tflite1 目录中创建一个名为 tflite1-env 的文件夹。tflite1-env 文件夹将保存此环境的所有包库。接下来，通过发出以下命令激活环境：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">source tflite1-env&#x2F;bin&#x2F;activate</span><br></pre></td></tr></table></figure>
+<p><strong>source tflite1-env/bin/activate每次打开新的终端窗口时，您都需要从 /home/pi/tflite1 目录中发出命令以重新激活环境。您可以通过检查 (tflite1-env) 是否出现在命令提示符中的路径之前来判断环境何时处于活动状态，如下面的屏幕截图所示。</strong></p>
+<p>此时，如果您发出 .tflite1 目录，那么您的 tflite1 目录应该是这样的<code>ls</code>。</p>
+<h3 id="安装TensorFlow和opencv"><a href="#安装TensorFlow和opencv" class="headerlink" title="安装TensorFlow和opencv"></a>安装TensorFlow和opencv</h3><p>接下来，我们将安装 TensorFlow、OpenCV 以及这两个包所需的所有依赖项。运行 TensorFlow Lite 不需要 OpenCV，但此存储库中的对象检测脚本使用它来抓取图像并在其上绘制检测结果。</p>
+<p>为了让事情更简单，我编写了一个 shell 脚本，它会自动下载并安装所有的包和依赖项。通过发出以下命令运行它：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">bash get_pi_requirements.sh</span><br></pre></td></tr></table></figure>
+<p>这将下载大约 400MB 的安装文件，因此需要一段时间。在它工作的时候去喝杯咖啡吧！如果您想查看已安装的所有内容，只需打开 get_pi_dependencies.sh 即可查看软件包列表。</p>
+<p><strong>注意：如果您在运行bash get_pi_requirements.sh命令时遇到错误，可能是因为您的 Internet 连接超时，或者因为下载的包数据已损坏。如果出现错误，请尝试重新运行该命令几次。</strong></p>
+<p><strong>另一个注意事项：shell 脚本会自动安装最新版本的 TensorFlow。如果您想安装特定版本，pip3 install tensorflow==X.XX请在运行脚本后发出（其中 X.XX 替换为您要安装的版本）。这将使用指定版本覆盖现有安装。</strong></p>
+<p>那很简单！进入下一步。</p>
+<h3 id="步骤-1d。设置-TensorFlow-Lite-检测模型"><a href="#步骤-1d。设置-TensorFlow-Lite-检测模型" class="headerlink" title="步骤 1d。设置 TensorFlow Lite 检测模型"></a>步骤 1d。设置 TensorFlow Lite 检测模型</h3><p>接下来，我们将设置将与 TensorFlow Lite 一起使用的检测模型。本指南展示了如何下载由 Google 提供的示例 TFLite 模型，或如何使用您按照我的 TensorFlow Lite 教程系列<a href="https://github.com/EdjeElectronics/TensorFlow-Lite-Object-Detection-on-Android-and-Raspberry-Pi#part-1---how-to-train-convert-and-run-custom-tensorflow-lite-object-detection-models-on-windows-10" target="_blank" rel="noopener">第 1 部分自行训练的模型</a>。</p>
+<p>检测模型有两个与之关联的文件：detect.tflite 文件（模型本身）和 labelmap.txt 文件（为模型提供标签图）。我组织模型文件的首选方法是创建一个文件夹（例如“BirdSquirrelRaccoon_TFLite_model”）并将detect.tflite 和labelmap.txt 都保存在该文件夹中。这也是 Google 的可下载示例 TFLite 模型的组织方式。</p>
+<h3 id="选项-1-使用-Google-的示例-TFLite-模型"><a href="#选项-1-使用-Google-的示例-TFLite-模型" class="headerlink" title="选项 1. 使用 Google 的示例 TFLite 模型"></a>选项 1. 使用 Google 的示例 TFLite 模型</h3><p>Google 提供了一个示例量化 SSDLite-MobileNet-v2 对象检测模型，该模型在 MSCOCO 数据集上训练并转换为在 TensorFlow Lite 上运行。它可以检测和识别 80 种不同的常见物体，例如人、汽车、杯子等。</p>
+<p>通过发出以下命令下载示例模型（<a href="https://www.tensorflow.org/lite/models/object_detection/overview" target="_blank" rel="noopener">可以在TensorFlow 官方网站的对象检测页面上找到</a>）：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">wget https:&#x2F;&#x2F;storage.googleapis.com&#x2F;download.tensorflow.org&#x2F;models&#x2F;tflite&#x2F;coco_ssd_mobilenet_v1_1.0_quant_2018_06_29.zip</span><br></pre></td></tr></table></figure><br>通过发出（此命令自动创建文件夹）将其解压缩到名为“Sample_TFLite_model”的文件夹中：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">unzip coco_ssd_mobilenet_v1_1.0_quant_2018_06_29.zip -d Sample_TFLite_model</span><br></pre></td></tr></table></figure><br>好的，示例模型已准备就绪！</p>
+<h3 id="选项-2：使用您自己的自定义训练模型"><a href="#选项-2：使用您自己的自定义训练模型" class="headerlink" title="选项 2：使用您自己的自定义训练模型"></a>选项 2：使用您自己的自定义训练模型</h3><p>您还可以通过将模型文件夹移动到 /home/pi/tflite 目录来使用自定义对象检测模型。如果您按照我的 <a href="https://github.com/EdjeElectronics/TensorFlow-Lite-Object-Detection-on-Android-and-Raspberry-Pi#part-1---how-to-train-convert-and-run-custom-tensorflow-lite-object-detection-models-on-windows-10" target="_blank" rel="noopener">TensorFlow Lite 指南的第 1 部分</a>在您的 PC 上训练和转换 TFLite 模型，您应该有一个名为“TFLite_model”的文件夹，其中包含一个 detect.tflite 和 labelmap.txt 文件。（它还会有一个 tflite_graph.pb 和 tflite_graph.pbtxt 文件，TensorFlow Lite 不需要这些文件，但可以留在文件夹中。）</p>
+<p>您可以简单地将该文件夹复制到 USB 驱动器，将 USB 驱动器插入您的 Raspberry Pi，然后将该文件夹移动到 /home/pi/tflite1 目录中。（或者，您可以通过电子邮件将其发送给自己，或将其放在 Google 云端硬盘上，或者使用您喜欢的任何文件传输方法。）这是我的 /home/pi/tflite1 目录中的“BirdSquirrelRaccoon_TFLite_model”文件夹的示例：</p>
+<p>现在您的自定义模型已准备就绪！</p>
+<h3 id="步骤-1e。运行-TensorFlow-Lite-模型！"><a href="#步骤-1e。运行-TensorFlow-Lite-模型！" class="headerlink" title="步骤 1e。运行 TensorFlow Lite 模型！"></a>步骤 1e。运行 TensorFlow Lite 模型！</h3><p>是时候看看 TFLite 对象检测模型的实际效果了！首先，通过关闭您不使用的任何应用程序来释放内存和处理能力。另外，请确保您已插入网络摄像头或 Picamera。</p>
+<p>通过从 /home/pi/tflite1 目录中发出以下命令来运行实时网络摄像头检测脚本。（在运行该命令之前，通过检查 (tflite1-env) 出现在命令提示符前面来确保 tflite1-env 环境处于活动状态。）<strong>TFLite_detection_webcam.py 脚本将与 Picamera 或 USB 网络摄像头一起使用。</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">python3 TFLite_detection_webcam.py --modeldir&#x3D;Sample_TFLite_model</span><br></pre></td></tr></table></figure>
+<p>如果您的模型文件夹的名称与“Sample_TFLite_model”不同，请改用该名称。例如，我会<code>--modeldir=BirdSquirrelRaccoon_TFLite_model</code>用来运行我的自定义鸟类、松鼠和浣熊检测模型。</p>
+<p>初始化片刻后，将出现一个窗口，显示网络摄像头源。检测到的对象将实时显示边界框和标签。</p>
+<p>我TensorFlow精简版培训指导的第3部分给出的<a href="https://github.com/EdjeElectronics/TensorFlow-Lite-Object-Detection-on-Android-and-Raspberry-Pi#video" target="_blank" rel="noopener">指令</a>使用TFLite_detection_image.py和TFLite_detection_video.py脚本。确保在运行脚本时使用<code>python3</code>而不是<code>python</code>。</p>
+]]></content>
+      <categories>
+        <category>研究生课程</category>
+      </categories>
+      <tags>
+        <tag>树莓派</tag>
+        <tag>深度学习</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Linux进程断连重新进入该进程方法</title>
     <url>/2021/03/31/Linux%E8%BF%9B%E7%A8%8B%E6%96%AD%E8%BF%9E%E9%87%8D%E6%96%B0%E8%BF%9B%E5%85%A5%E8%AF%A5%E8%BF%9B%E7%A8%8B%E6%96%B9%E6%B3%95/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Linux进程断连后重新进入该进程"><a href="#Linux进程断连后重新进入该进程" class="headerlink" title="Linux进程断连后重新进入该进程"></a>Linux进程断连后重新进入该进程</h1><h2 id="Putty-or-Xshell"><a href="#Putty-or-Xshell" class="headerlink" title="Putty or Xshell"></a>Putty or Xshell</h2><p>首先推荐这两款软件附下载地址</p>
@@ -354,53 +401,6 @@ If you are talking to a group of managers, you may refer to the disorganized met
       </categories>
       <tags>
         <tag>研究生课程</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>LabelImg_使用</title>
-    <url>/2021/07/21/LabelImg-%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="LabelImg-使用"><a href="#LabelImg-使用" class="headerlink" title="LabelImg_使用"></a>LabelImg_使用</h1><p>LabelImg 是一个图形图像注释工具。</p>
-<p>它是用 Python 编写的，并使用 Qt 作为其图形界面。</p>
-<p>注释以 PASCAL VOC 格式保存为 XML 文件，ImageNet使用的格式。此外，它还支持 YOLO 和 CreateML 格式。</p>
-<p><img src="https://www.codekp.cn/download/img/labelImg/labelimg.jpg" alt="" loading="lazy"></p>
-<p>参考地址 ： <a href="https://github.com/tzutalin/labelImg" target="_blank" rel="noopener">https://github.com/tzutalin/labelImg</a></p>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda install pyqt&#x3D;5</span><br><span class="line">conda install -c anaconda lxml</span><br><span class="line">pyrcc5 -o libs&#x2F;resources.py resources.qrc</span><br><span class="line">python labelImg.py</span><br><span class="line">python labelImg.py [IMAGE_PATH] [PRE-DEFINED CLASS FILE]</span><br></pre></td></tr></table></figure>
-<p>有基础的同学可以直接<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pip install labelimg</span><br></pre></td></tr></table></figure></p>
-<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><ul>
-<li><code>JPEGImage 目录</code>：存储的是图片的名字</li>
-<li><code>Annotation 目录</code>：用于存放标注图片的标签文件</li>
-<li><code>class.txt 文件</code>：定义自己要标注的所有类别</li>
-</ul>
-<p>例如：我的<code>class.txt</code>中定义的类别如下：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">one</span><br><span class="line">two</span><br><span class="line">ct5</span><br><span class="line">other</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li><code>Open Dir</code>：待标注图片数据的路径文件夹，即选择JPEGImage文件夹</li>
-<li><code>Change Save Dir</code>：保存类别标签的路径文件夹，即选择Annotation文件夹</li>
-<li><code>PascalVOC</code>：标注的标签保存成VOC格式，在鼠标点一下就变成YOLO，即此时就会把标注的标签变成YOLO格式</li>
-</ul>
-<h3 id="view-快捷指令"><a href="#view-快捷指令" class="headerlink" title="view 快捷指令"></a>view 快捷指令</h3><ul>
-<li><code>Auto Save mode</code>：当你切换到下一张图片时，就会自动把上一张标注的图片标签自动保存下来，这样就不用每标注一样图片都按Ctrl+S保存一下了</li>
-<li><code>Display Labels</code>：标注好图片之后，会把框和标签都显示出来</li>
-<li><code>Advanced Mode</code>：这样标注的十字架就会一直悬浮在窗口，不用每次标完一个目标，再按一次W快捷键，调出标注的十字架。</li>
-</ul>
-<h3 id="标注常用的快捷键"><a href="#标注常用的快捷键" class="headerlink" title="标注常用的快捷键"></a>标注常用的快捷键</h3><ul>
-<li><code>W</code>：调出标注的十字架，开始标注</li>
-<li><code>A</code>：切换到上一张图片</li>
-<li><code>D</code>：切换到下一张图片</li>
-<li><code>Ctrl+S</code>：保存标注好的标签</li>
-<li><code>del</code>：删除标注的矩形框</li>
-<li><code>Ctrl+鼠标滚轮</code>：按住Ctrl，然后滚动鼠标滚轮，可以调整标注图片的显示大小</li>
-<li><code>Ctrl+u</code>：选择要标注图片的文件夹</li>
-<li><code>Ctrl+r</code>：选择标注好的label标签存放的文件夹</li>
-<li><code>↑→↓←</code>：移动标注的矩形框的位置</li>
-</ul>
-<p>标注的时候，会把classe.txt预定义的标加载出来，然后我们只要选择对应的标签即可<br>右上角会显示已经标注目标的标签</p>
-<h2 id="具体使用"><a href="#具体使用" class="headerlink" title="具体使用"></a>具体使用</h2><p>以yolo格式进行保存使用。</p>
-]]></content>
-      <categories>
-        <category>目标检测</category>
-      </categories>
-      <tags>
-        <tag>目标检测</tag>
       </tags>
   </entry>
   <entry>
@@ -1217,30 +1217,6 @@ If you are talking to a group of managers, you may refer to the disorganized met
       </tags>
   </entry>
   <entry>
-    <title>deepin_ssh_远程控制</title>
-    <url>/2021/04/13/deepin-ssh-%E8%BF%9C%E7%A8%8B%E6%8E%A7%E5%88%B6/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="deepinssh远程控制"><a href="#deepinssh远程控制" class="headerlink" title="deepinssh远程控制"></a>deepin<em>ssh</em>远程控制</h1><h2 id="安装ssh："><a href="#安装ssh：" class="headerlink" title="安装ssh："></a>安装ssh：</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">apt-get install ssh</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo vi &#x2F;etc&#x2F;ssh&#x2F;sshd_config</span><br></pre></td></tr></table></figure>
-<p>找到下面内容</p>
-<p><img src="https://img2020.cnblogs.com/blog/1756476/202004/1756476-20200401231105458-1141980320.png" alt="" loading="lazy"></p>
-<p> 将红色框中的内容修改为下面的内容：</p>
-<p><img src="https://img2020.cnblogs.com/blog/1756476/202004/1756476-20200401231128868-2086048695.png" alt="" loading="lazy"></p>
-<p>修改成功以后，重启ssh服务：</p>
-<p>　　切换至ssh目录下<br>　　　　service ssh restart<br>　　然后我们那就能愉快的使用xshell连远程连接并且用root用户登陆deepin系统了。</p>
-<h2 id="远程桌面连接"><a href="#远程桌面连接" class="headerlink" title="远程桌面连接"></a>远程桌面连接</h2><ol>
-<li>在软件商店安装remmina<br>详情请参考<a href="https://jingyan.baidu.com/article/3aed632e2923d8701080911d.html" target="_blank" rel="noopener">远程桌面连接-百度经验</a></li>
-</ol>
-<p>2.安装<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># sudo apt-get install xrdp</span><br></pre></td></tr></table></figure><br>注意：安装完成后注销当前用户 或运行：</p>
-<p>详情请参考<a href="https://blog.csdn.net/yingftf/article/details/104581514" target="_blank" rel="noopener">CSDN</a></p>
-]]></content>
-      <categories>
-        <category>deepin</category>
-      </categories>
-      <tags>
-        <tag>deepin</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>deepin_wordpress</title>
     <url>/2021/04/15/deepin-wordpress/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="deepin-wordpress"><a href="#deepin-wordpress" class="headerlink" title="deepin_wordpress"></a>deepin_wordpress</h1><h2 id="安装基础软件"><a href="#安装基础软件" class="headerlink" title="安装基础软件"></a>安装基础软件</h2><h3 id="安装apache2"><a href="#安装apache2" class="headerlink" title="安装apache2"></a>安装apache2</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt-get install apache2 -y</span><br></pre></td></tr></table></figure>
@@ -1270,6 +1246,30 @@ If you are talking to a group of managers, you may refer to the disorganized met
 <p>换阿里源：</p>
 <p>sudo sed -i “s@<a href="http://pub.mirrors.aliyun.com/deepin@https://community-packages.deepin.com/deepin@g" target="_blank" rel="noopener">http://pub.mirrors.aliyun.com/deepin@https://community-packages.deepin.com/deepin@g</a>“ /etc/apt/sources.list</p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>deepin_ssh_远程控制</title>
+    <url>/2021/04/13/deepin-ssh-%E8%BF%9C%E7%A8%8B%E6%8E%A7%E5%88%B6/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="deepinssh远程控制"><a href="#deepinssh远程控制" class="headerlink" title="deepinssh远程控制"></a>deepin<em>ssh</em>远程控制</h1><h2 id="安装ssh："><a href="#安装ssh：" class="headerlink" title="安装ssh："></a>安装ssh：</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">apt-get install ssh</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo vi &#x2F;etc&#x2F;ssh&#x2F;sshd_config</span><br></pre></td></tr></table></figure>
+<p>找到下面内容</p>
+<p><img src="https://img2020.cnblogs.com/blog/1756476/202004/1756476-20200401231105458-1141980320.png" alt="" loading="lazy"></p>
+<p> 将红色框中的内容修改为下面的内容：</p>
+<p><img src="https://img2020.cnblogs.com/blog/1756476/202004/1756476-20200401231128868-2086048695.png" alt="" loading="lazy"></p>
+<p>修改成功以后，重启ssh服务：</p>
+<p>　　切换至ssh目录下<br>　　　　service ssh restart<br>　　然后我们那就能愉快的使用xshell连远程连接并且用root用户登陆deepin系统了。</p>
+<h2 id="远程桌面连接"><a href="#远程桌面连接" class="headerlink" title="远程桌面连接"></a>远程桌面连接</h2><ol>
+<li>在软件商店安装remmina<br>详情请参考<a href="https://jingyan.baidu.com/article/3aed632e2923d8701080911d.html" target="_blank" rel="noopener">远程桌面连接-百度经验</a></li>
+</ol>
+<p>2.安装<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># sudo apt-get install xrdp</span><br></pre></td></tr></table></figure><br>注意：安装完成后注销当前用户 或运行：</p>
+<p>详情请参考<a href="https://blog.csdn.net/yingftf/article/details/104581514" target="_blank" rel="noopener">CSDN</a></p>
+]]></content>
+      <categories>
+        <category>deepin</category>
+      </categories>
+      <tags>
+        <tag>deepin</tag>
+      </tags>
   </entry>
   <entry>
     <title>hexo插入视频代码块及音频</title>
@@ -1577,7 +1577,6 @@ If you are talking to a group of managers, you may refer to the disorganized met
 <li>分发一个文件夹</li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#-*- coding: utf-8 -*-</span><br><span class="line">#!&#x2F;usr&#x2F;bin&#x2F;python</span><br><span class="line">import time</span><br><span class="line">import paramiko</span><br><span class="line">import threading</span><br><span class="line">import os</span><br><span class="line">ipList&#x3D;[]</span><br><span class="line"></span><br><span class="line">filename &#x3D; &#39;groupUdp.py&#39;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def ssh2(ip,username,passwd,cmd):</span><br><span class="line">    item &#x3D; &#123;&#125;</span><br><span class="line">    item[&#39;ip&#39;] &#x3D; ip</span><br><span class="line">    try:</span><br><span class="line">        ssh &#x3D; paramiko.SSHClient()</span><br><span class="line">        ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())</span><br><span class="line">        ssh.connect(ip,22,username,passwd,timeout&#x3D;5)</span><br><span class="line">        for m in cmd:</span><br><span class="line">            stdin, stdout, stderr &#x3D; ssh.exec_command(m)</span><br><span class="line">            stdin.write(&quot;Y&quot;)   #简单交互，输入 ‘Y’</span><br><span class="line">            out &#x3D; stdout.readlines()</span><br><span class="line">            #屏幕输出</span><br><span class="line">            for o in out:</span><br><span class="line">                print(o),</span><br><span class="line">                item[&#39;name&#39;] &#x3D; o</span><br><span class="line">        print(&#39;%s\tOK\n&#39;%(ip))</span><br><span class="line">        ipList.append(item)</span><br><span class="line">        ssh.close()</span><br><span class="line">    except :</span><br><span class="line">        # print(&#39;%s\tError\n&#39;%(ip))</span><br><span class="line">        x&#x3D;0</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def ssh1(ip,username,passwd,cmd):</span><br><span class="line">    try:</span><br><span class="line">        ssh &#x3D; paramiko.SSHClient()</span><br><span class="line">        ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())</span><br><span class="line">        ssh.connect(ip,22,username,passwd,timeout&#x3D;5)</span><br><span class="line">        print(cmd)</span><br><span class="line">        for m in cmd:</span><br><span class="line">            stdin, stdout, stderr &#x3D; ssh.exec_command(m)</span><br><span class="line">            stdin.write(&quot;Y&quot;)   #简单交互，输入 ‘Y’</span><br><span class="line">            out &#x3D; stdout.readlines()</span><br><span class="line">            #屏幕输出</span><br><span class="line">            for o in out:</span><br><span class="line">                print(o),</span><br><span class="line">        print(&#39;%s\tOK\n&#39;%(ip))</span><br><span class="line">        ssh.close()</span><br><span class="line">    except :</span><br><span class="line">        # print(&#39;%s\tError\n&#39;%(ip))</span><br><span class="line">        print(cmd)</span><br><span class="line">        x&#x3D;0</span><br><span class="line">def command(cmd):</span><br><span class="line">    return os.popen(&#39;echo %s |sudo -S %s&#39; % (&#39;vadmin&#39;,cmd)).readlines()</span><br><span class="line"></span><br><span class="line">def scp_all(ip,username,passwd,filename):</span><br><span class="line">    cmd&#x3D;&quot;sshpass -p xxxx scp &quot;+filename+&quot; &quot;+username+&quot;@&quot;+ip+&quot;:&#x2F;home&#x2F;pi&#x2F;WIFI_Cmd&#x2F;&quot;+filename</span><br><span class="line">    print(cmd)</span><br><span class="line">    b &#x3D; os.popen(cmd).readlines()</span><br><span class="line">    time.sleep(0.5)</span><br><span class="line">    print(b)</span><br><span class="line"></span><br><span class="line">def scp_file_all(ip,username,passwd,file):</span><br><span class="line">    cmd&#x3D;&quot;sshpass -p xxxx scp -r &quot;+file+&quot; &quot;+username+&quot;@&quot;+ip+&quot;:&#x2F;home&#x2F;pi&#x2F;&quot;</span><br><span class="line">    print(cmd)</span><br><span class="line">    b &#x3D; os.popen(cmd).readlines()</span><br><span class="line">    time.sleep(0.5)</span><br><span class="line">    print(b)</span><br><span class="line"></span><br><span class="line">if __name__&#x3D;&#x3D;&#39;__main__&#39;:</span><br><span class="line">    cmd &#x3D; [&#39;cat &#x2F;etc&#x2F;hostname&#39;]#你要执行的命令列表,&#39;cd WIFI_Cmd&#x2F; &amp;&amp; pwd &amp;&amp;&#39;</span><br><span class="line">    username &#x3D; &quot;xxx&quot;  #用户名</span><br><span class="line">    passwd &#x3D; &quot;xxxx&quot;    #密码</span><br><span class="line">    threads &#x3D; []   #多线程</span><br><span class="line">    print( &quot;Begin......&quot;)</span><br><span class="line">    for i in range(1,254):</span><br><span class="line">        ip &#x3D; &#39;192.168.0.&#39;+str(i)</span><br><span class="line">        a&#x3D;threading.Thread(target&#x3D;ssh2,args&#x3D;(ip,username,passwd,cmd))</span><br><span class="line">        a.start()</span><br><span class="line">    time.sleep(5)</span><br><span class="line">    while True:</span><br><span class="line">        print(ipList)</span><br><span class="line">        idx_cmd&#x3D;int(input(&quot;1.python 2.kill all 3.send file 4.add channel 5.move 6.move send\n&quot;))</span><br><span class="line">        print(len(ipList))</span><br><span class="line">        if idx_cmd&#x3D;&#x3D;1:</span><br><span class="line">            for idx in range(len(ipList)):</span><br><span class="line"></span><br><span class="line">                ip&#x3D;ipList[idx][&#39;ip&#39;]</span><br><span class="line">                name&#x3D;ipList[idx][&#39;name&#39;]</span><br><span class="line">                num&#x3D;int(ipList[idx][&#39;name&#39;][3:6])-1</span><br><span class="line">                print(num)</span><br><span class="line">                cmd &#x3D; [&#39;cd WIFI_Cmd&#x2F; &amp;&amp;  pwd &amp;&amp; sudo nohup python &#39;+filename+&quot; &quot;+str(num) +&#39; &amp;&#39;,&#39;pwd&#39;]</span><br><span class="line">                a&#x3D;threading.Thread(target&#x3D;ssh1,args&#x3D;(ip,username,passwd,cmd))</span><br><span class="line">                a.start()</span><br><span class="line"></span><br><span class="line">        elif idx_cmd &#x3D;&#x3D; 2:</span><br><span class="line"></span><br><span class="line">            ######kill#####</span><br><span class="line">            for idx in range(len(ipList)):</span><br><span class="line">                ip&#x3D;ipList[idx][&#39;ip&#39;]</span><br><span class="line">                name&#x3D;ipList[idx][&#39;name&#39;]</span><br><span class="line">                cmd &#x3D; [&#39;sudo pkill python&#39;]</span><br><span class="line">                a&#x3D;threading.Thread(target&#x3D;ssh1,args&#x3D;(ip,username,passwd,cmd))</span><br><span class="line">                a.start()</span><br><span class="line">        elif idx_cmd &#x3D;&#x3D; 3:</span><br><span class="line">            ###############分发</span><br><span class="line">            for idx in range(len(ipList)):</span><br><span class="line">                # filename &#x3D; &#39;changeChannel.py&#39;</span><br><span class="line">                ip&#x3D;ipList[idx][&#39;ip&#39;]</span><br><span class="line">                name&#x3D;ipList[idx][&#39;name&#39;]</span><br><span class="line">                a&#x3D;threading.Thread(target&#x3D;scp_all,args&#x3D;(ip,username,passwd,filename))</span><br><span class="line">                a.start()</span><br><span class="line">            ##add channel ssd</span><br><span class="line">        elif idx_cmd &#x3D;&#x3D; 4:</span><br><span class="line">            for idx in range(len(ipList)):</span><br><span class="line">                SSIDNAME&#x3D;&#39;xxx&#39;</span><br><span class="line">                SSIDPASSWORD&#x3D;&#39;xxxx&#39;</span><br><span class="line">                ip&#x3D;ipList[idx][&#39;ip&#39;]</span><br><span class="line">                name&#x3D;ipList[idx][&#39;name&#39;]</span><br><span class="line">                cmd &#x3D; [&#39;cd WIFI_Cmd&#x2F;conf&#x2F; &amp;&amp;wpa_passphrase&#39; +&#39; &quot;&#39;+ SSIDNAME + &#39;&quot; &quot;&#39; + SSIDPASSWORD+&#39;&quot; &gt; &#39;+SSIDNAME+&#39;.conf &amp;&amp; cat &#39;+SSIDNAME+&#39;.conf&#39;]</span><br><span class="line">                a&#x3D;threading.Thread(target&#x3D;ssh1,args&#x3D;(ip,username,passwd,cmd))</span><br><span class="line">                a.start()</span><br><span class="line">            ###move</span><br><span class="line">        elif idx_cmd &#x3D;&#x3D; 5:</span><br><span class="line">            num_car, idx_cmd2,length &#x3D; input(&quot;carnum and 1.Advance 2.Retreat 3.Left 4.Right and move length\n&quot;).split()</span><br><span class="line">            num_car&#x3D;int(num_car)</span><br><span class="line">            idx_cmd2&#x3D;int(idx_cmd2)</span><br><span class="line">            if idx_cmd2 &#x3D;&#x3D; 1:</span><br><span class="line">                cmd &#x3D; [&#39;cd moveUGV&#x2F; &amp;&amp;  pwd &amp;&amp; sudo nohup python Advance.py &amp;&#39;]</span><br><span class="line">            elif idx_cmd2 &#x3D;&#x3D; 2:</span><br><span class="line">                cmd &#x3D; [&#39;cd moveUGV&#x2F; &amp;&amp;  pwd &amp;&amp; sudo nohup python Retreat.py &amp;&#39;]</span><br><span class="line">            elif idx_cmd2 &#x3D;&#x3D; 3:</span><br><span class="line">                cmd &#x3D; [&#39;cd moveUGV&#x2F; &amp;&amp;  pwd &amp;&amp; sudo nohup python Left.py &amp;&#39;]</span><br><span class="line">            elif idx_cmd2 &#x3D;&#x3D; 4:</span><br><span class="line">                cmd &#x3D; [&#39;cd moveUGV&#x2F; &amp;&amp;  pwd &amp;&amp; sudo nohup python right.py &amp;&#39;]</span><br><span class="line">            else:</span><br><span class="line">                cmd &#x3D; [&#39;pwd&#39;]</span><br><span class="line">            for idx in range(len(ipList)):</span><br><span class="line">                ip &#x3D; ipList[idx][&#39;ip&#39;]</span><br><span class="line">                name &#x3D; ipList[idx][&#39;name&#39;]</span><br><span class="line">                num1 &#x3D; int(ipList[idx][&#39;name&#39;][3:6])</span><br><span class="line">                if num_car&#x3D;&#x3D;num1:</span><br><span class="line">                    for i in range(int(length)):</span><br><span class="line">                        a &#x3D; threading.Thread(target&#x3D;ssh1, args&#x3D;(ip, username, passwd, cmd))</span><br><span class="line">                        a.start()</span><br><span class="line">                        time.sleep(3)</span><br><span class="line">            ###move send</span><br><span class="line">        elif idx_cmd &#x3D;&#x3D; 6:</span><br><span class="line">            for idx in range(len(ipList)):</span><br><span class="line">                # filename &#x3D; &#39;changeChannel.py&#39;</span><br><span class="line">                ip&#x3D;ipList[idx][&#39;ip&#39;]</span><br><span class="line">                name&#x3D;ipList[idx][&#39;name&#39;]</span><br><span class="line">                file&#x3D;&#39;moveUGV&#39;</span><br><span class="line">                a&#x3D;threading.Thread(target&#x3D;scp_file_all,args&#x3D;(ip,username,passwd,file))</span><br><span class="line">                a.start()</span><br></pre></td></tr></table></figure>
-<p>  git config —global user.email “kp@mmrsl.cn”<br>  git config —global user.name “mmrslwan1110”</p>
 ]]></content>
       <categories>
         <category>python</category>
@@ -1786,6 +1785,25 @@ If you are talking to a group of managers, you may refer to the disorganized met
       </tags>
   </entry>
   <entry>
+    <title>network map</title>
+    <url>/2021/04/14/nmap/</url>
+    <content><![CDATA[<div id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <div class="hbe-input-container">
+  <input type="password" id="hbePass" placeholder="" />
+    <label for="hbePass">Hey, password is required here.</label>
+    <div class="bottom-line"></div>
+  </div>
+  <script id="hbeData" type="hbeData" data-hmacdigest="42536728308c99d417161ad5e51c8ff32266a239d0ede5b17f0a1378ddda1bee">a4739802019b5accf4e8257a859c221ddd0928ad877a1a7b073c046e9b67e8c3080ea12c91e9de54f0f9e6b442a02713295c1effed2ead0448067e035633f52210048df9769fd9e4f89640f9a12b6f81e84f0c13b61bb88ccffb71226b7610b346a803efc324dd5507ebac49649a04cb6cfdf290a863946c651b489f8d92aeb1ea6ca599a5e6816426b65eccc3ecbc944418e88a44be080879caaf8c3ed013a6c70bde30ecd5d8e4077818e970a2936653c902e516524cd0f1b62f29c6408753ef448b4320525e94330d1558cd26905a8d1c6f7626ec7d4c4f4e79319c804b592fc4e89d3e2d14c47c35a50bb510384fdf6b2aa61f80c554c836e73cfcff70a13cd002ed117ad9b64589a8c5e6d3c2803ebf1ae8a220d4a85470410e9139796ff1efe0f54a30da34d4c6260d42e4c9c35bd87123731d1a6ced558a220fc7dbb66edd504aeb15a433c2d2ff7e2d884ae4073709e0664d373da035313a3f64506f831f3ec0a01c61e13e8700a316ed3ecb94726df02e8a77cd1e834fe19dd1f1c62ef193ffaa226a154b774df2a1ab503865b37e1cc427e0cc5762ce8c6c21f6b8da93e9f09ebd847633317b814891284bf95a7a699972b1ae371ac1473af7e15ed276b2fb766192c807ad779ef0530bf31ba5d4bd13c4978ba56ce34dbef08e8aab2ed5fdace9b654b7686488175a8bca39a87ad303683c7166f6dc26a3eed991c36458c569a98f9cf0c3557580ac309272ed3391f251636d0817f8dddf5b780ce72e442240db16df0ea13899f9a05d6829c89491a8dac6439900bcbf26e6e6c73b4b4b049881fa1b08871d4dd627494628d5c1b2581ffcc02e5ffc3488fb0dfb84f278b360ba89ea412d1924d9545254bca3ebe0af3171785b99d56ac78573c8dc3c6c0e22157454b2d7281fe0f17ae62e58332d8bdfeb7e2d9a46a5c6aab430ffab43aff86b1b763f4aad8f7069cda780576dee34e4e6cdad540f4805a5556b72e25ab2db24a73fefb72d7450eba1fa3c40d8cd29e6dbcda2fb25e50387aebad9b5211c1e66dbbb7c8d8eb01afdb1f6c2318d852cbcfaa555b75a7af5ebf4bcb135cdb5a072d423e1d937fb99cb4f37132d16997631733fc07cfe9f151724c775107abbceebcb6cca0366c1b20cc8dfa1805953e376c3c149127c6d5fda2bc134d1d68c4a707569eec72356b3f57d144063f9ed8ec96849044c1a02ed112326f22c55eabae0ef0cf10f912c67251185f2528eb8f9197de8452de3d46b7f8faeb06ab24fd9b9a87f9f56d62292b2c236176e6914087fbb88bd28038bc9486ea499447305e379e2ed7a39b118c1ac1a2b7732c9d137e005d0ad6e6e7bcdbfb19143edba70c985f15c446107d2c8cbbe88742bbc525bd54477476d5a3417a6aee1873651301f274b56d7e503bd93efb88ef6089c88f5a058a6e6c087bf501cae350ed8b6540a10ea653a3f2ce0f249c127f370b6cdf5b1ae1e473dd1b4a1017670eb89b31ead43a6ef3af9546324761683b0050f24be5d698ebf82a92e73aea15bdf37cfca5e2daa400966c3cd44d4c42e5cbc567a6617d70fbd49d04d1b5b0340096e0ff2af35cbae8adbc30e07ba9fe8e62cfc845c8c9525ed85dcde82b2299e83be42eeffd6867607dfc464cd1ce5f6ebe3d18ec0126647137a1cc8a8a118787e3d3f547f101438b3a499045737141d46821beea9208260163d3a562e3602af8761a65f8a61fcbe1704cb5c99896ac07fb7732725803de552fb6f8848d950dd94829f47c8cd783e01660fe316ecd8a53665620079c495f0ac8f7dc2d98ffe145ae86872a92f292850550858181429b5c6d88b02a87d02b1a277e6e18c68f5b89ba5d665b07184859dd0ff3790f72fd6941829e11f3b60d2b9b496afcb65ae0ee9b8be6dfde10cdea8be1b84ad266f76b0ab622a05befb4a9ebd35ccac3bd538be5c0ca4da3ca4b174362e95676517b74157e00dd165b408ff1f0dd88345d2d5a77b4cfdd5caff569d3202f79bdd348ffd34f3eef5e8e123c905ea0f5d0c7852236685ae045805c4baa80fd4238e283711e8d479760bd801b1c859933977852890f73400734d747af3508fb6e89e9f96dd28198171d72d623d33b61bf753c3788c8e9c7fd4204221f2568c91989ed6606140be8874241db061964259ac622c270e878ad2a5538640319a4caf1e242df5ea8aff7007e2b5e6dbd7693a393af8b7adf57578d70680ba2c53d5435285f3726b61d937ca8a5f4c33fb60e4ea1e4c6496c65b24d616af3e5dca1534600f4af3c4d4aa447b2b5f07cda50e64e9d18bac1246a8473cda89367d5164d437e59130b6fb29817a42be0d0311b6a4732440a48440f6b5c87cbde40136ea986a863c48624f8cbc31fa2c1d9a4506900d73f2f5dcc4431820830325cbbdcf9661a3c26b6536e4e9dd89ec4728593c031b7e5fe3d948214092e5684db957d71b4ca3a15110ccca7b2203aa5dfbf98817e6e588432d9c3233af0baf35e63117fdc6103e4ca6cca3e1e1fa082c9cda935cda0c921be18f7d3a374c5d036c283babd50c2489e7e1cabeb910910a8e57587dcec614f1848a48138e4ffffeec8a4f3c921ef448c96f21729a69de97609f8cf9a736e790cb0a75ddbc85ed7f6137689235c806d33a7e59dbe150ab69e15e66d2dd248b26c524b19b2328b8f1a1b38b197f254f70a8f72cf9704895c3ae62c9c78171ac40232f8a56c0f3176929553959255513766eeeaadebc6ad844230a84b1205379c0b70234eb98d19e330fabd66e4f80547029571aa1ed7c321da7d59d0e16351ebfc7b9148e6a18950ae68b72a8dfcf5ffd96c2f5c788be0800291aea6aef00247158a7549e73c9240dc6a70b1d97940d0f1ecfc6d43a5697b33a443ba909baaf3eda3b00ec95e96a84e969d8ae913e9dbe737f1c4ba6e78d353a3a46cae675ed458d62bba244c713678e19d4892e85517c6c6fbcec2c8626e40bd022a8816b006aee3b26c09ee10142ee20bf9895aa1f66ccd4ee14200832ddde06537d5644ee8efde601be34ee4f5805b7c28e9a127c67c6a033cec36f81b8e79d4ad2d60784caa381f57fc2f66edfbb26d633d6813e618039eed4b726d6fcf7ef0d288574fe908f3e63b1e112f57bd42e82a3cf0ee6a47cd2d3f1c76d3dbcc0d0288ae4daa31177aacbb1f64de32c2b74a0546b31b58cff12c99b703ccddc84208d4e77948a84e736a487ac1a553ed91ed99f8b7897c3a8ad36539d53b35165f4804b6fac14e66c62b5d3cdbc411f37fc7a8614df3a208f6f2482d460ef7e1f7c951ff240d6ff002b2e9b79d672f4ad6b804792ad9b585c5ffad20691001116e89aaaf7fa9711cba4a5b513a9dc92adbc56c8bcd8d576c7aeb62ec6209f4aa4cb36a619c1305c4ad12b75ed0d3e00bc0ac915ff2b9027398438d99d9b41f7f3160a99e7e909d20fabc1f54bc20e3af3096d253bd01f99c5fe074e18cd27a909d0d014629ed74549bcd684d2491948c675dc6c21ab6e5c27405d880d852b8a93620e4117f436cc4072591bd574c1ae594097b445b65a952ca38769cc4e2d99e527a08761c7508845b1242de734bb3ea80fb427efe051cf4822c2b60e6e02bd910645154f75b214b2267c9d345e6aed05e45ee848956411a728814f15d62b3b37fdfb73eb6c73419daf875eaa90957e74feeb2acde6979169417072258a31f0f2148d6a4bcf3c3f0504cd68e6271d6a72c6cc13c29661515bcf3a6c4851c10fcd4a17cc352d77b799f1d267a0476883101e3c2c609dbc069a6757659f4ffc0f1958afff007608b13c64a66d374e0782294ff750931ba7b74d91caad18e7b3fae30439898a444f1c89b7dfc49cb2ee0c083b323d8b7385866e7bad470ef67f7f66c3152febdadf3e0a4646f89c97ca460cc67ef7c09bf91244191de2bffa83e8867c4e1ad3802f1b41625ff2b60e323aaf2a03d2c1d77590dc6d5fcad50638a07df35511c6220513db2331d8cdf174e61e0be1fae42e049cfc4f4f9176e0c439d4c2883a51ab57d0f5bab3ce9244c78e5f2ffc509d579c0d819b2745d48ec8b86afac9d4b9f48fedf122840d10817b0271c553d30952391a3449f25fe42f5fd6237f361e57093b98d35825cc29bd444da9f002f37c2ec06ca2fbfad8033bb41e26f4df79ffd0c8e09a7f733df9c7ebbcc75b004b685673536c2215433ec68040c7190251bca8233f142d22b6c4f296d995c7d61c2058a9a506117d493acada97ebe361602e17de37a58d2a6d4bf44c9bf832fa4f0a31e0be67c5cc4ae1c40fde53ed956fbf8b316ef114f9e001263d19d88b28c5d3ce05b6628b384dd94e68e12074506e8c6650f1338011b9fd90309d55f040360bc303da65ebefaed322ec0f9a9eb6a85a4f2d3a5ea91eecc2e9683c7f1745ae6f4abf75b1f5aa7f051dbfc2262accae4c11733b20fed593666c663d9c5622b53cf7887d2d7343b405c37e89d00e4221566c826f7913fd5ce9d2f4da0d974bf78f830e8ab3979ac29a8142fd229039007e3f856057ceac59ab8481d216267ae2cdd16dfd5512f9dcbe982d098542c9c77401a38514fd1b35adba4c33f25ae6a3e8e9a11efe20d0a35ff6fe51a60fa90a94fe5138ad57c1468117c91ec31e0f3a4f1129dfd7126dc13d5f97d0b6e20ae5fc859fbcdb562bc52444a8887c593eb6e3167fb58de1b1aff8afe8ec4c7b72c8bd0cff78f6eafca2552238aa929699bf5905b8f1c301f49f191bf8d197a79451165ba88ce810cbc34d78091b2b64535b693f973c6e5b1a55fedcf856e649173f25585362191b24eacbfaf51f5bab28969fd68e4cd8274dfc775eff2089c7a4a4349550c19a6dc4899e86a54845b218f974bac89b8d30f7b3c7afde38737ec1166aecf022359b1665471d358edafea5c9c8cfa759add6968998c6ded8899bf9d101b9fb3b9d73720575cd3b93287b9d3ee905f7b4fcbe5ea7b8cb268c1ce6af4abdf7e917421565836811c07687c2c9c4ce6d4078feedcf32930df7784a06038693825ad37d2262e15e1f2166a04758ef9b1a0204c25eabf9541100f83f7ecd0472e5e6c53ca3b9acdd2e093caf4def950237f5584e11260d73dadebdcce1e979b8681d16f85d5e8a78caa9a1ec8238a5f42bc7513eb50ebee7be598e542b5a6363729ad29fba817f88c13833e9d69559721e2685d7f6323007aef5b96f5339bdb70590f0fca341a2e98f4150a38a3147b8afe8636ab51f9e6bb0c4f9400aaffc17a7033c7aa994c638e18a7c3eb8c9439bc74e766fc90882e91e078c57380339de62fe6a3a159d4267fd3ba2562dcbdc5ce3077ef7e069bfe5297fda1718db6ca9af29a317a707ba396154b61f51342f8320177d6fae51f6af37d07fe6a8b396d6e71cf5fde7545c58ac67aca49bf449f17f43fe228967c9f95fcade557063b89aafc12fc4885b153bf8a65b80dea1f4baea4e59a44d33389aa113bcc03536fa0c8f580311ab33fa76d58fc3a1c50b1ba1492219b240c89e3d1723542b121d1b1e0c33f2b721751e151da5c571a4393396182a7694e7c2cd1afffa6f61b6a6b052af2c7b3c9a52f4cdb715eac1c554ab39aa86124c70e6bd87a87adadd4304788f3af29aa9bf087c6889e8a8e3619c1f401b6150744be677e2d61ccc73f15241c5e12407b4f50b8bcba1bb65057307c704f673d2fcc5573c0c89529e50c05be6e4fc29bff3171f5482ea632ce802c333ef7a0ae2f73d09fb7902001865f742392cba5bd6ce82b502b82b858fc3758cd1fe95ea99481ffd501b3bf53e2d3ccee8ef08f581e812d013911f204c5564a0cff6ca4d6e5983cc65d238fe57d7ccf3332b4f62f160118ff6b939b6ae697c6bd3269fd1d6d3bb31f308dc92267ff674fa6ea61a48bc485717176da9154895dd6766f96d8a444b452ed84cdeeb927dad3313a644582aba60d78b0b306509b39f2edf27dbe0ee1fc3400a93f0c451f463ba5c9580bdb9797d4eeb1aa080d41eea72419bea16ab1ee702ae6c5eb0aca9cd2847c372a4ce463e2637c1040098e74d00e4366736646b7eb3b14a0ab024a274c68f2000f37ff6d50e4c32daa265a43456a9fca8f513d88cd90d7e6d687b653b6d130d09669798bf7ac3a9e303fbfa37b83ffbd0f4d2a848872255b6f97cf4dd60f153180eba4d68d0b72230b752a63c18c884ed269095f19b2e1991d22eaf8a8f5a6082b9991240b37727a11282db13e2eff8c0f67b21d13a6623fec335fb1913e4177ffbba55764c6629079970a319ba7e03f82be803a5a58711f4acf885abc5f11d1bf68253b6b653cdbcff61b3cd10e58fe30beca2aa4d58a53a1fc57830270491fc15399d6852555718dd89c3718695b07bd5bd4d29e04819d72f12cd6c802a648eda9a06a83036495971a2452c07a14a3f2f45002fec7c5b726738d997b351a35731db2ab5b5fcb30efda8c1db640243fe0c48a7c65ce4cc7bfd3cb3efd912639c71d2d9da8e5e9a09bf0adca4bfa957e467ad7184f88de6001535f01f799cc65af96f9ddccffd987d651e27d4a6aaf057a552a12c563c15ac7e96f27ce0b792569449f60d82d6a7ca2c8ea7d1b414b9ce7badd0254ff0b3c56c1e2a49d8cfa41d2dc48609423578f98fe670d3305150a926419c8638483f2e6ae45b7a712dc4ab1e4e6696c93ade5864da1304f19b2c12537dbec9fa74256130597b9e1cd9ad5784352727fb38f7786320d7a5dacf2a200c9dfe6b1b52953cb1a6c864745e17f5582325637fc674d75119a578e6043eddb06ab04166e000181dba1f168e6c9556f27fb8faf03669d4d0e8976eb0eaf3c8d5231d5d250bfe8c5ada0a4bb885eecae82ec946f0ce0aa6099275ff7ba82302c88cf357f2ed8389ed3107bdc738fddc5d1185b1b5522c437e391b34340deaeb601b33e329109a2e4d5bbd33389ec64d85abf626702eb9fd1073831e4f008939306507434c40997cba11390509e5d4555cb32e8c1fedbc8196dda726a95cf1eaaf6fc74688e382435c8474c5f02c93724d0f07404cc9be0ec098ea9b50d61adb6df9559326518f2f99f933d1a19ffe9cd2f778a32d856c16c9e820225240c50357b5396d31b00bdac8c3f42ac21523a686798b2a0c0dd853ac7646d2d6a7ef218027ae74b2a4b9053da5333bce52c74eb91920ceb634e060ebc30ce125cb0d000cb6efe8ae8b2b140c84795adc54dea2cc3b2342b03097cf915ceedac4086547dbc39edd96a7ffa64a6de79cb31488f5593d12bb8991c9006469939a5d193bddccd079b7ed133e7269c1d35fb458b5d4b392509b45aa4082976577419f85e45b0ae8ea10ec283cf0f7d0c8f098a0dc10aa8d40ebfdc01ccbf840666e0fbf912377eb0179cc8ed2440f16757bdbce78ea6853755481f59fe60c154f655d7052a5e022f74aaab57c1e4ff382b4b27e67836261e2a6aca64e18027e5d4772de3401750ce686bb88c6647b5d95ab31a90d0f62b033eff073541c5057a5957002794b76c045284f0ab7d21c7b4912c006f94b2208a057f23b58917c0dd28377ef767a7611e024ece98aee3595bfab796c3bc3f0548d495af4421fd493725d488c8eec20e80fd590c6a9f7a70aa9feb1ce197d2dca4da91443543e0e619ef5dbaaea609745c94989e6fc0a431ade352119c41dea5663859045dbeef6466351ded983a2814d448b6dbad38bb0c344455543ed926288a2474b36d032dc3b31c9293cf03548c2944f1a1c725a56f9ea6b19aef3c38f28bfef9bc3e6c372e4809b8c102cbe698e4c97e119d7f3596bbd7da3f25199bfaecda4d87c60724ef7ca77c97a806edd90705b12d3d4693c46c90e3f7dc15215dbe2b593dbdb3b6648229a4300062be020e7e8c100f70df2bc06e43053524a3901bf41819b485b0f2806a0cf09cff91f7965fd8d3c4d8bbd1f4124e7f2c231fca02418de1e90a4992c9a9500c75643d1ca07d7e5895eb986570454027a85eef1252bddcfc8a28087912183351339004279fddc6f78fb2d25622a6fa835212130bf57b6bd3fff92291ee702da174939f48eb44ea3442059cf3fc29f2d0f20130b4912cf25250452de62e50d2755504e0f22eb16339e625530a49ac7cef5eb22e7afbd45490f5c5eb614dc93f73a443ce6da46fdeb163661ec891aad706ce1b1cde774b039592935dcc00f7fb11cae12bed2aa2752c8cda5f251a64cc2e4599414426e6e8cc4f600af1befa167462ad23d0c851e2ac463254b0c58587fa1c13d43404c0d918ae6149969a0ef72a2935d93b6327e5088a56a05fb5ae562450249bf451626419d30170231beef8cfb521584</script>
+</div>
+<script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">]]></content>
+      <categories>
+        <category>network map</category>
+      </categories>
+      <tags>
+        <tag>nmap</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Merry Christmas</title>
     <url>/2020/12/24/merry_christmas/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Merry-Christmas"><a href="#Merry-Christmas" class="headerlink" title="Merry Christmas"></a><center>Merry Christmas</center></h1><center>
@@ -1822,25 +1840,6 @@ If you are talking to a group of managers, you may refer to the disorganized met
       </categories>
       <tags>
         <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>network map</title>
-    <url>/2021/04/14/nmap/</url>
-    <content><![CDATA[<div id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
-  <div class="hbe-input-container">
-  <input type="password" id="hbePass" placeholder="" />
-    <label for="hbePass">Hey, password is required here.</label>
-    <div class="bottom-line"></div>
-  </div>
-  <script id="hbeData" type="hbeData" data-hmacdigest="42536728308c99d417161ad5e51c8ff32266a239d0ede5b17f0a1378ddda1bee">a4739802019b5accf4e8257a859c221ddd0928ad877a1a7b073c046e9b67e8c3080ea12c91e9de54f0f9e6b442a02713295c1effed2ead0448067e035633f52210048df9769fd9e4f89640f9a12b6f81e84f0c13b61bb88ccffb71226b7610b346a803efc324dd5507ebac49649a04cb6cfdf290a863946c651b489f8d92aeb1ea6ca599a5e6816426b65eccc3ecbc944418e88a44be080879caaf8c3ed013a6c70bde30ecd5d8e4077818e970a2936653c902e516524cd0f1b62f29c6408753ef448b4320525e94330d1558cd26905a8d1c6f7626ec7d4c4f4e79319c804b592fc4e89d3e2d14c47c35a50bb510384fdf6b2aa61f80c554c836e73cfcff70a13cd002ed117ad9b64589a8c5e6d3c2803ebf1ae8a220d4a85470410e9139796ff1efe0f54a30da34d4c6260d42e4c9c35bd87123731d1a6ced558a220fc7dbb66edd504aeb15a433c2d2ff7e2d884ae4073709e0664d373da035313a3f64506f831f3ec0a01c61e13e8700a316ed3ecb94726df02e8a77cd1e834fe19dd1f1c62ef193ffaa226a154b774df2a1ab503865b37e1cc427e0cc5762ce8c6c21f6b8da93e9f09ebd847633317b814891284bf95a7a699972b1ae371ac1473af7e15ed276b2fb766192c807ad779ef0530bf31ba5d4bd13c4978ba56ce34dbef08e8aab2ed5fdace9b654b7686488175a8bca39a87ad303683c7166f6dc26a3eed991c36458c569a98f9cf0c3557580ac309272ed3391f251636d0817f8dddf5b780ce72e442240db16df0ea13899f9a05d6829c89491a8dac6439900bcbf26e6e6c73b4b4b049881fa1b08871d4dd627494628d5c1b2581ffcc02e5ffc3488fb0dfb84f278b360ba89ea412d1924d9545254bca3ebe0af3171785b99d56ac78573c8dc3c6c0e22157454b2d7281fe0f17ae62e58332d8bdfeb7e2d9a46a5c6aab430ffab43aff86b1b763f4aad8f7069cda780576dee34e4e6cdad540f4805a5556b72e25ab2db24a73fefb72d7450eba1fa3c40d8cd29e6dbcda2fb25e50387aebad9b5211c1e66dbbb7c8d8eb01afdb1f6c2318d852cbcfaa555b75a7af5ebf4bcb135cdb5a072d423e1d937fb99cb4f37132d16997631733fc07cfe9f151724c775107abbceebcb6cca0366c1b20cc8dfa1805953e376c3c149127c6d5fda2bc134d1d68c4a707569eec72356b3f57d144063f9ed8ec96849044c1a02ed112326f22c55eabae0ef0cf10f912c67251185f2528eb8f9197de8452de3d46b7f8faeb06ab24fd9b9a87f9f56d62292b2c236176e6914087fbb88bd28038bc9486ea499447305e379e2ed7a39b118c1ac1a2b7732c9d137e005d0ad6e6e7bcdbfb19143edba70c985f15c446107d2c8cbbe88742bbc525bd54477476d5a3417a6aee1873651301f274b56d7e503bd93efb88ef6089c88f5a058a6e6c087bf501cae350ed8b6540a10ea653a3f2ce0f249c127f370b6cdf5b1ae1e473dd1b4a1017670eb89b31ead43a6ef3af9546324761683b0050f24be5d698ebf82a92e73aea15bdf37cfca5e2daa400966c3cd44d4c42e5cbc567a6617d70fbd49d04d1b5b0340096e0ff2af35cbae8adbc30e07ba9fe8e62cfc845c8c9525ed85dcde82b2299e83be42eeffd6867607dfc464cd1ce5f6ebe3d18ec0126647137a1cc8a8a118787e3d3f547f101438b3a499045737141d46821beea9208260163d3a562e3602af8761a65f8a61fcbe1704cb5c99896ac07fb7732725803de552fb6f8848d950dd94829f47c8cd783e01660fe316ecd8a53665620079c495f0ac8f7dc2d98ffe145ae86872a92f292850550858181429b5c6d88b02a87d02b1a277e6e18c68f5b89ba5d665b07184859dd0ff3790f72fd6941829e11f3b60d2b9b496afcb65ae0ee9b8be6dfde10cdea8be1b84ad266f76b0ab622a05befb4a9ebd35ccac3bd538be5c0ca4da3ca4b174362e95676517b74157e00dd165b408ff1f0dd88345d2d5a77b4cfdd5caff569d3202f79bdd348ffd34f3eef5e8e123c905ea0f5d0c7852236685ae045805c4baa80fd4238e283711e8d479760bd801b1c859933977852890f73400734d747af3508fb6e89e9f96dd28198171d72d623d33b61bf753c3788c8e9c7fd4204221f2568c91989ed6606140be8874241db061964259ac622c270e878ad2a5538640319a4caf1e242df5ea8aff7007e2b5e6dbd7693a393af8b7adf57578d70680ba2c53d5435285f3726b61d937ca8a5f4c33fb60e4ea1e4c6496c65b24d616af3e5dca1534600f4af3c4d4aa447b2b5f07cda50e64e9d18bac1246a8473cda89367d5164d437e59130b6fb29817a42be0d0311b6a4732440a48440f6b5c87cbde40136ea986a863c48624f8cbc31fa2c1d9a4506900d73f2f5dcc4431820830325cbbdcf9661a3c26b6536e4e9dd89ec4728593c031b7e5fe3d948214092e5684db957d71b4ca3a15110ccca7b2203aa5dfbf98817e6e588432d9c3233af0baf35e63117fdc6103e4ca6cca3e1e1fa082c9cda935cda0c921be18f7d3a374c5d036c283babd50c2489e7e1cabeb910910a8e57587dcec614f1848a48138e4ffffeec8a4f3c921ef448c96f21729a69de97609f8cf9a736e790cb0a75ddbc85ed7f6137689235c806d33a7e59dbe150ab69e15e66d2dd248b26c524b19b2328b8f1a1b38b197f254f70a8f72cf9704895c3ae62c9c78171ac40232f8a56c0f3176929553959255513766eeeaadebc6ad844230a84b1205379c0b70234eb98d19e330fabd66e4f80547029571aa1ed7c321da7d59d0e16351ebfc7b9148e6a18950ae68b72a8dfcf5ffd96c2f5c788be0800291aea6aef00247158a7549e73c9240dc6a70b1d97940d0f1ecfc6d43a5697b33a443ba909baaf3eda3b00ec95e96a84e969d8ae913e9dbe737f1c4ba6e78d353a3a46cae675ed458d62bba244c713678e19d4892e85517c6c6fbcec2c8626e40bd022a8816b006aee3b26c09ee10142ee20bf9895aa1f66ccd4ee14200832ddde06537d5644ee8efde601be34ee4f5805b7c28e9a127c67c6a033cec36f81b8e79d4ad2d60784caa381f57fc2f66edfbb26d633d6813e618039eed4b726d6fcf7ef0d288574fe908f3e63b1e112f57bd42e82a3cf0ee6a47cd2d3f1c76d3dbcc0d0288ae4daa31177aacbb1f64de32c2b74a0546b31b58cff12c99b703ccddc84208d4e77948a84e736a487ac1a553ed91ed99f8b7897c3a8ad36539d53b35165f4804b6fac14e66c62b5d3cdbc411f37fc7a8614df3a208f6f2482d460ef7e1f7c951ff240d6ff002b2e9b79d672f4ad6b804792ad9b585c5ffad20691001116e89aaaf7fa9711cba4a5b513a9dc92adbc56c8bcd8d576c7aeb62ec6209f4aa4cb36a619c1305c4ad12b75ed0d3e00bc0ac915ff2b9027398438d99d9b41f7f3160a99e7e909d20fabc1f54bc20e3af3096d253bd01f99c5fe074e18cd27a909d0d014629ed74549bcd684d2491948c675dc6c21ab6e5c27405d880d852b8a93620e4117f436cc4072591bd574c1ae594097b445b65a952ca38769cc4e2d99e527a08761c7508845b1242de734bb3ea80fb427efe051cf4822c2b60e6e02bd910645154f75b214b2267c9d345e6aed05e45ee848956411a728814f15d62b3b37fdfb73eb6c73419daf875eaa90957e74feeb2acde6979169417072258a31f0f2148d6a4bcf3c3f0504cd68e6271d6a72c6cc13c29661515bcf3a6c4851c10fcd4a17cc352d77b799f1d267a0476883101e3c2c609dbc069a6757659f4ffc0f1958afff007608b13c64a66d374e0782294ff750931ba7b74d91caad18e7b3fae30439898a444f1c89b7dfc49cb2ee0c083b323d8b7385866e7bad470ef67f7f66c3152febdadf3e0a4646f89c97ca460cc67ef7c09bf91244191de2bffa83e8867c4e1ad3802f1b41625ff2b60e323aaf2a03d2c1d77590dc6d5fcad50638a07df35511c6220513db2331d8cdf174e61e0be1fae42e049cfc4f4f9176e0c439d4c2883a51ab57d0f5bab3ce9244c78e5f2ffc509d579c0d819b2745d48ec8b86afac9d4b9f48fedf122840d10817b0271c553d30952391a3449f25fe42f5fd6237f361e57093b98d35825cc29bd444da9f002f37c2ec06ca2fbfad8033bb41e26f4df79ffd0c8e09a7f733df9c7ebbcc75b004b685673536c2215433ec68040c7190251bca8233f142d22b6c4f296d995c7d61c2058a9a506117d493acada97ebe361602e17de37a58d2a6d4bf44c9bf832fa4f0a31e0be67c5cc4ae1c40fde53ed956fbf8b316ef114f9e001263d19d88b28c5d3ce05b6628b384dd94e68e12074506e8c6650f1338011b9fd90309d55f040360bc303da65ebefaed322ec0f9a9eb6a85a4f2d3a5ea91eecc2e9683c7f1745ae6f4abf75b1f5aa7f051dbfc2262accae4c11733b20fed593666c663d9c5622b53cf7887d2d7343b405c37e89d00e4221566c826f7913fd5ce9d2f4da0d974bf78f830e8ab3979ac29a8142fd229039007e3f856057ceac59ab8481d216267ae2cdd16dfd5512f9dcbe982d098542c9c77401a38514fd1b35adba4c33f25ae6a3e8e9a11efe20d0a35ff6fe51a60fa90a94fe5138ad57c1468117c91ec31e0f3a4f1129dfd7126dc13d5f97d0b6e20ae5fc859fbcdb562bc52444a8887c593eb6e3167fb58de1b1aff8afe8ec4c7b72c8bd0cff78f6eafca2552238aa929699bf5905b8f1c301f49f191bf8d197a79451165ba88ce810cbc34d78091b2b64535b693f973c6e5b1a55fedcf856e649173f25585362191b24eacbfaf51f5bab28969fd68e4cd8274dfc775eff2089c7a4a4349550c19a6dc4899e86a54845b218f974bac89b8d30f7b3c7afde38737ec1166aecf022359b1665471d358edafea5c9c8cfa759add6968998c6ded8899bf9d101b9fb3b9d73720575cd3b93287b9d3ee905f7b4fcbe5ea7b8cb268c1ce6af4abdf7e917421565836811c07687c2c9c4ce6d4078feedcf32930df7784a06038693825ad37d2262e15e1f2166a04758ef9b1a0204c25eabf9541100f83f7ecd0472e5e6c53ca3b9acdd2e093caf4def950237f5584e11260d73dadebdcce1e979b8681d16f85d5e8a78caa9a1ec8238a5f42bc7513eb50ebee7be598e542b5a6363729ad29fba817f88c13833e9d69559721e2685d7f6323007aef5b96f5339bdb70590f0fca341a2e98f4150a38a3147b8afe8636ab51f9e6bb0c4f9400aaffc17a7033c7aa994c638e18a7c3eb8c9439bc74e766fc90882e91e078c57380339de62fe6a3a159d4267fd3ba2562dcbdc5ce3077ef7e069bfe5297fda1718db6ca9af29a317a707ba396154b61f51342f8320177d6fae51f6af37d07fe6a8b396d6e71cf5fde7545c58ac67aca49bf449f17f43fe228967c9f95fcade557063b89aafc12fc4885b153bf8a65b80dea1f4baea4e59a44d33389aa113bcc03536fa0c8f580311ab33fa76d58fc3a1c50b1ba1492219b240c89e3d1723542b121d1b1e0c33f2b721751e151da5c571a4393396182a7694e7c2cd1afffa6f61b6a6b052af2c7b3c9a52f4cdb715eac1c554ab39aa86124c70e6bd87a87adadd4304788f3af29aa9bf087c6889e8a8e3619c1f401b6150744be677e2d61ccc73f15241c5e12407b4f50b8bcba1bb65057307c704f673d2fcc5573c0c89529e50c05be6e4fc29bff3171f5482ea632ce802c333ef7a0ae2f73d09fb7902001865f742392cba5bd6ce82b502b82b858fc3758cd1fe95ea99481ffd501b3bf53e2d3ccee8ef08f581e812d013911f204c5564a0cff6ca4d6e5983cc65d238fe57d7ccf3332b4f62f160118ff6b939b6ae697c6bd3269fd1d6d3bb31f308dc92267ff674fa6ea61a48bc485717176da9154895dd6766f96d8a444b452ed84cdeeb927dad3313a644582aba60d78b0b306509b39f2edf27dbe0ee1fc3400a93f0c451f463ba5c9580bdb9797d4eeb1aa080d41eea72419bea16ab1ee702ae6c5eb0aca9cd2847c372a4ce463e2637c1040098e74d00e4366736646b7eb3b14a0ab024a274c68f2000f37ff6d50e4c32daa265a43456a9fca8f513d88cd90d7e6d687b653b6d130d09669798bf7ac3a9e303fbfa37b83ffbd0f4d2a848872255b6f97cf4dd60f153180eba4d68d0b72230b752a63c18c884ed269095f19b2e1991d22eaf8a8f5a6082b9991240b37727a11282db13e2eff8c0f67b21d13a6623fec335fb1913e4177ffbba55764c6629079970a319ba7e03f82be803a5a58711f4acf885abc5f11d1bf68253b6b653cdbcff61b3cd10e58fe30beca2aa4d58a53a1fc57830270491fc15399d6852555718dd89c3718695b07bd5bd4d29e04819d72f12cd6c802a648eda9a06a83036495971a2452c07a14a3f2f45002fec7c5b726738d997b351a35731db2ab5b5fcb30efda8c1db640243fe0c48a7c65ce4cc7bfd3cb3efd912639c71d2d9da8e5e9a09bf0adca4bfa957e467ad7184f88de6001535f01f799cc65af96f9ddccffd987d651e27d4a6aaf057a552a12c563c15ac7e96f27ce0b792569449f60d82d6a7ca2c8ea7d1b414b9ce7badd0254ff0b3c56c1e2a49d8cfa41d2dc48609423578f98fe670d3305150a926419c8638483f2e6ae45b7a712dc4ab1e4e6696c93ade5864da1304f19b2c12537dbec9fa74256130597b9e1cd9ad5784352727fb38f7786320d7a5dacf2a200c9dfe6b1b52953cb1a6c864745e17f5582325637fc674d75119a578e6043eddb06ab04166e000181dba1f168e6c9556f27fb8faf03669d4d0e8976eb0eaf3c8d5231d5d250bfe8c5ada0a4bb885eecae82ec946f0ce0aa6099275ff7ba82302c88cf357f2ed8389ed3107bdc738fddc5d1185b1b5522c437e391b34340deaeb601b33e329109a2e4d5bbd33389ec64d85abf626702eb9fd1073831e4f008939306507434c40997cba11390509e5d4555cb32e8c1fedbc8196dda726a95cf1eaaf6fc74688e382435c8474c5f02c93724d0f07404cc9be0ec098ea9b50d61adb6df9559326518f2f99f933d1a19ffe9cd2f778a32d856c16c9e820225240c50357b5396d31b00bdac8c3f42ac21523a686798b2a0c0dd853ac7646d2d6a7ef218027ae74b2a4b9053da5333bce52c74eb91920ceb634e060ebc30ce125cb0d000cb6efe8ae8b2b140c84795adc54dea2cc3b2342b03097cf915ceedac4086547dbc39edd96a7ffa64a6de79cb31488f5593d12bb8991c9006469939a5d193bddccd079b7ed133e7269c1d35fb458b5d4b392509b45aa4082976577419f85e45b0ae8ea10ec283cf0f7d0c8f098a0dc10aa8d40ebfdc01ccbf840666e0fbf912377eb0179cc8ed2440f16757bdbce78ea6853755481f59fe60c154f655d7052a5e022f74aaab57c1e4ff382b4b27e67836261e2a6aca64e18027e5d4772de3401750ce686bb88c6647b5d95ab31a90d0f62b033eff073541c5057a5957002794b76c045284f0ab7d21c7b4912c006f94b2208a057f23b58917c0dd28377ef767a7611e024ece98aee3595bfab796c3bc3f0548d495af4421fd493725d488c8eec20e80fd590c6a9f7a70aa9feb1ce197d2dca4da91443543e0e619ef5dbaaea609745c94989e6fc0a431ade352119c41dea5663859045dbeef6466351ded983a2814d448b6dbad38bb0c344455543ed926288a2474b36d032dc3b31c9293cf03548c2944f1a1c725a56f9ea6b19aef3c38f28bfef9bc3e6c372e4809b8c102cbe698e4c97e119d7f3596bbd7da3f25199bfaecda4d87c60724ef7ca77c97a806edd90705b12d3d4693c46c90e3f7dc15215dbe2b593dbdb3b6648229a4300062be020e7e8c100f70df2bc06e43053524a3901bf41819b485b0f2806a0cf09cff91f7965fd8d3c4d8bbd1f4124e7f2c231fca02418de1e90a4992c9a9500c75643d1ca07d7e5895eb986570454027a85eef1252bddcfc8a28087912183351339004279fddc6f78fb2d25622a6fa835212130bf57b6bd3fff92291ee702da174939f48eb44ea3442059cf3fc29f2d0f20130b4912cf25250452de62e50d2755504e0f22eb16339e625530a49ac7cef5eb22e7afbd45490f5c5eb614dc93f73a443ce6da46fdeb163661ec891aad706ce1b1cde774b039592935dcc00f7fb11cae12bed2aa2752c8cda5f251a64cc2e4599414426e6e8cc4f600af1befa167462ad23d0c851e2ac463254b0c58587fa1c13d43404c0d918ae6149969a0ef72a2935d93b6327e5088a56a05fb5ae562450249bf451626419d30170231beef8cfb521584</script>
-</div>
-<script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">]]></content>
-      <categories>
-        <category>network map</category>
-      </categories>
-      <tags>
-        <tag>nmap</tag>
       </tags>
   </entry>
   <entry>
@@ -2890,93 +2889,6 @@ H(x) =\sum_{i=1}^np_i(x)log_2(\frac 1 {p_i(x)})</script><p>b=2的时候单位是
       </tags>
   </entry>
   <entry>
-    <title>微信小程序开发</title>
-    <url>/2021/10/25/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="微信小程序"><a href="#微信小程序" class="headerlink" title="微信小程序"></a>微信小程序</h1><h2 id="微信小程序开发环境"><a href="#微信小程序开发环境" class="headerlink" title="微信小程序开发环境"></a>微信小程序开发环境</h2><ul>
-<li>微信小程序参考文档：</li>
-<li><a href="https://developers.weixin.qq.com/miniprogram/dev/devtools/devtools.html" target="_blank" rel="noopener">开发教程</a><br><img src="https://res.wx.qq.com/wxdoc/dist/assets/img/main.0e6611d0.png" alt="" loading="lazy"></li>
-<li><a href="https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html" target="_blank" rel="noopener">开发环境下载</a></li>
-</ul>
-<h2 id="文件介绍"><a href="#文件介绍" class="headerlink" title="文件介绍"></a>文件介绍</h2><p>主要由两个部分组成和html不同的是</p>
-<p>微信小程序四层结构</p>
-<p>分别为：</p>
-<ul>
-<li>.js 逻辑</li>
-<li>.json 布局</li>
-<li>.wxml 内容</li>
-<li>.wxss 主题</li>
-</ul>
-<h2 id="app-json文件"><a href="#app-json文件" class="headerlink" title="app.json文件"></a>app.json文件</h2><h3 id="page"><a href="#page" class="headerlink" title="page"></a>page</h3><p>[1] 设置页面顺序</p>
-<p>[2] 创建页面</p>
-<h3 id="windows"><a href="#windows" class="headerlink" title="windows"></a>windows</h3><p>[1] 设置页面的主题</p>
-<p>[2] 页面颜色</p>
-<p>[3] 页面名字</p>
-<p>[4] 是否可以下拉，下拉背景色</p>
-<h3 id="tabBar"><a href="#tabBar" class="headerlink" title="tabBar"></a>tabBar</h3><p>[1] 设置下选项框的主题</p>
-<p>[2] 通过选择不同的tabBar选择不同的页面</p>
-<p>W[3] 设置选项框颜色</p>
-<h3 id="参考模板"><a href="#参考模板" class="headerlink" title="参考模板"></a>参考模板</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;pages&quot;: [</span><br><span class="line">        &quot;pages&#x2F;demo01&#x2F;demo01&quot;,</span><br><span class="line">        &quot;pages&#x2F;index&#x2F;index&quot;,</span><br><span class="line">        &quot;pages&#x2F;logs&#x2F;logs&quot;    </span><br><span class="line"></span><br><span class="line">    ],</span><br><span class="line"></span><br><span class="line">    &quot;window&quot;: &#123;</span><br><span class="line">        &quot;backgroundTextStyle&quot;: &quot;dark&quot;,</span><br><span class="line">        &quot;navigationBarBackgroundColor&quot;: &quot;#0094ff&quot;,</span><br><span class="line">        &quot;navigationBarTitleText&quot;: &quot;恋爱助手&quot;,</span><br><span class="line">        &quot;navigationBarTextStyle&quot;: &quot;white&quot;,</span><br><span class="line">        &quot;enablePullDownRefresh&quot;:true,</span><br><span class="line">        &quot;backgroundColor&quot;:&quot;#0094ff&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;tabBar&quot;: &#123;</span><br><span class="line">        &quot;list&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;pagePath&quot;: &quot;pages&#x2F;index&#x2F;index&quot;,</span><br><span class="line">            &quot;text&quot;: &quot;我要投递&quot;,</span><br><span class="line">            &quot;iconPath&quot;: &quot;icon&#x2F;bbox.png&quot;,</span><br><span class="line">            &quot;selectedIconPath&quot;: &quot;icon&#x2F;gbox.png&quot;</span><br><span class="line">            </span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;pagePath&quot;: &quot;pages&#x2F;demo01&#x2F;demo01&quot;,</span><br><span class="line">            &quot;text&quot;: &quot;我要标签&quot;,</span><br><span class="line">            &quot;iconPath&quot;: &quot;icon&#x2F;bbox.png&quot;,</span><br><span class="line">            &quot;selectedIconPath&quot;: &quot;icon&#x2F;gbox.png&quot;</span><br><span class="line">        &#125;</span><br><span class="line">        ],</span><br><span class="line">        &quot;color&quot;:&quot;#0094ff&quot;,</span><br><span class="line">        &quot;selectedColor&quot;: &quot;#ff9400&quot;,</span><br><span class="line">        &quot;position&quot;: &quot;bottom&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;style&quot;: &quot;v2&quot;,</span><br><span class="line">    &quot;sitemapLocation&quot;: &quot;sitemap.json&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="js"><a href="#js" class="headerlink" title="js"></a>js</h2><h3 id="参考模板-1"><a href="#参考模板-1" class="headerlink" title="参考模板"></a>参考模板</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Page(&#123;</span><br><span class="line"></span><br><span class="line">  &#x2F;**</span><br><span class="line">   * 页面的初始数据</span><br><span class="line">   *&#x2F;</span><br><span class="line">  data: &#123;</span><br><span class="line">    massage:&quot;hello world&quot;,</span><br><span class="line">    num:1000,</span><br><span class="line">    Isgirl:true,</span><br><span class="line">    person:&#123;</span><br><span class="line">        age:23,</span><br><span class="line">        hight:180,</span><br><span class="line">        weight:150,</span><br><span class="line">        name:&quot;kunpeng&quot;</span><br><span class="line"></span><br><span class="line">    &#125;,</span><br><span class="line">    list:[</span><br><span class="line">        &#123;</span><br><span class="line">            id : 0,</span><br><span class="line">            name:&#39;girl&#39;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            id : 1,</span><br><span class="line">            name:&#39;boy&#39;</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<h2 id="wxml"><a href="#wxml" class="headerlink" title="wxml"></a>wxml</h2><h3 id="设置页面的显示内容，类似xml"><a href="#设置页面的显示内容，类似xml" class="headerlink" title="设置页面的显示内容，类似xml"></a>设置页面的显示内容，类似xml</h3><ol>
-<li>text不换行，view换行</li>
-<li>标签属性使用</li>
-<li>bool类型充当属性 checked属性 字符串和花括号之间不要存在空格</li>
-</ol>
-<h3 id="运算-》表达式"><a href="#运算-》表达式" class="headerlink" title="运算 ==》表达式"></a>运算 ==》表达式</h3><ol>
-<li>在花括号加入表达式</li>
-<li>表达式 简单的运算<ol>
-<li>数字的加减</li>
-<li>字符串的拼接</li>
-<li>三元表达式</li>
-</ol>
-</li>
-<li>语句<ol>
-<li>复杂的代码段</li>
-<li>if else</li>
-<li>switch</li>
-<li>do while</li>
-<li>for </li>
-</ol>
-</li>
-</ol>
-<h3 id="列表循环"><a href="#列表循环" class="headerlink" title="列表循环"></a>列表循环</h3><ol>
-<li>wx:for=”“ wx:for-item=”循环项名称” wx:for-index=”循环项索引”</li>
-<li>wx:key=”唯一的值”用于提高列表渲染性能<ol>
-<li>wx:key 绑定一个普通的字符串的时候 这个字符串的名称肯定是选好数组中的对象的唯一属性</li>
-<li>wx:key = “<em>this” 就表示你的数组是一个普通数组 </em>this 表示是循环项<br>[1,2,3,44,5]<br>[“1”,”222”,”adfdf”]</li>
-<li>当出现数组嵌套循环的时候，注意绑定的名称不要重名<br> wx:for-item=”循环项名称” wx:for-index=”循环项索引”</li>
-<li>默认情况下不写代码<br> wx:for-item=”循环项名称” wx:for-index=”循环项索引”<br> 小程序也会把 循环和索引设置为item和index<br> 只有一层循环可以直接写 wx:for=”“<h3 id="对象循环"><a href="#对象循环" class="headerlink" title="对象循环"></a>对象循环</h3></li>
-</ol>
-</li>
-<li>wx:for=”“ wx:for-item=”对象名称” wx:for-index=”对象索引”</li>
-</ol>
-<h3 id="block"><a href="#block" class="headerlink" title="block"></a>block</h3><ol>
-<li>占位的标签</li>
-<li>写代码的时候 可以看到这个标签存在</li>
-<li>页面渲染 小程序会把它移除掉</li>
-</ol>
-<h3 id="条件渲染"><a href="#条件渲染" class="headerlink" title="条件渲染"></a>条件渲染</h3><ol>
-<li><view wx:if="true">隐藏</view></li>
-<li><p>if嵌套条件</p>
-<p> wx if</p>
-<p> wx elif</p>
-<p> wx else</p>
-</li>
-<li><p>hidden<br> 1.hidden          </p>
-<p> 标签频繁切换用hidden，不频繁选择if     </p>
-<h3 id="参考模板-2"><a href="#参考模板-2" class="headerlink" title="参考模板"></a>参考模板</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;!--pages&#x2F;demo01&#x2F;demo01.wxml--&gt;</span><br><span class="line">&lt;!--1.text不换行，view换行 --&gt;</span><br><span class="line">&lt;view&gt;&#123;&#123;massage&#125;&#125;&lt;&#x2F;view&gt;</span><br><span class="line">&lt;view&gt;&#123;&#123;num&#125;&#125;&lt;&#x2F;view&gt;</span><br><span class="line">&lt;view&gt;是否为男人&#123;&#123;Isgirl&#125;&#125;&lt;&#x2F;view&gt;</span><br><span class="line">&lt;view&gt;&#123;&#123;person.age&#125;&#125;&lt;&#x2F;view&gt;</span><br><span class="line"></span><br><span class="line">&lt;!--2.标签属性使用 --&gt;</span><br><span class="line">&lt;view data-num&#x3D;&quot;&#123;&#123;num&#125;&#125;&quot;&gt;自定义&lt;&#x2F;view&gt;</span><br><span class="line"></span><br><span class="line">&lt;!--3. bool类型充当属性 checked属性</span><br><span class="line">    字符串和花括号之间不要存在空格</span><br><span class="line">--&gt;</span><br><span class="line">&lt;view&gt;</span><br><span class="line">&lt;checkbox checked&#x3D;&quot;&#123;&#123;Isgirl&#125;&#125;&quot;&gt;&lt;&#x2F;checkbox&gt;</span><br><span class="line">&lt;&#x2F;view&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- </span><br><span class="line">    7 运算 &#x3D;&#x3D;》表达式</span><br><span class="line">     1. 在花括号加入表达式</span><br><span class="line">     2. 表达式 简单的运算</span><br><span class="line">        1. 数字的加减</span><br><span class="line">        2. 字符串的拼接</span><br><span class="line">        3. 三元表达式</span><br><span class="line">     3. 语句</span><br><span class="line">        1.复杂的代码段</span><br><span class="line">            1. if else</span><br><span class="line">            2. switch</span><br><span class="line">            3. do while</span><br><span class="line">            4. for </span><br><span class="line"> --&gt;</span><br><span class="line"> &lt;view&gt;&#123;&#123;1+1&#125;&#125;&lt;&#x2F;view&gt;</span><br><span class="line"> &lt;view&gt;&#123;&#123;&#39;1&#39;+&#39;1&#39;&#125;&#125;&lt;&#x2F;view&gt;</span><br><span class="line"> &lt;view&gt;&#123;&#123;10%2&#x3D;&#x3D;0 ? &#39;偶数&#39; : &#39;奇怪数&#39;&#125;&#125;&lt;&#x2F;view&gt;</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"> &lt;!-- </span><br><span class="line">8. 列表循环 </span><br><span class="line">    1. wx:for&#x3D;&quot;&#123;&#123;数组或对象&#125;&#125;&quot; wx:for-item&#x3D;&quot;循环项名称&quot; wx:for-index&#x3D;&quot;循环项索引&quot;</span><br><span class="line">    2. wx:key&#x3D;&quot;唯一的值&quot;用于提高列表渲染性能</span><br><span class="line">        1. wx:key 绑定一个普通的字符串的时候 这个字符串的名称肯定是选好数组中的对象的唯一属性</span><br><span class="line">        2. wx:key &#x3D; &quot;*this&quot; 就表示你的数组是一个普通数组 *this 表示是循环项</span><br><span class="line">        [1,2,3,44,5]</span><br><span class="line">        [&quot;1&quot;,&quot;222&quot;,&quot;adfdf&quot;]</span><br><span class="line">        3. 当出现数组嵌套循环的时候，注意绑定的名称不要重名</span><br><span class="line">            wx:for-item&#x3D;&quot;循环项名称&quot; wx:for-index&#x3D;&quot;循环项索引&quot;</span><br><span class="line">        4. 默认情况下不写代码</span><br><span class="line">            wx:for-item&#x3D;&quot;循环项名称&quot; wx:for-index&#x3D;&quot;循环项索引&quot;</span><br><span class="line">            小程序也会把 循环和索引设置为item和index</span><br><span class="line">            只有一层循环可以直接写 wx:for&#x3D;&quot;&#123;&#123;数组或对象&#125;&#125;&quot;</span><br><span class="line">     --&gt;</span><br><span class="line">     &lt;view&gt;</span><br><span class="line">        &lt;view</span><br><span class="line">        wx:for&#x3D;&quot;&#123;&#123;list&#125;&#125;&quot; </span><br><span class="line">        wx:for-item&#x3D;&quot;item&quot; </span><br><span class="line">        wx:for-index&#x3D;&quot;index&quot;</span><br><span class="line">        wx:key&#x3D;&quot;id&quot;</span><br><span class="line">        &gt;</span><br><span class="line">        索引：&#123;&#123;index&#125;&#125;</span><br><span class="line">        --</span><br><span class="line">        数值：&#123;&#123;item.name&#125;&#125;</span><br><span class="line">        &lt;&#x2F;view&gt;</span><br><span class="line">     &lt;&#x2F;view&gt;</span><br><span class="line">     &lt;view&gt;</span><br><span class="line">        &lt;view</span><br><span class="line">        wx:for&#x3D;&quot;&#123;&#123;list&#125;&#125;&quot; </span><br><span class="line">        wx:key&#x3D;&quot;id&quot;</span><br><span class="line">        &gt;</span><br><span class="line">        索引：&#123;&#123;index&#125;&#125;</span><br><span class="line">        --</span><br><span class="line">        数值：&#123;&#123;item.name&#125;&#125;</span><br><span class="line">        &lt;&#x2F;view&gt;</span><br><span class="line">     &lt;&#x2F;view&gt;</span><br><span class="line"></span><br><span class="line"> &lt;!--</span><br><span class="line">     对象循环</span><br><span class="line">    1. wx:for&#x3D;&quot;&#123;&#123;对象&#125;&#125;&quot; wx:for-item&#x3D;&quot;对象名称&quot; wx:for-index&#x3D;&quot;对象索引&quot; </span><br><span class="line">    --&gt;</span><br><span class="line">    &lt;view&gt;</span><br><span class="line">        &lt;view&gt;对象循环&lt;&#x2F;view&gt;</span><br><span class="line">        &lt;view wx:for&#x3D;&quot;&#123;&#123;person&#125;&#125;&quot;</span><br><span class="line">        wx:for-item&#x3D;&quot;value&quot; </span><br><span class="line">        wx:for-index&#x3D;&quot;key&quot;</span><br><span class="line">        wx:key&#x3D;&quot;age&quot;</span><br><span class="line">        &gt;</span><br><span class="line">        属性:&#123;&#123;key&#125;&#125;</span><br><span class="line">        --</span><br><span class="line">        值:&#123;&#123;value&#125;&#125;</span><br><span class="line">        &lt;&#x2F;view&gt;</span><br><span class="line">    &lt;&#x2F;view&gt;</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">    &lt;!-- 10 block </span><br><span class="line">        1. 占位的标签</span><br><span class="line">        2. 写代码的时候 可以看到这个标签存在</span><br><span class="line">        3. 页面渲染 小程序会把它移除掉</span><br><span class="line">    --&gt;</span><br><span class="line">    &lt;view&gt;</span><br><span class="line">        &lt;block</span><br><span class="line">        wx:for&#x3D;&quot;&#123;&#123;list&#125;&#125;&quot; </span><br><span class="line">        wx:for-item&#x3D;&quot;item&quot; </span><br><span class="line">        wx:for-index&#x3D;&quot;index&quot;</span><br><span class="line">        wx:key&#x3D;&quot;id&quot;</span><br><span class="line">        class&#x3D;&quot;my_list&quot;</span><br><span class="line">        &gt;</span><br><span class="line">        索引：&#123;&#123;index&#125;&#125;</span><br><span class="line">        --</span><br><span class="line">        数值：&#123;&#123;item.name&#125;&#125;</span><br><span class="line">        &lt;&#x2F;block&gt;</span><br><span class="line">     &lt;&#x2F;view&gt;</span><br><span class="line">&lt;!-- 条件渲染</span><br><span class="line">        1. &lt;view wx:if&#x3D;&quot;&#123;&#123;true&#125;&#125;&quot;&gt;隐藏&lt;&#x2F;view&gt;</span><br><span class="line">        2. if嵌套条件</span><br><span class="line">            wx if</span><br><span class="line">            wx elif</span><br><span class="line">            wx else</span><br><span class="line">        2. hidden</span><br><span class="line">            1.hidden</span><br><span class="line"> --&gt;</span><br><span class="line"> &lt;view&gt;</span><br><span class="line">    &lt;view&gt;条件渲染&lt;&#x2F;view&gt;</span><br><span class="line">    &lt;view wx:if&#x3D;&quot;&#123;&#123;true&#125;&#125;&quot;&gt;隐藏&lt;&#x2F;view&gt;</span><br><span class="line">    &lt;view wx:if&#x3D;&quot;&#123;&#123;flase&#125;&#125;&quot;&gt;隐藏&lt;&#x2F;view&gt;</span><br><span class="line"></span><br><span class="line">    &lt;view wx:if&#x3D;&quot;&#123;&#123;flase&#125;&#125;&quot;&gt;1&lt;&#x2F;view&gt;</span><br><span class="line">    &lt;view wx:elif&#x3D;&quot;&#123;&#123;flase&#125;&#125;&quot;&gt;2&lt;&#x2F;view&gt;</span><br><span class="line">    &lt;view wx:else&gt;3&lt;&#x2F;view&gt;</span><br><span class="line"></span><br><span class="line">    &lt;view&gt;-------------&lt;&#x2F;view&gt;</span><br><span class="line">    &lt;view hidden&gt; hidden&lt;&#x2F;view&gt;</span><br><span class="line">&lt;&#x2F;view&gt;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>js</category>
-      </categories>
-      <tags>
-        <tag>微信小程序</tag>
-        <tag>js</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>强化学习</title>
     <url>/2020/11/20/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Q-learning入门例程及Python实现"><a href="#Q-learning入门例程及Python实现" class="headerlink" title="Q-learning入门例程及Python实现"></a><center>Q-learning入门例程及Python实现</center></h1><p><strong>摘要：Q-learning算法是一种以马尔科夫决策作为理论基础与模型无关的强化学习算法。本文中会描述一个入门级强化学习例程，即房间连通性问题：根据房间的连通性与否及房间出口构建回报矩阵R。并通过python语言利用强化学习算法获得该场景下的评估矩阵Q，最后利用Q矩阵寻找最优路径。</strong><br><a id="more"></a></p>
@@ -3064,6 +2976,93 @@ H(x) =\sum_{i=1}^np_i(x)log_2(\frac 1 {p_i(x)})</script><p>b=2的时候单位是
         <tag>python</tag>
         <tag>matlab</tag>
         <tag>强化学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>微信小程序开发</title>
+    <url>/2021/10/25/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="微信小程序"><a href="#微信小程序" class="headerlink" title="微信小程序"></a>微信小程序</h1><h2 id="微信小程序开发环境"><a href="#微信小程序开发环境" class="headerlink" title="微信小程序开发环境"></a>微信小程序开发环境</h2><ul>
+<li>微信小程序参考文档：</li>
+<li><a href="https://developers.weixin.qq.com/miniprogram/dev/devtools/devtools.html" target="_blank" rel="noopener">开发教程</a><br><img src="https://res.wx.qq.com/wxdoc/dist/assets/img/main.0e6611d0.png" alt="" loading="lazy"></li>
+<li><a href="https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html" target="_blank" rel="noopener">开发环境下载</a></li>
+</ul>
+<h2 id="文件介绍"><a href="#文件介绍" class="headerlink" title="文件介绍"></a>文件介绍</h2><p>主要由两个部分组成和html不同的是</p>
+<p>微信小程序四层结构</p>
+<p>分别为：</p>
+<ul>
+<li>.js 逻辑</li>
+<li>.json 布局</li>
+<li>.wxml 内容</li>
+<li>.wxss 主题</li>
+</ul>
+<h2 id="app-json文件"><a href="#app-json文件" class="headerlink" title="app.json文件"></a>app.json文件</h2><h3 id="page"><a href="#page" class="headerlink" title="page"></a>page</h3><p>[1] 设置页面顺序</p>
+<p>[2] 创建页面</p>
+<h3 id="windows"><a href="#windows" class="headerlink" title="windows"></a>windows</h3><p>[1] 设置页面的主题</p>
+<p>[2] 页面颜色</p>
+<p>[3] 页面名字</p>
+<p>[4] 是否可以下拉，下拉背景色</p>
+<h3 id="tabBar"><a href="#tabBar" class="headerlink" title="tabBar"></a>tabBar</h3><p>[1] 设置下选项框的主题</p>
+<p>[2] 通过选择不同的tabBar选择不同的页面</p>
+<p>W[3] 设置选项框颜色</p>
+<h3 id="参考模板"><a href="#参考模板" class="headerlink" title="参考模板"></a>参考模板</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;pages&quot;: [</span><br><span class="line">        &quot;pages&#x2F;demo01&#x2F;demo01&quot;,</span><br><span class="line">        &quot;pages&#x2F;index&#x2F;index&quot;,</span><br><span class="line">        &quot;pages&#x2F;logs&#x2F;logs&quot;    </span><br><span class="line"></span><br><span class="line">    ],</span><br><span class="line"></span><br><span class="line">    &quot;window&quot;: &#123;</span><br><span class="line">        &quot;backgroundTextStyle&quot;: &quot;dark&quot;,</span><br><span class="line">        &quot;navigationBarBackgroundColor&quot;: &quot;#0094ff&quot;,</span><br><span class="line">        &quot;navigationBarTitleText&quot;: &quot;恋爱助手&quot;,</span><br><span class="line">        &quot;navigationBarTextStyle&quot;: &quot;white&quot;,</span><br><span class="line">        &quot;enablePullDownRefresh&quot;:true,</span><br><span class="line">        &quot;backgroundColor&quot;:&quot;#0094ff&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;tabBar&quot;: &#123;</span><br><span class="line">        &quot;list&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;pagePath&quot;: &quot;pages&#x2F;index&#x2F;index&quot;,</span><br><span class="line">            &quot;text&quot;: &quot;我要投递&quot;,</span><br><span class="line">            &quot;iconPath&quot;: &quot;icon&#x2F;bbox.png&quot;,</span><br><span class="line">            &quot;selectedIconPath&quot;: &quot;icon&#x2F;gbox.png&quot;</span><br><span class="line">            </span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;pagePath&quot;: &quot;pages&#x2F;demo01&#x2F;demo01&quot;,</span><br><span class="line">            &quot;text&quot;: &quot;我要标签&quot;,</span><br><span class="line">            &quot;iconPath&quot;: &quot;icon&#x2F;bbox.png&quot;,</span><br><span class="line">            &quot;selectedIconPath&quot;: &quot;icon&#x2F;gbox.png&quot;</span><br><span class="line">        &#125;</span><br><span class="line">        ],</span><br><span class="line">        &quot;color&quot;:&quot;#0094ff&quot;,</span><br><span class="line">        &quot;selectedColor&quot;: &quot;#ff9400&quot;,</span><br><span class="line">        &quot;position&quot;: &quot;bottom&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;style&quot;: &quot;v2&quot;,</span><br><span class="line">    &quot;sitemapLocation&quot;: &quot;sitemap.json&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="js"><a href="#js" class="headerlink" title="js"></a>js</h2><h3 id="参考模板-1"><a href="#参考模板-1" class="headerlink" title="参考模板"></a>参考模板</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Page(&#123;</span><br><span class="line"></span><br><span class="line">  &#x2F;**</span><br><span class="line">   * 页面的初始数据</span><br><span class="line">   *&#x2F;</span><br><span class="line">  data: &#123;</span><br><span class="line">    massage:&quot;hello world&quot;,</span><br><span class="line">    num:1000,</span><br><span class="line">    Isgirl:true,</span><br><span class="line">    person:&#123;</span><br><span class="line">        age:23,</span><br><span class="line">        hight:180,</span><br><span class="line">        weight:150,</span><br><span class="line">        name:&quot;kunpeng&quot;</span><br><span class="line"></span><br><span class="line">    &#125;,</span><br><span class="line">    list:[</span><br><span class="line">        &#123;</span><br><span class="line">            id : 0,</span><br><span class="line">            name:&#39;girl&#39;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            id : 1,</span><br><span class="line">            name:&#39;boy&#39;</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="wxml"><a href="#wxml" class="headerlink" title="wxml"></a>wxml</h2><h3 id="设置页面的显示内容，类似xml"><a href="#设置页面的显示内容，类似xml" class="headerlink" title="设置页面的显示内容，类似xml"></a>设置页面的显示内容，类似xml</h3><ol>
+<li>text不换行，view换行</li>
+<li>标签属性使用</li>
+<li>bool类型充当属性 checked属性 字符串和花括号之间不要存在空格</li>
+</ol>
+<h3 id="运算-》表达式"><a href="#运算-》表达式" class="headerlink" title="运算 ==》表达式"></a>运算 ==》表达式</h3><ol>
+<li>在花括号加入表达式</li>
+<li>表达式 简单的运算<ol>
+<li>数字的加减</li>
+<li>字符串的拼接</li>
+<li>三元表达式</li>
+</ol>
+</li>
+<li>语句<ol>
+<li>复杂的代码段</li>
+<li>if else</li>
+<li>switch</li>
+<li>do while</li>
+<li>for </li>
+</ol>
+</li>
+</ol>
+<h3 id="列表循环"><a href="#列表循环" class="headerlink" title="列表循环"></a>列表循环</h3><ol>
+<li>wx:for=”“ wx:for-item=”循环项名称” wx:for-index=”循环项索引”</li>
+<li>wx:key=”唯一的值”用于提高列表渲染性能<ol>
+<li>wx:key 绑定一个普通的字符串的时候 这个字符串的名称肯定是选好数组中的对象的唯一属性</li>
+<li>wx:key = “<em>this” 就表示你的数组是一个普通数组 </em>this 表示是循环项<br>[1,2,3,44,5]<br>[“1”,”222”,”adfdf”]</li>
+<li>当出现数组嵌套循环的时候，注意绑定的名称不要重名<br> wx:for-item=”循环项名称” wx:for-index=”循环项索引”</li>
+<li>默认情况下不写代码<br> wx:for-item=”循环项名称” wx:for-index=”循环项索引”<br> 小程序也会把 循环和索引设置为item和index<br> 只有一层循环可以直接写 wx:for=”“<h3 id="对象循环"><a href="#对象循环" class="headerlink" title="对象循环"></a>对象循环</h3></li>
+</ol>
+</li>
+<li>wx:for=”“ wx:for-item=”对象名称” wx:for-index=”对象索引”</li>
+</ol>
+<h3 id="block"><a href="#block" class="headerlink" title="block"></a>block</h3><ol>
+<li>占位的标签</li>
+<li>写代码的时候 可以看到这个标签存在</li>
+<li>页面渲染 小程序会把它移除掉</li>
+</ol>
+<h3 id="条件渲染"><a href="#条件渲染" class="headerlink" title="条件渲染"></a>条件渲染</h3><ol>
+<li><view wx:if="true">隐藏</view></li>
+<li><p>if嵌套条件</p>
+<p> wx if</p>
+<p> wx elif</p>
+<p> wx else</p>
+</li>
+<li><p>hidden<br> 1.hidden          </p>
+<p> 标签频繁切换用hidden，不频繁选择if     </p>
+<h3 id="参考模板-2"><a href="#参考模板-2" class="headerlink" title="参考模板"></a>参考模板</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;!--pages&#x2F;demo01&#x2F;demo01.wxml--&gt;</span><br><span class="line">&lt;!--1.text不换行，view换行 --&gt;</span><br><span class="line">&lt;view&gt;&#123;&#123;massage&#125;&#125;&lt;&#x2F;view&gt;</span><br><span class="line">&lt;view&gt;&#123;&#123;num&#125;&#125;&lt;&#x2F;view&gt;</span><br><span class="line">&lt;view&gt;是否为男人&#123;&#123;Isgirl&#125;&#125;&lt;&#x2F;view&gt;</span><br><span class="line">&lt;view&gt;&#123;&#123;person.age&#125;&#125;&lt;&#x2F;view&gt;</span><br><span class="line"></span><br><span class="line">&lt;!--2.标签属性使用 --&gt;</span><br><span class="line">&lt;view data-num&#x3D;&quot;&#123;&#123;num&#125;&#125;&quot;&gt;自定义&lt;&#x2F;view&gt;</span><br><span class="line"></span><br><span class="line">&lt;!--3. bool类型充当属性 checked属性</span><br><span class="line">    字符串和花括号之间不要存在空格</span><br><span class="line">--&gt;</span><br><span class="line">&lt;view&gt;</span><br><span class="line">&lt;checkbox checked&#x3D;&quot;&#123;&#123;Isgirl&#125;&#125;&quot;&gt;&lt;&#x2F;checkbox&gt;</span><br><span class="line">&lt;&#x2F;view&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- </span><br><span class="line">    7 运算 &#x3D;&#x3D;》表达式</span><br><span class="line">     1. 在花括号加入表达式</span><br><span class="line">     2. 表达式 简单的运算</span><br><span class="line">        1. 数字的加减</span><br><span class="line">        2. 字符串的拼接</span><br><span class="line">        3. 三元表达式</span><br><span class="line">     3. 语句</span><br><span class="line">        1.复杂的代码段</span><br><span class="line">            1. if else</span><br><span class="line">            2. switch</span><br><span class="line">            3. do while</span><br><span class="line">            4. for </span><br><span class="line"> --&gt;</span><br><span class="line"> &lt;view&gt;&#123;&#123;1+1&#125;&#125;&lt;&#x2F;view&gt;</span><br><span class="line"> &lt;view&gt;&#123;&#123;&#39;1&#39;+&#39;1&#39;&#125;&#125;&lt;&#x2F;view&gt;</span><br><span class="line"> &lt;view&gt;&#123;&#123;10%2&#x3D;&#x3D;0 ? &#39;偶数&#39; : &#39;奇怪数&#39;&#125;&#125;&lt;&#x2F;view&gt;</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"> &lt;!-- </span><br><span class="line">8. 列表循环 </span><br><span class="line">    1. wx:for&#x3D;&quot;&#123;&#123;数组或对象&#125;&#125;&quot; wx:for-item&#x3D;&quot;循环项名称&quot; wx:for-index&#x3D;&quot;循环项索引&quot;</span><br><span class="line">    2. wx:key&#x3D;&quot;唯一的值&quot;用于提高列表渲染性能</span><br><span class="line">        1. wx:key 绑定一个普通的字符串的时候 这个字符串的名称肯定是选好数组中的对象的唯一属性</span><br><span class="line">        2. wx:key &#x3D; &quot;*this&quot; 就表示你的数组是一个普通数组 *this 表示是循环项</span><br><span class="line">        [1,2,3,44,5]</span><br><span class="line">        [&quot;1&quot;,&quot;222&quot;,&quot;adfdf&quot;]</span><br><span class="line">        3. 当出现数组嵌套循环的时候，注意绑定的名称不要重名</span><br><span class="line">            wx:for-item&#x3D;&quot;循环项名称&quot; wx:for-index&#x3D;&quot;循环项索引&quot;</span><br><span class="line">        4. 默认情况下不写代码</span><br><span class="line">            wx:for-item&#x3D;&quot;循环项名称&quot; wx:for-index&#x3D;&quot;循环项索引&quot;</span><br><span class="line">            小程序也会把 循环和索引设置为item和index</span><br><span class="line">            只有一层循环可以直接写 wx:for&#x3D;&quot;&#123;&#123;数组或对象&#125;&#125;&quot;</span><br><span class="line">     --&gt;</span><br><span class="line">     &lt;view&gt;</span><br><span class="line">        &lt;view</span><br><span class="line">        wx:for&#x3D;&quot;&#123;&#123;list&#125;&#125;&quot; </span><br><span class="line">        wx:for-item&#x3D;&quot;item&quot; </span><br><span class="line">        wx:for-index&#x3D;&quot;index&quot;</span><br><span class="line">        wx:key&#x3D;&quot;id&quot;</span><br><span class="line">        &gt;</span><br><span class="line">        索引：&#123;&#123;index&#125;&#125;</span><br><span class="line">        --</span><br><span class="line">        数值：&#123;&#123;item.name&#125;&#125;</span><br><span class="line">        &lt;&#x2F;view&gt;</span><br><span class="line">     &lt;&#x2F;view&gt;</span><br><span class="line">     &lt;view&gt;</span><br><span class="line">        &lt;view</span><br><span class="line">        wx:for&#x3D;&quot;&#123;&#123;list&#125;&#125;&quot; </span><br><span class="line">        wx:key&#x3D;&quot;id&quot;</span><br><span class="line">        &gt;</span><br><span class="line">        索引：&#123;&#123;index&#125;&#125;</span><br><span class="line">        --</span><br><span class="line">        数值：&#123;&#123;item.name&#125;&#125;</span><br><span class="line">        &lt;&#x2F;view&gt;</span><br><span class="line">     &lt;&#x2F;view&gt;</span><br><span class="line"></span><br><span class="line"> &lt;!--</span><br><span class="line">     对象循环</span><br><span class="line">    1. wx:for&#x3D;&quot;&#123;&#123;对象&#125;&#125;&quot; wx:for-item&#x3D;&quot;对象名称&quot; wx:for-index&#x3D;&quot;对象索引&quot; </span><br><span class="line">    --&gt;</span><br><span class="line">    &lt;view&gt;</span><br><span class="line">        &lt;view&gt;对象循环&lt;&#x2F;view&gt;</span><br><span class="line">        &lt;view wx:for&#x3D;&quot;&#123;&#123;person&#125;&#125;&quot;</span><br><span class="line">        wx:for-item&#x3D;&quot;value&quot; </span><br><span class="line">        wx:for-index&#x3D;&quot;key&quot;</span><br><span class="line">        wx:key&#x3D;&quot;age&quot;</span><br><span class="line">        &gt;</span><br><span class="line">        属性:&#123;&#123;key&#125;&#125;</span><br><span class="line">        --</span><br><span class="line">        值:&#123;&#123;value&#125;&#125;</span><br><span class="line">        &lt;&#x2F;view&gt;</span><br><span class="line">    &lt;&#x2F;view&gt;</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">    &lt;!-- 10 block </span><br><span class="line">        1. 占位的标签</span><br><span class="line">        2. 写代码的时候 可以看到这个标签存在</span><br><span class="line">        3. 页面渲染 小程序会把它移除掉</span><br><span class="line">    --&gt;</span><br><span class="line">    &lt;view&gt;</span><br><span class="line">        &lt;block</span><br><span class="line">        wx:for&#x3D;&quot;&#123;&#123;list&#125;&#125;&quot; </span><br><span class="line">        wx:for-item&#x3D;&quot;item&quot; </span><br><span class="line">        wx:for-index&#x3D;&quot;index&quot;</span><br><span class="line">        wx:key&#x3D;&quot;id&quot;</span><br><span class="line">        class&#x3D;&quot;my_list&quot;</span><br><span class="line">        &gt;</span><br><span class="line">        索引：&#123;&#123;index&#125;&#125;</span><br><span class="line">        --</span><br><span class="line">        数值：&#123;&#123;item.name&#125;&#125;</span><br><span class="line">        &lt;&#x2F;block&gt;</span><br><span class="line">     &lt;&#x2F;view&gt;</span><br><span class="line">&lt;!-- 条件渲染</span><br><span class="line">        1. &lt;view wx:if&#x3D;&quot;&#123;&#123;true&#125;&#125;&quot;&gt;隐藏&lt;&#x2F;view&gt;</span><br><span class="line">        2. if嵌套条件</span><br><span class="line">            wx if</span><br><span class="line">            wx elif</span><br><span class="line">            wx else</span><br><span class="line">        2. hidden</span><br><span class="line">            1.hidden</span><br><span class="line"> --&gt;</span><br><span class="line"> &lt;view&gt;</span><br><span class="line">    &lt;view&gt;条件渲染&lt;&#x2F;view&gt;</span><br><span class="line">    &lt;view wx:if&#x3D;&quot;&#123;&#123;true&#125;&#125;&quot;&gt;隐藏&lt;&#x2F;view&gt;</span><br><span class="line">    &lt;view wx:if&#x3D;&quot;&#123;&#123;flase&#125;&#125;&quot;&gt;隐藏&lt;&#x2F;view&gt;</span><br><span class="line"></span><br><span class="line">    &lt;view wx:if&#x3D;&quot;&#123;&#123;flase&#125;&#125;&quot;&gt;1&lt;&#x2F;view&gt;</span><br><span class="line">    &lt;view wx:elif&#x3D;&quot;&#123;&#123;flase&#125;&#125;&quot;&gt;2&lt;&#x2F;view&gt;</span><br><span class="line">    &lt;view wx:else&gt;3&lt;&#x2F;view&gt;</span><br><span class="line"></span><br><span class="line">    &lt;view&gt;-------------&lt;&#x2F;view&gt;</span><br><span class="line">    &lt;view hidden&gt; hidden&lt;&#x2F;view&gt;</span><br><span class="line">&lt;&#x2F;view&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>js</category>
+      </categories>
+      <tags>
+        <tag>微信小程序</tag>
+        <tag>js</tag>
       </tags>
   </entry>
   <entry>
@@ -3546,79 +3545,6 @@ b.8FSK不同信道下误码性能对比</center>
       </tags>
   </entry>
   <entry>
-    <title>矩阵分析引论</title>
-    <url>/2020/11/17/%E7%9F%A9%E9%98%B5%E8%AE%BA/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="矩阵分析引论"><a href="#矩阵分析引论" class="headerlink" title="矩阵分析引论"></a><center>矩阵分析引论</center></h1><h2 id="Introduction-to-matrix-analysis"><a href="#Introduction-to-matrix-analysis" class="headerlink" title=" Introduction to matrix analysis "></a><center> Introduction to matrix analysis </center></h2><center>
-<div style="position:relative; padding-bottom:75%; width:100%; height:0">
-    <iframe src="//player.bilibili.com/player.html?aid=11355346&bvid=BV19x411878L&cid=18777309&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position:absolute; height: 100%; width: 100%;"> </iframe>
-</div>
-
-</center>
-
-<a id="more"></a>
-<h2 id="1-线性空间与线性变换"><a href="#1-线性空间与线性变换" class="headerlink" title="1.线性空间与线性变换"></a>1.线性空间与线性变换</h2><ol>
-<li>对加减乘除封闭的集合被称之为数域。矩阵论中较常用的数域是QRC。其中Q:有理数域、R:实数数域、C复数数域。<br>$Q\subset R\subset C$<br>如果一个非空集合在某数域上，以下八条<center>
-<img src="https://www.codekp.cn/download/img/矩阵论/1.PNG" width = "1147" height = "950" alt="图片名称" align=center / loading="lazy">
-</center>
-
-
-</li>
-</ol>
-<h3 id="线性空间例3-（函数空间-f-I-R"><a href="#线性空间例3-（函数空间-f-I-R" class="headerlink" title="线性空间例3.（函数空间$f(I,R)$)"></a>线性空间例3.（函数空间$f(I,R)$)</h3><ul>
-<li>$V:$<br>$F(I，R^n)$<br>$I=(0,1) ,[\frac{1}{2}，5]$函数的定义域<br>$R^n值域空间$<br>以函数为元素的抽象集合，数域取R</li>
-</ul>
-<ul>
-<li>： f+g<br>$ +  ： \begin{cases} f_1(x)\ f_2(x)\ f_n(x) \end{cases} + \begin{cases} g_1(x)\ g_2(x)\ g_n(x) \end{cases} = \begin{cases} f_1(x)+g_1(x)\f_2(x)+ g_2(x)\f_n(x)+g_n(x) \end{cases}  x \in I$</li>
-</ul>
-<ul>
-<li>：f<em>k<br>$</em> : \begin{cases} f_1(x)\ f_2(x)\ f_n(x) \end{cases} * k =\begin{cases} kf_1(x)\ kf_2(x)\ kf_n(x) \end{cases}$</li>
-</ul>
-<p>定义：（向量组及向量组拼成向量抽象矩阵）<br>设V是F上的线性空间V中的有限序列$\alpha_1、\alpha2、\alpha3 …\alpha_p $的一个向量组，向量组按顺序排列的行称为向量组拼成的抽象矩阵$[\alpha_1、\alpha2、\alpha3 …\alpha_p ]$<br>序列：抽象或实际数构成的序列，抽象矩阵。用V中的抽象物拼接为一个矩阵。即：抽象的集合。</p>
-<blockquote>
-<p>数乘运算、线性空间满足八条运算规则:</p>
-</blockquote>
-<p>4条：<br>加法有交换律、结合律、有负元、有零元。<br>4条：<br>乘法有两个分配律，数乘法对抽象加法的分配律，数乘法对数值的分配律，先乘后乘以集合和两次分别乘以集合相等，f中的乘法单位元e做数乘法时空间不变。</p>
-<p>标准线性空间：<br>例子<br>二维空间<br>三维空间 ：所有有向线段构成的集合。<br>几何空间：<br>函数空间：函数作为运算对象，所构成的空间。信号的集合构成函数空间。</p>
-<p>将几何空间的解析几何方法抽象到一般的框架下，集合的量变成代数的量，坐标系。<br>考虑什么样的向量组可以模拟成几何的线性空间的问题。<br>向量组：$\alpha_1、\alpha2、\alpha3 …\alpha_p $<br>抽象矩阵：$[\alpha_1、\alpha2、\alpha3 …\alpha_p ]$<br>1行p列的抽象矩阵，可以竖着拼。<br>行向量，横拼接。<br>列向量，竖拼接。<br>向量组的线性相关性：如果存在不全为零的P个数$k_i\in F, i=1,2,…,p$使得<br>$\alpha_1k_1+\alpha2k_2+\alpha3k_3 …\alpha_pk_p=0$<br>则向量组\alpha_1、\alpha2、\alpha3 …\alpha_p称之为线性相关。<br>注： $\exists\begin{cases} k_1\ k_2\ k_n \end{cases} \neq 0，\begin{cases} k_1\ k_2\ k_n \end{cases}\in F^p$</p>
-<p>使得(*)成立，对以上命题进行否定。<br>$\exists a\in P_a $<br>否定$\forall a\notin P_a $</p>
-<p> $\forall \begin{cases} k_1\ k_2\ k_n \end{cases} \neq 0$<br> $\alpha_1k_1+\alpha2k_2+\alpha3k_3 …\alpha_pk_p\neq 0$<br>线性无关</p>
-<p>线性无关即为线性相关的否定，存在系数不全为零的时，使得等号成立，即线性无关。</p>
-<p>$[\alpha_1、\alpha2、\alpha3 …\alpha_p ][x_1,x_2,x_3,…,x_p]^T=0$<br>线性相关《——》有非零解<br>线性无关《——》没有非零解</p>
-<p>线性相关性：目的为了将抽象的序列搬移到几何空间中。</p>
-<h2 id="基"><a href="#基" class="headerlink" title="基"></a>基</h2><p>定义：（两个线性向量组之间的线性表示）<br>$\alpha_1、\alpha_2、\alpha_3 …\alpha_p;\beta_1、\beta_2、\beta_3、…、\beta_p$</p>
-<ol>
-<li>称为$\beta$可以由$\alpha_1、\alpha_2、\alpha_3 …\alpha_p$线性表示，如果存在$ k_1、k_2、k_3 …k_p \subset F$使得<br>$\beta=\alpha_1k_1+\alpha_2k_2+\alpha_3k_3 …+\alpha_pk_p$</li>
-<li>称$\beta_1、\beta_2、\beta_3、…、\beta_p$可以由$\alpha_1、\alpha_2、\alpha_3 …\alpha_p$线性表示，如果每个$\beta_i$据可由$\alpha_1、\alpha_2、\alpha_3 …\alpha_p$线性表示</li>
-</ol>
-<h4 id="矩阵表达"><a href="#矩阵表达" class="headerlink" title="矩阵表达"></a>矩阵表达</h4><p>$[\alpha_1、\alpha_2、\alpha_3 …\alpha_p ][x_1,x_2,x_3,…,x_p]^T=\beta$ 其中$A=[\alpha_1、\alpha2、\alpha3 …\alpha_p ]$</p>
-<ol>
-<li><p>因此$\beta$可由$\alpha_1、\alpha_2、\alpha_3 …\alpha_p$线性表示《=====》非齐次线性方程组有解</p>
-</li>
-<li><p>重点：</p>
-</li>
-</ol>
-<p>$[\alpha<em>1、\alpha_2、\alpha_3 …\alpha_p] \begin{pmatrix}<br>        x</em>{11} &amp; \cdots &amp; \cdots &amp; \cdots &amp; x<em>{1q} \<br>        x</em>{21} &amp; \cdots &amp;\cdots &amp; \cdots &amp; x<em>{2q} \<br>        \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \<br>        x</em>{p1} &amp; \cdots &amp; \cdots &amp; \cdots &amp; x<em>{pq}\<br>        \end{pmatrix}</em>{pq} =[\beta_1、\beta_2、\beta_3、…、\beta_p]$</p>
-<p>$[\alpha_1、\alpha_2、\alpha_3 …\alpha_p ]$记作A<br>$[\beta_1、\beta_2、\beta_3…\beta_p]$记作B：<br>$AX=B$抽象的矩阵方程</p>
-<p>$[\beta_i]$可有$[\alpha_i]$线性表示《=====》线性方程有解。</p>
-<ol>
-<li>线性表示具有传递性：<br>$[\alpha_1、\alpha2、\alpha3 …\alpha_p ]    、[{\alpha_i}]$<br>$[\beta_1、\beta_2、\beta_3…\beta_q]   、[{\beta_j}]$<br>$[\gamma_1、\gamma_2、\gamma_3…\gamma_t]      、[{\gamma_k}]$   </li>
-</ol>
-<p>$ [{\beta_j}]\leq lin [{\alpha_i}]<br>$且$ [{\gamma_k}]\leq lin [{\beta_j}]<br>$则$ [{\gamma_k}]\leq lin [{\alpha_i}]<br>$</p>
-<p>A$\leq lin$B 意思是A可以由B线性表示。</p>
-<ul>
-<li>证：<br>即 Ax=B、By=C 有解，证明Az=C？<br>C=By=(Ax)y</li>
-</ul>
-<p><img src="https://www.codekp.cn/download/img/矩阵论/目录.png" width = "400" height = "302" alt="图片名称" align=center / loading="lazy"></p>
-]]></content>
-      <categories>
-        <category>研究生课程</category>
-      </categories>
-      <tags>
-        <tag>研究生课程</tag>
-        <tag>矩阵论</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>目标识别数据集扩充</title>
     <url>/2021/07/26/%E7%9B%AE%E6%A0%87%E8%AF%86%E5%88%AB%E6%95%B0%E6%8D%AE%E9%9B%86%E6%89%A9%E5%85%85%E6%96%B9%E6%B3%95/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="目标检测数据集扩充"><a href="#目标检测数据集扩充" class="headerlink" title="目标检测数据集扩充"></a>目标检测数据集扩充</h1><p>数据扩充对于深度神经网络训练通常具有良好的作用，例如2003年Patrice Simard等人所著的一篇论文中他们把MNIST手写数字数据集通过旋转，转换和扭曲进行扩展。通过在这个扩展后的数据集上的训练，他们把MNIST手写数字识别的准确率提升到了98.9%。然后还在“弹性扭曲”的数据集上进行了实验，这是一种特殊的为了模仿手部肌肉的随机抖动的图像扭曲方法。通过使用弹性扭曲扩展的数据，他们最终达到了99.3%的分类准确率。</p>
@@ -3693,6 +3619,79 @@ b.8FSK不同信道下误码性能对比</center>
       </categories>
       <tags>
         <tag>目标检测数据集扩充</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>矩阵分析引论</title>
+    <url>/2020/11/17/%E7%9F%A9%E9%98%B5%E8%AE%BA/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="矩阵分析引论"><a href="#矩阵分析引论" class="headerlink" title="矩阵分析引论"></a><center>矩阵分析引论</center></h1><h2 id="Introduction-to-matrix-analysis"><a href="#Introduction-to-matrix-analysis" class="headerlink" title=" Introduction to matrix analysis "></a><center> Introduction to matrix analysis </center></h2><center>
+<div style="position:relative; padding-bottom:75%; width:100%; height:0">
+    <iframe src="//player.bilibili.com/player.html?aid=11355346&bvid=BV19x411878L&cid=18777309&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position:absolute; height: 100%; width: 100%;"> </iframe>
+</div>
+
+</center>
+
+<a id="more"></a>
+<h2 id="1-线性空间与线性变换"><a href="#1-线性空间与线性变换" class="headerlink" title="1.线性空间与线性变换"></a>1.线性空间与线性变换</h2><ol>
+<li>对加减乘除封闭的集合被称之为数域。矩阵论中较常用的数域是QRC。其中Q:有理数域、R:实数数域、C复数数域。<br>$Q\subset R\subset C$<br>如果一个非空集合在某数域上，以下八条<center>
+<img src="https://www.codekp.cn/download/img/矩阵论/1.PNG" width = "1147" height = "950" alt="图片名称" align=center / loading="lazy">
+</center>
+
+
+</li>
+</ol>
+<h3 id="线性空间例3-（函数空间-f-I-R"><a href="#线性空间例3-（函数空间-f-I-R" class="headerlink" title="线性空间例3.（函数空间$f(I,R)$)"></a>线性空间例3.（函数空间$f(I,R)$)</h3><ul>
+<li>$V:$<br>$F(I，R^n)$<br>$I=(0,1) ,[\frac{1}{2}，5]$函数的定义域<br>$R^n值域空间$<br>以函数为元素的抽象集合，数域取R</li>
+</ul>
+<ul>
+<li>： f+g<br>$ +  ： \begin{cases} f_1(x)\ f_2(x)\ f_n(x) \end{cases} + \begin{cases} g_1(x)\ g_2(x)\ g_n(x) \end{cases} = \begin{cases} f_1(x)+g_1(x)\f_2(x)+ g_2(x)\f_n(x)+g_n(x) \end{cases}  x \in I$</li>
+</ul>
+<ul>
+<li>：f<em>k<br>$</em> : \begin{cases} f_1(x)\ f_2(x)\ f_n(x) \end{cases} * k =\begin{cases} kf_1(x)\ kf_2(x)\ kf_n(x) \end{cases}$</li>
+</ul>
+<p>定义：（向量组及向量组拼成向量抽象矩阵）<br>设V是F上的线性空间V中的有限序列$\alpha_1、\alpha2、\alpha3 …\alpha_p $的一个向量组，向量组按顺序排列的行称为向量组拼成的抽象矩阵$[\alpha_1、\alpha2、\alpha3 …\alpha_p ]$<br>序列：抽象或实际数构成的序列，抽象矩阵。用V中的抽象物拼接为一个矩阵。即：抽象的集合。</p>
+<blockquote>
+<p>数乘运算、线性空间满足八条运算规则:</p>
+</blockquote>
+<p>4条：<br>加法有交换律、结合律、有负元、有零元。<br>4条：<br>乘法有两个分配律，数乘法对抽象加法的分配律，数乘法对数值的分配律，先乘后乘以集合和两次分别乘以集合相等，f中的乘法单位元e做数乘法时空间不变。</p>
+<p>标准线性空间：<br>例子<br>二维空间<br>三维空间 ：所有有向线段构成的集合。<br>几何空间：<br>函数空间：函数作为运算对象，所构成的空间。信号的集合构成函数空间。</p>
+<p>将几何空间的解析几何方法抽象到一般的框架下，集合的量变成代数的量，坐标系。<br>考虑什么样的向量组可以模拟成几何的线性空间的问题。<br>向量组：$\alpha_1、\alpha2、\alpha3 …\alpha_p $<br>抽象矩阵：$[\alpha_1、\alpha2、\alpha3 …\alpha_p ]$<br>1行p列的抽象矩阵，可以竖着拼。<br>行向量，横拼接。<br>列向量，竖拼接。<br>向量组的线性相关性：如果存在不全为零的P个数$k_i\in F, i=1,2,…,p$使得<br>$\alpha_1k_1+\alpha2k_2+\alpha3k_3 …\alpha_pk_p=0$<br>则向量组\alpha_1、\alpha2、\alpha3 …\alpha_p称之为线性相关。<br>注： $\exists\begin{cases} k_1\ k_2\ k_n \end{cases} \neq 0，\begin{cases} k_1\ k_2\ k_n \end{cases}\in F^p$</p>
+<p>使得(*)成立，对以上命题进行否定。<br>$\exists a\in P_a $<br>否定$\forall a\notin P_a $</p>
+<p> $\forall \begin{cases} k_1\ k_2\ k_n \end{cases} \neq 0$<br> $\alpha_1k_1+\alpha2k_2+\alpha3k_3 …\alpha_pk_p\neq 0$<br>线性无关</p>
+<p>线性无关即为线性相关的否定，存在系数不全为零的时，使得等号成立，即线性无关。</p>
+<p>$[\alpha_1、\alpha2、\alpha3 …\alpha_p ][x_1,x_2,x_3,…,x_p]^T=0$<br>线性相关《——》有非零解<br>线性无关《——》没有非零解</p>
+<p>线性相关性：目的为了将抽象的序列搬移到几何空间中。</p>
+<h2 id="基"><a href="#基" class="headerlink" title="基"></a>基</h2><p>定义：（两个线性向量组之间的线性表示）<br>$\alpha_1、\alpha_2、\alpha_3 …\alpha_p;\beta_1、\beta_2、\beta_3、…、\beta_p$</p>
+<ol>
+<li>称为$\beta$可以由$\alpha_1、\alpha_2、\alpha_3 …\alpha_p$线性表示，如果存在$ k_1、k_2、k_3 …k_p \subset F$使得<br>$\beta=\alpha_1k_1+\alpha_2k_2+\alpha_3k_3 …+\alpha_pk_p$</li>
+<li>称$\beta_1、\beta_2、\beta_3、…、\beta_p$可以由$\alpha_1、\alpha_2、\alpha_3 …\alpha_p$线性表示，如果每个$\beta_i$据可由$\alpha_1、\alpha_2、\alpha_3 …\alpha_p$线性表示</li>
+</ol>
+<h4 id="矩阵表达"><a href="#矩阵表达" class="headerlink" title="矩阵表达"></a>矩阵表达</h4><p>$[\alpha_1、\alpha_2、\alpha_3 …\alpha_p ][x_1,x_2,x_3,…,x_p]^T=\beta$ 其中$A=[\alpha_1、\alpha2、\alpha3 …\alpha_p ]$</p>
+<ol>
+<li><p>因此$\beta$可由$\alpha_1、\alpha_2、\alpha_3 …\alpha_p$线性表示《=====》非齐次线性方程组有解</p>
+</li>
+<li><p>重点：</p>
+</li>
+</ol>
+<p>$[\alpha<em>1、\alpha_2、\alpha_3 …\alpha_p] \begin{pmatrix}<br>        x</em>{11} &amp; \cdots &amp; \cdots &amp; \cdots &amp; x<em>{1q} \<br>        x</em>{21} &amp; \cdots &amp;\cdots &amp; \cdots &amp; x<em>{2q} \<br>        \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \<br>        x</em>{p1} &amp; \cdots &amp; \cdots &amp; \cdots &amp; x<em>{pq}\<br>        \end{pmatrix}</em>{pq} =[\beta_1、\beta_2、\beta_3、…、\beta_p]$</p>
+<p>$[\alpha_1、\alpha_2、\alpha_3 …\alpha_p ]$记作A<br>$[\beta_1、\beta_2、\beta_3…\beta_p]$记作B：<br>$AX=B$抽象的矩阵方程</p>
+<p>$[\beta_i]$可有$[\alpha_i]$线性表示《=====》线性方程有解。</p>
+<ol>
+<li>线性表示具有传递性：<br>$[\alpha_1、\alpha2、\alpha3 …\alpha_p ]    、[{\alpha_i}]$<br>$[\beta_1、\beta_2、\beta_3…\beta_q]   、[{\beta_j}]$<br>$[\gamma_1、\gamma_2、\gamma_3…\gamma_t]      、[{\gamma_k}]$   </li>
+</ol>
+<p>$ [{\beta_j}]\leq lin [{\alpha_i}]<br>$且$ [{\gamma_k}]\leq lin [{\beta_j}]<br>$则$ [{\gamma_k}]\leq lin [{\alpha_i}]<br>$</p>
+<p>A$\leq lin$B 意思是A可以由B线性表示。</p>
+<ul>
+<li>证：<br>即 Ax=B、By=C 有解，证明Az=C？<br>C=By=(Ax)y</li>
+</ul>
+<p><img src="https://www.codekp.cn/download/img/矩阵论/目录.png" width = "400" height = "302" alt="图片名称" align=center / loading="lazy"></p>
+]]></content>
+      <categories>
+        <category>研究生课程</category>
+      </categories>
+      <tags>
+        <tag>研究生课程</tag>
+        <tag>矩阵论</tag>
       </tags>
   </entry>
   <entry>
@@ -3923,6 +3922,20 @@ b.8FSK不同信道下误码性能对比</center>
       </tags>
   </entry>
   <entry>
+    <title>虚电路和数据报对比模型</title>
+    <url>/2021/03/31/%E8%99%9A%E7%94%B5%E8%B7%AF%E5%92%8C%E6%95%B0%E6%8D%AE%E6%8A%A5%E5%AF%B9%E6%AF%94%E6%A8%A1%E5%9E%8B/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>通过数学模型，我们可以比较虚电路和数据报的传输数率好坏。</p>
+<h1 id="虚电路和数据报对比模型"><a href="#虚电路和数据报对比模型" class="headerlink" title="虚电路和数据报对比模型"></a>虚电路和数据报对比模型</h1><p>python如下所示：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">from scipy.special import comb</span><br><span class="line">import math</span><br><span class="line">import numpy as np</span><br><span class="line">import matplotlib.pyplot as plt</span><br><span class="line"></span><br><span class="line">def print_hi(name):</span><br><span class="line">    print(f&#39;Sum,&#123;name&#125;&#39;)</span><br><span class="line">if __name__ &#x3D;&#x3D; &#39;__main__&#39;:</span><br><span class="line">    N&#x3D;100</span><br><span class="line">    p&#x3D;0.1</span><br><span class="line">    sum &#x3D; np.zeros(N)</span><br><span class="line">    for n in range(N):</span><br><span class="line">        for k in range(10):</span><br><span class="line">            sum[n]&#x3D;comb(n,k)*math.pow(1-p, n-k )*math.pow(p, k ) +sum[n]</span><br><span class="line">    print_hi(sum)</span><br><span class="line">    plt.plot(sum)</span><br><span class="line">    plt.show()</span><br></pre></td></tr></table></figure></p>
+<h2 id="输出结果图："><a href="#输出结果图：" class="headerlink" title="输出结果图："></a>输出结果图：</h2><p><img src="https://img-blog.csdnimg.cn/20210331172103905.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></p>
+]]></content>
+      <categories>
+        <category>研究生课程</category>
+      </categories>
+      <tags>
+        <tag>网路比较</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>自制树莓派镜像的最简单方法</title>
     <url>/2021/07/14/%E8%87%AA%E5%88%B6%E6%A0%91%E8%8E%93%E6%B4%BE%E9%95%9C%E5%83%8F%E7%9A%84%E6%9C%80%E7%AE%80%E5%8D%95%E6%96%B9%E6%B3%95/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="自制树莓派镜像的最简单方法"><a href="#自制树莓派镜像的最简单方法" class="headerlink" title="自制树莓派镜像的最简单方法"></a>自制树莓派镜像的最简单方法</h1><h2 id="用sd卡制作img镜像"><a href="#用sd卡制作img镜像" class="headerlink" title="用sd卡制作img镜像"></a>用sd卡制作img镜像</h2><p>参考了很多博客和文档，有很多都是通过挂载的方式去烧录镜像，这种方法费时且低效。<br>并没有兴趣直接复制和挂载拷贝。<br>于是采用了第三个方法。</p>
@@ -3952,20 +3965,6 @@ b.8FSK不同信道下误码性能对比</center>
       </categories>
       <tags>
         <tag>树莓派</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>虚电路和数据报对比模型</title>
-    <url>/2021/03/31/%E8%99%9A%E7%94%B5%E8%B7%AF%E5%92%8C%E6%95%B0%E6%8D%AE%E6%8A%A5%E5%AF%B9%E6%AF%94%E6%A8%A1%E5%9E%8B/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>通过数学模型，我们可以比较虚电路和数据报的传输数率好坏。</p>
-<h1 id="虚电路和数据报对比模型"><a href="#虚电路和数据报对比模型" class="headerlink" title="虚电路和数据报对比模型"></a>虚电路和数据报对比模型</h1><p>python如下所示：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">from scipy.special import comb</span><br><span class="line">import math</span><br><span class="line">import numpy as np</span><br><span class="line">import matplotlib.pyplot as plt</span><br><span class="line"></span><br><span class="line">def print_hi(name):</span><br><span class="line">    print(f&#39;Sum,&#123;name&#125;&#39;)</span><br><span class="line">if __name__ &#x3D;&#x3D; &#39;__main__&#39;:</span><br><span class="line">    N&#x3D;100</span><br><span class="line">    p&#x3D;0.1</span><br><span class="line">    sum &#x3D; np.zeros(N)</span><br><span class="line">    for n in range(N):</span><br><span class="line">        for k in range(10):</span><br><span class="line">            sum[n]&#x3D;comb(n,k)*math.pow(1-p, n-k )*math.pow(p, k ) +sum[n]</span><br><span class="line">    print_hi(sum)</span><br><span class="line">    plt.plot(sum)</span><br><span class="line">    plt.show()</span><br></pre></td></tr></table></figure></p>
-<h2 id="输出结果图："><a href="#输出结果图：" class="headerlink" title="输出结果图："></a>输出结果图：</h2><p><img src="https://img-blog.csdnimg.cn/20210331172103905.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTA4Njcz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></p>
-]]></content>
-      <categories>
-        <category>研究生课程</category>
-      </categories>
-      <tags>
-        <tag>网路比较</tag>
       </tags>
   </entry>
   <entry>
