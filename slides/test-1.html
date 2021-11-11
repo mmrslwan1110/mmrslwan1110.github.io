@@ -1,0 +1,252 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#0078E7"><meta name="author" content="万鲲鹏"><meta name="copyright" content="万鲲鹏"><meta name="generator" content="Hexo 4.2.1"><meta name="theme" content="hexo-theme-yun"><title>Color Dust | 漫漫人生路</title><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/theme/white.css"></head><body><div class="reveal"><div class="slides"><section data-markdown data-separator="---" data-separator-vertical="~~" data-separator-notes="^Note:"><script type="text/template">
+
+# linux批量分发_运行_killcode(python)
+## 准备工作
+对每个可以进入linux系统设备，统一用户名和密码。
+同时对设备进行标号如
+xxx001-xxx010
+
+
+## paramiko
+ssh是一个协议，OpenSSH是其中一个开源实现，paramiko是Python的一个库，实现了SSHv2协议(底层使用cryptography)。
+
+有了Paramiko以后，我们就可以在Python代码中直接使用SSH协议对远程服务器执行操作，而不是通过ssh命令对远程服务器进行操作。
+
+由于paramiko属于第三方库，所以需要使用如下命令先行安装
+
+`pip3 install paramiko`
+
+paramiko包含两个核心组件：SSHClient和SFTPClient。
+
+SSHClient的作用类似于Linux的ssh命令，是对SSH会话的封装，该类封装了传输(Transport)，通道(Channel)及SFTPClient建立的方法(open_sftp)，通常用于执行远程命令。
+
+SFTPClient的作用类似与Linux的sftp命令，是对SFTP客户端的封装，用以实现远程文件操作，如文件上传、下载、修改文件权限等操作。
+
+### Paramiko中的几个基础名词：
+ 
+1. Channel：是一种类Socket，一种安全的SSH传输通道；
+
+2. Transport：是一种加密的会话，使用时会同步创建了一个加密的Tunnels(通道)，这个Tunnels叫做Channel；
+
+3. Session：是client与Server保持连接的对象，用connect()/start_client()/start_server()开始会话。
+
+```
+def ssh2(ip,username,passwd,cmd):
+    item = {}
+    item['ip'] = ip
+    try:
+        ssh = paramiko.SSHClient()
+        ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+        ssh.connect(ip,22,username,passwd,timeout=5)
+        for m in cmd:
+            stdin, stdout, stderr = ssh.exec_command(m)
+            stdin.write("Y")   #简单交互，输入 ‘Y’
+            out = stdout.readlines()
+            #屏幕输出
+            for o in out:
+                print(o),
+                item['name'] = o
+        print('%s\tOK\n'%(ip))
+        ipList.append(item)
+        ssh.close()
+    except :
+        # print('%s\tError\n'%(ip))
+        x=0
+```
+
+## sshpass
+
+1. 安装sshpass
+
+`sudo apt-get install sshpass`
+
+2. 使用sshpass
+
+`sshpass -p xxxxx`
+
+ 使用该命令可以提前输入密码，不用后续输入密码。
+
+3. 通过sshpass即可跳过输入密码环境直接scp
+
+`sshpass -p xxxx scp 源地址 目的地址`
+
+
+## n个linux同时执行程序
+
+功能介绍： 1.python 2.kill all 3.send file 4.add channel 5.move 6.move send
+1. 自动识别局域网中所有可进入设备
+2. n个设备可以同时运行一个python程序
+3. 关闭n个设备中运行的python代码
+4. 分发代码
+5. 增加信道
+6. 移动 其中 `carnum and 1.Advance 2.Retreat 3.Left 4.Right and move length`
+
+例：2 1 2 即二号设备向前运行2个单位的距离
+
+7. 分发一个文件夹
+
+
+```
+#-*- coding: utf-8 -*-
+#!/usr/bin/python
+import time
+import paramiko
+import threading
+import os
+ipList=[]
+
+filename = 'groupUdp.py'
+
+
+def ssh2(ip,username,passwd,cmd):
+    item = {}
+    item['ip'] = ip
+    try:
+        ssh = paramiko.SSHClient()
+        ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+        ssh.connect(ip,22,username,passwd,timeout=5)
+        for m in cmd:
+            stdin, stdout, stderr = ssh.exec_command(m)
+            stdin.write("Y")   #简单交互，输入 ‘Y’
+            out = stdout.readlines()
+            #屏幕输出
+            for o in out:
+                print(o),
+                item['name'] = o
+        print('%s\tOK\n'%(ip))
+        ipList.append(item)
+        ssh.close()
+    except :
+        # print('%s\tError\n'%(ip))
+        x=0
+
+
+def ssh1(ip,username,passwd,cmd):
+    try:
+        ssh = paramiko.SSHClient()
+        ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+        ssh.connect(ip,22,username,passwd,timeout=5)
+        print(cmd)
+        for m in cmd:
+            stdin, stdout, stderr = ssh.exec_command(m)
+            stdin.write("Y")   #简单交互，输入 ‘Y’
+            out = stdout.readlines()
+            #屏幕输出
+            for o in out:
+                print(o),
+        print('%s\tOK\n'%(ip))
+        ssh.close()
+    except :
+        # print('%s\tError\n'%(ip))
+        print(cmd)
+        x=0
+def command(cmd):
+    return os.popen('echo %s |sudo -S %s' % ('vadmin',cmd)).readlines()
+
+def scp_all(ip,username,passwd,filename):
+    cmd="sshpass -p xxxx scp "+filename+" "+username+"@"+ip+":/home/pi/WIFI_Cmd/"+filename
+    print(cmd)
+    b = os.popen(cmd).readlines()
+    time.sleep(0.5)
+    print(b)
+
+def scp_file_all(ip,username,passwd,file):
+    cmd="sshpass -p xxxx scp -r "+file+" "+username+"@"+ip+":/home/pi/"
+    print(cmd)
+    b = os.popen(cmd).readlines()
+    time.sleep(0.5)
+    print(b)
+
+if __name__=='__main__':
+    cmd = ['cat /etc/hostname']#你要执行的命令列表,'cd WIFI_Cmd/ && pwd &&'
+    username = "xxx"  #用户名
+    passwd = "xxxx"    #密码
+    threads = []   #多线程
+    print( "Begin......")
+    for i in range(1,254):
+        ip = '192.168.0.'+str(i)
+        a=threading.Thread(target=ssh2,args=(ip,username,passwd,cmd))
+        a.start()
+    time.sleep(5)
+    while True:
+        print(ipList)
+        idx_cmd=int(input("1.python 2.kill all 3.send file 4.add channel 5.move 6.move send\n"))
+        print(len(ipList))
+        if idx_cmd==1:
+            for idx in range(len(ipList)):
+
+                ip=ipList[idx]['ip']
+                name=ipList[idx]['name']
+                num=int(ipList[idx]['name'][3:6])-1
+                print(num)
+                cmd = ['cd WIFI_Cmd/ &&  pwd && sudo nohup python '+filename+" "+str(num) +' &','pwd']
+                a=threading.Thread(target=ssh1,args=(ip,username,passwd,cmd))
+                a.start()
+
+        elif idx_cmd == 2:
+
+            ######kill#####
+            for idx in range(len(ipList)):
+                ip=ipList[idx]['ip']
+                name=ipList[idx]['name']
+                cmd = ['sudo pkill python']
+                a=threading.Thread(target=ssh1,args=(ip,username,passwd,cmd))
+                a.start()
+        elif idx_cmd == 3:
+            ###############分发
+            for idx in range(len(ipList)):
+                # filename = 'changeChannel.py'
+                ip=ipList[idx]['ip']
+                name=ipList[idx]['name']
+                a=threading.Thread(target=scp_all,args=(ip,username,passwd,filename))
+                a.start()
+            ##add channel ssd
+        elif idx_cmd == 4:
+            for idx in range(len(ipList)):
+                SSIDNAME='xxx'
+                SSIDPASSWORD='xxxx'
+                ip=ipList[idx]['ip']
+                name=ipList[idx]['name']
+                cmd = ['cd WIFI_Cmd/conf/ &&wpa_passphrase' +' "'+ SSIDNAME + '" "' + SSIDPASSWORD+'" > '+SSIDNAME+'.conf && cat '+SSIDNAME+'.conf']
+                a=threading.Thread(target=ssh1,args=(ip,username,passwd,cmd))
+                a.start()
+            ###move
+        elif idx_cmd == 5:
+            num_car, idx_cmd2,length = input("carnum and 1.Advance 2.Retreat 3.Left 4.Right and move length\n").split()
+            num_car=int(num_car)
+            idx_cmd2=int(idx_cmd2)
+            if idx_cmd2 == 1:
+                cmd = ['cd moveUGV/ &&  pwd && sudo nohup python Advance.py &']
+            elif idx_cmd2 == 2:
+                cmd = ['cd moveUGV/ &&  pwd && sudo nohup python Retreat.py &']
+            elif idx_cmd2 == 3:
+                cmd = ['cd moveUGV/ &&  pwd && sudo nohup python Left.py &']
+            elif idx_cmd2 == 4:
+                cmd = ['cd moveUGV/ &&  pwd && sudo nohup python right.py &']
+            else:
+                cmd = ['pwd']
+            for idx in range(len(ipList)):
+                ip = ipList[idx]['ip']
+                name = ipList[idx]['name']
+                num1 = int(ipList[idx]['name'][3:6])
+                if num_car==num1:
+                    for i in range(int(length)):
+                        a = threading.Thread(target=ssh1, args=(ip, username, passwd, cmd))
+                        a.start()
+                        time.sleep(3)
+            ###move send
+        elif idx_cmd == 6:
+            for idx in range(len(ipList)):
+                # filename = 'changeChannel.py'
+                ip=ipList[idx]['ip']
+                name=ipList[idx]['name']
+                file='moveUGV'
+                a=threading.Thread(target=scp_file_all,args=(ip,username,passwd,file))
+                a.start()
+
+```
+</script></section></div></div><script src="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.js"></script><script src="https://cdn.jsdelivr.net/npm/reveal.js/plugin/markdown/markdown.js"></script><script src="https://cdn.jsdelivr.net/npm/reveal.js/plugin/notes/notes.js"></script><script src="https://cdn.jsdelivr.net/npm/reveal.js/plugin/highlight/highlight.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.0.2/plugin/highlight/monokai.css"><script>document.addEventListener("DOMContentLoaded", function() {
+  const revealConfig = {"history":true,"mouseWheel":true}
+  revealConfig.plugins = [ RevealMarkdown, RevealNotes, RevealHighlight ]
+  Reveal.initialize(revealConfig);
+})</script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body></html>
